@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Background \& Driving Factors}{2}{section.1}%
+\contentsline {section}{\numberline {2}Europe in Relation to the State of the Art}{3}{section.2}%
+\contentsline {section}{\numberline {3}Strategic Preamble}{3}{section.3}%
+\contentsline {section}{\numberline {4}The Core Capability Dimensions (Architectural Framework)}{3}{section.4}%
+\contentsline {section}{\numberline {5}The 4-Filter Prioritization Framework}{6}{section.5}%
+\contentsline {section}{\numberline {6}The Anatomy of a Roadmap Priorities: A 7-Dimensional Analysis}{7}{section.6}%
+\contentsline {section}{\numberline {7}Progression Matrix: Sequence of Events (X-Axis)}{9}{section.7}%
+\contentsline {section}{\numberline {8}Capability Profiles \& Progression Matrices}{10}{section.8}%
+\contentsline {section}{\numberline {9}Master Population Prompt for Roadmap Generation}{10}{section.9}%
+\contentsline {section}{\numberline {10}The Core Capability Dimensions (Architectural Framework)}{11}{section.10}%
+\contentsline {section}{\numberline {11}Capability Profiles \& Progression Matrices}{14}{section.11}%

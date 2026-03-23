@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/*.aux": true,
+    "**/*.log": true,
+    "**/*.out": true,
+    "**/*.toc": true,
+    "**/*.bbl": true,
+    "**/*.blg": true,
+    "**/*.fls": true,
+    "**/*.fdb_latexmk": true,
+    "**/*.synctex.gz": true,
+    "**/*.nav": true,
+    "**/*.snm": true,
+    "**/*.vrb": true,
+    "**/*.dvi": true,
+    "**/*.ps": true,
+    "**/*.lof": true,
+    "**/*.lot": true,
+    "**/*.idx": true,
+    "**/*.ind": true,
+    "**/*.ilg": true,
+    "**/*.bcf": true,
+    "**/*.run.xml": true,
+    "**/*.gz": true,
+    "**/*.bak": true,
+    "**/*~": true
+  }
+}

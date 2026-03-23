@@ -1,0 +1,347 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+\title{\textbf{Section X: Cybersecurity \& Cyber-Resilience Strategy for Sovereign Cloud/Edge Computing}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\begin{figure}[h!]
+		\centering
+		\resizebox{\textwidth}{!}{%
+		\begin{tikzpicture}[every node/.style={font=\small}]
+			% Define colors
+			\definecolor{archblue}{RGB}{46, 117, 182}
+			\definecolor{sec_verticals_bg}{RGB}{245, 124, 0}
+			\definecolor{env_bg}{RGB}{112, 112, 112}
+			\definecolor{overlay}{RGB}{0, 77, 122}
+
+			% Styles
+			\tikzstyle{arch_col} = [fill=archblue, draw=black, text=white, font=\bfseries, minimum width=3.5cm, minimum height=6cm, align=center, text width=3cm]
+			\tikzstyle{env_box} = [fill=env_bg, draw=black, text=white, font=\bfseries, minimum width=2.5cm, minimum height=1.2cm, align=center]
+			\tikzstyle{top_tool} = [draw=black, fill=env_bg, text=white, minimum height=0.8cm, align=center, font=\bfseries]
+			\tikzstyle{overlay_box} = [fill=overlay, draw=black, text=white, font=\bfseries, minimum height=0.8cm, align=center, opacity=0.7, text opacity=1]
+			\tikzstyle{vertical_box} = [fill=sec_verticals_bg, draw=black, text=white, font=\bfseries, minimum width=17.0cm, minimum height=1.1cm, align=left, text width=16.3cm]
+
+			% Column X positions
+			\def\colone{-4.5}
+			\def\coltwo{0}
+			\def\colthree{4.5}
+			\def\colfour{9}
+
+			% Environment boxes (left)
+			\node[env_box] at (-8.5, 2.4) {HPC};
+			\node[env_box] at (-8.5, 0.8) {Cloud};
+			\node[env_box] at (-8.5, -0.8) {Edge};
+			\node[env_box] at (-8.5, -2.4) {Devices};
+
+			% Main architecture columns representing layers
+			\node[arch_col] (hw) at (\colone, 0) {Layer 1: \\ Hardware Centric Security \\ (Device/Edge\\ /Cloud/HPC)};
+			\node[arch_col] (mw) at (\coltwo, 0) {Layer 2: \\ Software Centric Security \\ (Middleware/OS)};
+			\node[arch_col] (app) at (\colthree, 0) {Layer 3: \\ Application Centric Security \\ (Apps/Services)};
+			\node[arch_col] (user) at (\colfour, 0) {Layer 4: \\ User Centric Security \\ (Authentication\\ /Access/Identity\\ /Orchestration)};
+
+			% Top tooling boxes
+			\node[top_tool, minimum width=3.5cm] at (\colone, 4) {Infrastructure};
+			\node[top_tool, minimum width=8cm] at (2.25, 4) {Operation Domains};
+
+			% Arrows from tooling
+			\draw[->, line width=2pt, white] (\colone, 3.5) -- (\colone, 3.1);
+			\draw[->, line width=2pt, white] (2.25, 3.5) -- (2.25, 3.1);
+
+			% Other layers as overlays/headers
+			\node[overlay_box, minimum width=12.5cm] at (4.5, 1.5) {Layer 5: Data Centric Security};
+			\node[overlay_box, minimum width=12.5cm] at (4.5, 2.4) {Layer 6: Network infrastructure and perimeter Centric Security};
+
+			% Separated vertical boxes
+			\node[vertical_box] at (2.25, -3.75) {\textbf{Cross Layer 1: Automated security processes and Cyber-Resilient AI Lifecycle}};
+			\node[vertical_box] at (2.25, -5.05) {\textbf{Cross Layer 2: Dynamic Risk Management \& Operational Cyber Resilience}};
+			\node[vertical_box] at (2.25, -6.35) {\textbf{Cross Layer 3: Interoperable Security Mechanisms}};
+			\node[vertical_box] at (2.25, -7.65) {\textbf{Cross Layer 4: Agile Governance, Compliance-by-Design \& Automated Assurance}};
+
+			% Title
+			\node[font=\Large\bfseries, anchor=center] at (2.25, 6.5) {Security Framework with Separated Security Verticals};
+
+		\end{tikzpicture}%
+		}
+		\caption{Security Framework with separated security verticals in dedicated boxes.}
+		\label{fig:security_framework_verticals_boxes}
+	\end{figure}
+
+\noindent\textbf{Topic:} Cybersecurity for the Cognitive Computing Continuum\\
+\textbf{Destinations:}
+\begin{itemize}
+    \item \textbf{Primary:} 4. A secure, sovereign European computing continuum infrastructure.
+    \item \textbf{Secondary:} 6. European leadership in emerging disruptive computing paradigms.
+\end{itemize}
+
+\section{Background \& Driving Factors}
+\begin{itemize}
+    \item \textbf{Decentralization Risk:} The paradigm shift from the centralized Cloud to a distributed Cloud-Edge-IoT continuum radically expands the attack surface. This creates environments that are often ``too many, too diverse, and too dispersed'' to secure with traditional perimeter defenses.
+    \item \textbf{Physical Exposure:} Edge nodes and far-edge IoT devices frequently operate in the field. Unlike hyperscaler data centers, they lack strict physical and environmental security controls, making them highly vulnerable to tampering.
+    \item \textbf{Regulatory Pressure:} There is an immediate, complex need to operationalize the NIS2 Directive \cite{nis2}, the Cyber Resilience Act (CRA) \cite{cra}, and the AI Act \cite{aiact} across a highly fragmented technological ecosystem to ensure compliance and market access.
+    \item \textbf{Digital Sovereignty:} Europe must urgently reduce its systemic reliance on non-EU technology providers. Doing so will mitigate extra-territorial data access risks and avoid geopolitical vendor lock-in, ensuring independent control over critical infrastructure.
+\end{itemize}
+
+\section{Europe in Relation to the State of the Art}
+\textbf{Comparison vs. Hyperscalers:}
+\begin{itemize}
+    \item \textbf{EU Strengths:} Europe leads globally in Trust, Privacy-by-Design, proactive regulation (GDPR, Data Act, AI Act), and rigorous, standardized certification frameworks (e.g., EUCS \cite{eucs}).
+    \item \textbf{EU Gaps:} The European market suffers from a lack of unified, hyper-scale security orchestration. Furthermore, there is a critical dependency on non-EU hardware (secure silicon) and highly fragmented threat intelligence sharing among member states.
+\end{itemize}
+\textbf{Strategic Goal:} To definitively transition the European computing continuum from a state of ``reactive, siloed security'' to an advanced architecture defined by ``autonomous, federated, and certified Security-by-Design.''
+
+\section{Strategic Preamble}
+\begin{itemize}
+    \item \textbf{Context:} This section defines the architectural guardrails required to secure the Cloud-Edge-IoT Continuum. It moves beyond traditional ``perimeter security'' toward a model of Cyber-Resilience---where systems are engineered to proactively anticipate, withstand, recover from, and adapt to attacks while maintaining strict Digital Sovereignty.
+    \item \textbf{Approach:} To provide actionable, risk-aware Research \& Innovation (R\&I) priorities, the strategy is organized into a two-part framework:
+    \begin{itemize}
+        \item \textbf{Capability Profiles (Qualitative):} A deep-dive 7-dimensional analysis defining exactly what needs to be built.
+        \item \textbf{Progression Matrix (Quantitative \& Strategic):} A structured timeline tracking the evolution of capabilities through their Operational Deployment Phases and their trajectory toward Strategic Sovereignty.
+    \end{itemize}
+\end{itemize}
+
+\section{The Core Capability Dimensions (Architectural Framework)}
+The roadmap is structured across a cohesive architectural framework that spans four continuum environments (HPC, Cloud, Edge, Devices). The capabilities are organized into Six Security Layers (The Vertical Stack) and Four Transversal Cross-Layers (The Horizontal Enablers).
+
+\subsection*{Part A: The Security Layers (Vertical Stack)}
+These layers define the specific technical security controls implemented across the computing infrastructure.
+
+\subsubsection*{Layer 1: Hardware-Centric Security}
+\textbf{1.1 Hardware Roots of Trust:} Cryptographically verifiable supply chain trust (e.g., TPM attestation, secure enclaves) ensures physical device integrity. Success depends on driving European open-hardware designs (e.g., RISC-V) toward \textbf{EUCC 'High' assurance level certification} \cite{eucc} to mathematically guarantee resistance against state-level physical tampering and side-channel attacks at the vulnerable far-edge.
+
+
+\subsubsection*{Layer 2: Software-Centric Security (Middleware/OS)}
+\textbf{2.1 OS \& Middleware Hardening:} Securing hypervisors, container runtimes, and distributed operating systems is critical for isolation. This involves hardening KVM/QEMU and supporting sovereign, lightweight Linux distributions optimized for edge resource constraints, ensuring a reduced attack surface for the cognitive continuum.
+
+\subsubsection*{Layer 3: Application-Centric Security (Apps/Services)}
+\textbf{3.1 Workload Security:} Securing containerized applications, microservices, and serverless functions executing dynamically across multi-provider nodes. This is achieved through hardened service meshes and sidecar proxy architectures that provide mutual TLS and granular traffic inspection without impacting performance.
+
+\subsubsection*{Layer 4: User \& Orchestration-Centric Security}
+\textbf{4.1 Zero-Trust Orchestration:} Seamless policy enforcement across a multi-provider computing continuum requires robust Policy Enforcement Point (PEP) and Policy Decision Point (PDP) architectures. This enables continuous authorization and dynamic access controls that adapt to the context of the request.
+
+\textbf{4.2 Federated Identity \& Access Management (IAM):} Cross-domain identity federation and verifiable credentials for machines, users, and automated workloads. Implementing \textbf{Self-Sovereign Identity (SSI)} principles allows for cryptographically secure, decentralized authentication across heterogeneous cloud-edge domains.
+
+\subsubsection*{Layer 5: Data-Centric Security}
+\textbf{5.1 End-to-end Confidential Computing:} Data-in-use security through Trusted Execution Environments (TEEs) spanning the entire Cloud-to-IoT data path. Leveraging TEE abstraction layers and remote attestation ensures that sensitive European data remains encrypted even during processing in non-trusted environments.
+
+\textbf{5.2 Post-Quantum \& Cryptographic Agility:} PQC standardization and hybrid crypto deployment are necessary to secure long-lived data. Priority is placed on \textbf{PQC migration for resource-constrained devices}, ensuring that edge infrastructure is resilient against "Harvest Now, Decrypt Later" quantum threats.
+
+\subsubsection*{Layer 6: Network Infrastructure \& Perimeter-Centric Security}
+\textbf{6.1 Telco-cloud \& O-RAN Security:} Hardening distributed 5G/6G cores and RAN components must align with the \textbf{Smart Networks and Services Joint Undertaking (SNS JU) SRIA} \cite{snsju}. This ensures sovereign control over network slice isolation and virtualized RAN components.
+
+\textbf{6.2 Cross-Sector Physical Resilience \& Safety:} Adapting strict network controls and IT/OT gateway security for high-availability edge environments (e.g., Smart Grids). This guarantees that cyber-breaches in the digital layer do not cascade into physical safety hazards or kinetic damage in critical infrastructure.
+
+\subsection*{Part B: The Transversal Security Verticals (Cross-Layers)}
+These four cross-layers represent continuous, automated processes and governance structures that intersect every layer of the vertical stack.
+
+\subsubsection*{Cross-Layer 1: Automated Security Processes \& Cyber-Resilient AI Lifecycle}
+\textbf{CL1.1 Continuous DevSecOps (Shift-Left):} Embedding AI-driven code analysis and automated vulnerability remediation at the earliest stages of the software lifecycle.
+
+\textbf{CL1.2 Model \& Pipeline Integrity (DataBOMs):} Securing AI training pipelines to prevent data poisoning and unauthorized model manipulation.
+
+\textbf{CL1.3 Runtime AI Defense:} Defending AI/ML infrastructure against real-world adversarial attacks (e.g., prompt injection, model evasion/theft) at the edge.
+
+\subsubsection*{Cross-Layer 2: Dynamic Risk Management \& Operational Cyber Resilience}
+\textbf{CL2.1 Automated SOC Operations \& Collaborative Threat Intelligence:} Continuous monitoring, SOC federation across Member States, and automated incident containment, underpinned by legally protected, cross-border threat intelligence sharing ecosystems designed to overcome institutional trust barriers and incentivize active collaboration \cite{concordia}.
+
+\textbf{CL2.2 Systemic \& Cascading Risk Mitigation:} Mapping the evolving threat landscape and using impact-likelihood scoring to dynamically sever links and prevent cross-domain systemic failures.
+
+\subsubsection*{Cross-Layer 3: Interoperable Security Mechanisms \& Open-Source Verifiability}
+\textbf{CL3.1 Heterogeneous Interoperability \& Simpl Integration:} Secure communication and data exchange across disparate systems, edge nodes, and proprietary domains. This includes mandatory alignment with and integration into the Simpl open-source smart middleware \cite{cloud_edge_roadmap} to ensure secure, federated access across Common European Data Spaces.
+
+\textbf{CL3.2 Minimal Interoperability Mechanisms (MIMs) \& Open Verifiability:} Establishing standardized, baseline security and privacy controls to ensure trust without creating vendor lock-in. This relies heavily on embracing open-source software and open hardware architectures as fundamental prerequisites for transparency, cryptographic verifiability, and the elimination of proprietary black-box vulnerabilities \cite{cloud_edge_roadmap}.
+
+\subsubsection*{Cross-Layer 4: Agile Governance, Compliance-by-Design \& Automated Assurance}
+\textbf{CL4.1 Policy-as-Code \& Compliance-by-Design:} Technical implementation of legal requirements (OSCAL) into machine-readable rules that pre-validate workloads.
+
+\textbf{CL4.2 Continuous Automated Auditing \& Certification Lifecycle:} Replacing ``point-in-time'' PDF certificates with real-time, telemetry-driven certification tracking for both cloud services (EUCS) \cite{eucs} and physical ICT edge products (EUCC) \cite{eucc}. This ensures that edge nodes autonomously maintain compliance by integrating mandatory vulnerability handling and cryptographic patch verification directly into their operational lifecycle, strictly aligning with EUCC maintenance and assurance rules \cite{eucc}.
+
+\textbf{CL4.3 Regulatory Digital Twins:} Virtualized replicas of critical infrastructure specifically to stress-test regulatory compliance against evolving laws before applying changes to the live physical continuum.
+
+\section{The 4-Filter Prioritization Framework}
+To ensure the roadmap provides actionable guidance for European R\&I funding (Horizon Europe) and strategic investment, capabilities are prioritized using a structured 4-filter logic. This framework identifies the ``Critical Path'' items that require immediate resource allocation in Phase 1 (0-5 Yrs).
+
+\begin{enumerate}
+    \item \textbf{Regulatory Urgency (The ``Must-Do'' Filter):}
+    \begin{itemize}
+        \item \textbf{Question:} Is this capability strictly required to comply with imminent EU law (NIS2 \cite{nis2}, Cyber Resilience Act \cite{cra}, AI Act \cite{aiact})?
+        \item \textbf{Logic:} If failure to achieve this by 2026 results in market exclusion or systemic non-compliance, it is designated as \textbf{Priority \#1}.
+    \end{itemize}
+
+    \item \textbf{Foundational Dependency (The ``Blocker'' Filter):}
+    \begin{itemize}
+        \item \textbf{Question:} Do subsequent security layers depend on this capability existing first?
+        \item \textbf{Logic:} Foundational technologies (e.g., Layer 1 Hardware Trust) outrank high-level software orchestration. You cannot secure the user (Layer 4) if the hardware (Layer 1) cannot provide a verifiable anchor.
+    \end{itemize}
+
+    \item \textbf{The Sovereignty Cliff (The ``Extinction'' Filter):}
+    \begin{itemize}
+        \item \textbf{Question:} Does a lack of this tech pose an existential threat to EU sovereignty or systemic resilience?
+        \item \textbf{Logic:} This prioritizes areas where the EU currently has 100\% foreign dependency or where a technical breakthrough (e.g., \textit{Q-Day} Quantum threat) would render existing defenses obsolete.
+    \end{itemize}
+
+    \item \textbf{Market Feasibility \& Ecosystem (The ``Simpl/SME'' Filter):}
+    \begin{itemize}
+        \item \textbf{Question:} Does this align with existing EU heavy-investments (e.g., Simpl \cite{cloud_edge_roadmap}) and is it adoptable by SMEs?
+        \item \textbf{Logic:} Priority is given to capabilities that act as force-multipliers for existing infrastructure, ensuring economic viability.
+    \end{itemize}
+\end{enumerate}
+
+\section*{Executive Priorities: The Critical Path (Phase 1)}
+Applying the 4-Filter Framework, the following areas are identified as immediate strategic priorities for the 2025-2030 funding cycle:
+\begin{itemize}
+    \item \textbf{Priority 1:} Hardware Roots of Trust \& EUCC 'High' Certification (Filters 1, 2, 3).
+    \item \textbf{Priority 2:} Post-Quantum Cryptographic Agility for Edge/IoT (Filter 3).
+    \item \textbf{Priority 3:} Security Interoperability via Simpl Middleware (Filter 4).
+\end{itemize}
+
+\section{The Anatomy of a Roadmap Priorities: A 7-Dimensional Analysis}
+To ensure the roadmap is actionable, realistic, and aligned with European strategic autonomy, every priority is analyzed holistically through a strict 7-point structural template:
+
+\begin{enumerate}
+    \item \textbf{Baseline \& Target Objective (The Trajectory) - Q: Where do we stand today, and what exactly does success look like?}\\
+    \textit{Description:} Establishes the starting point of the priority today and defines the ultimate maturity state required by the end of the 15-year roadmap.
+    \begin{itemize}
+    \item \textbf{Baseline (Where we are):} Grounds the roadmap in reality. It captures the state of the art, current Operational Deployment Phase (ODP), Strategic Sovereignty Level (SSL), industrial capacity, reliance on foreign vendors, and the technical or economic barriers preventing immediate adoption.
+    \item \textbf{Target (Where we need to be):} Sets the baseline for EU-funded projects, defining the target ODP and SSL that must be achieved by the end of the roadmap.
+\end{itemize}
+    
+    \item \textbf{Primary Drivers (The ``Push'' Factors) - Q: Why must we prioritize building this capability right now? SQ: Why are we doing this?}\\
+    \textit{Description:} Outlines the external pressures---both from the evolving threat landscape and mandatory EU regulations---that make this technological evolution urgent and unavoidable.
+    \begin{itemize}
+        \item \textbf{Threat Drivers:} The rapid advancement of adversarial capabilities (e.g., offensive AI, quantum decryption, supply chain targeting).
+        \item \textbf{Regulatory Drivers:} Imminent EU compliance mandates that require technical operationalization (e.g., NIS2, Cyber Resilience Act, AI Act).
+    \end{itemize}
+
+    \item \textbf{High Impact Activities - Q: Which specific actions provide the greatest leap in European sovereignty and security? SQ: Which should be the key initiatives?}\\
+    \textit{Description:} Highlights the specific, prioritized technical interventions within this broader capability group that will yield the highest strategic return on investment.
+
+    \item \textbf{Catalysts \& Enablers (The ``Pull'' Factors \& EU Support) - Q: What specific EU funding, standards, and ecosystem support do we need? SQ: How do we get there \& accelerate?}\\
+    \textit{Description:} Identifies the concrete mechanisms, funding vehicles, and regulatory standardizations required from the EU to accelerate market adoption and push the industry from the baseline to the target state.
+    \begin{itemize}
+        \item \textbf{R\&I \& Funding Alignment:} Required Horizon Europe funding topics and targeted innovation instruments. Investment priorities must be explicitly synchronized with the European Cybersecurity Competence Centre (ECCC) Strategic Agenda \cite{eccc} to ensure alignment with pan-European goals (e.g., PQC transition infrastructure, AI-driven security tools).
+        \item \textbf{Regulatory \& Standardization:} Alignment with standard-setting bodies (CEN/CENELEC) and certification frameworks (e.g., EUCS, EUCC).
+        \item \textbf{Ecosystem:} Support for ecosystem building, industrial partnerships, and capacity-building initiatives (e.g., federated Cyber Ranges) to upskill the workforce and ensure advanced security solutions are economically viable for SMEs.
+    \end{itemize}
+
+    \item \textbf{Disruptors \& Systemic Risks (The Roadblocks) - Q: What structural vulnerabilities, market failures, or adversary breakthroughs could derail us? SQ: What can break the path?}\\
+    \textit{Description:} Acknowledges that innovation is not linear by identifying severe technical and architectural risks that could actively derail deployment. It places primary emphasis on ``Technical Cliffs''---moments where defensive capabilities are rendered obsolete by adversarial breakthroughs before countermeasures are fully deployed.
+    \begin{itemize}
+        \item \textbf{Cryptographic Obsolescence \& Migration Bottlenecks (The Primary Technical Risk):}
+        \begin{itemize}
+            \item \textit{The ``Q-Day'' Cliff:} The risk that Cryptographically Relevant Quantum Computers (CRQC) become operational before the EU completes its migration to Post-Quantum Cryptography (PQC). This creates a ``Harvest Now, Decrypt Later'' vulnerability.
+            \item \textit{Migration Complexity:} The systemic failure to inventory and replace deep-rooted Public Key Infrastructure (PKI) in legacy OT/IoT environments.
+        \end{itemize}
+        \item \textbf{Adversarial Breakthroughs:} The risk of threat actors weaponizing emerging technologies (e.g., AI-driven exploit generation, polymorphic malware) faster than defensive R\&I can mitigate them.
+        \item \textbf{Contextual Risks (Non-Technical / Optional):} Geopolitics \& Supply Chain dependencies, Market \& Tech Risks (monopolization, fragmented standards).
+    \end{itemize}
+
+    \item \textbf{Failsafe Mechanisms \& Resilience (The Safety Nets) - Q: If this technology is compromised, how does the system survive and gracefully degrade? SQ: How do we prevent failure?}\\
+    \textit{Description:} The technical core of ``Cyber-Resilience.'' It defines the engineering fallbacks required if a primary capability fails, is breached, or is disrupted by the systemic risks identified above.\\
+    \textbf{What it entails:} Designing for degraded modes of operation, architectural redundancies, autonomous isolation protocols, and implementation diversity to avoid vulnerable technological monocultures.
+
+    \item \textbf{Transversal Meta-Layer (The Policy Alignment) - Q: How does mastering this capability support Europe's goals of sovereignty, sustainability, and trust? SQ: The broader policy context?}\\
+    \textit{Description:} Elevates the technical capability back to the overarching political and societal goals of the European Union.
+    \begin{itemize}
+        \item \textbf{Sovereignty \& Autonomy:} Strengthening European strategic independence, reducing reliance on non-EU vendors.
+        \item \textbf{Trust \& Ethics:} Fostering deep Societal Trust by guaranteeing data privacy (Privacy-by-Design), algorithmic fairness, and transparency.
+        \item \textbf{Sustainable Security (Green IT):} Minimizing the environmental impact of cyber defense (e.g., energy-efficient cryptographic algorithms, crypto-agility to reduce e-waste).
+    \end{itemize}
+\end{enumerate}
+
+\section{Progression Matrix: Sequence of Events (X-Axis)}
+Instead of a strictly chronological timeline, the roadmap maps the sequence of critical events required to unlock maturity. This ensures that foundational capabilities are built before advanced autonomous systems.
+
+\begin{itemize}
+    \item \textbf{Phase 1: Foundation \& Compliance (Immediate Implementation):} Focuses on state-of-practice deployments, bridging immediate capability gaps, and addressing urgent regulatory obligations (NIS2, CRA).
+    \item \textbf{Phase 2: Federation \& Standardization (Scaling \& Harmonization):} Focuses on deploying emerging technologies, establishing harmonized governance frameworks, and managing critical transition periods.
+    \item \textbf{Phase 3: Autonomy \& Leadership (Sovereign Innovation):} Focuses on highly speculative but structured foresight, including defense against quantum-capable adversaries and the achievement of fully sovereign, autonomous cloud-edge ecosystems.
+\end{itemize}
+
+\subsection*{Matrix Cell Content Definition (Measuring Progression)}
+Rather than relying on subjective Technology Readiness Levels (TRL) or Manufacturing Readiness Levels (MRL) for a highly fragmented ecosystem, each cell in the progression matrix tracks maturity using objective strategic market and policy indicators:
+
+\begin{itemize}
+    \item \textbf{Operational Deployment Phase (ODP):} Tracks the market reality and integration status (e.g., \textit{Applied R\&D $\rightarrow$ Fragmented Piloting $\rightarrow$ Standardized Integration $\rightarrow$ Ubiquitous Operation}).
+    \item \textbf{Strategic Sovereignty Level (SSL):} Tracks European strategic autonomy and reliance on foreign vendors (e.g., \textit{High Foreign Dependency $\rightarrow$ Emerging EU Ecosystem $\rightarrow$ Full Sovereign Autonomy}).
+    \item \textbf{Operational State:} A concise snapshot characterizing the reality on the ground during this phase.
+    \item \textbf{Critical Enabler:} The single most critical regulation, standard, or European R\&I breakthrough unlocking the transition to the next phase.
+\end{itemize}
+
+% =========================================================================
+% CONTENT GENERATION AREA (The actual capability profiles will go here)
+% =========================================================================
+
+\section{Capability Profiles \& Progression Matrices}
+
+% --- TEMPLATE FOR CAPABILITY PROGRESSION MATRIX ---
+\vspace{0.5cm}
+\noindent\textbf{Progression Matrix: [Insert Capability Name]}
+\vspace{0.2cm}
+
+\noindent
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
+\hline
+\textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
+\textbf{Deployment Phase (ODP)} & Fragmented Piloting & Standardized Integration & Ubiquitous Operation \\ \hline
+\textbf{Sovereignty Level (SSL)} & High Foreign Dependency & Emerging EU Ecosystem & Full Sovereign Autonomy \\ \hline
+\textbf{Operational State} & [Cloud vs Edge snapshot here] & [Cloud vs Edge snapshot here] & [Cloud vs Edge snapshot here] \\ \hline
+\textbf{Critical Enabler} & [Regulation/Standard here] & [Standard/Funding here] & [Autonomy milestone here] \\ \hline
+\end{tabular}%
+}
+\vspace{0.5cm}
+
+
+% =========================================================================
+% REFERENCES
+% =========================================================================
+\begin{thebibliography}{99}
+
+\bibitem{nis2}
+European Parliament and Council, ``Directive (EU) 2022/2555 on measures for a high common level of cybersecurity across the Union (NIS2 Directive),'' \textit{Official Journal of the European Union}, Dec. 2022.
+
+\bibitem{cra}
+European Commission, ``Proposal for a Regulation on horizontal cybersecurity requirements for products with digital elements and amending Regulation (EU) 2019/1020 (Cyber Resilience Act),'' COM(2022) 454 final, Sep. 2022.
+
+\bibitem{aiact}
+European Parliament and Council, ``Regulation (EU) 2024/1689 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act),'' \textit{Official Journal of the European Union}, Jun. 2024.
+
+\bibitem{eucs}
+European Union Agency for Cybersecurity (ENISA), ``European Cybersecurity Certification Scheme for Cloud Services (EUCS),'' Candidate Scheme, Dec. 2020.
+
+\bibitem{eucc}
+European Union Agency for Cybersecurity (ENISA), ``EUCC, a candidate cybersecurity certification scheme to serve as a successor to the existing SOG-IS,'' V1.0, Jul. 2020.
+
+\bibitem{cloud_edge_roadmap}
+European Alliance for Industrial Data, Edge and Cloud, ``European industrial technology roadmap for the next-generation cloud-edge,'' European Commission, 2024.
+
+\bibitem{snsju}
+Smart Networks and Services Joint Undertaking (SNS JU), ``Strategic Research and Innovation Agenda (SRIA),'' 2023.
+
+\bibitem{eccc}
+European Cybersecurity Competence Centre (ECCC), ``ECCC Strategic Agenda for cybersecurity industrial, technology and research competence,'' 2024.
+
+\bibitem{concordia}
+G. Dreo, C. Schmitt, A. van der Wees, and N. Suri, ``Deliverable D4.4: Cybersecurity Roadmap for Europe,'' \textit{CONCORDIA Cyber Security Competence for Research and Innovation (Horizon 2020)}, Dec. 2022.
+
+\end{thebibliography}
+
+\end{document}

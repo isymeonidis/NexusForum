@@ -1,0 +1,150 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+
+\title{\textbf{Cybersecurity \& Cyber-Resilience Strategy for Sovereign Cloud/Edge Computing}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent \textbf{Topic:} Cybersecurity for the Cognitive Computing Continuum\\
+\textbf{Destinations:}\\
+\textbf{Primary:} 4. A secure, sovereign European computing continuum infrastructure.\\
+\textbf{Secondary:} 6. European leadership in emerging disruptive computing paradigms.
+
+\section{Background \& Driving Factors}
+\begin{itemize}
+    \item \textbf{Decentralization Risk:} The paradigm shift from the centralized Cloud to a distributed Cloud-Edge-IoT continuum radically expands the attack surface. This creates environments that are often ``too many, too diverse, and too dispersed'' to secure with traditional perimeter defenses.
+    \item \textbf{Physical Exposure:} Edge nodes and far-edge IoT devices frequently operate in the field. Unlike hyperscaler data centers, they lack strict physical and environmental security controls, making them highly vulnerable to tampering.
+    \item \textbf{Regulatory Pressure:} There is an immediate, complex need to operationalize the NIS2 Directive, the Cyber Resilience Act (CRA), and the AI Act across a highly fragmented technological ecosystem to ensure compliance and market access.
+    \item \textbf{Digital Sovereignty:} Europe must urgently reduce its systemic reliance on non-EU technology providers. Doing so will mitigate extra-territorial data access risks and avoid geopolitical vendor lock-in, ensuring independent control over critical infrastructure.
+\end{itemize}
+
+\section{Europe in Relation to the State of the Art}
+\textbf{Comparison vs. Hyperscalers:}
+\begin{itemize}
+    \item \textbf{EU Strengths:} Europe leads globally in Trust, Privacy-by-Design, proactive regulation (GDPR, Data Act, AI Act), and rigorous, standardized certification frameworks (e.g., EUCS).
+    \item \textbf{EU Gaps:} The European market suffers from a lack of unified, hyper-scale security orchestration. Furthermore, there is a critical dependency on non-EU hardware (secure silicon) and highly fragmented threat intelligence sharing among member states.
+\end{itemize}
+\textbf{Strategic Goal:} To definitively transition the European computing continuum from a state of ``reactive, siloed security'' to an advanced architecture defined by ``autonomous, federated, and certified Security-by-Design.''
+
+\section{Strategic Preamble}
+\begin{itemize}
+    \item \textbf{Context:} This section defines the architectural guardrails required to secure the Cloud-Edge-IoT Continuum. It moves beyond traditional ``perimeter security'' toward a model of Cyber-Resilience---where systems are engineered to proactively anticipate, withstand, recover from, and adapt to attacks while maintaining strict Digital Sovereignty.
+    \item \textbf{Approach:} To provide actionable, risk-aware Research \& Innovation (R\&I) priorities, the strategy is organized into a two-part framework:
+    \begin{itemize}
+        \item \textbf{Capability Profiles (Qualitative):} A deep-dive 7-dimensional analysis defining exactly what needs to be built.
+        \item \textbf{Progression Matrix (Quantitative):} A structured timeline tracking when these technologies will reach technological and manufacturing maturity (TRL/MRL).
+    \end{itemize}
+\end{itemize}
+
+\section{The Core Capability Dimensions (Y-Axis)}
+Six primary categories plus a transversal governance layer defining the core defensive and architectural requirements of the continuum:
+
+\subsection*{Capability Group 1: Sovereign Trust Foundations \& Cryptographic Agility}
+\begin{itemize}
+    \item \textbf{1.1 End-to-end confidential computing:} Data-in-use security, Trusted Execution Environments (TEEs), and secure enclaves spanning the entire Cloud $\rightarrow$ Edge $\rightarrow$ IoT data path.
+    \item \textbf{1.2 Post-quantum \& quantum-resilient cryptographic operations and infrastructure:} PQC algorithm standardization, agile PKI management, hybrid crypto deployment, migration strategies, and dynamic crypto-agility across the entire continuum, ensuring long-lived data remains secure against ``Harvest Now, Decrypt Later'' threats.
+    \item \textbf{1.3 Hardware security:} Hardware root-of-trust and cryptographically verifiable supply chain trust (e.g., TPM attestation).
+\end{itemize}
+
+\subsection*{Capability Group 2: Zero-Trust Orchestration \& Federated Identities}
+\begin{itemize}
+    \item \textbf{2.1 Zero-trust orchestration:} Seamless policy enforcement across a multi-provider computing continuum, utilizing dynamic access controls and declarative policy engines.
+    \item \textbf{2.2 Federated Identity \& Access Management (IAM):} Cross-domain identity federation and verifiable credentials for machines, users, and automated workloads.
+\end{itemize}
+
+\subsection*{Capability Group 3: Cyber-Resilient AI Lifecycle \& Workload Security}
+\begin{itemize}
+    \item \textbf{3.1 Model \& Pipeline Integrity (Supply Chain \& Data):} Securing AI training pipelines to prevent data poisoning, pre-trained model supply chain vulnerabilities, and unauthorized model manipulation (utilizing DataBOMs and cryptographic provenance).
+    \item \textbf{3.2 Runtime AI Defense \& Robustness:} Defending AI/ML infrastructure against real-world adversarial attacks (e.g., prompt injection, model evasion, model inversion/theft, and DoS) to ensure safe, continuous deployments at the edge.
+\end{itemize}
+
+\subsection*{Capability Group 4: Sector-Critical Infrastructure Security}
+\begin{itemize}
+    \item \textbf{4.1 Security of telco-cloud \& O-RAN architectures:} Hardening distributed 5G/6G cores, RAN components, and securing software-defined networking perimeters.
+    \item \textbf{4.2 Cross-sector resilience:} Adapting security controls for high-availability physical environments (e.g., Smart Grids, Software-Defined Vehicles, Industrial IoT).
+\end{itemize}
+
+\subsection*{Capability Group 5: Dynamic Risk Management \& Operational Cyber Resilience}
+\begin{itemize}
+    \item \textbf{5.1 Continuous DevSecOps (Shift-Left):} Embedding security at the earliest stages of the software development lifecycle. Utilizing AI-driven code analysis, automated vulnerability remediation, Policy-as-Code, and continuous compliance checks to preempt operational risks.
+    \item \textbf{5.2 Automated SOC Operations:} Continuous monitoring, SOC federation across member states, automated incident containment, and fault tolerance mechanisms.
+    \item \textbf{5.3 Systemic Risk Integration:} Mapping the evolving threat landscape and assessing dependence on critical infrastructures.
+    \item \textbf{5.4 Cascading Risk Mitigation:} Using impact-likelihood scoring to prevent cross-domain systemic risks.
+\end{itemize}
+
+\subsection*{Capability Group 6: Interoperable Security Mechanisms}
+\begin{itemize}
+    \item \textbf{6.1 Heterogeneous interoperability:} Secure communication and data exchange across disparate systems, edge nodes, clouds, and proprietary domains.
+    \item \textbf{6.2 Minimal Interoperability Mechanisms (MIMs) for Security:} Establishing standardized, baseline security and privacy controls (equivalent to OASC MIM6 principles) to ensure trust and compliance across federated systems without creating vendor lock-in.
+\end{itemize}
+
+\subsection*{Capability Group 7: Agile Governance, Compliance-by-Design \& Automated Assurance}
+\textbf{Focus:} Transitioning EU governance from static audits to dynamic, machine-readable ``Policy-as-Code'' and ``Living Standards.'' Systems are engineered to be ``Born Compliant.''
+\begin{itemize}
+    \item \textbf{7.1 Policy-as-Code \& Compliance-by-Design:} Technical implementation of legal requirements into machine-readable rules (e.g., OSCAL). The orchestrator pre-validates workloads.
+    \item \textbf{7.2 Continuous Automated Auditing \& Certification:} Replacing ``point-in-time'' PDF certificates with real-time, telemetry-driven certification (EUCS).
+    \item \textbf{7.3 Regulatory Digital Twins:} Virtualized replicas of critical infrastructure specifically to stress-test regulatory compliance against evolving laws.
+\end{itemize}
+
+\section{The Anatomy of a Roadmap Capability: A 7-Dimensional Analysis}
+To ensure the roadmap is actionable, realistic, and aligned with European strategic autonomy, every individual capability group is analyzed holistically through a strict 7-point structural template:
+
+\begin{enumerate}
+    \item \textbf{Baseline \& Target Objective (The Trajectory) - Q: Where do we stand today, and what exactly does success look like?}
+    \begin{itemize}
+        \item \textbf{Baseline (Where we are):} Grounds the roadmap in reality. It captures the state of the art, current maturity levels (TRL/MRL), industrial capacity, reliance on foreign vendors, and the technical or economic barriers preventing immediate adoption.
+        \item \textbf{Target (Where we need to be):} Sets the baseline for EU-funded projects, defining the target maturity and foreseeable technological evolution that must be achieved.
+    \end{itemize}
+    
+    \item \textbf{Primary Drivers (The ``Push'' Factors) - Q: Why must we prioritize building this capability right now?}
+    \begin{itemize}
+        \item \textbf{Threat Drivers:} The rapid advancement of adversarial capabilities (e.g., offensive AI, quantum decryption, supply chain targeting).
+        \item \textbf{Regulatory Drivers:} Imminent EU compliance mandates that require technical operationalization (e.g., NIS2, Cyber Resilience Act, AI Act).
+    \end{itemize}
+    
+    \item \textbf{High Impact Activities - Q: Which specific actions provide the greatest leap in European sovereignty and security?}
+    \\ Highlights the specific, prioritized technical interventions within this broader capability group that will yield the highest strategic return on investment.
+    
+    \item \textbf{Catalysts \& Enablers (The ``Pull'' Factors \& EU Support) - Q: What specific EU funding, standards, and ecosystem support do we need?}
+    \begin{itemize}
+        \item \textbf{R\&I:} Required Horizon Europe funding topics and targeted innovation instruments.
+        \item \textbf{Regulatory \& Standardization:} Alignment with standard-setting bodies (CEN/CENELEC) and certification frameworks (e.g., EUCS).
+        \item \textbf{Ecosystem:} Support for ecosystem building, industrial partnerships, and capacity-building initiatives.
+    \end{itemize}
+    
+    \item \textbf{Disruptors \& Systemic Risks (The Roadblocks) - Q: What structural vulnerabilities, market failures, or adversary breakthroughs could derail us?}
+    \begin{itemize}
+        \item \textbf{Cryptographic Obsolescence \& Migration Bottlenecks:} The ``Q-Day'' Cliff (Harvest Now, Decrypt Later) and the systemic failure to inventory and replace deep-rooted PKI in legacy OT/IoT environments.
+        \item \textbf{Adversarial Breakthroughs:} The risk of threat actors weaponizing emerging technologies faster than defensive R\&I can mitigate them.
+        \item \textbf{Contextual Risks:} Critical dependencies on non-EU vendors, monopolization of key technologies, or fragmentation of standards.
+    \end{itemize}
+    
+    \item \textbf{Failsafe Mechanisms \& Resilience (The Safety Nets) - Q: If this technology is compromised, how does the system survive and gracefully degrade?}
+    \\ Defining the engineering fallbacks required if a primary capability fails. This includes designing for degraded modes of operation, architectural redundancies, autonomous isolation protocols, and implementation diversity to avoid vulnerable technological monocultures.
+    
+    \item \textbf{Transversal Meta-Layer (The Policy Alignment) - Q: How does mastering this capability support Europe's goals of sovereignty, sustainability, and trust?}
+    \begin{itemize}
+        \item \textbf{Sovereignty \& Autonomy:} Strengthening European strategic independence.
+        \item \textbf{Trust \& Ethics:} Fostering deep Societal Trust by guaranteeing data privacy (Privacy-by-Design) and algorithmic fairness.
+        \item \textbf{Sustainable Security (Green IT):} Minimizing the environmental impact of cyber defense via energy-efficient cryptographic algorithms and crypto-agility to reduce e-waste.
+    \end{itemize}
+\end{enumerate}
+
+\section{Progression Matrix: Sequence of Events (X-Axis)}
+Instead of a strictly chronological timeline, the roadmap maps the sequence of critical events required to unlock maturity:
+\begin{itemize}
+    \item \textbf{Phase 1: Foundation \& Compliance (Immediate Implementation):} Focuses on state-of-practice deployments, bridging immediate capability gaps, and addressing urgent regulatory obligations (NIS2, CRA).
+    \item \textbf{Phase 2: Federation \& Standardization (Scaling \& Harmonization):} Focuses on deploying emerging technologies, establishing harmonized governance frameworks, and managing critical transition periods.
+    \item \textbf{Phase 3: Autonomy \& Leadership (Sovereign Innovation):} Focuses on highly speculative but structured foresight, including defense against quantum-capable adversaries and the achievement of fully sovereign, autonomous cloud-edge ecosystems.
+\end{itemize}
+
+\end{document}
