@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1774264738 "/Users/iraklissy/Developer/2.Dev-local/Papers/NexusForum/Claude.tex" "Claude.pdf" "Claude" 1774264739
-  "/Users/iraklissy/Developer/2.Dev-local/Papers/NexusForum/Claude.tex" 1774263657 109316 f778292e1b809f4f8f0e9b43011b163a ""
+["pdflatex"] 1774531007 "/Users/iraklissy/Developer/2.Dev-local/Papers/NexusForum/Claude.tex" "Claude.pdf" "Claude" 1774531010
+  "/Users/iraklissy/Developer/2.Dev-local/Papers/NexusForum/Claude.tex" 1774531006 109322 0884d9de17e520d526dc6d3c40978f81 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -159,10 +159,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1665410119 2826432 d8e54e9275bbcf8c06c7b7fa79f63038 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "Claude.aux" 1774264739 5867 2eb6b9e9a0e3d5b0b75b353add7863a5 "pdflatex"
-  "Claude.out" 1774264739 6091 5fa0d41dd7b7be5ad86d21438f7fd2c9 "pdflatex"
-  "Claude.tex" 1774263657 109316 f778292e1b809f4f8f0e9b43011b163a ""
-  "Claude.toc" 1774264739 2500 9518379dc783bdc00cd3f47285096673 "pdflatex"
+  "Claude.aux" 1774531010 5867 2eb6b9e9a0e3d5b0b75b353add7863a5 "pdflatex"
+  "Claude.out" 1774531010 6091 5fa0d41dd7b7be5ad86d21438f7fd2c9 "pdflatex"
+  "Claude.tex" 1774531006 109322 0884d9de17e520d526dc6d3c40978f81 ""
+  "Claude.toc" 1774531010 2500 9518379dc783bdc00cd3f47285096673 "pdflatex"
   (generated)
   "Claude.aux"
   "Claude.log"
