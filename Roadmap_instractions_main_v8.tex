@@ -628,7 +628,7 @@ Supply chain bottlenecks for EU-based fabrication; breakthroughs in physical sid
 
 \begin{enumerate}
 \item \textbf{Baseline \& Target Objective:}
-\textit{Baseline:} Current IoT and edge infrastructure predominantly relies on classical cryptography (RSA, ECC) vulnerable to future quantum computers. Limited awareness and no systematic migration path for resource-constrained devices.
+\textit{Baseline:} Current IoT and edge infrastructure predominantly relies on lightweight cryptography primitives which can be vulnerable to future quantum computers. Limited awareness and no systematic migration path for resource-constrained devices.
 \textit{Target:} A ``Quantum-Native'' continuum where all critical edge/IoT infrastructure has migrated to hybrid or full Post-Quantum Cryptography, with automated crypto-agility enabling seamless algorithm updates without hardware replacement.
 
 \item \textbf{Primary Drivers:} 
@@ -638,8 +638,7 @@ Supply chain bottlenecks for EU-based fabrication; breakthroughs in physical sid
 \item \textbf{High Impact Activities:} 
 Optimization of NIST-standardized PQC algorithms for 8/16-bit microcontrollers; development of crypto-agility middleware for OTA algorithm updates; automated cryptographic inventory and migration tools for legacy IoT deployments; 3GPP specifications alignment for quantum key distribution (QKD) in cellular systems.
 
-\item \textbf{Catalysts \& Enablers:} 
-\textbf{NIST PQC standardization finalization}; \textbf{ETSI} quantum-safe cryptography standards; \textbf{ENISA PQC guidelines}; \textbf{ECCC Strategic Agenda} funding; EU Chips Act for PQC-native silicon development.
+\item \textbf{Catalysts \& Enablers:} Post-Quantum Cryptography standardization initiatives; \textbf{3GPP} specifications for quantum key distribution (QKD); \textbf{NIST PQC standardization finalization}; \textbf{ETSI} quantum-safe cryptography standards; \textbf{ENISA PQC guidelines}; \textbf{ECCC Strategic Agenda} funding; EU Chips Act for PQC-native silicon development.
 
 \item \textbf{Disruptors \& Systemic Risks:} 
 Early arrival of CRQC before migration is complete; performance overhead of PQC algorithms on battery-powered IoT; fragmented standardization; insufficient cryptographic inventory of legacy OT/IoT systems.
@@ -798,7 +797,7 @@ Graceful isolation of unverified or high-risk components into quarantined networ
 \textbf{ODP} & Full Supply Chain Disclosure & Partial Restriction Process & Full Restriction Process \\ \hline
 \textbf{SSL} & High Reliance on Fragmented, Non-EU Supply Chain Auditing & Emerging EU Supply Chain Tracking Frameworks (DPP) & Full Sovereign Control and Supply Chain Transparency \\ \hline
 \textbf{Operational State} & Review of hardware, OS, and software supply chain vulnerabilities; initial Runtime SBOM pilots; CRA compliance mapping begins. & Ensuring certification of critical supply chain hardware, OS, and software; DPP frameworks operational; SME compliance pathways established. & Fully certified supply chain actively blocking unverified components; ZKPs enable IP-protected verification at continental scale. \\ \hline
-\textbf{Critical Enabler} & \textbf{CRA} supply chain requirements enforcement; SME engagement programmes & Dynamic Runtime SBOMs and \textbf{Digital Product Passports} & Zero-Knowledge Proofs (ZKPs) \& Pan-European Threat Intel sharing \\ \hline
+\textbf{Critical Enabler} & \textbf{CRA} supply chain requirements enforcement; SME engagement programme & Dynamic Runtime SBOMs and \textbf{Digital Product Passports} & Zero-Knowledge Proofs (ZKPs) \& Pan-European Threat Intel sharing \\ \hline
 \end{tabular}%
 }
 
@@ -1027,50 +1026,341 @@ Autonomous, real-time micro-segmentation (Zero-Trust) to instantly quarantine co
 \end{tabular}%
 }
 
-\newpage
+% =========================================================================
+% SECTION: Executive Summary & Strategic Recommendations
+% Drop-in replacement for the block starting at line 1584 of v7.tex
+% Replaces the existing \section{Executive Summary ...} through
+% the closing \subsection*{Success Metrics for 2030} block.
+% =========================================================================
+
 \section{Executive Summary \& Strategic Recommendations}
 
+% -----------------------------------------------------------------
 \subsection*{Executive Summary}
-This cybersecurity and cyber-resilience strategy defines a comprehensive 15-year trajectory to secure the European Cloud-Edge-IoT Continuum against emerging threats while establishing digital sovereignty. The strategy moves beyond traditional perimeter defenses toward autonomous, federated, and certified Security-by-Design architectures.
+% -----------------------------------------------------------------
+This cybersecurity and cyber-resilience strategy defines a comprehensive 15-year trajectory
+to secure the European Cloud-Edge-IoT Continuum against emerging threats while establishing
+digital sovereignty. The strategy moves beyond traditional perimeter defenses toward
+autonomous, federated, and certified Security-by-Design architectures.
 
-By utilizing a \textbf{4-Filter Prioritization Framework} (Regulatory Urgency, Foundational Dependency, Sovereignty Cliff, and Market Feasibility), we identify ten strategic priorities across three phases: \textbf{Foundation \& Compliance (2025--2030)}, \textbf{Federation \& Standardization (2030--2035)}, and \textbf{Autonomy \& Leadership (2035--2040)}.
+By utilizing a \textbf{4-Filter Prioritization Framework} (Regulatory Urgency, Foundational
+Dependency, Sovereignty Cliff, and Market Feasibility), ten strategic priorities are
+identified across three time horizons: \textbf{Hardware Roots of Trust \& EUCC 'High'
+Certification}, \textbf{Post-Quantum Cryptographic Agility for Edge/IoT}, \textbf{Security
+Interoperability via Simpl Middleware}, \textbf{Supply Chain Verification}, \textbf{Cognitive
+SecOps (LLMSecOps)}, \textbf{Pan-European NaaS Federation}, \textbf{Confidential Computing},
+\textbf{Resilient-by-Design Infrastructure}, and \textbf{Proactive APT Defense}. The three
+critical-path priorities that must be addressed immediately in Phase~1 (2025--2030) remain
+Hardware Roots of Trust, PQC Agility, and Simpl-based Security Interoperability, as they
+provide the foundational anchors upon which all subsequent capabilities depend.
 
-The roadmap employs a dual-metric progression framework: \textbf{Operational Deployment Phase (ODP)} tracking market integration, and \textbf{Strategic Sovereignty Level (SSL)} measuring European independence from foreign technology dependencies.
+The roadmap employs a dual-metric progression framework: \textbf{Operational Deployment
+Phase (ODP)} tracking market integration, and \textbf{Strategic Sovereignty Level (SSL)}
+measuring European independence from foreign technology dependencies. This enables objective
+tracking of capability maturity across three distinct phases: \emph{Foundation \&
+Compliance} (0--5 years), \emph{Federation \& Standardization} (5--10 years), and
+\emph{Autonomy \& Leadership} (10--15 years).
 
+
+% =================================================================
 \subsection*{Strategic Recommendations for Phase 1 (2025--2030)}
+% =================================================================
+To operationalize this strategy, the following actions are recommended for immediate
+European R\&I funding and policy alignment:
 
 \begin{itemize}
-    \item \textbf{Accelerate Sovereign Secure Silicon Development:} Immediate Horizon Europe and EU Chips Act funding for open-source RISC-V secure elements engineered to meet \textbf{EUCC 'High' assurance levels}. Establish pilot fabrication lines to reduce 100\% foreign dependency on TPMs and secure enclaves.
-    
-    \item \textbf{Operationalize Crypto-Agility for the Edge/IoT:} Develop and standardize automated crypto-agility middleware allowing resource-constrained IoT devices to upgrade to \textbf{Post-Quantum Cryptography} without hardware replacement. Prioritize ENISA guidelines alignment and lightweight PQC for 8/16-bit microcontrollers.
-    
-    \item \textbf{Extend PhySec to the Extreme Edge:} Fund R\&I into physical-layer security primitives (RF fingerprinting, CSI-based authentication) for zero-energy and battery-less devices that cannot support computational cryptography, ensuring security coverage across the full IoT spectrum.
-    
-    \item \textbf{Enforce Security-by-Design via Simpl Integration:} Mandate standardized security \textbf{Minimal Interoperability Mechanisms (MIMs)} across all Common European Data Spaces to ensure provider-agnostic, cryptographically verifiable security policies eliminating vendor lock-in.
-    
-    \item \textbf{Operationalize CRA-Compliant Supply Chain Transparency:} Mandate Runtime SBOMs and Digital Product Passports for all ICT products entering the EU market; provide targeted SME support to prevent compliance costs creating discriminatory market barriers.
-    
-    \item \textbf{Deploy Sovereign LLMSecOps Capabilities:} Invest in EuroHPC AI Factories for training sovereign European security foundation models, reducing dependency on US LLMs for critical SOC operations. Mandate human-in-the-loop overrides for all autonomous security decisions in critical infrastructure.
-    
-    \item \textbf{Launch NaaS Federation Pilots:} Deploy CAMARA-harmonized API corridors across 3-5 Member States as the foundation for the ``Schengen for Cloud/AI'' vision, building the legal and technical architecture for true cross-border compute roaming.
-    
-    \item \textbf{Harmonize Continuous Certification Lifecycles:} Transition from static, point-in-time audits to \textbf{Continuous Automated Assurance} frameworks with real-time telemetry-driven compliance tracking for both \textbf{EUCS} (cloud) and \textbf{EUCC} (edge products).
-    
-    \item \textbf{Synchronize Regulatory Enforcement Timelines:} Ensure coordinated enforcement of NIS2, CRA, and AI Act requirements by 2026--2027 to create unified market incentives for security investment across all ten priority areas.
+    \item \textbf{Accelerate Sovereign Secure Silicon Development:}
+    Immediate Horizon Europe and EU Chips Act funding for open-source RISC-V secure elements
+    and hardware roots of trust engineered to meet \textbf{EUCC `High' assurance levels}.
+    Establish pilot fabrication lines dedicated to security-critical components to reduce
+    100\% foreign dependency on TPMs and secure enclaves.
+
+    \item \textbf{Operationalize Crypto-Agility for the Edge/IoT:}
+    Develop and standardize automated crypto-agility middleware frameworks that allow
+    resource-constrained IoT devices to upgrade to \textbf{Post-Quantum Cryptography (PQC)}
+    without requiring hardware replacement. Prioritize ENISA guidelines alignment and ECCC
+    funding for lightweight PQC implementations targeting 8/16-bit microcontrollers.
+
+    \item \textbf{Enforce Security-by-Design via Simpl Integration:}
+    Mandate standardized security \textbf{Minimal Interoperability Mechanisms (MIMs)} across
+    all Common European Data Spaces to ensure security policies are provider-agnostic,
+    cryptographically verifiable, and eliminate vendor lock-in. Align Digital Europe
+    Programme funding with Simpl stack security module development.
+
+    \item \textbf{Harmonize Continuous Certification Lifecycles:}
+    Transition from static, point-in-time PDF certificates to \textbf{Continuous Automated
+    Assurance} frameworks using telemetry-driven compliance verification. Develop real-time
+    certification tracking standards for both cloud services (\textbf{EUCS}) and physical
+    edge products (\textbf{EUCC}), ensuring autonomous compliance maintenance throughout
+    operational lifecycles.
+
+    \item \textbf{Establish Federated Cyber Resilience Capabilities:}
+    Invest in cross-border SOC federation infrastructure and legally protected threat
+    intelligence sharing platforms to overcome institutional trust barriers between Member
+    States. Align with CONCORDIA project outcomes and ECCC Strategic Agenda priorities for
+    collaborative defense.
+
+    \item \textbf{Synchronize Regulatory Enforcement Timelines:}
+    Ensure coordinated enforcement of NIS2, Cyber Resilience Act (CRA), and AI Act
+    requirements by 2026--2027 to create unified market incentives for security investment.
+    Provide targeted support for SMEs to meet compliance requirements without creating
+    insurmountable barriers to market entry.
 \end{itemize}
 
-\subsection*{Success Metrics for 2030}
-By the end of Phase 1, Europe should achieve:
+\subsubsection*{Success Metrics for 2030}
+By the end of Phase~1, Europe should achieve:
 \begin{itemize}
-    \item \textbf{Hardware Sovereignty:} At least 30\% of critical infrastructure edge nodes utilizing EU-designed, EUCC 'High' certified secure elements.
-    \item \textbf{Quantum Readiness:} 100\% of new critical IoT deployments supporting hybrid PQC schemes; complete cryptographic inventory of legacy systems.
-    \item \textbf{Extreme-Edge Security:} Standardized lightweight PQC and PhySec primitives available for ultra-constrained IoT platforms.
-    \item \textbf{Federated Trust:} Majority of Common European Data Spaces operating on Simpl-based security interoperability with standardized MIMs.
-    \item \textbf{Supply Chain Transparency:} Runtime SBOMs and DPPs mandated and operational for all new critical ICT deployments.
-    \item \textbf{AI-Augmented SOC:} LLMSecOps copilots deployed in 10+ national CERT/SOC environments; first sovereign EU security SLMs operational.
-    \item \textbf{Certification Maturity:} Operational continuous certification frameworks for at least two major Data Spaces with real-time EUCS/EUCC tracking.
+    \item \textbf{Hardware Sovereignty:}
+    At least 30\% of critical infrastructure edge nodes utilizing EU-designed, EUCC `High'
+    certified secure elements; first sovereign RISC-V secure element in industrial
+    production.
+
+    \item \textbf{Quantum Readiness:}
+    100\% of new critical IoT deployments supporting hybrid (classical + PQC) schemes;
+    complete cryptographic inventory of 80\%+ legacy OT/IoT systems.
+
+    \item \textbf{Federated Trust:}
+    Majority of Common European Data Spaces operating on Simpl-based security
+    interoperability with standardized MIMs adopted as CEN/CENELEC standards.
+
+    \item \textbf{Certification Maturity:}
+    Operational continuous certification frameworks for at least two major Data Spaces with
+    real-time EUCS/EUCC tracking; point-in-time audit model deprecated in pilot sectors.
+
+    \item \textbf{Cognitive SecOps Readiness:}
+    LLM-assisted SOC tools deployed in at least five Member State national cybersecurity
+    centres; NWDAF telemetry pipelines feeding centralized AI analytics for anomaly
+    detection.
+
+    \item \textbf{Supply Chain Transparency:}
+    Runtime SBOM frameworks mandated for all new EU-funded cloud/edge deployments; Digital
+    Product Passport pilots operational in the telecom and industrial IoT sectors.
 \end{itemize}
 
+
+% =================================================================
+\subsection*{Strategic Recommendations for Phase 2 (2030--2035)}
+% =================================================================
+Phase~2 transitions from piloting and compliance to \emph{federation, standardization, and
+scaled sovereignty}. The foundational hardware, cryptographic, and interoperability
+capabilities established in Phase~1 are industrialized and federated across Member States
+and sectors. The following recommendations constitute the critical-path actions required
+during this period.
+
+\begin{itemize}
+    \item \textbf{Complete the PQC Migration for Critical Infrastructure:}
+    Mandate hybrid PQC deployment for all public-sector ICT procurement by 2031 and
+    deprecate classical-only cryptography for high-security contexts by 2033. Fund ECCC-led
+    programmes to operationalize crypto-agility middleware across Industrial IoT, energy
+    grids, and financial systems, building on the ENISA guidelines and NIST/ETSI
+    finalization achieved in Phase~1. Initiate deployment of PQC-native RISC-V silicon for
+    all new EU-manufactured edge infrastructure.
+
+    \item \textbf{Scale Sovereign Secure Silicon to Industrial Dominance:}
+    Leverage EU Chips Act fabrication milestones to transition RISC-V secure elements from
+    pilot production to market-scale deployment, targeting 60\%+ EU market share for secure
+    silicon in critical edge infrastructure by 2035. Drive \textbf{EUCC `High'} certification
+    to become the default procurement requirement across all Member State critical
+    infrastructure procurements, eliminating foreign TPM dependency in regulated sectors.
+
+    \item \textbf{Federate Security Across the Pan-European NaaS Ecosystem:}
+    Deploy standardized CAMARA APIs and inter-operator east-west security interfaces to
+    interconnect fragmented national telco edge clouds into a unified, security-audited
+    Network-as-a-Service (NaaS) platform. Operationalize ``Data Visa'' frameworks enabling
+    dynamic cross-border AI model migration without legal friction, and launch federated
+    zero-trust policy enforcement spanning multiple national jurisdictions aligned with the
+    IPCEI-CIS programme outcomes.
+
+    \item \textbf{Deploy AI-Native, Autonomous SecOps at the Edge:}
+    Transition SOC operations from LLM-assisted copilot models (Phase~1) to
+    \textbf{autonomous Edge-native Guardian nodes} capable of executing zero-trust
+    reconfigurations and threat throttling without central cloud round-trips. Standardize
+    AI Interconnect APIs under the EU AI Act high-risk system framework. Fund EuroHPC AI
+    Factories to develop sovereign European edge LLMs and Small Language Models (SLMs) for
+    security analytics, reducing reliance on US foundation models.
+
+    \item \textbf{Operationalize Confidential Computing Across the Federated Continuum:}
+    Scale TEE deployments from isolated cloud nodes (Phase~1) to \textbf{distributed
+    confidential cloud} architectures spanning multi-provider nodes across Member States.
+    Launch multi-party privacy-preserving AI pipelines for regulated sectors (health, finance,
+    defence) that jointly compute over sensitive datasets without raw data leaving sovereign
+    jurisdictions. Drive EUCS `High+' certification requirements incorporating confidential
+    computing as a baseline condition.
+
+    \item \textbf{Establish a Quantum-Safe Data Space and QKD Backbone for Critical Links:}
+    Operationalize the first fully end-to-end PQC-secured European Data Space by 2034.
+    Deploy Quantum Key Distribution (QKD) for point-to-point optical links connecting
+    government and critical infrastructure backbone nodes, aligned with the EU Quantum
+    Flagship programme and 3GPP QKD specifications, providing information-theoretically
+    secure key exchange complementary to PQC.
+
+    \item \textbf{Industrialize Supply Chain Verification and Digital Product Passports:}
+    Mandate Runtime SBOMs and Digital Product Passports (DPP) for all hardware and software
+    components entering EU critical infrastructure supply chains. Deploy Zero-Knowledge
+    Proof (ZKP) mechanisms for IP-protected cryptographic supply chain verification,
+    enabling SMEs to demonstrate compliance without exposing proprietary implementation
+    details. Transition from Phase~1's disclosure-based model to \textbf{partial restriction}
+    of unverified supply chain components.
+
+    \item \textbf{Activate Proactive APT Defense and Moving Target Defense (MTD):}
+    Transition from SIEM-based reactive detection to \textbf{LLMSecOps-orchestrated
+    autonomous triage}: AI agents that ingest Pan-European CTI feeds, track anomalous
+    lateral movement aligned with the MITRE ATT\&CK framework, and orchestrate rapid
+    incident containment. Deploy User and Entity Behavior Analytics (UEBA) at scale across
+    federated SOCs, and pilot Moving Target Defense (MTD) mechanisms in at least three
+    Member State critical infrastructure sectors to actively disrupt APT reconnaissance.
+\end{itemize}
+
+\subsubsection*{Success Metrics for 2035}
+By the end of Phase~2, Europe should achieve:
+\begin{itemize}
+    \item \textbf{Quantum-Resilient Infrastructure:}
+    100\% of EU public-sector ICT using hybrid or full PQC schemes; first
+    ``Quantum-Safe Data Space'' fully operational; classical-only cryptography deprecated
+    in all high-security EU government systems.
+
+    \item \textbf{Sovereign Silicon Dominance:}
+    60\%+ EU market share for secure silicon in critical edge infrastructure; EUCC `High'
+    certification mandatory for regulated sector ICT procurement across all 27 Member States.
+
+    \item \textbf{Federated NaaS Security:}
+    Pan-European NaaS security framework operational across at least 10 telecom operators;
+    ``Data Visa'' cross-border AI workload migration demonstrated in production at corridor
+    scale; 70\%+ Common Data Spaces using automated Simpl-based policy federation.
+
+    \item \textbf{Autonomous AI SecOps:}
+    Edge-native Guardian nodes autonomously executing zero-trust reconfigurations deployed
+    in at least five Member State critical infrastructure sectors; sovereign EU edge
+    LLMs/SLMs operationally replacing non-EU foundation models in security analytics.
+
+    \item \textbf{Confidential Computing at Scale:}
+    Multi-party privacy-preserving AI pipelines operational in at least three cross-border
+    regulated sectors; RISC-V TEEs scaling toward European silicon self-sufficiency for
+    enclave hardware.
+
+    \item \textbf{APT Dwell Time Reduction:}
+    Mean APT dwell time reduced by 70\% compared to Phase~1 baseline through AI-driven
+    behavioral hunting; Pan-European CTI sharing platform operational with legally
+    harmonized data exchange agreements covering all 27 Member States.
+\end{itemize}
+
+
+% =================================================================
+\subsection*{Strategic Recommendations for Phase 3 (2035--2040)}
+% =================================================================
+Phase~3 achieves \emph{full sovereign autonomy and global leadership}. By this stage,
+European security architecture is self-sustaining, self-evolving, and serves as the global
+reference implementation for secure, trustworthy, and sustainable computing continuum
+infrastructure. The following recommendations define the critical-path actions to consolidate
+and export European leadership.
+
+\begin{itemize}
+    \item \textbf{Achieve a Fully Quantum-Native European Computing Continuum:}
+    Complete the migration to PQC-native silicon and cryptographic infrastructure across
+    \emph{all} EU Cloud-Edge-IoT tiers by 2036. Retire all hybrid classical/PQC
+    transitional schemes in sovereign infrastructure and mandate PQC-by-default for all
+    new EU ICT products. Position ETSI/CEN/CENELEC-led PQC standards as the global
+    reference baseline, driving export of European quantum-resilience frameworks to allied
+    nations and international standards bodies (ISO, ITU-T).
+
+    \item \textbf{Establish Full Sovereign Autonomy in Secure Silicon Fabrication:}
+    EU Chips Act fabrication capacity should meet 80\%+ of European secure silicon demand
+    by 2039, eliminating residual critical dependencies on extra-territorial semiconductor
+    supply chains. Open-source RISC-V secure enclave architectures certified at EUCC `High'
+    should become the default hardware foundation for all new EU ICT products across
+    HPC, Cloud, Edge, and Device tiers, from consumer IoT to governmental systems.
+
+    \item \textbf{Realise the ``Schengen for Cloud-Edge'' Legal and Technical Framework:}
+    Operationalize the unified European computing continuum as a single jurisdiction for
+    AI workload data governance, with legally binding cross-border SLA frameworks and
+    harmonized compliance APIs (building on Phase~2 Data Visa pilots). The
+    \textbf{EU Cloud Rulebook} should reach full legal maturity by 2037--2038, making
+    provider-agnostic, zero-trust cross-border federation the normative baseline for all
+    EU-funded digital infrastructure.
+
+    \item \textbf{Deploy Swarm-Based Agentic AI Immune Systems:}
+    Transition from Phase~2's autonomous Edge Guardian nodes to fully \textbf{decentralized,
+    self-evolving AI swarms} capable of proactively defending the Cloud-Edge Continuum
+    through distributed threat intelligence, zero-touch automated incident response, and
+    bio-inspired elasticity for E2E cyber-physical recovery. Governance frameworks for
+    \textbf{AI Trustworthiness and Algorithmic Accountability} (CL4.7) must be operationalized
+    to ensure that autonomous security agents themselves meet EU AI Act high-risk system
+    requirements, with explainability guarantees for all autonomous containment decisions.
+
+    \item \textbf{Achieve Ubiquitous Moving Target Defense and Autonomous Counter-APT:}
+    AI-driven MTD should continuously and autonomously shuffle network resources, IP
+    addresses, and software diversity across the entire EU continuum, actively paralyzing
+    APT reconnaissance and lateral movement without human intervention. The Pan-European
+    CTI platform should evolve into a \textbf{Full Autonomous Counter-Adversarial Resilience}
+    posture, with AI swarms proactively disrupting offensive operations rather than merely
+    detecting and responding to them.
+
+    \item \textbf{Operationalize Homomorphic Encryption and SMPC for Production Workloads:}
+    Full Homomorphic Encryption (FHE) performance should reach operational viability for
+    real-time analytics by 2037--2038, completing the trajectory from Phase~1 isolated
+    enclaves through Phase~2 distributed confidential clouds to a \textbf{ubiquitous
+    confidential continuum} from IoT sensor to HPC node. Secure Multi-Party Computation
+    (SMPC) should be standardized for cross-border federated AI in regulated sectors
+    (health, finance, defence, justice), enabling collaborative data science without any
+    raw sensitive data ever crossing a sovereign boundary.
+
+    \item \textbf{Complete Full Restriction of Non-Verified Supply Chain Components:}
+    The supply chain verification framework should mature from Phase~2's partial restriction
+    model to \textbf{full automated blocking} of any unverified hardware, OS, or software
+    component attempting to enter EU critical infrastructure. Zero-Knowledge Proof-based
+    verification should be the standard cryptographic mechanism for IP-protected supply
+    chain attestation. Pan-European threat intelligence on supply chain compromises should
+    flow in real time across all Member State national agencies via the federated CTI
+    platform.
+
+    \item \textbf{Position Europe as the Global Standard-Setter for Trustworthy Security:}
+    European cybersecurity standards---EUCS, EUCC, security MIMs, PQC migration frameworks,
+    and continuous certification lifecycle models---should be actively promoted through
+    bilateral agreements, multilateral standards bodies, and the EU's external digital
+    policy instruments (e.g., EU--US Trade and Technology Council, EU--Global Gateway). The
+    goal is for European frameworks to become the global reference implementation for
+    \emph{trustworthy, sovereign, and sustainable} computing security, generating export
+    value for the European cybersecurity industry and reducing global dependency on
+    non-democratic technology governance models.
+\end{itemize}
+
+\subsubsection*{Success Metrics for 2040}
+By the end of Phase~3, Europe should achieve:
+\begin{itemize}
+    \item \textbf{Full Quantum-Native Continuum:}
+    100\% of EU Cloud-Edge-IoT critical infrastructure natively running PQC; EU PQC
+    and QKD standards adopted as ISO/ITU-T global baseline; no operational classical-only
+    cryptography in sovereign EU systems.
+
+    \item \textbf{Sovereign Silicon Self-Sufficiency:}
+    80\%+ of European secure silicon demand met by EU Chips Act fabrication capacity;
+    RISC-V EUCC `High' the default hardware foundation for all new EU ICT products.
+
+    \item \textbf{Unified European Digital Jurisdiction:}
+    EU Cloud Rulebook fully enforced; 100\% of Common Data Spaces operating on
+    provider-agnostic zero-trust architectures; ``Schengen for Cloud-Edge'' legally
+    operational across all 27 Member States.
+
+    \item \textbf{Autonomous AI Security Fabric:}
+    Self-evolving AI swarm defense deployed across the EU continuum; all autonomous
+    security agents compliant with EU AI Act Trustworthiness and Accountability requirements;
+    Security-by-Design the normative default---manual security configuration obsolete.
+
+    \item \textbf{Ubiquitous Confidential Computing:}
+    FHE operationalized for real-time production analytics; SMPC standardized for
+    cross-border federated AI in all regulated sectors; end-to-end encrypted continuum
+    from battery-less IoT to HPC without any raw sensitive data leaving sovereign boundaries.
+
+    \item \textbf{Full Counter-APT Resilience:}
+    AI-driven MTD continuously disrupting APT reconnaissance in real time across the full
+    continuum; Pan-European CTI platform providing proactive counter-adversarial intelligence;
+    mean APT dwell time reduced to near-zero for known attack pattern families.
+
+    \item \textbf{Global Leadership:}
+    European cybersecurity frameworks serving as the global reference implementation;
+    EU cybersecurity technology export value exceeding pre-roadmap baseline by a measurable
+    factor, as assessed by the ECCC and ENISA in the 2040 roadmap completion review.
+\end{itemize}
 
 
 
