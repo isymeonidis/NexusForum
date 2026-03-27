@@ -22,94 +22,9 @@
 
 \tableofcontents
 \newpage
-
-    \begin{figure}[!ht]
-    \centering
-    \begin{tikzpicture}[
-        node distance=1.5cm,
-        box/.style={draw, fill=blue!10, text width=4.5cm, align=center, minimum height=1cm, font=\small\bfseries, rounded corners},
-        logic/.style={draw, fill=orange!10, text width=4cm, align=center, minimum height=1cm, font=\small, dashed},
-        outcome/.style={draw, fill=green!10, text width=4.5cm, align=center, minimum height=1cm, font=\small\bfseries}
-    ]
-
-    % Nodes - Layer 1: Structure
-    \node[box] (struct) {Architectural Framework \\ (Layers \& Cross-Layers)};
+\begin{abstract}
     
-    % Nodes - Layer 2: Prompt/Methodology
-    \node[logic, below=of struct] (filters) {4-Filter Prioritization \\ (Regulatory, Dependency, \\ Sovereignty, Feasibility)};
-    
-    % Nodes - Layer 3: Priorities
-    \node[box, below=of filters] (priorities) {Executive Priorities \\ (Hardware, PQC, Simpl)};
-    
-    % Nodes - Layer 4: Analyses
-    \node[outcome, below left=2cm and -1cm of priorities] (qual) {Qualitative Analysis \\ (7-Dimensional Profile)};
-    \node[outcome, below right=2cm and -1cm of priorities] (quant) {Quantitative Matrix \\ (ODP \& SSL Progress)};
-
-    % Final Summary
-    \node[outcome, below=4cm of priorities, fill=yellow!20] (summary) {Executive Summary \& \\ Strategic Recommendations};
-
-    % Arrows
-    \draw[->, line width=1pt] (struct) -- (filters);
-    \draw[->, line width=1pt] (filters) -- (priorities);
-    \draw[->, line width=1pt] (priorities) -- (qual);
-    \draw[->, line width=1pt] (priorities) -- (quant);
-    \draw[->, line width=1pt] (qual) -- (summary);
-    \draw[->, line width=1pt] (quant) -- (summary);
-
-    \end{tikzpicture}
-    \caption{Logical structure of the Roadmap: From Architectural Framework to Strategic Outcomes.}
-    \label{fig:logical_structure_roadmap}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-    \centering
-    \begin{tikzpicture}[
-        node distance=1.2cm and 0.5cm,
-        chapter/.style={draw, fill=blue!15, text width=5.5cm, align=center, minimum height=1cm, font=\small\bfseries, rounded corners},
-        section/.style={draw, fill=blue!5, text width=5cm, align=left, minimum height=0.7cm, font=\scriptsize, xshift=0.5cm},
-        filter/.style={draw, fill=orange!20, text width=4.5cm, align=center, minimum height=1cm, font=\small\bfseries, diamond, aspect=2.5},
-        outcome/.style={draw, fill=green!15, text width=5.5cm, align=center, minimum height=1cm, font=\small\bfseries, rounded corners},
-        out_sec/.style={draw, fill=green!5, text width=5cm, align=left, minimum height=0.7cm, font=\scriptsize, xshift=0.5cm}
-    ]
-
-    % --- Chapter 1 Structure ---
-    \node[chapter] (c1) {Chapter 1: Roadmap Structure};
-    \node[section, below=0.2cm of c1] (s11) {1.1 Background \& Drivers};
-    \node[section, below=0.1cm of s11] (s12) {1.2 State of the Art};
-    \node[section, below=0.1cm of s12] (s14) {1.4 Architectural Framework};
-    
-    % --- Logical Filter (Prompt Logic) ---
-    \node[filter, below=1cm of s14] (logic) {1.5 4-Filter Prioritization};
-    
-    % --- Chapter 2 Outcomes ---
-    \node[outcome, below=1cm of logic] (c2) {Chapter 2: Capability Profiles};
-    \node[out_sec, below=0.2cm of c2] (s21) {Priority 1: Hardware Roots of Trust};
-    \node[out_sec, below=0.1cm of s21] (s22) {Priority 2: PQC Agility};
-    \node[out_sec, below=0.1cm of s22] (s23) {Priority 3: Security Interoperability};
-
-    % --- Final Chapter ---
-    \node[outcome, below=0.8cm of s23] (c3) {Chapter 3: Summary Outcome};
-    \node[out_sec, below=0.2cm of c3] (s31) {Executive Summary \& Recommendations};
-
-    % --- Connections ---
-    \draw[->, line width=1pt] (c1) -- (s11);
-    \draw[->, line width=1pt] (s14) -- (logic);
-    \draw[->, line width=1pt] (logic) -- (c2);
-    \draw[->, line width=1pt] (c2) -- (s21);
-    \draw[->, line width=1pt] (s23) -- (c3);
-    \draw[->, line width=1pt] (c3) -- (s31);
-
-    % Legend/Grouping Labels
-    \node[right=2cm of c1, font=\small\itshape, text=blue!70!black] {Definition Phase};
-    \node[right=2.3cm of logic, font=\small\itshape, text=orange!80!black] {Selection Logic};
-    \node[right=2cm of c2, font=\small\itshape, text=green!50!black] {Implementation Phase};
-
-    \end{tikzpicture}
-    \caption{Logical structure of the Roadmap: Mapping Chapter hierarchy to the strategic selection process.}
-    \label{fig:chapter_hierarchy_roadmap}
-\end{figure}
+\end{abstract}
 
 \section{Introduction}
 
@@ -117,7 +32,10 @@
 % =========================================================================
 % CHAPTER 1: INSTRUCTIONS
 % =========================================================================
-\textbf{Note: Instructions for Using This Roadmap Framework}
+
+This manuscript/roadmap defines the architectural guardrails required to secure the Cloud-Edge-IoT Continuum. It moves beyond traditional ``perimeter security''  toward a model of Cyber-Resilience---where systems are engineered to proactively anticipate, withstand, recover from, and adapt to attacks while maintaining strict Digital Sovereignty.
+\textbf{Approach:} To provide actionable, risk-aware Research \& Innovation (R\&I) priorities, the strategy is organized into a two-part framework:
+ 
 
 \subsection*{Purpose of This Document}
 This roadmap provides a structured methodology for European policymakers, research organizations, and industry stakeholders to:
@@ -196,110 +114,89 @@ This roadmap provides a structured methodology for European policymakers, resear
 
 \section{Methodology}
 
-\subsection{Strategic Preamble}
+\subsection{End-to-End Methodological Flow - summary}
+
+The methodology follows a structured pipeline:
+
+\begin{enumerate}
+    \item Capabilities are defined as atomic inputs mapped to the architectural framework
+    \item Capabilities are evaluated through the 4-dimensional filtering logic
+    \item Selected capabilities are aggregated into priorities
+    \item Priorities evolve across phases through controlled transitions
+    \item The executive summary synthesizes the outcomes into strategic guidance
+\end{enumerate}
+
+This ensures a transparent, traceable, and reproducible approach to roadmap development.
+
+
+
+
+\subsection{Capabilities as Structured Inputs}
+
+Capabilities constitute the primary analytical units of the roadmap and are directly derived from the architectural framework (Fig.~\ref{fig:security_framework_verticals_boxes}). Each capability represents a discrete, actionable function required to ensure cybersecurity and cyber-resilience across the Cloud--Edge--IoT continuum.
+
+Each capability is defined along three axes:
+
 \begin{itemize}
-    \item \textbf{Context:} This section defines the architectural guardrails required to secure the Cloud-Edge-IoT Continuum. It moves beyond traditional ``perimeter security''  toward a model of Cyber-Resilience---where systems are engineered to proactively anticipate, withstand, recover from, and adapt to attacks while maintaining strict Digital Sovereignty.
-    \item \textbf{Approach:} To provide actionable, risk-aware Research \& Innovation (R\&I) priorities, the strategy is organized into a two-part framework:
-    \begin{itemize}
-        \item \textbf{Capability Profiles (Qualitative):} A deep-dive 7-dimensional analysis defining exactly what needs to be built.
-        \item \textbf{Progression Matrix (Quantitative \& Strategic):} A structured timeline tracking the evolution of capabilities through their Operational Deployment Phases and their trajectory toward Strategic Sovereignty.
-    \end{itemize}
+    \item \textbf{Layer Mapping}: Association to a specific layer (device, edge, cloud, application)
+    \item \textbf{Cross-Layer Scope}: Identification of dependencies across layers (e.g., identity, trust, orchestration)
+    \item \textbf{Functional Intent}: The security objective it fulfills (e.g., confidentiality, integrity, availability, sovereignty)
 \end{itemize}
 
+Capabilities are treated as \textbf{atomic inputs} to the prioritization methodology and are evaluated independently before aggregation into higher-level priorities.
 
-\subsection{The 4-Filter Prioritization Framework}
+
+\subsection{4-Dimensional Transition Filtering Logic -- from capabilities to Priorities}
+
 To ensure the roadmap provides actionable guidance for European R\&I funding (Horizon Europe) and strategic investment, capabilities are prioritized using a structured 4-filter logic. This objective is to identify the ``Critical Path''  items that require immediate resource allocation during
 Phase~1 (0–5 years) in order to enable a secure and sovereign European
 Cloud–Edge–IoT computing continuum.
 
+
+To determine which capabilities advance across implementation phases, a structured filtering logic is applied. This logic acts as a \textbf{decision function} that evaluates each capability against four dimensions:
+
 \begin{enumerate}
-    \item \textbf{Regulatory Urgency -- Compliance Filter (The ``Must-Do''  Filter):}
+     \item \textbf{Regulatory Urgency -- Compliance Filter (The ``Must-Do''  Filter):} Alignment with imminent EU regulatory requirements (e.g., NIS2, CRA, AI Act)
     \begin{itemize}
         \item \textbf{Question:} Is this capability required to meet imminent European regulatory obligations (e.g., NIS2 \cite{nis2}, Cyber Resilience Act \cite{cra}, AI Act \cite{aiact})?
         \item \textbf{Logic:} If failure to achieve this by 2026 results in market exclusion or systemic non-compliance, it is designated as \textbf{Priority \#1}.
-
-        % \item \textbf{Logic:} Capabilities necessary to achieve regulatory compliance within the current policy cycle (2025–2030) receive the highest priority, as failure to implement them may result in systemic non-compliance or market access barriers.
-\end{itemize}
-
-
-    \item \textbf{Foundational Dependency -- Architecture Filter (The ``Blocker''  Filter):}
+    \end{itemize}
+    
+    
+    \item \textbf{Foundational Dependency -- Architecture Filter (The ``Blocker''  Filter):} Degree to which the capability acts as a prerequisite for other capabilities
     \begin{itemize}
         \item \textbf{Question:} Do subsequent security layers depend on this capability existing first?
         \item \textbf{Logic:} Foundational technologies (e.g., Layer 1 Hardware Trust) outrank high-level software orchestration. You cannot secure the user (Layer 4) if the hardware (Layer 1) cannot provide a verifiable anchor.
-%         \item \item \textbf{Question:} Do other security capabilities depend on this
-% technology as a prerequisite?
-
-% \item \textbf{Logic:} Foundational security layers are prioritised over
-% higher-level capabilities. For example, verifiable hardware roots of trust
-% (Layer~1) must exist before secure orchestration or identity frameworks
-% can operate reliably across the continuum.
     \end{itemize}
+    
+    
+       \item \textbf{The Sovereignty Impact / Strategic Sovereignty Risk -- Resilience Filter (The ``Extinction''  Filter):} Contribution to European digital sovereignty and strategic autonomy
 
-    \item \textbf{The Sovereignty Cliff / Strategic Sovereignty Risk -- Resilience Filter (The ``Extinction''  Filter):}
     \begin{itemize}
         \item \textbf{Question:} Does a lack of this tech pose an existential threat to EU sovereignty or systemic resilience?
         \item \textbf{Logic:} This prioritizes areas where the EU currently has 100\% foreign dependency or where a technical breakthrough (e.g., \textit{Q-Day} Quantum threat) would render existing defenses obsolete.
-%         \item \textbf{Question:} Does the absence of this capability create a
-% strategic dependency or systemic risk for European digital sovereignty?
-
-% \item \textbf{Logic:} Capabilities that mitigate critical external
-% dependencies or emerging systemic threats (e.g., post-quantum cryptography,
-% secure supply chains, trusted hardware) are prioritised due to their
-% importance for long-term European technological autonomy.
-    \end{itemize}
-
-    \item \textbf{Market Feasibility \& Ecosystem Alignement -- Adoption Filter (The ``Simpl/SME''  Filter):}
+    \end{itemize}   
+    \item \textbf{Market Feasibility \& Ecosystem Alignement -- Adoption Filter (The ``Simpl/SME''  Filter):}Technical maturity, implementation readiness, and deployment constraints
     \begin{itemize}
         \item \textbf{Question:} Does this align with existing EU heavy-investments (e.g., Simpl \cite{cloud_edge_roadmap}) and is it adoptable by SMEs?
         \item \textbf{Logic:} Priority is given to capabilities that act as force-multipliers for existing infrastructure, ensuring economic viability.
     \end{itemize}
-%     \item \textbf{Question:} Can this capability realistically be adopted by
-% European industry, including SMEs, and does it align with ongoing EU
-% investments (e.g., Simpl \cite{cloud_edge_roadmap})?
-
-% \item \textbf{Logic:} Priority is given to capabilities that act as
-% force-multipliers for existing European infrastructure initiatives and
-% that can realistically be integrated into industrial ecosystems.
-% \end{itemize}
 \end{enumerate}
+
+Each dimension is evaluated qualitatively (High, Medium, Low) and used to determine whether a capability:
+
+\begin{itemize}
+    \item Advances to the next phase
+    \item Remains in the current phase
+    \item Is deprioritized or deferred
+\end{itemize}
+
+
 
 Capabilities that satisfy multiple filters are classified as \textit{Executive Priorities} and define the critical investment path for the secure European computing continuum.
 
-\begin{figure}[!ht]
-    \centering
-    \begin{tikzpicture}[
-        node distance=0.9cm and 0.6cm,
-        every node/.style={font=\small},
-        startbox/.style={draw, rounded corners, fill=blue!10, text width=3.8cm, minimum height=1cm, align=center, font=\small\bfseries},
-        filterbox/.style={draw, rounded corners, fill=orange!18, text width=4.2cm, minimum height=1cm, align=center, font=\small\bfseries},
-        outbox/.style={draw, rounded corners, fill=green!15, text width=4.3cm, minimum height=1cm, align=center, font=\small\bfseries},
-        note/.style={font=\scriptsize\itshape, text=black!70, align=center}
-    ]
 
-    \node[startbox] (candidate) {Candidate Capability};
-    \node[filterbox, below=of candidate] (f1) {Filter 1: Regulatory Urgency\\(Compliance)};
-    \node[filterbox, below=of f1] (f2) {Filter 2: Foundational Dependency\\(Architecture)};
-    \node[filterbox, below=of f2] (f3) {Filter 3: Strategic Sovereignty Risk\\(Resilience)};
-    \node[filterbox, below=of f3] (f4) {Filter 4: Market Feasibility \& Ecosystem Alignment\\(Adoption)};
-    \node[outbox, below=1.0cm of f4] (priority) {Executive Priority\\Critical Path for Phase~1};
-
-    \draw[->, line width=1pt] (candidate) -- (f1);
-    \draw[->, line width=1pt] (f1) -- (f2);
-    \draw[->, line width=1pt] (f2) -- (f3);
-    \draw[->, line width=1pt] (f3) -- (f4);
-    \draw[->, line width=1pt] (f4) -- (priority);
-
-    \node[note, right=0.6cm of f1] {Mandatory policy\\pressure};
-    \node[note, right=0.6cm of f2] {Architectural\\prerequisite};
-    \node[note, right=0.6cm of f3] {Sovereignty and\\systemic resilience};
-    \node[note, right=0.6cm of f4] {Industrial uptake\\and scalability};
-
-    \end{tikzpicture}
-    \caption{Four-filter prioritization pipeline used to identify Executive Priorities for the European Cloud--Edge--IoT cybersecurity roadmap.}
-    \label{fig:four_filter_pipeline}
-\end{figure}
-
-\subsection{The Anatomy of a Roadmap Priorities: A 7-Dimensional Analysis - \textbf{Note: Translating Priorities into Actionable R\&I Guidance}}
+\subsection{The Anatomy of a Roadmap Priorities: A 7-Dimensional Analysis Template}
 To ensure the roadmap is actionable, realistic, and aligned with European strategic autonomy, every priority is analyzed holistically through a strict 7-point structural template:
 
 \begin{enumerate}
@@ -353,13 +250,45 @@ To ensure the roadmap is actionable, realistic, and aligned with European strate
     \end{itemize}
 \end{enumerate}
 
-\section{Progression Matrix: Sequence of Events (X-Axis)}
+\subsection{hase Transition Mechanism - Progression Matrix: Sequence of Events (X-Axis)}
+
+The roadmap is structured across multiple time phases (e.g., short-term, mid-term, long-term). Each phase represents a column in the prioritization matrix.
+
+Transitions between phases are governed by the evolution of capabilities and priorities across these columns.
+
 Instead of a strictly chronological timeline, the roadmap maps the sequence of critical events required to unlock maturity. This ensures that foundational capabilities are built before advanced autonomous systems.
 
 \begin{itemize}
     \item \textbf{Phase 1: Foundation \& Compliance (Immediate Implementation):} Focuses on state-of-practice deployments, bridging immediate capability gaps, and addressing urgent regulatory obligations (NIS2, CRA).
     \item \textbf{Phase 2: Federation \& Standardization (Scaling \& Harmonization):} Focuses on deploying emerging technologies, establishing harmonized governance frameworks, and managing critical transition periods.
     \item \textbf{Phase 3: Autonomy \& Leadership (Sovereign Innovation):} Focuses on highly speculative but structured foresight, including defense against quantum-capable adversaries and the achievement of fully sovereign, autonomous cloud-edge ecosystems.
+\end{itemize}
+
+
+
+For each phase:
+
+\begin{itemize}
+    \item Input: Set of prioritized capabilities from the previous phase
+    \item Processing: Application of the 4-dimensional filtering logic
+    \item Output: Updated set of priorities for the next phase
+\end{itemize}
+
+A transition occurs when:
+
+\begin{itemize}
+    \item A capability increases in maturity or feasibility
+    \item Dependencies are resolved
+    \item Regulatory pressure increases
+    \item Strategic importance shifts
+\end{itemize}
+
+Each transition produces a \textbf{phase summary}, capturing:
+
+\begin{itemize}
+    \item Newly introduced priorities
+    \item Evolved priorities
+    \item Deferred or dropped priorities
 \end{itemize}
 
 \subsection*{Matrix Cell Content Definition (Measuring Progression)}
@@ -372,8 +301,30 @@ Rather than relying on subjective Technology Readiness Levels (TRL) or Manufactu
     \item \textbf{Critical Enabler:} The single most critical regulation, standard, or European R\&I breakthrough unlocking the transition to the next phase.
 \end{itemize}
 
+\subsection{Filtering and transition from Priorities to executive summary??}
 
-\section{The Core Capability Dimensions (Architectural Framework)}
+
+\subsection{Executive Summary as Aggregated Output}
+
+The executive summary represents the final synthesis of the methodology. It is not an independent narrative, but a structured aggregation of:
+
+\begin{itemize}
+    \item High-priority capabilities (from filtering)
+    \item Cross-phase evolution trends (from transitions)
+    \item Strategic gaps and investment needs
+\end{itemize}
+
+It provides:
+
+\begin{itemize}
+    \item A consolidated view of critical priorities
+    \item Recommendations for R\&I funding and policy alignment
+    \item Identification of strategic dependencies and risks
+\end{itemize}
+
+This ensures full traceability from raw capabilities to strategic recommendations.
+
+\section{Capabilities (Architectural Framework)}
 
 \begin{figure}[!ht]
 		\centering
@@ -1370,11 +1321,20 @@ By the end of Phase~3, Europe should achieve:
 % =========================================================================
 \appendix
 \section{Master Prompt for Generating Capability Profiles}
+This prompt needs to have a dual use. It needs to populate the sections for an academic paper. But it also needs to evaluate the actual content of the capability profiles, priorities, progression matrices and executive summary. The content generated by this prompt will be used as the basis for the final paper, so it must be rigorous, comprehensive, and aligned with the strategic goals outlined in the roadmap. The audience of the paper should be for the IEEE Access journal, so the content must meet the standards of academic rigor and clarity expected in that publication.
 
-\subsection*{Context for Content Generation}
-You are an expert EU Cybersecurity Policy Strategist and Technical Architect. Your task is to populate capability profiles for the European Cloud-Edge-IoT Cybersecurity Roadmap using the structured framework defined in this document. Each capability profile must be rigorously aligned with European strategic autonomy goals, regulatory requirements, and the specific needs of the distributed computing continuum.
+In specific.
 
-\subsection*{Input Requirements}
+Audience: IEEE Access journal and You are an expert EU Cybersecurity Policy Strategist, security architect, cyber security expert, and scholar. Your task is to critically evaluate and enhance the content of the capability profiles, priorities, progression matrices, and executive summary for the European Cloud-Edge-IoT Cybersecurity Roadmap. This includes:
+\begin{itemize}
+    \item review the material for its accuracy, completeness, and alignment with European strategic autonomy goals, and academic rigor
+    \item identify any gaps, inconsistencies, or areas needing further elaboration
+    \item suggest improvements to enhance the clarity, coherence, and impact of the capability profiles, priorities, progression matrices and executive summary
+    \item populate capability profiles for the European Cloud-Edge-IoT Cybersecurity Roadmap using the structured framework defined in this document. Each capability profile must be rigorously aligned with European strategic autonomy goals, regulatory requirements, and the specific needs of the distributed computing continuum.
+    \item ensure that all content is rigorously grounded in the current European cybersecurity landscape, including relevant regulations (NIS2, CRA, AI Act), strategic initiatives (ECCC, EU Chips Act), and technological trends (PQC, confidential computing, AI-driven security), together with publication references to support all claims and recommendations.
+\end{itemize}
+
+\subsection*{Input Requirements for Capability Profile Generation}
 Before generating a capability profile, ensure you have:
 \begin{itemize}
     \item \textbf{Capability Name:} Clear, concise identifier (e.g., ``Zero-Trust Network Architecture for Edge'' )
@@ -1383,8 +1343,8 @@ Before generating a capability profile, ensure you have:
     \item \textbf{Contextual Scope:} Is this capability specific to HPC, Cloud, Edge, or Devices? Or does it span multiple environments?
 \end{itemize}
 
-\subsection*{Generation Template: 7-Dimensional Analysis}
-For each capability, generate a complete analysis following this exact structure:
+\subsection*{Generation Template: 7-Dimensional Analysis for Priorities}
+For each capability, generate a complete analysis for the priorities following this exact structure:
 
 \subsubsection*{Dimension 1: Baseline \& Target Objective}
 \begin{itemize}
