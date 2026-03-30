@@ -4,7 +4,7 @@
 \documentclass{ieeeaccess}
 }{
 \ieeeaccessclassfalse
-\documentclass[10pt,twocolumn]{article}
+\documentclass[11pt]{article}
 }
 
 \ifieeeaccessclass\else
@@ -20,9 +20,12 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usetikzlibrary{positioning,shapes.geometric}
+\usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{booktabs}
+
+\geometry{margin=1in}
 
 \history{Received XX Month XXXX, revised XX Month XXXX, accepted XX Month XXXX.}
 \doi{10.1109/ACCESS.XXXX.DOI}
@@ -298,7 +301,7 @@ Not all priorities require equal depth across all seven dimensions. Therefore:
 
 This ensures proportional analysis effort while maintaining methodological consistency.
 
-\begin{table*}[!t]
+\begin{table}[h!]
 \centering
 \caption{Priority profiling dimensions and applicability}
 \begin{tabular}{p{5cm} p{3cm} p{6cm}}
@@ -314,7 +317,7 @@ Failsafe Mechanisms \& Resilience & Adaptive & Ensure resilience under failure \
 Transversal Meta-Layer & Adaptive & Align with EU policy and societal goals \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \begin{enumerate}
     \item \textbf{Baseline \& Target Objective (The Trajectory) - Q: Where do we stand today, and what exactly does success look like?}\\
@@ -374,7 +377,7 @@ Transversal Meta-Layer & Adaptive & Align with EU policy and societal goals \\
     \end{itemize}
 \end{enumerate}
 
-\begin{table*}[!t]
+\begin{table}[h!]
 \centering
 \caption{Mapping from 7-Dimensional Profile to Progression Matrix}
 \begin{tabular}{p{5cm} p{6cm}}
@@ -388,7 +391,7 @@ Disruptors \& Risks & Phase risk considerations \\
 Failsafe Mechanisms & Resilience assumptions in synthesis \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 \subsection{Phase Transition Mechanism - Progression Matrix: Sequence of Events (X-Axis)}
 
@@ -501,7 +504,7 @@ This ensures full traceability from raw capabilities to strategic recommendation
 
 \section{Capabilities (Architectural Framework)}
 
-\begin{figure*}[!t]
+\begin{figure}[!ht]
 		\centering
 		\resizebox{\textwidth}{!}{%
 		\begin{tikzpicture}[every node/.style={font=\small}]
@@ -565,7 +568,7 @@ This ensures full traceability from raw capabilities to strategic recommendation
 		}
 		\caption{Security Framework with separated security verticals in dedicated boxes.}
 		\label{fig:security_framework_verticals_boxes}
-    \end{figure*}
+	\end{figure}
 
 
 As it is illustrated in Figure~\ref{fig:security_framework_verticals_boxes}, the roadmap is structured across a cohesive architectural framework that spans four continuum environments (HPC, Cloud, Edge, Devices). The capabilities are organized into Six Security Layers (The Vertical Stack) and Four Transversal Cross-Layers (The Horizontal Enablers).
@@ -735,9 +738,7 @@ Supply chain bottlenecks for EU-based fabrication; breakthroughs in physical sid
 \noindent\textbf{Progression Matrix: Hardware Roots of Trust \& EUCC 'High'}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -747,7 +748,6 @@ Supply chain bottlenecks for EU-based fabrication; breakthroughs in physical sid
 \textbf{Critical Enabler} & \textbf{Cyber Resilience Act (CRA)} enforcement & \textbf{EUCC 'High'} certification of EU-based secure elements & Maturity of \textbf{EU Chips Act} sovereign fabrication lines \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 2: Post-Quantum Cryptographic (PQC) Agility for Edge/IoT}
@@ -782,9 +782,7 @@ Deployment of hybrid cryptographic schemes (classical + PQC) during the transiti
 \noindent\textbf{Progression Matrix: PQC Agility for Edge/IoT}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -794,7 +792,6 @@ Deployment of hybrid cryptographic schemes (classical + PQC) during the transiti
 \textbf{Critical Enabler} & \textbf{ENISA PQC Guidelines} and NIST standardization completion & \textbf{NIST/ETSI} algorithm finalization and EU-wide deployment standards & PQC-native \textbf{RISC-V silicon} and ubiquitous crypto-agility frameworks \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 3: Lightweight Cryptography \& Physical-Layer Security (PhySec) for the Extreme Edge}
@@ -830,9 +827,7 @@ Dynamic fallback to localized, non-routed trust boundaries leveraging purely phy
 \noindent\textbf{Progression Matrix: Lightweight Cryptography \& PhySec for the Extreme Edge}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -842,7 +837,6 @@ Dynamic fallback to localized, non-routed trust boundaries leveraging purely phy
 \textbf{Critical Enabler} & NIST Lightweight PQC Standards \& Context-Aware IoT Platforms & Hardware-Software Co-Design for Neuromorphic/PIM AI & ``Zero-Energy'' Air Interfaces \& Ubiquitous ISAC (Integrated Sensing and Communication) \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 4: Security Interoperability via Simpl Middleware}
@@ -878,9 +872,7 @@ Capability to autonomously ``unfederate'' or isolate nodes that fail to meet the
 \noindent\textbf{Progression Matrix: Security Interoperability via Simpl Middleware}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -890,7 +882,6 @@ Capability to autonomously ``unfederate'' or isolate nodes that fail to meet the
 \textbf{Critical Enabler} & \textbf{Simpl-Open} official launch and initial MIM definitions & Security \textbf{MIMs} adoption as CEN/CENELEC standards & \textbf{EU Cloud Rulebook} maturity and Data Act full enforcement \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 5: Supply Chain Verification and Secured Infrastructure}
@@ -926,9 +917,7 @@ Graceful isolation of unverified or high-risk components into quarantined networ
 \noindent\textbf{Progression Matrix: Supply Chain Verification and Secured Infrastructure}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -938,7 +927,6 @@ Graceful isolation of unverified or high-risk components into quarantined networ
 \textbf{Critical Enabler} & \textbf{CRA} supply chain requirements enforcement; SME engagement programme & Dynamic Runtime SBOMs and \textbf{Digital Product Passports} & Zero-Knowledge Proofs (ZKPs) \& Pan-European Threat Intel sharing \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 6: Cognitive SecOps (LLMSecOps) \& Automated Threat Intelligence}
@@ -974,9 +962,7 @@ AI hallucination causing false containment actions disrupting critical services;
 \noindent\textbf{Progression Matrix: Cognitive SecOps (LLMSecOps) \& Automated Threat Intelligence}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -986,7 +972,6 @@ AI hallucination causing false containment actions disrupting critical services;
 \textbf{Critical Enabler} & \textbf{EU AI Act} enforcement \& EuroHPC AI Factories & Standardized AI Interconnect APIs & Self-Evolving AI Swarm Protocols \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 7: Pan-European NaaS Federation (``Schengen for Cloud-Edge/AI'')}
@@ -1022,9 +1007,7 @@ Graceful degradation protocols redirect workloads to national infrastructure if 
 \noindent\textbf{Progression Matrix: Pan-European NaaS Federation}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -1034,7 +1017,6 @@ Graceful degradation protocols redirect workloads to national infrastructure if 
 \textbf{Critical Enabler} & \textbf{IPCEI-CIS} Initial Deployments & Inter-Operator East-West Interfaces & ``Schengen for Cloud'' Legal Framework \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 8: Confidential Computing \& Privacy-Preserving AI Pipelines}
@@ -1070,9 +1052,7 @@ Limit processing to local, on-device federated learning nodes (never sharing raw
 \noindent\textbf{Progression Matrix: Confidential Computing \& Privacy-Preserving AI Pipelines}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -1082,7 +1062,6 @@ Limit processing to local, on-device federated learning nodes (never sharing raw
 \textbf{Critical Enabler} & \textbf{EUCS} Certification Rollout & \textbf{RISC-V} Hardware Scaling & Fully Homomorphic Encryption (FHE) Maturation \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 9: Resilient-by-Design Infrastructure \& Autonomous ``Island Mode''}
@@ -1118,9 +1097,7 @@ Zero-energy backup layers or localized Low-Power WAN (LPWAN) micro-slices mainta
 \noindent\textbf{Progression Matrix: Resilient-by-Design Infrastructure \& Autonomous ``Island Mode''}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -1130,7 +1107,6 @@ Zero-energy backup layers or localized Low-Power WAN (LPWAN) micro-slices mainta
 \textbf{Critical Enabler} & \textbf{NIS2 \& DORA} Enforcement & 3GPP/ETSI Standardized Fallback APIs & ``Cognitive Twin'' E2E Orchestration \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % -----------------------------------------------------------------------
 \subsection*{Priority 10: Proactive Cyber Threat Management \& Defense against Advanced Persistent Threats (APTs)}
@@ -1166,9 +1142,7 @@ Autonomous, real-time micro-segmentation (Zero-Trust) to instantly quarantine co
 \noindent\textbf{Progression Matrix: Proactive Cyber Threat Management \& Defense against APTs}
 \vspace{0.2cm}
 
-\begin{table*}[!t]
-\centering
-\resizebox{\textwidth}{!}{%
+\noindent\resizebox{\textwidth}{!}{%
 \begin{tabular}{|p{3cm}|p{4.5cm}|p{4.5cm}|p{4.5cm}|}
 \hline
 \textbf{Metric} & \textbf{Phase 1: Foundation \& Compliance (0-5 Yrs)} & \textbf{Phase 2: Federation \& Standardization (5-10 Yrs)} & \textbf{Phase 3: Autonomy \& Leadership (10-15 Yrs)} \\ \hline
@@ -1178,7 +1152,6 @@ Autonomous, real-time micro-segmentation (Zero-Trust) to instantly quarantine co
 \textbf{Critical Enabler} & Federated SIEMs \& Standardized CTI Sharing Protocols & LLMSecOps \& UEBA (User and Entity Behavior Analytics) & Adaptive Edge-Cloud AI Swarms \& Zero-Touch Automation \\ \hline
 \end{tabular}%
 }
-\end{table*}
 
 % =========================================================================
 % SECTION: Executive Summary & Strategic Recommendations
@@ -1518,7 +1491,6 @@ By the end of Phase~3, Europe should achieve:
 
 
 
-\iffalse
 \newpage
 % =========================================================================
 % CHAPTER 2: PROMPT
@@ -2149,7 +2121,7 @@ To identify the ``Critical Path''  for Phase 1 (0-5 Yrs), we apply:
 \textbf{Baseline/Target:} Move from foreign TPM dependency to sovereign RISC-V enclaves with EUCC 'High' certification. \\
 \textbf{Drivers:} Physical tampering at edge; CRA mandates. \textbf{Catalysts:} EU Chips Act. \textbf{Failsafe:} Distributed attestation.
 
-\begin{table*}[!t]
+\begin{table}[!ht]
     \centering\footnotesize
     \begin{tabular}{p{2.5cm} p{3.5cm} p{3.5cm} p{3.5cm}}
     \toprule
@@ -2159,13 +2131,13 @@ To identify the ``Critical Path''  for Phase 1 (0-5 Yrs), we apply:
     \textbf{State} \& RISC-V pilots begin. \& EU elements in critical infra. \& Sovereign trust by default. \\ 
     \textbf{Enabler} \& CRA Enforcement \& EUCC 'High' Cert \& EU Chips Act production \\ \bottomrule
     \end{tabular}
-\end{table*}
+\end{table}
 
 \subsubsection{Priority 2: PQC Agility for Edge/IoT}
 \textbf{Baseline/Target:} Transition to ``Quantum-Native''  continuum. \\
 \textbf{Drivers:} Q-Day threat. \textbf{Failsafe:} Hybrid (Classical + PQC) signatures.
 
-\begin{table*}[!t]
+\begin{table}[!ht]
     \centering\footnotesize
     \begin{tabular}{p{2.5cm} p{3.5cm} p{3.5cm} p{3.5cm}}
     \toprule
@@ -2175,13 +2147,13 @@ To identify the ``Critical Path''  for Phase 1 (0-5 Yrs), we apply:
     \textbf{State} \& Algorithm selection. \& Hybrid schemes in IIoT. \& Full quantum-resilience. \\ 
     \textbf{Enabler} \& ENISA PQC Guidelines \& NIST/ETSI Finalization \& PQC-native RISC-V silicon \\ \bottomrule
     \end{tabular}
-\end{table*}
+\end{table}
 
 \subsubsection{Priority 3: Security Interoperability via Simpl Middleware}
 \textbf{Baseline/Target:} Proprietary silos to unified European ``Trust Fabric.''  \\
 \textbf{Drivers:} Data Act mandates. \textbf{Catalysts:} Digital Europe Programme; Simpl stack.
 
-\begin{table*}[!t]
+\begin{table}[!ht]
     \centering\footnotesize
     \begin{tabular}{p{2.5cm} p{3.5cm} p{3.5cm} p{3.5cm}}
     \toprule
@@ -2191,7 +2163,7 @@ To identify the ``Critical Path''  for Phase 1 (0-5 Yrs), we apply:
     \textbf{State} \& Initial Simpl pilots. \& Policy translation via MIMs. \& Provider-agnostic fabric. \\ 
     \textbf{Enabler} \& Simpl-Open Launch \& Security MIMs adoption \& EU Cloud Rulebook \\ \bottomrule
     \end{tabular}
-\end{table*}
+\end{table}
 
 \subsection{References}
 \begin{itemize}[leftmargin=1.5cm, labelsep=0.2cm]
@@ -2203,20 +2175,6 @@ To identify the ``Critical Path''  for Phase 1 (0-5 Yrs), we apply:
 \end{itemize}
 % --- END OF SECTION X ---
 % \chapter{Full article outcome}
-
-\fi
-
-\section{Discussion}
-
-The proposed methodology bridges a gap between architecture-centric security analysis and policy-oriented R\&I prioritization. Its main strength lies in explicit traceability from candidate capability to executive recommendation, using structured filters, hybrid profiling dimensions, and phase-based progression logic.
-
-From an IEEE Access perspective, the framework can be interpreted not only as a strategic roadmap artifact but also as a reusable methodological contribution for evaluating sovereign cybersecurity capabilities in heterogeneous computing continua.
-
-\section{Conclusion}
-
-This paper presented a structured and traceable methodology for cybersecurity prioritization in the Cloud--Edge--IoT continuum. By integrating architectural modeling, multi-dimensional prioritization, and phased progression analysis, the framework enables evidence-based decision-making aligned with European digital sovereignty objectives.
-
-Future work includes quantitative validation, integration with real deployment data, and extension toward automated policy-driven orchestration.
 
 % =========================================================================
 % REFERENCES

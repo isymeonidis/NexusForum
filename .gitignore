@@ -42,14 +42,3 @@
 *.tmp
 *.xdy
 _minted-*/
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.idx
-*.ilg
-*.ind
-*.lof
-*.lot
-*.nav   
