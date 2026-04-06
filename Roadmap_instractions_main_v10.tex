@@ -23,6 +23,17 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{booktabs}
+\usepackage{longtable}
+
+        \usepackage{longtable}
+        \usepackage{pdflscape}
+        \usepackage{geometry}
+
+  \usepackage{colortbl}   % for \rowcolor and \cellcolor
+  \usepackage{xcolor}     % for \definecolor and color names
+  \usepackage{array}      % for extended column formatting
+  \usepackage{booktabs}   % already present in v6
+  \usepackage{multirow}   % for \multirow in phase label column
 
 \history{Received XX Month XXXX, revised XX Month XXXX, accepted XX Month XXXX.}
 \doi{10.1109/ACCESS.XXXX.DOI}
@@ -153,8 +164,11 @@ Recent initiatives, including the European Union Cybersecurity Strategy, ENISA r
 This work differentiates itself by proposing a structured, end-to-end methodological pipeline that connects architectural capabilities with policy-driven prioritization and phased implementation strategies.
 
 \newpage
+\include{Methodology}
 
-\section{Methodology for Cybersecurity Prioritization in the Computing Continuum}
+\pagebreak
+
+\section{Methodology for Cybersecurity Prioritization in the Computing Continuum - To Process}
 \label{sec:methodology}
 
 \begin{figure*}[!t]
@@ -931,6 +945,7 @@ This ensures full traceability from raw capabilities to strategic recommendation
 
 \newpage
 \section{Capabilities (Architectural Framework)}
+\label{sec:arch}
 
 
 As it is illustrated in Figure~\ref{fig:security_framework_verticals_boxes}, the roadmap is structured across a cohesive architectural framework that spans four continuum environments (HPC, Cloud, Edge, Devices). The capabilities are organized into Six Security Layers (The Vertical Stack) and Four Transversal Cross-Layers (The Horizontal Enablers).
@@ -1052,6 +1067,7 @@ These four cross-layers represent continuous, automated processes and governance
 \newpage
 
 \section{Priorities}
+\label{sec:priorities}
 \subsection{Executive Priorities: The Critical Path (Phase 1)}
 Applying the 4-Filter Framework, the following areas are identified as immediate strategic priorities for the 2025-2030 funding cycle:
 \begin{itemize}
@@ -1566,6 +1582,7 @@ Autonomous, real-time micro-segmentation (Zero-Trust) to instantly quarantine co
 
 \section{Executive Summary \& Strategic Recommendations}
 \label{sec:exec_summary}
+\label{sec:executive_summary}
 
 % -----------------------------------------------------------------
 \subsection*{Executive Summary}

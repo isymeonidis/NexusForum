@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Capability Transition Framework</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;background:#fff;color:#1a1a1a;padding:2rem}
+h1{font-size:15px;font-weight:600;margin-bottom:4px;color:#1a1a1a}
+.subtitle{font-size:11.5px;color:#666;margin-bottom:1.5rem}
+.wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:1000px;font-size:11px}
+th,td{border:0.5px solid #ccc;vertical-align:top}
+.ch{background:#f5f5f3;padding:9px 11px;font-size:11.5px;font-weight:600;color:#1a1a1a;text-align:center}
+.ch .sub{font-size:10px;font-weight:400;color:#666;margin-top:2px}
+.rl{width:130px;min-width:130px;padding:9px 11px;background:#f5f5f3}
+.rt{font-size:12px;font-weight:600;color:#1a1a1a}
+.ry{font-size:10px;color:#666;margin-top:2px}
+.ri{font-size:9.5px;font-style:italic;color:#666;margin-top:3px}
+.ssl{display:inline-block;font-size:9px;font-weight:600;padding:2px 6px;border-radius:3px;margin-top:5px;line-height:1.4}
+.s-red{background:#FCEBEB;color:#A32D2D}
+.s-amb{background:#FAEEDA;color:#854F0B}
+.s-blu{background:#E6F1FB;color:#185FA5}
+.s-tel{background:#E1F5EE;color:#0F6E56}
+.s-pur{background:#EEEDFE;color:#3C3489}
+.cell{padding:9px 11px}
+.ch2{font-size:11px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
+.cb{font-size:10.5px;color:#444;line-height:1.55}
+.kpi{font-size:9.5px;font-style:italic;color:#666;margin-top:5px;padding-top:4px;border-top:0.5px solid #ddd}
+.gate td{background:#f0f0ee}
+.gate-cell{padding:6px 11px;font-size:10px;font-style:italic;color:#555;line-height:1.5}
+.gate-cell strong{font-weight:600;color:#1a1a1a;font-style:normal}
+.gate-label{width:130px;min-width:130px;padding:5px 11px;background:#f0f0ee}
+.gate-label-text{font-size:9.5px;font-weight:600;color:#666}
+.r0 td.cell{background:#fdf3ed}
+.r1 td.cell{background:#edf5fd}
+.r2 td.cell{background:#edfaf4}
+.r3 td.cell{background:#f5f4fe}
+.r4 td.cell{background:#eeeefd}
+.corner{background:#f5f5f3}
+.caption{font-size:10px;color:#666;margin-top:10px;font-style:italic}
+</style>
+</head>
+<body>
+<h1>Master Capability Transition Framework</h1>
+<div class="subtitle">NexusForum / EuCloudEdgeIoT · European Cloud-Edge-IoT Cybersecurity Roadmap · Phase States, Gate Conditions, and SSL Bands across Four Analytical Dimensions</div>
+<div class="wrap">
+<table>
+<thead>
+<tr>
+  <th class="corner" style="width:130px"></th>
+  <th class="ch" style="width:21.5%">R&amp;I Maturity<div class="sub">TRL stage · research instruments · innovation outputs</div></th>
+  <th class="ch" style="width:21.5%">Policy, Regulatory &amp; Standards<div class="sub">enforcement · certification · standardisation bodies</div></th>
+  <th class="ch" style="width:21.5%">Operational Deployment &amp; Adoption<div class="sub">pilots · integrations · scale · actor categories</div></th>
+  <th class="ch" style="width:21.5%">Market Uptake &amp; Strategic Impact<div class="sub">market share · SME access · competitiveness · sovereignty</div></th>
+</tr>
+</thead>
+<tbody>
+
+<!-- CURRENT STATUS -->
+<tr class="r0">
+  <td class="rl">
+    <div class="rt">I. Current Status</div>
+    <div class="ry">2025 baseline</div>
+    <span class="ssl s-red">SSL: High Foreign Dependency</span>
+  </td>
+  <td class="cell">
+    <div class="ch2">Fragmented, academically dominated</div>
+    <div class="cb">EU R&amp;I at TRL 3–5 for sovereign alternatives. Heavy dependency on NIST PQC process, Intel TDX/AMD SEV-SNP TEE architectures, US/Chinese foundation models for SecOps. No coordinated EU-wide applied R&amp;I programme for sovereign secure silicon or edge-native confidential computing.</div>
+    <div class="kpi">Baseline: sovereign secure silicon TRL ≤ 4; no EU-manufactured EUCC 'High' secure element in production.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Regulatory stack adopted, not yet enforced</div>
+    <div class="cb">NIS2 enforcement initiated (Oct 2024); CRA implementing technical acts pending; AI Act high-risk provisions not yet operational; EUCS non-binding; ENISA PQC guidance absent; NIS2 transposition fragmented across Member States.</div>
+    <div class="kpi">Baseline: no binding EUCS; no published EU PQC migration guidance; CRA technical acts not yet in force.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">No continental sovereign security infrastructure</div>
+    <div class="cb">TEE deployment limited to foreign hyperscaler implementations; PQC confined to experimental pilots; Simpl pre-launch; federated SOC at bilateral PoC stage; Island Mode not standardised; supply chain attestation manual in Open RAN ecosystems.</div>
+    <div class="kpi">Baseline: 0 Common Data Spaces with Simpl security MIMs; bilateral SOC PoCs only.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Near-zero EU share in critical security components</div>
+    <div class="cb">EU domestic production of critical secure silicon near 0%; US/Asian hyperscalers dominate cloud security tooling; no EU-sovereign LLM for SecOps; SME CRA/NIS2 compliance costs unaddressed; RISC-V security products absent from procurement frameworks.</div>
+    <div class="kpi">Baseline: EU secure silicon critical infrastructure share &lt; 5%; no EU-sovereign LLM for SecOps in deployment.</div>
+  </td>
+</tr>
+
+<!-- GATE I -> II -->
+<tr class="gate">
+  <td class="gate-label"><div class="gate-label-text">Gate I &#8594; II</div></td>
+  <td class="gate-cell" colspan="4"><strong>R&amp;I:</strong> Horizon Europe calls for sovereign secure silicon and lightweight PQC issued; ECCC work programmes activated. &nbsp;|&nbsp; <strong>Policy:</strong> CRA implementing technical acts in force; NIS2 Art. 21 national guidance published. &nbsp;|&nbsp; <strong>Operational:</strong> At least one national pilot per priority domain initiated under regulatory pull. &nbsp;|&nbsp; <strong>Market:</strong> ECCC-co-funded SME compliance support scheme operational; IPCEI-CIS initial deployments contracted.</td>
+</tr>
+
+<!-- PHASE 1 -->
+<tr class="r1">
+  <td class="rl">
+    <div class="rt">II. Phase 1</div>
+    <div class="ry">2025–2030</div>
+    <div class="ri">Pilot Validation &amp; Applied Maturity</div>
+    <span class="ssl s-amb">SSL: High &#8594; Emerging EU</span>
+  </td>
+  <td class="cell">
+    <div class="ch2">Applied R&amp;D (P3,P6,P8,P9) · Fragmented Piloting (P1,P2,P4,P5,P7,P10)</div>
+    <div class="cb">Horizon Europe calls targeting sovereign secure silicon, lightweight PQC for 8/16-bit MCUs, Simpl security MIMs, LLMSecOps. RISC-V secure element prototypes targeting TRL 6–7. RF fingerprinting and CSI-based authentication validated on EU-manufactured constrained hardware. ECCC-funded crypto-agility middleware research initiated per FIPS 203/204/205.</div>
+    <div class="kpi">KPI: RISC-V prototypes at TRL 6–7; lightweight PQC benchmarked on ARM Cortex-M4 class hardware.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Regulatory activation creates compliance market pull</div>
+    <div class="cb">CRA hardware security implementing rules published; NIS2 Art. 21 guidance issued; ENISA PQC sector-specific migration guidelines by 2026, mapping FIPS 203/204/205 to NIS2 obligations; EU AI Act Art. 9 compliance frameworks operational; EUCS certification rollout mandating TEE workload protection; Simpl-Open launched with initial security MIM definitions; SBOM templates mandated in EU-funded deployments from 2026.</div>
+    <div class="kpi">KPI: ENISA PQC guidelines published and adopted by 5+ Member States by 2026.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Pilot deployments under regulatory pull across priority domains</div>
+    <div class="cb">3–5 RISC-V secure element pilots under Horizon Europe; LLM-assisted SOC pilots in 5+ national cybersecurity centres; CAMARA API profiles in 3+ cross-border 5G corridor pilots by 2027; federated SIEMs with MITRE ATT&amp;CK integration; Simpl security pilots in 2+ Common Data Spaces (Manufacturing, Health); Island Mode fallback tested in NIS2/DORA-compliant edge architectures.</div>
+    <div class="kpi">KPI: 2+ Common Data Spaces piloting Simpl security MIMs; federated SIEMs active in 3+ Member States.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Sovereignty trajectory established; SME access initiated</div>
+    <div class="cb">SME compliance support scheme co-funded by ECCC and national agencies providing subsidised tooling and certification assistance; IPCEI-CIS initial deployments activating bilateral operator interconnection; EU secure silicon below 10% but industrial investment trajectory established; EUCC 'High' referenced in public procurement frameworks.</div>
+    <div class="kpi">KPI: EU secure silicon &lt; 10% but investment trajectory established; SME support scheme operational in 15+ Member States.</div>
+  </td>
+</tr>
+
+<!-- GATE II -> III -->
+<tr class="gate">
+  <td class="gate-label"><div class="gate-label-text">Gate II &#8594; III</div></td>
+  <td class="gate-cell" colspan="4"><strong>R&amp;I:</strong> RISC-V prototypes validated at TRL 6–7; lightweight PQC benchmarked on EU-manufactured constrained hardware. &nbsp;|&nbsp; <strong>Policy:</strong> ENISA PQC guidelines published; EUCS rollout active; Simpl-Open launched with MIM definitions. &nbsp;|&nbsp; <strong>Operational:</strong> Federated SIEM pilots with standardised CTI sharing active in 3+ Member States; 2+ Common Data Space Simpl pilots validated. &nbsp;|&nbsp; <strong>Market:</strong> CRA enforcement generating measurable industrial investment in sovereign hardware alternatives.</td>
+</tr>
+
+<!-- PHASE 2 -->
+<tr class="r2">
+  <td class="rl">
+    <div class="rt">III. Phase 2</div>
+    <div class="ry">2030–2035</div>
+    <div class="ri">Industrial Scaling, Standardisation &amp; Cross-Sector Deployment</div>
+    <span class="ssl s-blu">SSL: Emerging EU &#8594; Full Autonomy</span>
+  </td>
+  <td class="cell">
+    <div class="ch2">Applied &amp; industrial R&amp;D concurrent with standardisation</div>
+    <div class="cb">Phase 2 is not purely standardisation. Hardware-software co-design for neuromorphic/PIM architectures (P3); sovereign EU LLM/SLM for SecOps at AI Act high-risk compliance (P6); RISC-V TEE designs entering volume production via Chips JU by 2032 (P1, P8); FHE performance optimisation programmes initiated (P8); ZKP-based supply chain attestation R&amp;D (P5); Cognitive Twin prototype development (P9).</div>
+    <div class="kpi">KPI: At least one RISC-V TEE design in volume production by 2032; sovereign EU LLM/SLM certified at AI Act high-risk level.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Standardisation milestones convert pilots into binding frameworks</div>
+    <div class="cb">ETSI TC CYBER hybrid PQC profiles published by 2031 (ML-KEM/FIPS 203; ML-DSA/FIPS 204); CEN/CENELEC JTC 13 Simpl security MIMs ratified by 2032; 3GPP SA3/ETSI TC ITS Island Mode fallback APIs standardised by 2031; Runtime SBOM mandate for critical infrastructure by 2031; classical-only cryptography deprecated for high-security EU contexts by 2033; Data Visa legal instruments piloted.</div>
+    <div class="kpi">KPI: CEN/CENELEC Simpl MIMs ratified; ETSI hybrid PQC profiles published; classical-only deprecated in sovereign contexts by 2033.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Continental-scale federated deployment across regulated sectors</div>
+    <div class="cb">First EU RISC-V secure element at EUCC 'High' by 2031–2032; hybrid PQC across Industrial IoT, energy grids, financial systems; Pan-European CTI platform operational as LLMSecOps engine by 2032; UEBA baselines harmonised using STIX/TAXII and MITRE ATT&amp;CK; multi-party privacy-preserving AI pipelines demonstrated in health and finance by 2033; AI-driven graceful degradation standardised in O-RAN AI/ML framework.</div>
+    <div class="kpi">KPI: 70%+ Common Data Spaces on Simpl-based security; APT mean dwell time reduced by 70% relative to Phase 1 baseline.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">EU industrial sovereignty consolidating; 30–40% critical component share</div>
+    <div class="cb">EU Chips Act fabrication producing RISC-V TEE designs in volume; EU secure silicon at 30–40% market share in critical infrastructure; sovereign European edge LLM/SLM in operational SecOps deployment; IPCEI-CIS outcomes in binding inter-operator SLA frameworks with security audit requirements; Data Visa pilots in Nordic–Baltic and BeNeLux corridors.</div>
+    <div class="kpi">KPI: EU secure silicon 30–40% critical infrastructure share; 70%+ Data Spaces on Simpl security interoperability.</div>
+  </td>
+</tr>
+
+<!-- GATE III -> IV -->
+<tr class="gate">
+  <td class="gate-label"><div class="gate-label-text">Gate III &#8594; IV</div></td>
+  <td class="gate-cell" colspan="4"><strong>R&amp;I:</strong> First EU RISC-V TEE design at EUCC 'High' and in volume production; sovereign EU edge LLM/SLM at AI Act high-risk compliance. &nbsp;|&nbsp; <strong>Policy:</strong> CEN/CENELEC Simpl security MIMs ratified; ETSI hybrid PQC profiles published; 3GPP Island Mode APIs standardised. &nbsp;|&nbsp; <strong>Operational:</strong> Pan-European CTI platform operational as LLMSecOps engine; EU secure silicon exceeding 30% critical infrastructure share. &nbsp;|&nbsp; <strong>Market:</strong> EU NaaS consortium offers commercially competitive in 2+ cross-border corridors.</td>
+</tr>
+
+<!-- PHASE 3 -->
+<tr class="r3">
+  <td class="rl">
+    <div class="rt">IV. Phase 3</div>
+    <div class="ry">2035–2040</div>
+    <div class="ri">Autonomous Leadership &amp; Frontier Innovation</div>
+    <span class="ssl s-tel">SSL: Full Sovereign Autonomy</span>
+  </td>
+  <td class="cell">
+    <div class="ch2">Frontier research defining global state of the art</div>
+    <div class="cb">FHE reaching operational edge latency thresholds; zero-energy air interface security with ambient RF harvesting; self-evolving AI swarm protocols for autonomous MTD; Cognitive Twin E2E orchestration; bio-inspired elasticity via ETSI ENI; battery-less node quantum-resistant authentication. EuroHPC hosts federated training infrastructure for self-improving sovereign security AI — preventing regression to non-EU foundation model dependency.</div>
+    <div class="kpi">KPI: FHE latency within 2× AES-GCM baseline for edge analytics; EuroHPC sovereign security AI model in operational deployment.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">EU transitions from standard-taker to global standard-setter</div>
+    <div class="cb">EU Cloud Rulebook binding with machine-readable compliance APIs by 2037–2038; EUCC 'High' as default procurement requirement for all new EU ICT products; PQC-by-default mandated by 2036; AI Act explainability requirements enforced for autonomous MTD decisions; "Schengen for Cloud" enacted; ETSI/CEN/CENELEC PQC standards promoted to ISO/ITU-T as global reference implementations.</div>
+    <div class="kpi">KPI: EU Cloud Rulebook binding by 2038; PQC-by-default mandate in force by 2036; Schengen for Cloud enacted.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Fully autonomous, continent-wide sovereign security operations</div>
+    <div class="cb">EU Chips Act sovereign fabrication meeting 80%+ European secure silicon demand by 2039; FHE operationalised for real-time edge analytics; end-to-end confidential continuum from battery-less IoT to HPC; Cognitive Twins autonomously coordinating E2E cyber-physical recovery; AI-driven MTD continuously shuffling network resources without human intervention; SMPC standardised for cross-border federated AI in regulated sectors.</div>
+    <div class="kpi">KPI: EU secure silicon self-sufficiency ≥ 80% by 2039; autonomous MTD and Cognitive Twin operational continent-wide.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Competitive parity achieved; standards exported globally</div>
+    <div class="cb">European operators achieving competitive scale parity with US/Chinese hyperscalers in cloud-edge NaaS; EU-designed security components dominant in European market; EUCS/EUCC adopted as global reference certification frameworks; "Schengen for Cloud" eliminating national fragmentation; EU cybersecurity technology export balance turning positive.</div>
+    <div class="kpi">KPI: EU NaaS competitive parity in 3+ cross-border corridors; EUCS/EUCC referenced in ISO/ITU-T standards.</div>
+  </td>
+</tr>
+
+<!-- GATE IV -> V -->
+<tr class="gate">
+  <td class="gate-label"><div class="gate-label-text">Gate IV &#8594; V</div></td>
+  <td class="gate-cell" colspan="4"><strong>R&amp;I:</strong> FHE at operational edge latency; zero-energy authentication validated on battery-less EU hardware; AI swarm protocols stable and AI Act-explainable. &nbsp;|&nbsp; <strong>Policy:</strong> EU Cloud Rulebook binding; Schengen for Cloud enacted; PQC-by-default mandate in force; EU standards submitted to ISO/ITU-T. &nbsp;|&nbsp; <strong>Operational:</strong> EU secure silicon self-sufficiency ≥ 80%; autonomous MTD and Cognitive Twin E2E orchestration operational continent-wide. &nbsp;|&nbsp; <strong>Market:</strong> EU NaaS competitive parity demonstrated; technology export balance positive.</td>
+</tr>
+
+<!-- STRATEGIC END-STATE -->
+<tr class="r4">
+  <td class="rl">
+    <div class="rt">V. Strategic End-State Objective</div>
+    <div class="ry">2040 Vision</div>
+    <span class="ssl s-pur">SSL: Full Autonomy + Export Leadership</span>
+  </td>
+  <td class="cell">
+    <div class="ch2">Europe leads the global security R&amp;I agenda</div>
+    <div class="cb">EU-originated outputs (PQC, TEE architectures, LLMSecOps, zero-energy security, Cognitive Twins) define the global research agenda. Aligned with SNS JU SRIA Phase 3 outcomes. ECCC Strategic Agenda fully operationalised; European industrial cybersecurity competitiveness self-sustaining without emergency public subsidy.</div>
+    <div class="kpi">Triple accountability: SNS JU SRIA ∩ ECCC Strategic Agenda ∩ EU regulatory stack.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Complete, coherent, machine-enforceable regulatory stack</div>
+    <div class="cb">NIS2, CRA, AI Act, DORA, Data Act, Cloud Rulebook, and Schengen for Cloud operating as a coherent system with machine-readable compliance APIs. EUCS and EUCC recognised globally as reference certification frameworks. ETSI and CEN/CENELEC leading ISO/ITU-T security standardisation tracks. Compliance automated, verifiable in real time.</div>
+    <div class="kpi">End-state: no compliance gap between deployed sovereign capability and legal obligation; no manual audit required.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Security-by-Design is the default operational baseline</div>
+    <div class="cb">Autonomous, self-healing, continent-wide security infrastructure requiring no manual intervention for routine threat response. Full confidential computing continuum from IoT sensor to HPC node. Zero critical operational dependencies on non-EU security infrastructure. Island Mode and graceful degradation are normative operating assumptions, not emergency exceptions.</div>
+    <div class="kpi">End-state: zero critical non-EU security dependencies; Security-by-Design is default, not option.</div>
+  </td>
+  <td class="cell">
+    <div class="ch2">Europe: sovereign, competitive, and globally influential</div>
+    <div class="cb">Europe is the global reference for sovereign, trustworthy, and sustainable computing security. EU-designed components dominant in European market and competitive globally. SME participation fully economically viable without discriminatory compliance costs. European security standards and AI-driven technologies exported as global reference implementations. Strategic autonomy sustained without emergency intervention.</div>
+    <div class="kpi">End-state: EU cybersecurity technology export balance positive; SME compliance cost non-discriminatory across all 27 Member States.</div>
+  </td>
+</tr>
+
+</tbody>
+</table>
+</div>
+<p class="caption">Table: Master Capability Transition Framework — NexusForum / EuCloudEdgeIoT European Cloud-Edge-IoT Cybersecurity Roadmap (2025–2040). Gate condition rows define the named, verifiable triggers for each phase transition. SSL bands track Strategic Sovereignty Level progression per phase. KPI anchors are derived from per-priority progression matrices and serve as consistency cross-references only.</p>
+</body>
+</html>

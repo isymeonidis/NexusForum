@@ -1,0 +1,600 @@
+% !TeX root = ./Roadmap_instractions_main_v10.tex
+% chktex-file 8 13 24 44
+
+% =========================================================================
+% REQUIRED PACKAGE ADDITIONS TO PREAMBLE (if not already present):
+%   \usepackage{colortbl}   % for \rowcolor and \cellcolor
+%   \usepackage{xcolor}     % for \definecolor and color names
+%   \usepackage{array}      % for extended column formatting
+%   \usepackage{booktabs}   % already present in v6
+%   \usepackage{multirow}   % for \multirow in phase label column
+% =========================================================================
+
+% =========================================================================
+% SECTION: Master Capability Transition Framework
+% Insert before Section 6 (Detailed Priority Profiles)
+% =========================================================================
+
+\section{Methodology Overview}
+
+\subsection{Master Capability Transition Framework - Transition Matrix}
+\label{sec:master_transition}
+
+
+\definecolor{gaterow}{gray}{0.91}
+\definecolor{currentrow}{RGB}{253,243,237}
+\definecolor{phase1row}{RGB}{237,245,253}
+\definecolor{phase2row}{RGB}{237,249,244}
+\definecolor{phase3row}{RGB}{245,244,254}
+\definecolor{endstaterow}{RGB}{238,237,254}
+\definecolor{sslred}{RGB}{251,235,235}
+\definecolor{sslamber}{RGB}{250,238,218}
+\definecolor{ssltrans}{RGB}{230,241,251}
+\definecolor{sslteal}{RGB}{225,245,238}
+\definecolor{sslpurple}{RGB}{238,237,254}
+
+The ten executive priorities identified through the 4-Filter Prioritization
+Framework in Section~\ref{sec:priorities} do not mature independently or at
+uniform rates. Different priorities enter Phase~1 at distinct Operational
+Deployment Phase (ODP) levels: Priorities~3, 6, 8, and~9 commence at the
+Applied R\&D stage because their enabling technologies are not deployable
+as of 2025--2026, whereas Priorities~1, 2, 4, 5, 7, and~10 commence at
+Fragmented Piloting under regulatory activation. This heterogeneity is a
+structural feature of the roadmap and must be preserved across all
+per-priority analyses; collapsing it to a single Phase~1 characterisation
+would constitute an overclaim of maturity for the less advanced priorities.
+
+To provide a coherent methodology for tracking capability progression across
+all ten priorities simultaneously, this section introduces a \textbf{Master
+Capability Transition Framework} structured as a five-row, four-column matrix.
+This framework is the primary analytical instrument of the roadmap and
+constitutes the reference architecture against which all per-priority
+progression matrices are instantiated. The matrix is not a summary of those
+per-priority matrices: it defines the \textit{transition logic} governing
+progression through the roadmap, including the explicit gate conditions that
+must be satisfied before any priority can advance from one phase to the next.
+
+\subsection*{Y-Axis: Phase States and Gate Conditions}
+
+The Y-axis defines five states of capability maturity. The first state
+(Current Status) establishes the 2025 baseline across all analytical
+dimensions. Three sequential phase states follow, corresponding to the
+roadmap's temporal structure: Phase~1 (2025--2030, Foundation and
+Compliance), Phase~2 (2030--2035, Industrial Scaling, Standardisation and
+Cross-Sector Deployment), and Phase~3 (2035--2040, Autonomous Leadership
+and Frontier Innovation). The fifth state (Strategic End-State Objective,
+2040 Vision) describes the target condition that the preceding three phases
+collectively work to achieve.
+
+Between each consecutive row pair, an explicit \textbf{gate condition} is
+defined. A gate condition is the named, verifiable event --- a specific
+regulatory enforcement date, a named standard finalization, or a measured
+technical feasibility threshold --- whose activation is the necessary
+condition for transition to the subsequent phase. Gate conditions are
+derived exclusively from the Critical Enabler cells of the ten per-priority
+progression matrices and are not aspirational descriptions. If a gate
+condition has not been activated, the corresponding priority has not
+transitioned, regardless of elapsed calendar time.
+
+Each phase row is annotated with a \textbf{Strategic Sovereignty Level (SSL)}
+band indicating the expected foreign-dependency trajectory during that phase.
+The SSL band is a row-level property rather than a full column because
+sovereignty evolves at a rate that is largely co-determined by the four
+analytical dimensions simultaneously; representing it as a separate column
+would create structural redundancy with the per-priority ODP/SSL matrices.
+The SSL progression across the five rows is: High Foreign Dependency
+(Current Status and early Phase~1) $\rightarrow$ Emerging EU Ecosystem
+(late Phase~1 into Phase~2) $\rightarrow$ Full Sovereign Autonomy
+(Phase~3) $\rightarrow$ Full Sovereign Autonomy with Export Leadership
+(Strategic End-State).
+
+\subsection*{X-Axis: Four Analytical Dimensions}
+
+The X-axis defines four analytical dimensions capturing distinct transition
+logics that operate simultaneously across each phase. \textbf{Research and
+Innovation Maturity} tracks the scientific and technological advancement
+trajectory, from academic fragmentation through applied and industrial R\&D
+to frontier research, using TRL stage as a calibration anchor.
+\textbf{Policy, Regulatory and Standards Enablement} tracks the activation
+of the EU regulatory stack --- CRA, NIS2, AI Act, DORA --- and the maturation
+of standardisation outputs from ETSI, CEN/CENELEC, 3GPP, and NIST, which
+function as gate conditions for deployment transitions. \textbf{Operational
+Deployment and Adoption} tracks observable deployment reality: what is
+actually deployed, by which actor categories (national agencies, critical
+infrastructure operators, research consortia, SMEs), and at what geographic
+and sectoral scale. \textbf{Market Uptake and Strategic Impact} tracks EU
+market share in critical security components, SME participation economics,
+competitive positioning against non-EU hyperscalers, and the strategic
+autonomy consequences of those market dynamics. This column is explicitly
+not a duplicate of the Operational dimension: a capability can be
+operationally deployed while remaining commercially inaccessible to SMEs or
+strategically dependent on non-EU supply chains, as the case of Intel-TDX-based
+confidential computing in Phase~1 illustrates.
+
+\subsection*{Row V: Triple Accountability Framework}
+
+The Strategic End-State Objective row is accountable to three distinct
+frameworks simultaneously and must not be reduced to any single one of them.
+First, \textbf{SNS JU SRIA alignment}: Priorities~6, 7, 9, and~10 must
+satisfy the SNS JU SRIA Phase~3 security targets for 6G and the computing
+continuum~\cite{snsju}. Second, \textbf{ECCC Strategic Agenda alignment}:
+all ten priorities must contribute to the ECCC's mandate for European
+industrial cybersecurity competitiveness and reduced foreign dependency,
+measured through SSL metrics~\cite{eccc}. Third, \textbf{EU regulatory
+stack coherence}: the full suite of NIS2, CRA, AI Act, DORA, Data Act, EU
+Cloud Rulebook, and the envisioned ``Schengen for Cloud'' framework must
+operate as a coherent, machine-enforceable system by 2040, with no
+compliance gap between deployed sovereign capability and legal
+obligation~\cite{nis2,cra,aiact}.
+
+Table~\ref{tab:master_transition} presents the full Master Capability
+Transition Framework. Key performance indicators cited in individual cells
+are derived directly from the per-priority progression matrices in
+Section~\ref{sec:priorities} and are not independently generated; they
+serve as cross-reference anchors enabling consistency verification between
+this master framework and the detailed priority profiles.
+
+\newpage
+
+\begingroup
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\scriptsize
+\begin{longtable}{|p{1.7cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|p{2.2cm}|}
+\caption{Master Capability Transition Framework: Phase States, Gate
+Conditions, and SSL Bands across Four Analytical Dimensions}
+\label{tab:master_transition} \\
+\hline
+\rowcolor{white}
+\textbf{Phase / SSL Band} &
+\textbf{R\&I Maturity} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Impact} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{white}
+\textbf{Phase / SSL Band} &
+\textbf{R\&I Maturity} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Impact} \\
+\hline
+\endhead
+
+% ---- CURRENT STATUS ----
+\rowcolor{currentrow}
+\textbf{I. Current Status}
+
+\smallskip
+\textit{2025 baseline}
+
+\smallskip
+\colorbox{sslred}{\footnotesize\textbf{SSL: High Foreign Dependency}}
+&
+\footnotesize
+\textbf{Fragmented, academically dominated.}
+EU R\&I outputs concentrated in Horizon~2020 consortia; sovereign
+alternatives at TRL~3--5. Heavy dependency on US-led outputs: NIST PQC
+process, Intel TDX/AMD SEV-SNP TEE architectures, US/Chinese foundation
+models for SecOps. No coordinated EU-wide applied R\&I programme for
+sovereign secure silicon or edge-native confidential computing.
+&
+\footnotesize
+\textbf{Regulatory stack adopted but not enforced.}
+NIS2 enforcement initiated (Oct.~2024); CRA implementing technical acts
+pending; AI Act adopted with high-risk provisions not yet operational;
+EUCS candidate scheme non-binding; EUCC operational but limited uptake;
+ENISA PQC migration guidance absent; NIS2 transposition fragmented
+across Member States.
+&
+\footnotesize
+\textbf{No continental sovereign security infrastructure.}
+TEE deployment limited to foreign hyperscaler implementations; PQC
+confined to experimental cloud pilots; Simpl pre-launch with no
+operational security MIMs; federated SOC architecture at bilateral
+proof-of-concept stage only; Island Mode not standardised; supply chain
+attestation manual and opaque in Open~RAN ecosystems.
+&
+\footnotesize
+\textbf{Near-zero EU market share in critical security components.}
+EU domestic production of critical secure silicon near 0\%; US/Asian
+hyperscalers dominate cloud security tooling and foundation models; no
+EU-sovereign LLM for SecOps; SME compliance costs for CRA/NIS2
+unaddressed by support schemes; RISC-V commercial security products
+absent from public procurement frameworks.
+\\
+\hline
+
+% ---- GATE I -> II ----
+\rowcolor{gaterow}
+\multicolumn{5}{|p{0.97\linewidth}|}{%
+\footnotesize\textit{%
+$\Rightarrow$~\textbf{Gate condition I\,$\to$\,II\,:}
+\textbf{R\&I:} Horizon Europe calls for sovereign secure silicon and
+lightweight PQC issued; ECCC work programmes activated.
+\textbf{Policy:} CRA implementing technical acts in force; NIS2
+Art.~21 national implementing guidance published by competent
+authorities.
+\textbf{Operational:} At least one national pilot per priority domain
+initiated under regulatory pull.
+\textbf{Market:} ECCC-co-funded SME compliance support scheme
+operational; IPCEI-CIS initial deployments contracted.}}
+\\
+\hline
+
+% ---- PHASE 1 ----
+\rowcolor{phase1row}
+\textbf{II. Phase 1}
+
+\smallskip
+\textit{2025--2030}
+
+\smallskip
+\textit{Pilot Validation \& Applied Maturity}
+
+\smallskip
+\colorbox{sslamber}{\footnotesize\textbf{SSL: High $\to$ Emerging EU}}
+&
+\footnotesize
+\textbf{Applied R\&D (P3,P6,P8,P9); Fragmented Piloting (P1,P2,P4,P5,P7,P10).}
+Horizon Europe calls targeting sovereign secure silicon, lightweight PQC
+for 8/16-bit MCUs, Simpl security MIMs, and LLMSecOps. RISC-V secure
+element prototypes targeting TRL~6--7 under EU Chips Act co-funding.
+RF fingerprinting and CSI-based authentication validated on
+EU-manufactured constrained hardware~\cite{cloud_edge_roadmap}.
+ECCC-funded crypto-agility middleware research initiated per
+FIPS~203/204/205 adoption~\cite{eccc}.
+
+\smallskip
+\textit{KPI: RISC-V secure element prototypes at TRL~6--7; lightweight
+PQC benchmarked on ARM Cortex-M4 class hardware.}
+&
+\footnotesize
+\textbf{Regulatory activation creates compliance market pull.}
+CRA hardware security implementing rules published; NIS2 Art.~21
+implementing guidance issued; ENISA PQC sector-specific migration
+guidelines published by 2026, mapping FIPS~203/204/205 to NIS2
+obligations~\cite{nis2}; EU AI Act Art.~9 compliance frameworks
+operational for high-risk security AI~\cite{aiact}; EUCS certification
+rollout mandating TEE workload protection~\cite{eucs}; Simpl-Open
+official launch with initial security MIM definitions; SBOM templates
+standardised and mandated in EU-funded deployments from 2026~\cite{cra}.
+
+\smallskip
+\textit{KPI: ENISA PQC guidelines published and adopted by 5+
+Member States by 2026.}
+&
+\footnotesize
+\textbf{Pilot deployments across priority domains under regulatory pull.}
+3--5 RISC-V secure element pilots under Horizon Europe targeting EUCC
+`High'; LLM-assisted SOC pilots in 5+ national cybersecurity centres
+under AI Act Art.~9; CAMARA API profiles deployed in 3+ cross-border
+5G corridor pilots by 2027; federated SIEMs with MITRE ATT\&CK
+integration operational; Simpl security pilots in 2+ Common Data
+Spaces (Manufacturing, Health); Island Mode fallback tested in
+NIS2/DORA-compliant edge architectures~\cite{concordia}.
+
+\smallskip
+\textit{KPI: 2+ Common Data Spaces piloting Simpl security MIMs;
+federated SIEMs active in 3+ Member States.}
+&
+\footnotesize
+\textbf{Sovereignty trajectory established; SME access initiated.}
+SME compliance support scheme co-funded by ECCC and national agencies,
+providing subsidised tooling and certification assistance; IPCEI-CIS
+initial deployments activating bilateral operator interconnection; EU
+secure silicon market share below 10\% but industrial investment
+trajectory established under CRA pull; EUCC `High' referenced in
+public procurement frameworks for critical infrastructure ICT.
+
+\smallskip
+\textit{KPI: EU secure silicon market share $<$10\% but investment
+trajectory established; SME support scheme operational in 15+
+Member States.}
+\\
+\hline
+
+% ---- GATE II -> III ----
+\rowcolor{gaterow}
+\multicolumn{5}{|p{0.97\linewidth}|}{%
+\footnotesize\textit{%
+$\Rightarrow$~\textbf{Gate condition II\,$\to$\,III\,:}
+\textbf{R\&I:} RISC-V secure element prototypes validated at TRL~6--7;
+lightweight PQC performance benchmarked on EU-manufactured constrained
+hardware.
+\textbf{Policy:} ENISA PQC guidelines published; EUCS certification
+rollout active; Simpl-Open launched with security MIM definitions.
+\textbf{Operational:} Federated SIEM pilots with standardised CTI
+sharing operational in 3+ Member States; 2+ Common Data Space
+Simpl pilots validated.
+\textbf{Market:} CRA enforcement generating measurable industrial
+investment in sovereign hardware alternatives.}}
+\\
+\hline
+
+% ---- PHASE 2 ----
+\rowcolor{phase2row}
+\textbf{III. Phase 2}
+
+\smallskip
+\textit{2030--2035}
+
+\smallskip
+\textit{Industrial Scaling, Standardisation \& Cross-Sector Deployment}
+
+\smallskip
+\colorbox{ssltrans}{\footnotesize\textbf{SSL: Emerging EU $\to$ Full Autonomy}}
+&
+\footnotesize
+\textbf{Applied and industrial R\&D concurrent with standardisation.}
+Phase~2 is not purely a standardisation phase: hardware--software
+co-design for neuromorphic/PIM architectures proceeds (P3); sovereign
+EU LLM/SLM for SecOps reaches AI Act high-risk system compliance (P6);
+RISC-V TEE designs enter volume production via Chips~JU (P1, P8); FHE
+performance optimisation programmes initiated (P8); ZKP-based supply
+chain attestation R\&D (P5); Cognitive Twin prototype development (P9).
+
+\smallskip
+\textit{KPI: At least one RISC-V TEE design in volume production by
+2032; sovereign EU LLM/SLM certified at AI Act high-risk level.}
+&
+\footnotesize
+\textbf{Standardisation milestones convert pilots into binding frameworks.}
+ETSI TC CYBER hybrid PQC profiles published by 2031 (ML-KEM per
+FIPS~203; ML-DSA per FIPS~204~\cite{fips203,fips204});
+CEN/CENELEC JTC~13 Simpl security MIMs ratified by 2032; 3GPP SA3/ETSI
+TC ITS standardised Island Mode fallback APIs published by 2031;
+Runtime SBOM mandate for critical infrastructure supply chains by 2031;
+classical-only cryptography deprecated for high-security EU government
+contexts by 2033; Data Visa legal instruments developed~\cite{snsju}.
+
+\smallskip
+\textit{KPI: CEN/CENELEC Simpl security MIMs ratified; ETSI hybrid
+PQC profiles published; classical-only deprecated in sovereign
+contexts by 2033.}
+&
+\footnotesize
+\textbf{Continental-scale federated deployment across regulated sectors.}
+First EU RISC-V secure element at EUCC `High' by 2031--2032~\cite{eucc};
+hybrid PQC deployed across Industrial IoT, energy grids, and financial
+systems; Pan-European CTI platform operational as LLMSecOps analytics
+engine by 2032; UEBA baselines harmonised using STIX/TAXII and MITRE
+ATT\&CK; multi-party privacy-preserving AI pipelines demonstrated in
+health and finance sectors by 2033; AI-driven graceful degradation
+standardised in O-RAN AI/ML framework; inter-operator east-west
+security interfaces operational in 2+ cross-border corridors.
+
+\smallskip
+\textit{KPI: 70\%+ Common Data Spaces on Simpl-based security; APT
+mean dwell time reduced by 70\% relative to Phase~1 baseline.}
+&
+\footnotesize
+\textbf{EU industrial sovereignty consolidating; critical component share rising.}
+EU Chips Act fabrication producing RISC-V TEE designs in volume; EU
+secure silicon reaching 30--40\% market share in critical infrastructure
+procurement; sovereign European edge LLM/SLM in operational SecOps
+deployment; IPCEI-CIS outcomes translated into binding inter-operator
+SLA frameworks with security audit requirements; Data Visa pilots
+operational in Nordic--Baltic and BeNeLux corridors; competitive
+NaaS offers from European consortia viable.
+
+\smallskip
+\textit{KPI: EU secure silicon 30--40\% critical infrastructure
+share; 70\%+ Data Spaces on Simpl security interoperability.}
+\\
+\hline
+
+% ---- GATE III -> IV ----
+\rowcolor{gaterow}
+\multicolumn{5}{|p{0.97\linewidth}|}{%
+\footnotesize\textit{%
+$\Rightarrow$~\textbf{Gate condition III\,$\to$\,IV\,:}
+\textbf{R\&I:} First EU RISC-V TEE design certified at EUCC `High'
+and in volume production; sovereign EU edge LLM/SLM at AI Act
+high-risk compliance.
+\textbf{Policy:} CEN/CENELEC Simpl security MIMs ratified; ETSI
+hybrid PQC profiles published; 3GPP Island Mode APIs standardised.
+\textbf{Operational:} Pan-European CTI platform operational as
+LLMSecOps engine; EU secure silicon exceeding 30\% critical
+infrastructure share.
+\textbf{Market:} EU NaaS consortium offers commercially competitive
+in at least two cross-border corridors.}}
+\\
+\hline
+
+% ---- PHASE 3 ----
+\rowcolor{phase3row}
+\textbf{IV. Phase 3}
+
+\smallskip
+\textit{2035--2040}
+
+\smallskip
+\textit{Autonomous Leadership \& Frontier Innovation}
+
+\smallskip
+\colorbox{sslteal}{\footnotesize\textbf{SSL: Full Sovereign Autonomy}}
+&
+\footnotesize
+\textbf{Frontier research defining global state of the art.}
+FHE reaching operational edge latency thresholds; zero-energy air
+interface security with ambient RF harvesting; self-evolving AI swarm
+protocols for autonomous Moving Target Defense; Cognitive Twin E2E
+orchestration for cyber-physical resilience; bio-inspired elasticity
+protocols standardised via ETSI ENI; battery-less node quantum-resistant
+authentication. EuroHPC hosts federated training infrastructure for
+self-improving sovereign security AI, preventing regression to
+non-EU foundation model dependency.
+
+\smallskip
+\textit{KPI: FHE latency within $2\times$ AES-GCM baseline for edge
+analytics; EuroHPC sovereign security AI model in operational
+deployment.}
+&
+\footnotesize
+\textbf{EU transitions from standard-taker to global standard-setter.}
+EU Cloud Rulebook binding with machine-readable compliance APIs by
+2037--2038; EUCC `High' as default procurement requirement for all
+new EU ICT products; PQC-by-default mandated for all new EU ICT
+products by 2036; AI Act explainability requirements enforced for
+autonomous MTD decisions; ``Schengen for Cloud'' legal framework
+enacted, harmonising data jurisdiction across 27 Member States;
+ETSI/CEN/CENELEC PQC standards promoted to ISO/ITU-T as global
+reference implementations.
+
+\smallskip
+\textit{KPI: EU Cloud Rulebook binding by 2038; PQC-by-default
+mandate in force by 2036; Schengen for Cloud enacted.}
+&
+\footnotesize
+\textbf{Fully autonomous, continent-wide sovereign security operations.}
+EU Chips Act sovereign fabrication meeting 80\%+ of European secure
+silicon demand by 2039; FHE operationalised for real-time edge analytics;
+end-to-end confidential continuum from battery-less IoT to HPC; Cognitive
+Twins autonomously coordinating E2E cyber-physical recovery across
+critical infrastructure domains; AI-driven MTD continuously shuffling
+network resources, IP addresses, and software diversity without human
+intervention; SMPC standardised for cross-border federated AI in regulated
+sectors (health, finance, defence, justice).
+
+\smallskip
+\textit{KPI: EU secure silicon self-sufficiency $\geq$80\% by 2039;
+autonomous MTD and Cognitive Twin operational continent-wide.}
+&
+\footnotesize
+\textbf{EU competitive parity achieved; technology standards exported globally.}
+European operators achieving competitive scale parity with US/Chinese
+hyperscalers in cloud-edge NaaS; EU-designed security components
+dominant in European market; EUCS/EUCC adopted as global reference
+certification frameworks; ``Schengen for Cloud'' eliminating national
+fragmentation constraining European scale; EU cybersecurity technology
+export balance turning positive; SME participation economically
+viable without discriminatory compliance cost barriers.
+
+\smallskip
+\textit{KPI: EU NaaS competitive parity demonstrated in 3+ cross-border
+corridors; EUCS/EUCC referenced in ISO/ITU-T standards.}
+\\
+\hline
+
+% ---- GATE IV -> V ----
+\rowcolor{gaterow}
+\multicolumn{5}{|p{0.97\linewidth}|}{%
+\footnotesize\textit{%
+$\Rightarrow$~\textbf{Gate condition IV\,$\to$\,V\,:}
+\textbf{R\&I:} FHE at operational edge latency; zero-energy
+authentication validated on battery-less EU hardware; AI swarm
+protocols stable and explainable under AI Act.
+\textbf{Policy:} EU Cloud Rulebook binding; ``Schengen for Cloud''
+enacted; PQC-by-default mandate in force; EU standards submitted
+to ISO/ITU-T as reference implementations.
+\textbf{Operational:} EU secure silicon self-sufficiency $\geq$80\%;
+autonomous MTD and Cognitive Twin E2E orchestration operational
+continent-wide.
+\textbf{Market:} EU NaaS competitive parity demonstrated; technology
+export balance positive.}}
+\\
+\hline
+
+% ---- STRATEGIC END-STATE ----
+\rowcolor{endstaterow}
+\textbf{V. Strategic End-State Objective}
+
+\smallskip
+\textit{2040 Vision}
+
+\smallskip
+\colorbox{sslpurple}{\footnotesize\textbf{SSL: Full Autonomy + Export Leadership}}
+&
+\footnotesize
+\textbf{Europe leads global security R\&I agenda.}
+EU-originated R\&I outputs (PQC, TEE architectures, LLMSecOps,
+zero-energy security, Cognitive Twins) define the global research
+agenda and are adopted internationally. Alignment with SNS JU SRIA
+Phase~3 outcomes: 6G security primitives sovereign and globally
+deployed~\cite{snsju}. ECCC Strategic Agenda fully operationalised;
+European industrial cybersecurity competitiveness self-sustaining
+without emergency public subsidy~\cite{eccc}.
+
+\smallskip
+\textit{Triple accountability: SNS JU SRIA~\cite{snsju} $\cap$ ECCC
+Strategic Agenda~\cite{eccc} $\cap$ EU regulatory stack~\cite{nis2}.}
+&
+\footnotesize
+\textbf{Complete, coherent, machine-enforceable EU regulatory stack.}
+NIS2, CRA, AI Act, DORA, Data Act, Cloud Rulebook, and ``Schengen
+for Cloud'' operating as a coherent system with machine-readable
+compliance APIs and no manual audit requirement. EUCS and EUCC
+recognised globally as reference certification frameworks. ETSI and
+CEN/CENELEC leading ISO/ITU-T security standardisation tracks.
+Compliance is automated, verifiable in real time, and does not
+impose discriminatory costs on SMEs or new market entrants.
+&
+\footnotesize
+\textbf{Security-by-Design is the default operational baseline.}
+Autonomous, self-healing, continent-wide security infrastructure
+requiring no manual intervention for routine threat response. Full
+confidential computing continuum from IoT sensor to HPC node. Zero
+critical operational dependencies on non-EU security infrastructure.
+Island Mode and graceful degradation are normative operating
+assumptions, not emergency exceptions. Bio-inspired swarm-coordinated
+resilience is the standard architecture for EU critical infrastructure.
+&
+\footnotesize
+\textbf{Europe: sovereign, competitive, and globally influential.}
+Europe is the global reference for sovereign, trustworthy, and
+sustainable computing security. EU-designed security components
+dominant in European market and competitive globally. SME participation
+in EU cybersecurity ecosystem fully economically viable. European
+security standards and AI-driven technologies exported as global
+reference implementations. Strategic autonomy measured, sustained,
+and no longer requiring emergency policy intervention to maintain.
+\\
+\hline
+
+\end{longtable}
+\endgroup
+
+\subsection*{Phase~1 Heterogeneity: Applied R\&D vs. Fragmented Piloting}
+
+A critical methodological distinction governs the Phase~1 row across the
+ten executive priorities. Priorities~3 (Lightweight Cryptography and
+Physical-Layer Security), 6 (Cognitive SecOps), 8 (Confidential Computing
+and Privacy-Preserving AI Pipelines), and~9 (Resilient-by-Design
+Infrastructure) commence Phase~1 in an Applied R\&D state because their
+underlying enabling technologies --- zero-energy secure authentication,
+EU-sovereign edge LLMs, RISC-V TEE hardware, and Cognitive Twin
+orchestration respectively --- are not deployable at operational scale
+as of 2025--2026. The remaining six priorities commence Phase~1 in a
+Fragmented Piloting state because near-TRL solutions exist and regulatory
+pull from CRA, NIS2, DORA, and the AI Act is sufficient to drive pilot
+deployments in the near term.
+
+This distinction is not cosmetic. Treating all ten priorities as uniform
+pilots in Phase~1 would constitute a material overclaim of maturity to
+both IEEE peer reviewers and European Commission technical evaluators, and
+would produce internally inconsistent recommendations by implying that
+technologies currently at TRL~3--4 can be mandated in operational
+deployments by 2026. When instantiating per-priority progression matrices,
+the R\&I cell for Priorities~3, 6, 8, and~9 in Phase~1 must state Applied
+R\&D explicitly; it must not claim pilot or deployment activity.
+
+\subsection*{Usage as a Consistency Reference}
+
+The Master Capability Transition Framework serves three functions in the
+broader roadmap document. First, it provides the structural skeleton within
+which each per-priority progression matrix in Section~\ref{sec:priorities}
+is located: every cell in a per-priority matrix should be traceable to the
+corresponding intersection of phase row and analytical dimension in
+Table~\ref{tab:master_transition}. Second, it provides a cross-priority
+consistency check: if two per-priority matrices claim the same gate
+condition (e.g., EU Chips Act fabrication capacity, which gates both
+Priority~1 Phase~2 and Priority~8 Phase~2), that shared dependency should
+be explicitly visible in the master framework and flagged in the executive
+summary as a single-point-of-failure risk for the roadmap. Third, the
+KPI anchors embedded in each phase cell provide a minimum measurable
+outcome that must be demonstrated before the corresponding gate condition
+can be declared satisfied; these KPIs are derived from the per-priority
+matrices and are reproduced here as cross-reference anchors only.
