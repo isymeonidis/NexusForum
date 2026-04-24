@@ -1,0 +1,233 @@
+% =========================================================================
+% SECTION 4: METHODOLOGY
+% =========================================================================
+% This file contains Section 4 (Methodology) for insertion into the main
+% roadmap LaTeX document. It is designed to be \input{} into the master file.
+% References use \cite{} commands matching the \bibitem keys defined in the
+% bibliography block at the end of this file.
+% =========================================================================
+
+\section{Methodology}
+\label{sec:methodology}
+
+The methodology presented in this section is designed to transform a broad and heterogeneous strategic landscape---spanning hardware security, post-quantum cryptography, AI-driven defence, federated governance, and supply chain integrity across the European cloud--edge--IoT computing continuum---into a structured roadmap for research, innovation, policy, deployment, and ecosystem development. The analytical process proceeds through three staged phases: architectural decomposition, capability formulation and profiling, and priority clustering with phased progression, followed by an iterative validation step.
+
+Two foundational commitments shape the methodology. First, it is intended to support strategic roadmap construction, not deterministic forecasting. In complex socio-technical ecosystems, progress is non-linear and depends on interacting technical, regulatory, operational, and market developments whose timing and interdependencies cannot be predicted with precision. Second, the methodology is designed to connect technical cybersecurity capabilities with broader European strategic concerns---resilience, interoperability, trust, and what we term \textit{Sovereignty Level}: the degree to which critical capabilities, control points, and dependencies remain under credible European influence, governance, or operational control. Sovereignty Level is employed throughout the methodology as an interpretive strategic lens rather than as a rigid scoring model; it guides assessment of whether progress in cybersecurity and cyber-resilience strengthens Europe's strategic control, trusted autonomy, and reduced dependency in critical parts of the computing continuum.
+
+
+\subsection{Stage~1: Core Dimensions and Focus Area Identification}
+\label{sec:meth-stage1}
+
+The first stage defines the analytical scope and structure of the roadmap by decomposing the cloud--edge--IoT computing continuum into a set of architectural layers and cross-cutting concerns. These dimensions are treated as analytically distinct but operationally interdependent: a vulnerability or governance gap at one layer typically has consequences that propagate to adjacent layers, and effective security requires coordinated action across the full vertical and horizontal extent of the architecture.
+
+The purpose of this stage is to answer three questions. Where are the major security and resilience problem domains within the distributed computing continuum? At what architectural layers or cross-layers do these problems emerge? And which focus areas are sufficiently strategic, cross-cutting, or underdeveloped to justify dedicated roadmap attention?
+
+Focus areas are derived from four complementary sources. The first is the architectural characteristics of distributed cloud--edge--IoT systems themselves: the heterogeneity of execution environments spanning HPC, cloud, edge, and device tiers creates structurally distinct security requirements at each level of the stack~\cite{cloud_edge_roadmap}. The second source is the set of recurring cybersecurity and cyber-resilience challenges observed across these tiers---hardware integrity~\cite{iso11889}, software supply chain verification, workload isolation, identity federation, data confidentiality, and network perimeter control~\cite{3gpp33501}. The third comprises cross-cutting strategic concerns that cannot be localised to a single layer: sovereignty, trust, interoperability, resilience, assurance, and regulatory alignment---driven by the simultaneous enforcement of NIS2~\cite{nis2}, the Cyber Resilience Act~\cite{cra}, the AI Act~\cite{aiact}, and the Digital Operational Resilience Act~\cite{dora}. The fourth is the practical need to connect technical architecture with operational and governance realities---recognising that a capability with no credible deployment pathway or regulatory anchor is unlikely to achieve ecosystem-wide impact regardless of its technical merit.
+
+The output of Stage~1 is not a priority list but a structured map of the problem space. This map is organised into six Security Layers (the vertical stack) and four Transversal Cross-Layers (the horizontal enablers), as illustrated in the architectural framework (Section~\ref{sec:core-dimensions}). The six Security Layers address: (i)~hardware-centric security, (ii)~software-centric security at the middleware and operating system level, (iii)~application-centric security for workloads and services, (iv)~user and orchestration-centric security including identity and access management, (v)~data-centric security encompassing confidential computing and cryptographic protection, and (vi)~network infrastructure and perimeter security including telco-cloud, non-terrestrial networks, and physical resilience. The four Cross-Layers address: (CL1)~automated security processes and the cyber-resilient AI lifecycle, (CL2)~dynamic risk management and operational cyber resilience, (CL3)~interoperable security mechanisms and open-source verifiability, and (CL4)~compliance-by-design with agile governance and automated assurance.
+
+Within this structured map, some focus areas acquire greater strategic importance because they influence Europe's future Sovereignty Level. This is particularly the case where dependencies on external providers, infrastructures, fabrication capacity, toolchains, or assurance mechanisms are structurally significant---for example, the near-complete European dependency on non-EU foundries for secure silicon fabrication, or the dominance of non-EU vendors in the operational trusted execution environment market~\cite{cloud_edge_roadmap}. Stage~1 identifies these sovereignty-sensitive focus areas explicitly so that subsequent stages can track their evolution as a strategic concern alongside purely technical maturity.
+
+
+\subsection{Stage~2: Capability Identification and Profiling}
+\label{sec:meth-stage2}
+
+Once the architectural map and its constituent focus areas are defined, the methodology moves from problem framing to capability formulation. A \textit{capability}, in the context of this roadmap, is understood as a strategic ability that the European ecosystem should be able to design, deploy, govern, standardise, assure, coordinate, or scale in order to achieve trustworthy, resilient, and sovereign operation of the computing continuum. Capabilities are not limited to technical controls; they may also encompass governance mechanisms, interoperability instruments, assurance functions, ecosystem coordination capacities, and deployment enablers.
+
+Capabilities are derived by translating each focus area identified in Stage~1 into actionable strategic needs. This translation is guided by a consistent question: what must Europe be able to do---technically, institutionally, and industrially---to address this focus area at the scale and with the assurance level that the regulatory and threat environment demands? The ten capabilities identified through this process (detailed in Section~\ref{sec:capabilities}) span the full range from hardware roots of trust and post-quantum cryptographic agility to federated security interoperability and proactive cyber threat management.
+
+
+\subsubsection{The Seven-Dimension Capability Profile}
+\label{sec:meth-7dim}
+
+Each capability is assessed through a seven-dimension analytical template applied identically across all priorities. This template ensures that every capability is characterised not only from a technical perspective, but also in terms of its regulatory alignment, investment pathway, failure modes, and contribution to European strategic autonomy. The consistency of the template enables structured cross-priority comparison---a feature essential both for funding prioritisation and for identifying shared dependencies and bottlenecks that span multiple capabilities.
+
+\paragraph{Dimension~1: Baseline and Target Objective.}
+This dimension grounds the capability in reality by describing the present condition of the European ecosystem with respect to the capability domain, the intended future condition, and the strategic change the capability is meant to achieve. The baseline captures current industrial capacity, the degree of reliance on non-European vendors, technical and economic barriers to adoption, and the state of standardisation and certification. The target defines measurable end-states---quantified market share objectives, certification levels, migration coverage metrics, or deployment thresholds---that serve as the basis for evaluating progress and structuring funding calls in Stage~3.
+
+\paragraph{Dimension~2: Primary Drivers.}
+This dimension articulates the external pressures that make the capability urgent and non-deferrable. It distinguishes between two categories. \textit{Threat drivers} identify adversarial capabilities or attack vectors that are already active or imminently scalable---for example, state-sponsored exploitation of hardware debug interfaces on field-deployed edge nodes, the ``Harvest Now, Decrypt Later'' strategy enabled by advances in quantum computing~\cite{nistir8413}, or the weaponisation of generative AI for polymorphic malware production. \textit{Regulatory drivers} identify specific EU legal obligations with enforcement timelines, citing the precise directive or regulation and its relevant provisions---for example, NIS2 Article~21(2)(e) mandating cryptographic policies for essential entities~\cite{nis2}, or CRA Articles~10--11 imposing hardware security certification requirements with enforcement anticipated in 2027~\cite{cra}.
+
+\paragraph{Dimension~3: High-Impact Activities.}
+This dimension identifies three to five concrete, actionable research and innovation activities within the capability domain that are expected to yield the greatest strategic return on investment. Each activity is formulated as a specific, measurable initiative rather than a general aspiration, and is tagged with its primary target phase (Phase~1, Phase~2, or Phase~3). This phasing ensures that the transition matrix constructed in Stage~3 is anchored in concrete, fundable work rather than in abstract descriptions of desired outcomes.
+
+\paragraph{Dimension~4: Catalysts and Enablers.}
+This dimension identifies the concrete mechanisms, funding vehicles, and regulatory standardisations required from the European institutional ecosystem to accelerate the capability from its baseline toward its target state. Three categories of enablers are distinguished. \textit{Research and funding alignment} identifies relevant Horizon Europe clusters, Digital Europe Programme calls, and European Cybersecurity Competence Centre (ECCC) Strategic Agenda work packages~\cite{eccc}. \textit{Regulatory and standardisation} identifies required CEN/CENELEC, ETSI, or ISO standards, distinguishing clearly between existing standards that should be referenced and new standards that must be developed. \textit{Ecosystem enablers} identify pilot infrastructures such as federated cyber ranges~\cite{concordia}, industrial partnerships such as those coordinated through Gaia-X or IPCEI-CIS, and capacity-building programmes---particularly those enabling SME participation without prohibitive certification or compliance costs.
+
+\paragraph{Dimension~5: Disruptors and Systemic Risks.}
+This dimension acknowledges that research and innovation trajectories are non-linear by identifying risks that could render planned deployments obsolete or unachievable. Three risk categories are assessed. \textit{Technical cliffs} are points at which a defensive capability is rendered ineffective by a technological or adversarial breakthrough before EU countermeasures are fully deployed---for example, the arrival of cryptographically relevant quantum computers before post-quantum migration is complete~\cite{nistir8413}, or the discovery of a new side-channel attack class that bypasses current trusted execution environments~\cite{keystone}. \textit{Supply chain and market risks} encompass fabrication bottlenecks, vendor resistance to open standards, monopolisation of critical components by non-EU providers, or SME exclusion from procurement pathways. \textit{Geopolitical and regulatory risks} cover export controls on critical components, extra-territorial jurisdiction conflicts, or fragmented national implementations that undermine EU-wide interoperability.
+
+\paragraph{Dimension~6: Failsafe Mechanisms and Resilience.}
+This dimension defines cyber-resilience as applied to the roadmap itself by specifying engineering fallbacks if a capability's primary mechanism is compromised, delayed, or only partially realised. Four categories of failsafe are addressed. \textit{Hybrid transitional schemes} involve parallel deployment of the target technology alongside incumbent solutions during migration windows---for example, classical-plus-post-quantum hybrid cryptographic schemes as specified in ETSI~TS~103~744~\cite{etsi103744}. \textit{Graceful degradation} defines the minimum viable operational mode the infrastructure can sustain if the primary capability becomes unavailable---for example, cached-credential or local-only operation during connectivity loss. \textit{Autonomous isolation protocols} specify automated quarantine, revocation, or containment mechanisms that activate when a component fails attestation, preventing compromise propagation without manual intervention. \textit{Implementation diversity} mandates deliberate multi-vendor or multi-algorithm diversity to avoid monoculture risks---for example, deploying multiple TEE architectures (Intel~TDX, AMD~SEV-SNP, ARM~CCA, RISC-V Keystone~\cite{keystone}) or multiple post-quantum algorithm families (ML-KEM~\cite{fips203}, ML-DSA~\cite{fips204}, SLH-DSA~\cite{fips205}) rather than concentrating on a single vendor or standard.
+
+\paragraph{Dimension~7: Transversal Meta-Layer (Policy Alignment).}
+This dimension elevates the technical capability to the political and societal level, linking it to the EU's overarching strategic autonomy agenda. It assesses the capability's contribution across three policy axes. \textit{Sovereignty and autonomy}: the specific foreign dependencies the capability reduces and, where data permits, the current dependency level. \textit{Trust and ethics}: alignment with GDPR principles~\cite{gdpr}, Privacy-by-Design, algorithmic transparency, and trustworthiness requirements under the AI Act~\cite{aiact}. \textit{Sustainable security}: the energy efficiency of the proposed cryptographic or monitoring operations, reduction of electronic waste through crypto-agility and software-defined upgrades, and alignment with EU Green Deal objectives.
+
+
+\subsubsection{Stage~2 Output}
+\label{sec:meth-stage2-output}
+
+For each capability, Stage~2 produces a complete seven-dimension profile. The baseline (Dimension~1) and high-impact activities (Dimension~3) directly inform the operational characterisation of each phase in the Stage~3 transition matrix. Catalysts and enablers (Dimension~4) populate the transition conditions that mark phase boundaries. Disruptors (Dimension~5) and failsafe mechanisms (Dimension~6) inform the resilience provisions in the cross-cutting enablers analysis and the executive summary. The seven-dimension template thus serves as the analytical bridge between the architectural decomposition of Stage~1 and the phased strategic synthesis of Stage~3.
+
+
+\subsection{Stage~3: Priority Clustering and Transition Matrix}
+\label{sec:meth-stage3}
+
+Not every capability can or should be treated as a standalone roadmap priority. Capabilities that share architectural proximity, common enabling conditions, similar policy or standardisation needs, overlapping ecosystem actors, related deployment trajectories, or convergent strategic outcomes benefit from coordinated treatment. Stage~3 therefore groups the ten capabilities identified in Stage~2 into three broader Priority Clusters that reflect these shared properties and enable a more tractable strategic analysis.
+
+The roadmap is organised into the following three Priority Clusters:
+
+\begin{description}[style=unboxed, leftmargin=0.5cm]
+    \item[Priority Cluster~1: Sovereign Trusted Infrastructure] --- the hardware, cryptographic, and resilience foundations that anchor trust across the continuum.
+    \item[Priority Cluster~2: Cognitive Security and Autonomous Cyber Defence] --- the AI-driven operational layer that scales defence beyond human-paced response.
+    \item[Priority Cluster~3: Federated Operational Sovereignty] --- the interoperability, supply-chain, and federation substrate that enables a unified European trust fabric.
+\end{description}
+
+Each cluster is analysed through a three-phase transition matrix:
+
+\begin{description}[style=unboxed, leftmargin=0.5cm]
+    \item[Phase~1: Near-Term Implementation and Pilot Actions (2026--2030)] --- deploying near-ready solutions, enforcing enacted regulation, and closing governance gaps before technical work scales.
+    \item[Phase~2: Mid-Term Scale-Up, Industrial R\&D and Standardisation (2030--2035)] --- industrialising sovereign capabilities, federating architectures, and building the workforce and institutional infrastructure the technical work requires.
+    \item[Phase~3: Long-Term Strategic, Frontier R\&I and Leadership (2035--2040)] --- achieving full operational maturity, pioneering frontier research, and resolving the structural doctrine and oversight questions that earlier phases cannot settle alone.
+\end{description}
+
+
+\subsubsection{Analytical Perspectives}
+\label{sec:meth-perspectives}
+
+For each priority cluster and phase, the assessment considers four analytical perspectives.
+
+\textit{R\&I maturity} captures where the constituent capabilities stand in terms of research, development, demonstration, and readiness for industrial deployment. This perspective tracks whether the technical foundations are established, whether proof-of-concept has been achieved, and whether industrialisation is feasible within the phase timeframe.
+
+\textit{Policy, regulation, and standards} assesses the state of the regulatory and standardisation environment---whether enabling legislation has been enacted, whether enforcement timelines are credible, whether the necessary standards exist or must still be developed, and whether conformity assessment infrastructure is operational.
+
+\textit{Operational deployment and adoption} evaluates the extent to which capabilities have moved beyond laboratory or pilot environments into operational use by infrastructure operators, service providers, and end-user organisations, including the specific actors involved and the approximate scale of deployment.
+
+\textit{Market uptake and strategic impact} considers whether the capability is generating commercial traction, whether European providers are competitive, and whether the capability is contributing to a measurable improvement in Sovereignty Level---for instance, through reduced critical external dependencies, stronger European operational control, improved assurance capacity, or strategic industrial positioning.
+
+The matrix is intended to show how each cluster evolves over time across these four perspectives, rather than to provide a static list of recommendations. This dynamic representation acknowledges that the most important strategic information often lies in the interdependencies between clusters and between phases---for instance, the fact that Cluster~2's autonomous defence capabilities gain operational credibility only in proportion to the maturity of Cluster~1's hardware and cryptographic substrate~\cite{cloud_edge_roadmap}.
+
+
+\subsubsection{Transition Conditions}
+\label{sec:meth-transitions}
+
+A critical methodological choice concerns the treatment of boundaries between phases. This roadmap uses \textit{transition conditions} rather than hard gates. Transition conditions are evidence-informed progression markers indicating when a priority cluster appears sufficiently prepared to move from one phase to the next. They are not binary thresholds or deterministic requirements. They are framed as analytical signals of increasing readiness, coherence, and ecosystem support.
+
+This design choice reflects four methodological purposes. First, transition conditions make the roadmap temporally structured without imposing false precision. Second, they connect research progress with deployment and governance realities, ensuring that the roadmap does not treat technical maturity in isolation from the institutional and market conditions required for real-world impact. Third, they avoid the rigidity of deterministic forecasting in a domain where adversarial breakthroughs, regulatory delays, fabrication bottlenecks, and geopolitical disruptions can alter timelines unpredictably. Fourth, they support iterative updating: as evidence accumulates and the ecosystem evolves, transition conditions can be reassessed without invalidating the overall roadmap structure.
+
+\paragraph{Definition.}
+A transition condition is a short statement indicating that progress has been reached in one or more of the following areas: a technical basis has become sufficiently mature for the next stage of deployment; a policy or standardisation basis has emerged that reduces adoption uncertainty; a deployment pathway has been validated through pilots or integration efforts; a strategic ecosystem condition has materialised, such as industrial commitment, interoperability support, assurance capacity, or supply-side readiness; or a Sovereignty Level improvement has become plausible through reduced dependency, stronger control, or increased European capacity in a strategically relevant domain.
+
+\paragraph{Form.}
+Each transition condition is written as a single sentence following a structure such as: ``\textit{Advancement to the next phase is indicated when there is credible evidence of [readiness marker]}''---or equivalently---``\textit{[Cluster or capability progression] becomes plausible when [technical / policy / deployment / ecosystem / sovereignty-related condition] is sufficiently established.}''
+
+\paragraph{Illustrative examples.}
+Well-formed transition conditions include statements such as: a common baseline for interoperability, assurance, or certification has been defined and is referenced by relevant actors; pilot deployments have demonstrated feasibility beyond laboratory conditions in representative operational environments; a regulatory or standards pathway has become sufficiently clear to reduce adoption uncertainty for industrial actors; tooling, integration methods, or assurance practices have matured enough to support repeatable, non-bespoke deployment; dependencies on non-European critical components are partially mitigated through credible alternatives, diversification, or strengthened European control; or European actors have acquired sufficient operational or governance capacity to influence the strategic direction of the capability domain.
+
+\paragraph{Scope limitations.}
+Transition conditions are not promises, deterministic predictions, or precise quantitative thresholds unless evidence genuinely supports them. They do not claim that all actors move at the same speed or that progression is irreversible. They should be interpreted as structured indicators of directional readiness---useful for strategic planning and coordination, but subject to reassessment as the ecosystem evolves.
+
+
+\subsection{Validation: Expert Review, Consultation, and Iterative Refinement}
+\label{sec:meth-validation}
+
+The roadmap is not treated as a closed analytical product but as an evolving strategic artefact that benefits from expert review, stakeholder consultation, and iterative revision. The methodology therefore includes a validation step intended to improve the robustness, relevance, and legitimacy of the roadmap's analytical outputs.
+
+Validation addresses five areas. First, whether the architectural layers and focus areas identified in Stage~1 are complete and relevant---that is, whether the problem space decomposition adequately covers the security and resilience challenges of the European cloud--edge--IoT continuum without material omissions or redundancies. Second, whether the capabilities formulated in Stage~2 are well-defined, actionable, and non-overlapping---ensuring that each capability represents a strategically distinct need rather than a restatement of another capability at a different level of abstraction. Third, whether the priority clustering in Stage~3 is coherent---that is, whether the grouping of capabilities into clusters reflects genuine shared dependencies and convergent implementation pathways rather than arbitrary aggregation. Fourth, whether the proposed transition conditions are credible, intelligible, and useful---specific enough to guide interpretation but broad enough to remain robust under the uncertainty inherent in a fifteen-year strategic horizon. Fifth, whether the implied Sovereignty Level assessments are reasonable and strategically meaningful---that is, whether the characterisation of European dependency, control, and capacity at each phase is grounded in observable evidence rather than aspiration.
+
+This validation process draws on expert workshops conducted within the NexusForum and EuCloudEdgeIoT Working Group on Cybersecurity, stakeholder consultation with national cybersecurity agencies and industry representatives, working group review cycles, and policy dialogue with European Commission services. The roadmap is designed to accommodate future updates as the regulatory landscape evolves, as technical capabilities mature, and as the geopolitical and market context shifts.
+
+
+\subsection{Limitations and Methodological Positioning}
+\label{sec:meth-limitations}
+
+The approach described above is intended to provide a transparent and defensible basis for roadmap construction in a complex and evolving ecosystem. It does not eliminate uncertainty. Instead, it organises uncertainty by using structured analytical stages, comparative capability profiling through the seven-dimension template, clustered priorities reflecting shared dependencies and implementation pathways, and transition conditions as indicative progression markers.
+
+Several limitations should be acknowledged. The architectural decomposition, while comprehensive, reflects a particular analytical perspective and may not capture all relevant dimensions of the problem space---particularly those that emerge from the interaction of cybersecurity with adjacent domains such as energy policy, industrial policy, or international trade. The seven-dimension profiles, while systematic, rely on expert judgement for assessments of baseline conditions, risk severity, and target feasibility; they do not constitute empirical measurement. The transition conditions, by design, sacrifice precision for robustness---they are better suited to strategic orientation than to operational planning at the individual project level. And the Sovereignty Level concept, while analytically useful, resists precise quantification: it is employed here as an interpretive strategic lens that helps assess whether progress strengthens Europe's strategic control and reduced dependency, not as a metric with a defined scale.
+
+These limitations are consistent with the roadmap's intended use. The methodology is suitable for strategic agenda setting, expert discussion, cross-priority comparison, and iterative roadmap evolution---even when some dependencies, timings, or ecosystem shifts remain uncertain or contested. Its value lies not in predictive accuracy but in providing a shared analytical structure within which diverse stakeholders can coordinate research, policy, and investment decisions toward a common set of strategically defined objectives.
+
+
+% =========================================================================
+% REFERENCES FOR SECTION 4
+% =========================================================================
+% Note: These \bibitem entries should be merged into the master bibliography
+% of the main document. They are provided here as a self-contained block
+% for review convenience. Keys match those used in \cite{} commands above.
+% =========================================================================
+
+% \begin{thebibliography}{99}
+
+% \bibitem{nis2}
+% European Parliament and Council, ``Directive (EU) 2022/2555 of the European Parliament and of the Council of 14~December 2022 on measures for a high common level of cybersecurity across the Union,'' \textit{Official Journal of the European Union}, L~333, pp.~80--152, Dec.~2022.
+
+% \bibitem{cra}
+% European Commission, ``Proposal for a Regulation of the European Parliament and of the Council on horizontal cybersecurity requirements for products with digital elements and amending Regulation (EU) 2019/1020 (Cyber Resilience Act),'' COM(2022)~454 final, Sep.~2022.
+
+% \bibitem{aiact}
+% European Parliament and Council, ``Regulation (EU) 2024/1689 of the European Parliament and of the Council of 13~June 2024 laying down harmonised rules on artificial intelligence (Artificial Intelligence Act),'' \textit{Official Journal of the European Union}, L~series, Jun.~2024.
+
+% \bibitem{dora}
+% European Parliament and Council, ``Regulation (EU) 2022/2554 of the European Parliament and of the Council of 14~December 2022 on digital operational resilience for the financial sector (DORA),'' \textit{Official Journal of the European Union}, L~333, pp.~1--79, Dec.~2022.
+
+% \bibitem{gdpr}
+% European Parliament and Council, ``Regulation (EU) 2016/679 of the European Parliament and of the Council of 27~April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (GDPR),'' \textit{Official Journal of the European Union}, L~119, pp.~1--88, May~2016.
+
+% \bibitem{eucs}
+% European Union Agency for Cybersecurity (ENISA), ``European Cybersecurity Certification Scheme for Cloud Services (EUCS),'' Candidate Scheme, Dec.~2020.
+
+% \bibitem{eucc}
+% European Union Agency for Cybersecurity (ENISA), ``EUCC---A candidate cybersecurity certification scheme to serve as a successor to the existing SOG-IS,'' V1.0, Jul.~2020.
+
+% \bibitem{cloud_edge_roadmap}
+% European Alliance for Industrial Data, Edge and Cloud, ``European industrial technology roadmap for the next-generation cloud-edge,'' European Commission, 2024.
+
+% \bibitem{eccc}
+% European Cybersecurity Competence Centre (ECCC), ``ECCC Strategic Agenda for cybersecurity industrial, technology and research competence,'' 2024.
+
+% \bibitem{concordia}
+% G.~Dreo, C.~Schmitt, A.~van~der~Wees, and N.~Suri, ``Deliverable D4.4: Cybersecurity Roadmap for Europe,'' \textit{CONCORDIA Cyber Security Competence for Research and Innovation (Horizon 2020)}, Dec.~2022.
+
+% \bibitem{snsju}
+% Smart Networks and Services Joint Undertaking (SNS~JU), ``Strategic Research and Innovation Agenda (SRIA),'' 2023.
+
+% \bibitem{fips203}
+% National Institute of Standards and Technology, ``Module-Lattice-Based Key-Encapsulation Mechanism Standard (ML-KEM),'' FIPS~203, Aug.~2024.
+
+% \bibitem{fips204}
+% National Institute of Standards and Technology, ``Module-Lattice-Based Digital Signature Standard (ML-DSA),'' FIPS~204, Aug.~2024.
+
+% \bibitem{fips205}
+% National Institute of Standards and Technology, ``Stateless Hash-Based Digital Signature Standard (SLH-DSA),'' FIPS~205, Aug.~2024.
+
+% \bibitem{nistir8413}
+% National Institute of Standards and Technology, ``Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process,'' NISTIR~8413, Sep.~2022.
+
+% \bibitem{nist800207}
+% S.~Rose, O.~Borchert, S.~Mitchell, and S.~Connelly, ``Zero Trust Architecture,'' NIST Special Publication 800-207, Aug.~2020.
+
+% \bibitem{etsi103744}
+% ETSI, ``CYBER; Quantum-safe hybrid key exchanges,'' ETSI~TS~103~744, V1.1.1, Jan.~2022.
+
+% \bibitem{etsizms009}
+% ETSI, ``Zero-touch network and Service Management (ZSM); Closed-Loop Automation,'' ETSI~GS~ZSM~009, V1.1.1, Jun.~2021.
+
+% \bibitem{3gpp33501}
+% 3rd Generation Partnership Project, ``Security architecture and procedures for 5G System,'' 3GPP~TS~33.501, Release~18.
+
+% \bibitem{3gpp23288}
+% 3rd Generation Partnership Project, ``Architecture enhancements for 5G System (5GS) to support network data analytics services,'' 3GPP~TS~23.288, Release~18.
+
+% \bibitem{iso11889}
+% International Organization for Standardization / International Electrotechnical Commission, ``Information technology---Trusted Platform Module Library,'' ISO/IEC~11889, 2015.
+
+% \bibitem{tpm20}
+% Trusted Computing Group, ``TPM Library Specification, Family~2.0,'' Rev.~1.83, Jan.~2024.
+
+% \bibitem{keystone}
+% A.~Lee, D.~Kohlbrenner, S.~Shinde, K.~Asanovi\'{c}, and D.~Song, ``Keystone: An Open Framework for Architecting TEEs,'' in \textit{Proc. 15th European Conf. Computer Systems (EuroSys)}, Apr.~2020, pp.~1--16, doi:~10.1145/3342195.3387532.
+
+% \bibitem{opentitan}
+% lowRISC, ``OpenTitan: Open source silicon root of trust,'' [Online]. Available: \url{https://opentitan.org}, 2024.
+
+% \end{thebibliography}

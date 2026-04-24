@@ -51,8 +51,10 @@
 \newcommand{\gatelbl}[1]{\scriptsize\textit{Gate~#1}}
 
 \begin{document}
+% Landscape orientation for wide table
 \begin{landscape}
 
+% Table layout and spacing
 \setlength{\tabcolsep}{5pt}
 \renewcommand{\arraystretch}{1.3}
 
@@ -66,12 +68,7 @@
 |>{\footnotesize\raggedright\arraybackslash}p{5.6cm}%
 |>{\footnotesize\raggedright\arraybackslash}p{5.6cm}|}
 
-\caption{Master Capability Transition Framework: Phase States, Gate
-Conditions, and SSL Bands across Four Analytical Dimensions.
-Gate condition rows state named, verifiable triggers for each phase
-transition derived from the Critical Enabler cells of the per-priority
-progression matrices. SSL bands track Strategic Sovereignty Level per
-phase. KPI anchors serve as cross-reference consistency anchors only.}
+\caption{Master Capability Transition Framework: Phase States, Gate Conditions, and SSL Bands across Four Analytical Dimensions. Gate condition rows state named, verifiable triggers for each phase transition derived from the Critical Enabler cells of the per-priority progression matrices. SSL bands track Strategic Sovereignty Level per phase. KPI anchors serve as cross-reference consistency anchors only.}
 \label{tab:master_transition}\\
 
 % ---- Column headers (first page) ----
@@ -111,15 +108,20 @@ phase. KPI anchors serve as cross-reference consistency anchors only.}
 % =================================================================
 \rowcolor{currentrow}
 \textbf{I.~Current Status}
-\newline\textit{2025 baseline}
+\newline\textit{2026 baseline}
 \newline\sslbadge{sslredbg}{sslredtx}{SSL: High Foreign Dependency}
 &
-\cellhead{Fragmented, academically dominated}
-EU R\&I at TRL~3--5 for sovereign alternatives.
-Heavy dependency on NIST PQC process, Intel TDX/AMD SEV-SNP TEE
-architectures, and US/Chinese foundation models for SecOps.
-No coordinated EU-wide applied R\&I programme for sovereign secure silicon
-or edge-native confidential computing.
+\cellhead{Fragmented consortia output; sovereign production capacity absent}
+EU industrial R\&I activity exists --- Horizon~2020 Networks of Excellence
+(CONCORDIA, SPARTA, CyberSec4Europe) and active Horizon~Europe
+participation by NXP, Thales, Infineon, Nokia --- but outputs remain at
+TRL~3--5 for sovereign alternatives. Industrial partners contribute to
+research consortia without translating results into deployable sovereign
+production: no EU-manufactured hardware root of trust at EUCC `High',
+no edge-native TEE independent of Intel TDX or AMD SEV-SNP, no
+lightweight PQC silicon from EU fabrication. ECCC, established 2021,
+is still building investment coherence across fragmented national
+programmes.
 \kpistrip{Baseline: sovereign secure silicon TRL $\leq$4;
 no EU-manufactured EUCC `High' secure element in production.}
 &
@@ -171,7 +173,7 @@ operational; IPCEI-CIS initial deployments contracted.}}
 % =================================================================
 \rowcolor{phase1row}
 \textbf{II.~Phase~1}
-\newline\textit{2025--2030}
+\newline\textit{2026--2030}
 \newline\textit{Pilot Validation \&}
 \newline\textit{Applied Maturity}
 \newline\sslbadge{sslamberbg}{sslambtx}{SSL: High $\to$ Emerging EU}

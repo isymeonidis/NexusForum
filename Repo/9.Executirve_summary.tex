@@ -1,0 +1,643 @@
+\section{Executive Summary \& Strategic Recommendations}
+\label{sec:exec_summary}
+\label{sec:executive_summary}
+
+% -----------------------------------------------------------------
+\subsection*{Executive Summary}
+% -----------------------------------------------------------------
+
+This cybersecurity and cyber-resilience strategy defines a comprehensive
+15-year trajectory to secure the European Cloud-Edge-IoT Continuum while
+establishing digital sovereignty. Applying the \textbf{4-Filter
+Prioritization Framework} (Regulatory Urgency, Foundational Dependency,
+Sovereignty Cliff, Market Feasibility), ten strategic priorities are
+identified across three phases following an R\&I maturity arc: near-term
+applied engineering and compliance activation (Phase~1), medium-term
+applied and industrial R\&D with federation and standardization (Phase~2),
+and long-term frontier research combined with sovereign operational
+leadership (Phase~3).
+
+The ten priorities are: \textbf{P1}~Hardware Roots of Trust \& EUCC~`High';
+\textbf{P2}~PQC Agility; \textbf{P3}~Lightweight Cryptography \& PhySec;
+\textbf{P4}~Simpl Security Interoperability; \textbf{P5}~Supply Chain
+Verification; \textbf{P6}~Cognitive SecOps / LLMSecOps; \textbf{P7}~NaaS
+Federation; \textbf{P8}~Confidential Computing; \textbf{P9}~Resilient
+Infrastructure / Island Mode; \textbf{P10}~Proactive APT Defense.
+P1, P2, and P4 constitute the critical-path foundational anchors for
+Phase~1, as their gate conditions --- CRA enforcement, ENISA PQC guidelines,
+and Simpl-Open launch --- are prerequisites for the majority of downstream
+priorities. A single cross-cutting bottleneck dominates Phase~2: RISC-V
+hardware scaling under the EU Chips Act, which constitutes the shared gate
+condition for P1, P2, P3, and P8 Phase~2$\to$3 transitions simultaneously.
+
+Capability maturity is tracked using a dual-metric framework:
+\textbf{Operational Deployment Phase (ODP)} for market integration and
+\textbf{Strategic Sovereignty Level (SSL)} for foreign technology
+independence, across three phases: \emph{Foundation \& Compliance}
+(0--5~years), \emph{Federation \& Standardization} (5--10~years), and
+\emph{Autonomy \& Leadership} (10--15~years).
+
+% =================================================================
+\subsection*{Phase~1 Recommendations (2025--2030):
+             Foundation, Compliance, and Applied Engineering}
+% =================================================================
+
+Phase~1 is the applied engineering and compliance activation phase.
+Research is primarily integration research --- deploying near-TRL solutions
+and operationalizing obligations under the CRA~\cite{cra},
+NIS2~\cite{nis2}, DORA~\cite{dora}, and AI~Act~\cite{aiact}.
+Policy and Compliance is the dominant stream: the majority of
+Phase~1$\to$2 gate conditions are regulatory enforcement events.
+Four priorities --- P3 (zero-energy PhySec), P6 (autonomous AI agents),
+P8 (FHE at scale), and P9 (Cognitive Twin orchestration) --- remain
+in Applied~R\&D in this phase; their Phase~1 bullets are therefore
+research-oriented rather than deployment-oriented.
+
+\textbf{Technical R\&I Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P8 --- Deploy hardware attestation stacks and
+    TEE environments on critical nodes.}
+    Deploy remote attestation pipelines based on TPM~2.0~\cite{tpm20}
+    and DICE protocols for critical cloud-edge nodes. Implement
+    RISC-V secure enclave pilots (Keystone~\cite{keystone},
+    OpenTitan~\cite{opentitan}) alongside TEE deployments (Intel~TDX,
+    AMD~SEV-SNP, ARM~CCA) for regulated cloud workloads, maintaining
+    multi-vendor diversity to prevent single-vendor side-channel
+    exposure. These deployments establish the hardware trust substrate
+    for both the \textbf{P1 EUCC~`High' gate} and the
+    \textbf{P8 EUCS Certification Rollout gate}.
+
+    \item \textbf{P2 --- Implement and validate hybrid PQC schemes on
+    resource-constrained targets.}
+    Implement hybrid cryptographic stacks combining ECDH-P384 with
+    ML-KEM (FIPS~203~\cite{fips203}) and ML-DSA
+    (FIPS~204~\cite{fips204}) for cloud and edge environments.
+    Validate performance on ARM~Cortex-M4 and 8/16-bit microcontrollers
+    against NIST~IR~8413~\cite{nistir8413} reference measurements,
+    providing the quantitative baseline for the
+    \textbf{P2 ENISA PQC Guidelines gate}.
+
+    \item \textbf{P3 --- Validate lightweight PhySec primitives on
+    constrained IoT hardware (Applied R\&D).}
+    Validate group-based authentication and RF fingerprinting using
+    Channel State Information (CSI) and RSSI on EU-manufactured
+    constrained IoT hardware, establishing PhySec baselines for
+    anomaly detection ahead of the
+    \textbf{P3 NIST Lightweight PQC Standards gate}.
+
+    \item \textbf{P5 --- Deploy Runtime SBOM tooling and signed OTA
+    update pipelines.}
+    Deploy Runtime SBOM tooling with integrity attestation for
+    containerized microservices and cryptographically signed OTA update
+    pipelines for field-deployed edge nodes (smart grids, O-RAN radios,
+    industrial gateways), meeting the
+    \textbf{P5 CRA supply chain enforcement gate}.
+
+    \item \textbf{P6, P10 --- Integrate LLM-assisted SOC copilots with
+    NWDAF telemetry and deploy federated SIEMs (Applied R\&D).}
+    Integrate LLM-assisted analyst tools with 3GPP NWDAF
+    (TS~23.288~\cite{3gpp23288}) telemetry, and deploy federated SIEM
+    infrastructure with STIX/TAXII CTI sharing aligned with
+    MITRE~ATT\&CK. Validate ML-based IoC correlation for APT
+    dwell-time reduction. Autonomous AI agents target the
+    \textbf{P6 EU AI Act enforcement gate}; federated SIEMs meet the
+    \textbf{P10 CTI Sharing Protocols gate}.
+
+    \item \textbf{P9 --- Implement soft-state protocols for Island
+    Mode piloting.}
+    Implement soft-state session protocols and time-bounded
+    cryptographic credential caches enabling validated autonomous edge
+    operation during WAN disconnection, establishing the fallback
+    piloting baseline for the \textbf{P9 NIS2 and DORA gate}.
+
+\end{itemize}
+
+\textbf{Policy and Compliance Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1 --- Enforce CRA hardware security requirements.}
+    Issue CRA~\cite{cra} implementing regulations specifying minimum
+    hardware security requirements for products with digital elements
+    entering the EU market and mandate compliance attestation for
+    critical infrastructure operators by 2026. This is the
+    \textbf{P1 Phase~1$\to$2 gate condition}.
+
+    \item \textbf{P2 --- Publish ENISA sector-specific PQC migration
+    guidance.}
+    Publish ENISA PQC migration guidance mapping FIPS~203/204/205 to
+    NIS2~\cite{nis2} Article~21(2)(e) cryptographic policy obligations,
+    with sector-specific migration timelines published by 2026.
+    This activates the \textbf{P2 ENISA PQC Guidelines gate}.
+
+    \item \textbf{P4, P5 --- Mandate Simpl MIM adoption and machine-
+    readable SBOMs as EU funding conditions.}
+    Mandate security MIM compliance as a contractual condition for
+    Digital Europe Programme Data Space funding, and require
+    machine-readable SBOM formats for all digital products under CRA
+    implementing regulations. Establish an SME compliance support
+    scheme through ECCC, activating the \textbf{P4 Simpl-Open gate}
+    and the \textbf{P5 CRA supply chain gate} simultaneously.
+
+    \item \textbf{P8 --- Issue EUCS `High+' guidance mandating
+    confidential computing.}
+    Issue EUCS~\cite{eucs} `High+' implementing guidance requiring
+    TEE-based confidential computing for sensitive cloud workload
+    categories, and align GDPR~\cite{gdpr} Article~25 enforcement
+    guidance with confidential computing technical standards.
+    This activates the \textbf{P8 EUCS Certification Rollout gate}.
+
+    \item \textbf{P9 --- Issue NIS2 and DORA business continuity
+    guidance for edge infrastructure.}
+    Issue NIS2 Article~21~\cite{nis2} implementing guidance requiring
+    business continuity testing for edge-dependent critical
+    infrastructure, and integrate Island Mode assessment into
+    DORA~\cite{dora} ICT risk management reviews. These jointly
+    constitute the \textbf{P9 NIS2 and DORA gate}.
+
+    \item \textbf{P10 --- Establish legally harmonized cross-border CTI
+    sharing agreements.}
+    Establish legally harmonized CTI sharing agreements addressing
+    jurisdictional barriers, and mandate MITRE~ATT\&CK integration for
+    all EU-funded SIEM deployments to ensure semantic interoperability
+    of IoC data. This is the \textbf{P10 CTI Sharing Protocols gate}.
+
+\end{itemize}
+
+\textbf{Funding and Ecosystem Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P8 --- Fund RISC-V secure element pilots and
+    sovereign silicon feasibility studies.}
+    Fund 3--5 RISC-V secure element pilot projects targeting
+    EUCC~`High' certification under Horizon Europe Cluster~3, with a
+    minimum allocation of EUR~50M for sovereign secure silicon R\&D.
+    Allocate EU Chips Act funding to fabrication line feasibility
+    studies as the industrial precursor to Phase~2 volume production.
+
+    \item \textbf{P2, P3 --- Fund lightweight PQC and PhySec R\&D
+    through ECCC and Digital Europe.}
+    Fund ECCC-led research into lightweight PQC optimization for
+    8/16-bit microcontrollers and ETSI SmartBAN standardization for
+    WBAN security, creating the experimental base for Phase~2
+    hardware-software co-design.
+
+    \item \textbf{P4, P7 --- Fund Simpl governance and IPCEI-CIS
+    5G corridor deployments.}
+    Fund the Simpl governance board security workstream through
+    Digital Europe Programme to publish initial security MIM
+    definitions by 2026, and activate IPCEI-CIS cross-border 5G
+    corridor infrastructure in at least three corridors by 2027.
+
+    \item \textbf{P6, P10 --- Activate EuroHPC AI Factories and fund
+    the Pan-European CTI platform.}
+    Activate EuroHPC AI Factory compute allocations for sovereign
+    security AI model training, and fund a Pan-European CTI platform
+    succeeding CONCORDIA~\cite{concordia} with legally harmonized
+    intelligence sharing spanning all 27 Member States.
+
+\end{itemize}
+
+\subsubsection*{Success Metrics for 2030}
+By the end of Phase~1, Europe should achieve:
+\begin{itemize}
+    \item \textbf{Hardware Sovereignty:}
+    At least 30\% of critical infrastructure edge nodes utilizing
+    EU-designed, EUCC~`High' certified secure elements; first sovereign
+    RISC-V secure element in industrial production.
+
+    \item \textbf{Quantum Readiness:}
+    100\% of new critical IoT deployments supporting hybrid (classical
+    + PQC) schemes; complete cryptographic inventory of 80\%+ legacy
+    OT/IoT systems.
+
+    \item \textbf{Federated Trust:}
+    Majority of Common European Data Spaces operating on Simpl-based
+    security interoperability with standardized MIMs adopted as
+    CEN/CENELEC standards.
+
+    \item \textbf{Certification Maturity:}
+    Operational continuous certification frameworks for at least two
+    major Data Spaces with real-time EUCS/EUCC tracking; point-in-time
+    audit model deprecated in pilot sectors.
+
+    \item \textbf{Cognitive SecOps Readiness:}
+    LLM-assisted SOC tools deployed in at least five Member State
+    national cybersecurity centres; NWDAF telemetry pipelines feeding
+    centralized AI analytics for anomaly detection.
+
+    \item \textbf{Supply Chain Transparency:}
+    Runtime SBOM frameworks mandated for all new EU-funded cloud/edge
+    deployments; Digital Product Passport pilots operational in the
+    telecom and industrial IoT sectors.
+\end{itemize}
+
+% =================================================================
+\subsection*{Phase~2 Recommendations (2030--2035):
+             Applied and Industrial R\&D, Federation, Standardization}
+% =================================================================
+
+Phase~2 is the applied and industrial R\&D phase. Gate conditions shift
+from regulatory triggers to standardization milestones and sovereign
+capability consolidation. The dominant shared dependency across P1, P2,
+P3, and P8 is RISC-V hardware scaling under the EU Chips Act --- the
+single most consequential cross-cutting bottleneck of the roadmap, whose
+resolution enables four simultaneous Phase~2$\to$3 transitions. Technical
+R\&I is the dominant stream.
+
+\textbf{Technical R\&I Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P8 --- Scale RISC-V secure elements to industrial
+    fabrication and benchmark against incumbents.}
+    Scale RISC-V secure element designs from TRL~6--7 to
+    industrial-volume fabrication under EU Chips Act production lines.
+    Benchmark EUCC~`High'-certified EU secure elements against non-EU
+    incumbents (Intel, NXP, Infineon) on performance, power, and
+    tamper resistance. This milestone simultaneously constitutes the
+    \textbf{P1 EU Chips Act gate} and the
+    \textbf{P8 RISC-V Hardware Scaling gate}, confirming sovereign
+    silicon as the primary shared bottleneck.
+
+    \item \textbf{P2 --- Develop crypto-agility middleware and scale
+    hybrid PQC to Industrial IoT.}
+    Develop and standardize crypto-agility middleware enabling OTA
+    algorithm migration from classical to hybrid ML-KEM/ML-DSA without
+    hardware replacement. Scale hybrid PQC across Industrial IoT,
+    energy grid, and financial infrastructure, benchmarking coverage
+    against the \textbf{P2 NIST/ETSI finalization gate}.
+
+    \item \textbf{P3 --- Develop hardware-software co-design for
+    neuromorphic and PIM extreme-edge security.}
+    Develop hardware-software co-design implementations embedding
+    lightweight PQC into EU RISC-V profiles for WBAN and extreme-edge
+    contexts. Research neuromorphic and Processing-in-Memory (PIM)
+    architectures for energy-constrained cryptographic processing.
+    Standardize ETSI SmartBAN security extensions, meeting the
+    \textbf{P3 Hardware-Software Co-Design gate}.
+
+    \item \textbf{P4 --- Develop automated policy translation engines
+    and federate IAM across Data Spaces.}
+    Develop automated policy translation engines converting
+    provider-specific security policies into XACML and OSCAL formats.
+    Federate IAM bridges using W3C Verifiable Credentials, scaling
+    Simpl-based security to a majority of EU Common Data Spaces and
+    advancing toward the \textbf{P4 Security MIMs CEN/CENELEC gate}.
+
+    \item \textbf{P5 --- Develop dynamic Runtime SBOMs and research
+    ZKP supply chain attestation.}
+    Develop dynamic Runtime SBOM tooling for real-time active component
+    tracking across multi-provider deployments. Research and prototype
+    ZKP mechanisms for IP-protected component verification, and
+    standardize Digital Product Passport data models for ICT
+    components, meeting the
+    \textbf{P5 Runtime SBOMs and DPP gate}.
+
+    \item \textbf{P6, P10 --- Develop sovereign edge LLMs, standardize
+    AI Interconnect APIs, and scale UEBA with MTD pilots.}
+    Develop sovereign European edge LLMs and SLMs for security
+    classification at EuroHPC AI Factories. Standardize AI Interconnect
+    APIs extending ETSI~GS~ZSM~009~\cite{etsi_zsm009} to
+    cybersecurity-specific agent interoperability, meeting the
+    \textbf{P6 AI Interconnect API gate}. Concurrently, scale UEBA
+    behavioral baselines using harmonized STIX/TAXII ontologies across
+    all 27 Member States and pilot Moving Target Defense (MTD) in at
+    least three Member State critical infrastructure sectors, meeting
+    the \textbf{P10 LLMSecOps and UEBA gate}.
+
+    \item \textbf{P7 --- Develop inter-operator east-west security
+    interfaces and pilot Data Visa frameworks.}
+    Develop and standardize inter-operator east-west security
+    interfaces for federated Zero-Trust enforcement across national
+    operator boundaries. Research and pilot Data Visa legal-technical
+    mechanisms for cross-border AI workload migration validated in at
+    least two cross-border corridors by 2032, meeting the
+    \textbf{P7 East-West Interfaces gate}.
+
+    \item \textbf{P8 --- Develop multi-party confidential AI pipelines
+    and research FHE performance.}
+    Develop multi-party SMPC and federated learning pipelines across
+    multi-provider regulated sectors (health, finance). Research FHE
+    performance optimization targeting non-real-time production
+    analytics viability, establishing the trajectory toward the
+    \textbf{P8 FHE Maturation gate}.
+
+    \item \textbf{P9 --- Develop and standardize 3GPP/ETSI fallback
+    APIs for autonomous Island Mode.}
+    Develop 3GPP/ETSI fallback API specifications for autonomous Island
+    Mode activation and credential caching. Research AI-driven
+    graceful degradation mechanisms and dynamic spectrum sharing for
+    emergency edge roaming, meeting the
+    \textbf{P9 3GPP/ETSI Fallback API gate}.
+
+\end{itemize}
+
+\textbf{Policy and Compliance Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P2 --- Mandate EUCC `High' in procurement and
+    publish EU hybrid PQC scheme profiles.}
+    Mandate EUCC~`High'~\cite{eucc} certification for all new critical
+    infrastructure ICT procurement across all 27 Member States from
+    2031. Concurrently, publish EU-specific hybrid PQC scheme profiles
+    (classical + ML-KEM; classical + ML-DSA) through ETSI~TC~CYBER by
+    2031 and mandate classical-only cryptography deprecation for
+    high-security EU government contexts by 2033.
+
+    \item \textbf{P6 --- Regulate autonomous AI security agents under
+    EU AI Act Article~9.}
+    Regulate autonomous AI security systems under
+    AI~Act~\cite{aiact} Article~9 high-risk requirements, mandating
+    explainability, auditability, and human override for all autonomous
+    containment decisions. Publish ECCC AI Trustworthiness guidance
+    for LLMSecOps deployments in critical infrastructure.
+
+    \item \textbf{P7, P9 --- Ratify Data Visa instruments and mandate
+    Island Mode certification.}
+    Ratify Data Visa legal instruments enabling cross-border AI
+    workload migration through DG~CONNECT and DG~JUST by 2032.
+    Mandate Island Mode capability certification in NIS2 business
+    continuity assessments for edge-dependent critical infrastructure
+    from 2032.
+
+\end{itemize}
+
+\textbf{Funding and Ecosystem Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P2, P8 --- Direct EU Chips Act investment toward
+    unified RISC-V secure and PQC-native silicon.}
+    Direct EU Chips Act fabrication investment toward unified RISC-V
+    secure elements integrating TEE and PQC hardware acceleration in
+    volume production by 2032. Fund Chips~JU co-design programmes
+    aligning sovereign silicon profiles with simultaneous EUCC~`High'
+    and EUCS~`High+' certification pathways.
+
+    \item \textbf{P3, P6 --- Fund neuromorphic/PIM research and scale
+    EuroHPC AI Factory sovereign security AI.}
+    Fund Horizon Europe Cluster~4 research targeting neuromorphic and
+    PIM architectures for energy-constrained security. Scale EuroHPC
+    AI Factory allocations for sovereign LLM/SLM training, with
+    benchmark evaluation against non-EU foundation models on
+    security-relevant classification tasks.
+
+    \item \textbf{P4, P7, P10 --- Fund Simpl MIM standardization,
+    CAMARA inter-operator profiles, and CTI platform operations.}
+    Fund CEN/CENELEC JTC~13 standardization of Simpl security MIMs
+    and CAMARA API security profile development through IPCEI-CIS.
+    Scale the Pan-European CTI platform with UEBA behavioral baseline
+    harmonization covering all Member States.
+
+\end{itemize}
+
+\subsubsection*{Success Metrics for 2035}
+By the end of Phase~2, Europe should achieve:
+\begin{itemize}
+    \item \textbf{Quantum-Resilient Infrastructure:}
+    100\% of EU public-sector ICT using hybrid or full PQC schemes;
+    first ``Quantum-Safe Data Space'' fully operational;
+    classical-only cryptography deprecated in all high-security EU
+    government systems.
+
+    \item \textbf{Sovereign Silicon Dominance:}
+    60\%+ EU market share for secure silicon in critical edge
+    infrastructure; EUCC~`High' certification mandatory for regulated
+    sector ICT procurement across all 27 Member States.
+
+    \item \textbf{Federated NaaS Security:}
+    Pan-European NaaS security framework operational across at least
+    10 telecom operators; ``Data Visa'' cross-border AI workload
+    migration demonstrated in production at corridor scale; 70\%+
+    Common Data Spaces using automated Simpl-based policy federation.
+
+    \item \textbf{Autonomous AI SecOps:}
+    Edge-native Guardian nodes autonomously executing zero-trust
+    reconfigurations deployed in at least five Member State critical
+    infrastructure sectors; sovereign EU edge LLMs/SLMs operationally
+    replacing non-EU foundation models in security analytics.
+
+    \item \textbf{Confidential Computing at Scale:}
+    Multi-party privacy-preserving AI pipelines operational in at
+    least three cross-border regulated sectors; RISC-V TEEs scaling
+    toward European silicon self-sufficiency for enclave hardware.
+
+    \item \textbf{APT Dwell Time Reduction:}
+    Mean APT dwell time reduced by 70\% compared to Phase~1 baseline
+    through AI-driven behavioral hunting; Pan-European CTI sharing
+    platform operational with legally harmonized data exchange
+    agreements covering all 27 Member States.
+\end{itemize}
+
+% =================================================================
+\subsection*{Phase~3 Recommendations (2035--2040):
+             Frontier Research and Sovereign Operational Leadership}
+% =================================================================
+
+Phase~3 carries two simultaneous trajectories. For capabilities
+industrialized in Phase~2 --- P1, P4, P7 --- this phase represents full
+operational maturity and global standard-setting; dominant verbs are
+\emph{operationalize}, \emph{establish}, and \emph{lead}. For capabilities
+still in advanced R\&D --- P3, P6, P8, P9, P10 --- Phase~3 is where the
+hardest scientific problems are actively solved; dominant verbs are
+\emph{pioneer}, \emph{advance}, and \emph{research}. Funding and Ecosystem
+is the dominant stream, as sovereign industrial self-sufficiency and global
+standards export require sustained investment beyond individual R\&I
+projects.
+
+\textbf{Technical R\&I Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P2 --- Operationalize PQC-native RISC-V across
+    all EU tiers and establish global PQC standards.}
+    Operationalize PQC-native RISC-V silicon across all EU
+    Cloud-Edge-IoT tiers by 2036. Retire all hybrid classical/PQC
+    transitional schemes from sovereign EU systems, meeting the
+    \textbf{P2 PQC-native RISC-V gate}. Establish
+    ETSI/CEN/CENELEC-led PQC migration standards as the global
+    reference baseline through ISO and ITU-T, meeting the
+    \textbf{P1 EU Chips Act fabrication gate}.
+
+    \item \textbf{P3 --- Pioneer zero-energy air interfaces with
+    native ISAC security primitives for 6G.}
+    Pioneer zero-energy air interfaces embedding ISAC security
+    primitives as mandatory 6G air interface features, aligned with
+    SNS~JU~SRIA~\cite{snsju}. Research ambient RF energy harvesting
+    for battery-less node authentication, establishing ubiquitous
+    ISAC as the convergent security-communications substrate and
+    meeting the \textbf{P3 Zero-Energy Air Interfaces and ISAC gate}.
+
+    \item \textbf{P5 --- Operationalize ZKP-based supply chain
+    attestation at continental scale.}
+    Operationalize ZKP-based attestation as the standard cryptographic
+    mechanism for IP-protected component verification across all EU
+    critical infrastructure. Integrate automated supply chain
+    compromise indicators into the Pan-European CTI platform as a
+    real-time feed, meeting the \textbf{P5 ZKPs and Pan-European
+    threat intelligence gate}.
+
+    \item \textbf{P6 --- Pioneer self-evolving AI swarm architectures
+    for zero-touch sovereign cyber defense.}
+    Pioneer decentralized self-evolving AI swarm architectures for
+    zero-touch cyber defense, with governance frameworks for AI
+    trustworthiness and algorithmic accountability satisfying
+    AI~Act~\cite{aiact} Article~9 high-risk system requirements.
+    Establish EuroHPC as the federated training infrastructure for
+    continuously self-improving sovereign security AI, meeting the
+    \textbf{P6 Self-Evolving AI Swarm Protocols gate}.
+
+    \item \textbf{P8 --- Operationalize FHE for real-time analytics
+    and pioneer SMPC standardization.}
+    Operationalize FHE for real-time production analytics by
+    2037--2038, completing the trajectory from isolated TEE enclaves
+    to a ubiquitous confidential continuum from battery-less IoT to
+    HPC, meeting the \textbf{P8 FHE Maturation gate}. Pioneer SMPC
+    standardization through CEN/CENELEC for cross-border federated AI
+    in regulated sectors, ensuring no raw sensitive data crosses
+    sovereign boundaries.
+
+    \item \textbf{P9 --- Pioneer Cognitive Twin E2E orchestration for
+    autonomous cyber-physical recovery.}
+    Pioneer Cognitive Twin architectures for E2E autonomous
+    cyber-physical recovery, advancing Phase~2 digital twins to
+    operational autonomous management. Research bio-inspired elasticity
+    protocols through ETSI~ENI, establishing vendor-interoperable
+    autonomous recovery as the normative resilience posture and meeting
+    the \textbf{P9 Cognitive Twin gate}.
+
+    \item \textbf{P10 --- Operationalize AI-driven MTD and pioneer
+    proactive counter-APT swarm intelligence.}
+    Operationalize AI-driven Moving Target Defense continuously
+    shuffling network resources, IP addresses, and software diversity
+    without human intervention, meeting the \textbf{P10 Adaptive
+    AI Swarms and Zero-Touch Automation gate}. Pioneer proactive
+    counter-adversarial intelligence generation disrupting APT
+    operations before objectives are achieved. All autonomous MTD
+    decisions must satisfy EU AI Act explainability requirements,
+    establishing a hard prerequisite dependency on the
+    \textbf{P6 AI governance gate}.
+
+\end{itemize}
+
+\textbf{Policy and Compliance Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P4, P7 --- Enact EU Cloud Rulebook and operationalize
+    unified EU computing jurisdiction.}
+    Enact the EU Cloud Rulebook as binding law by 2037--2038, mandating
+    provider-agnostic Zero-Trust federation for all EU-funded digital
+    infrastructure. Operationalize the unified EU computing jurisdiction
+    for AI workload governance, jointly meeting the
+    \textbf{P4 EU Cloud Rulebook gate} and the
+    \textbf{P7 ``Schengen for Cloud'' gate}.
+
+    \item \textbf{P1, P2, P5 --- Mandate PQC-by-default, EUCC `High',
+    and full supply chain blocking for all new EU ICT products.}
+    Mandate PQC-by-default and EUCC~`High' for all new EU ICT products
+    after 2036, and mandate full automated blocking of unverified
+    hardware, OS, or software components from EU critical
+    infrastructure, transitioning P5 from partial to full restriction.
+
+    \item \textbf{P6, P10 --- Enforce AI trustworthiness requirements
+    prior to full swarm deployment.}
+    Enforce AI trustworthiness and algorithmic accountability under
+    AI~Act Article~9 for all autonomous security agents before AI
+    swarm architectures reach operational scale. This enforcement is
+    a named prerequisite gate for both P6 and P10 Phase~3 deployment.
+
+\end{itemize}
+
+\textbf{Funding and Ecosystem Recommendations}
+
+\begin{itemize}
+
+    \item \textbf{P1, P2 --- EU Chips Act sovereign fabrication to
+    meet 80\%+ of European secure silicon demand by 2039.}
+    Sustain EU Chips Act investment to reach 80\%+ domestic fabrication
+    coverage of European secure silicon demand by 2039. Position
+    open-source RISC-V EUCC~`High' architectures as the global
+    reference implementation for hardware roots of trust, generating
+    measurable export value for the European semiconductor industry.
+
+    \item \textbf{P3, P6, P9, P10 --- Fund Horizon Europe frontier
+    research for zero-energy ISAC, AI swarms, Cognitive Twins, and
+    autonomous MTD.}
+    Fund Horizon Europe frontier research programmes (ERC Advanced
+    Grants, SNS~JU Phase~3, Future and Emerging Technologies) for
+    zero-energy ISAC, self-evolving AI swarm governance, Cognitive
+    Twin orchestration, and autonomous MTD. Establish European
+    research leadership in these domains as the precondition for
+    global standard-setting in post-6G and neuromorphic computing
+    security.
+
+    \item \textbf{P4, P7 --- Export European cybersecurity standards
+    as global reference frameworks.}
+    Actively promote EU cybersecurity standards --- EUCS, EUCC,
+    security MIMs, PQC migration frameworks, and continuous
+    certification lifecycle models --- through the EU--US Trade and
+    Technology Council, EU--Global Gateway, ISO, and ITU-T.
+    Position European frameworks as the global reference for
+    trustworthy, sovereign, and sustainable computing security,
+    with export value assessed in the 2040 roadmap completion
+    review by ECCC and ENISA.
+
+    \item \textbf{P8 --- Fund ECCC FHE optimisation and CEN/CENELEC
+    SMPC standardization.}
+    Fund an ECCC-led FHE performance optimisation programme targeting
+    real-time edge analytics viability by 2037--2038. Fund
+    CEN/CENELEC SMPC standardization for regulated cross-border AI,
+    ensuring privacy-preserving federated computation becomes a
+    binding interoperability requirement.
+
+\end{itemize}
+
+\subsubsection*{Success Metrics for 2040}
+By the end of Phase~3, Europe should achieve:
+\begin{itemize}
+    \item \textbf{Full Quantum-Native Continuum:}
+    100\% of EU Cloud-Edge-IoT critical infrastructure natively running
+    PQC; EU PQC and QKD standards adopted as ISO/ITU-T global baseline;
+    no operational classical-only cryptography in sovereign EU systems.
+
+    \item \textbf{Sovereign Silicon Self-Sufficiency:}
+    80\%+ of European secure silicon demand met by EU Chips Act
+    fabrication capacity; RISC-V EUCC~`High' the default hardware
+    foundation for all new EU ICT products.
+
+    \item \textbf{Unified European Digital Jurisdiction:}
+    EU Cloud Rulebook fully enforced; 100\% of Common Data Spaces
+    operating on provider-agnostic zero-trust architectures;
+    ``Schengen for Cloud-Edge'' legally operational across all 27
+    Member States.
+
+    \item \textbf{Autonomous AI Security Fabric:}
+    Self-evolving AI swarm defense deployed across the EU continuum;
+    all autonomous security agents compliant with EU AI Act
+    Trustworthiness and Accountability requirements; Security-by-Design
+    the normative default --- manual security configuration obsolete.
+
+    \item \textbf{Ubiquitous Confidential Computing:}
+    FHE operationalized for real-time production analytics; SMPC
+    standardized for cross-border federated AI in all regulated
+    sectors; end-to-end encrypted continuum from battery-less IoT to
+    HPC without raw sensitive data leaving sovereign boundaries.
+
+    \item \textbf{Full Counter-APT Resilience:}
+    AI-driven MTD continuously disrupting APT reconnaissance in real
+    time; Pan-European CTI platform providing proactive
+    counter-adversarial intelligence; mean APT dwell time reduced to
+    near-zero for known attack pattern families.
+
+    \item \textbf{Global Leadership:}
+    European cybersecurity frameworks serving as the global reference
+    implementation; EU cybersecurity technology export value exceeding
+    pre-roadmap baseline by a measurable factor, as assessed by ECCC
+    and ENISA in the 2040 roadmap completion review.
+\end{itemize}

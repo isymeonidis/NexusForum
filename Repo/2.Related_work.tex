@@ -1,0 +1,377 @@
+\section{Related Work}
+
+Existing research on cybersecurity for distributed computing infrastructures has primarily focused on isolated domains such as cloud security, edge computing protection, and IoT security frameworks. However, limited work addresses the holistic security challenges of the integrated Cloud--Edge--IoT continuum.
+
+Recent initiatives, including the European Union Cybersecurity Strategy, ENISA reports, and Horizon Europe projects, emphasize the need for sovereignty-driven security architectures. Prior studies on Zero Trust Architectures (ZTA), Post-Quantum Cryptography (PQC), and confidential computing provide important building blocks but lack a unified prioritization and transition methodology.
+
+This work differentiates itself by proposing a structured, end-to-end methodological pipeline that connects architectural capabilities with policy-driven prioritization and phased implementation strategies.
+
+% =========================================================================
+% SECTION 3: RELATED WORK AND METHODOLOGICAL POSITIONING
+% For IEEE Access — academic register, full citations
+% Version: v1.0
+% =========================================================================
+
+\section{Related Work and Methodological Positioning}
+\label{sec:related_work}
+
+This section surveys the three research traditions whose synthesis
+motivates the methodology presented in Section~\ref{sec:methodology}:
+technology roadmapping (TRM), capability-based planning (CBP), and
+cybersecurity capability maturity assessment. It then reviews the
+methodological approaches of all major European cybersecurity roadmap
+deliverables and establishes the specific gap that the present work
+addresses.
+
+% -----------------------------------------------------------------
+% 3.1 TECHNOLOGY ROADMAPPING FOUNDATIONS
+% -----------------------------------------------------------------
+\subsection{Technology Roadmapping Foundations}
+\label{sec:rw_trm}
+
+Technology roadmapping provides the procedural backbone for structured
+strategic planning under technological uncertainty. The Cambridge school,
+anchored by Phaal, Farrukh, and Probert~\cite{phaal2004}, formalises
+roadmapping as a series of facilitated workshops progressing through
+\textit{Market $\rightarrow$ Product $\rightarrow$ Technology $\rightarrow$
+Charting}, with each workshop gated by the outputs of its predecessor.
+The accompanying T-Plan workbook~\cite{phaal2001_tplan} operationalises
+this into an industry-applicable fast-start process. The parallel Sandia
+tradition, codified by Garcia and Bray~\cite{garcia1997}, structures
+roadmapping as a three-phase process (\textit{Preliminary activity
+$\rightarrow$ Development $\rightarrow$ Follow-up}) with seven
+development steps progressing from product focus through critical
+requirements, technology areas, drivers, alternatives, and timelines
+to recommendations. Kostoff and Schaller~\cite{kostoff2001} provide
+the first formal taxonomy of roadmapping approaches in the engineering
+management literature, distinguishing expert-based from bibliometric
+methods and defining the node-link structure inherited by subsequent
+work.
+
+The canonical TRM vocabulary organises content into three layers:
+\textit{drivers} (why), \textit{products/services/capabilities} (what),
+and \textit{technologies/resources} (how), plotted against time on a
+generic chart~\cite{phaal2004,kerr2022}. Critically, ``capability'' is
+an optional middle-layer label in Phaal's formulation, not an organising
+primitive with a formal definition. Terms such as ``focus areas'' and
+``priorities'' are derivative: priorities are rankings applied to drivers
+or gaps, and focus areas are thematic clusters used loosely in
+government and cybersecurity contexts but absent from the Cambridge and
+Sandia lexicon.
+
+Two observations are significant for the present work. First, no
+canonical TRM framework separates ``capability identification'' from
+``capability analysis'' as distinct named stages. Garcia and
+Bray~\cite{garcia1997} fold both into their Development phase; T-Plan
+separates identification (workshops~1--3) from integration (workshop~4)
+but labels both as ``development.'' The explicit separation of these
+functions into named pipeline stages is a methodological design choice
+justified in Section~\ref{sec:methodology}. Second, quantitative
+maturity within TRM relies predominantly on Technology Readiness Levels
+(TRL)~\cite{mankins1995,iso16290}, with extensions including
+Manufacturing Readiness Levels (MRL) and System Readiness Levels
+(SRL)~\cite{sauser2008}. Cambridge TRM is predominantly qualitative;
+TRL-annotated roadmaps are more common in defence and aerospace
+applications. In cybersecurity specifically, quantitative maturity
+typically employs Maturity Indicator Levels (MIL~0--3) in the DOE
+Cybersecurity Capability Maturity Model (C2M2)~\cite{doe_c2m2} or
+Tiers~1--4 in the NIST Cybersecurity Framework~\cite{nist_csf2},
+rather than TRL.
+
+Stage-transition logic in TRM draws on Cooper's Stage-Gate
+systems~\cite{cooper1990}, which define gates as quality-control
+checkpoints comprising deliverables, must-meet and should-meet criteria,
+and Go/Kill/Hold/Recycle outputs. Gerdsri, Vatananan, and
+Dansamasatid~\cite{gerdsri2009} provide the most operational transition
+logic in dynamic TRM, gating three stages (Initiation $\rightarrow$
+Development $\rightarrow$ Integration) by explicit criteria: stakeholder
+acceptance, completion of information collection, and incorporation into
+ongoing planning. Carvalho, Fleury, and Lopes~\cite{carvalho2013}
+identify recurrent quality axes for roadmap assessment---completeness,
+internal consistency, traceability, feasibility, and stakeholder
+legitimacy---that inform the gate criteria adopted in the present
+methodology.
+
+% -----------------------------------------------------------------
+% 3.2 CAPABILITY-BASED PLANNING
+% -----------------------------------------------------------------
+\subsection{Capability-Based Planning in Security Contexts}
+\label{sec:rw_cbp}
+
+Capability-based planning (CBP) originates in defence doctrine. The
+canonical academic reference is Davis~\cite{davis2002}, who defines CBP
+as ``planning, under uncertainty, to provide capabilities suitable for a
+wide range of modern-day challenges.'' The operational implementations
+are the NATO Bi-SC Capability Codes and Capability
+Statements~\cite{nato_bisc2016}, which articulate capability requirements
+along the DOTMLPFI axes (Doctrine, Organisation, Training, Mat\'{e}riel,
+Leadership, Personnel, Facilities, Interoperability), and the US
+Department of Defense Joint Capabilities Integration and Development
+System (JCIDS)~\cite{jcids2021}, which chains Capabilities-Based
+Assessment through Initial Capabilities Document, Capability Development
+Document, and Capability Production Document with DOTMLPF-P change
+recommendations.
+
+The terminological distinctions within CBP are precise and
+methodologically significant. A \textit{capability} is an
+outcome-oriented, solution-agnostic ability to achieve a desired effect.
+A \textit{technology} is one of the means (the ``M'' in DOTMLPF). A
+\textit{priority} is a ranking applied to capabilities or gaps. A
+\textit{focus area} is a policy-level thematic cluster at a higher
+abstraction level than a capability. A \textit{requirement} is a testable
+performance attribute that implements a capability. Davis's central
+methodological warning---avoid ``jumping to the solution''---is the logic
+that justifies separating capability identification from capability
+analysis in any structured planning pipeline.
+
+CBP has crossed into cybersecurity only partially. Lehto and
+Limn\'{e}ll~\cite{lehto2022} apply DOTMLPF-I in cyber defence contexts.
+AlDaajeh and Alrabaee~\cite{aldaajeh2024} synthesise seven national
+cybersecurity strategy axes (legal, technical, organisational,
+capacity-building, cooperation, economic, socio-cultural) and
+AlDaajeh~\textit{et al.}~\cite{aldaajeh2022} map national cyber
+strategies onto capability objectives. Curtis and
+Mehravari~\cite{curtis2015} bridge CERT resilience management with
+capability maturity. However, no widely cited publication imports the
+full Davis/JCIDS analytical machinery into civilian cybersecurity
+roadmapping. In established cyber frameworks, ``capability'' is used
+loosely: the NIST CSF~2.0~\cite{nist_csf2} employs \textit{Functions,
+Categories, Subcategories, Outcomes}; the NICE
+framework~\cite{nist_nice} uses \textit{Tasks, Knowledge, Skills, Work
+Roles}; the MITRE ATT\&CK framework is an adversary-behaviour taxonomy
+(\textit{Tactics, Techniques, Procedures}), not a defender-capability
+taxonomy; and ENISA's National Capabilities Assessment
+Framework~\cite{enisa_ncaf} uses ``capability'' closer to a maturity
+domain than to Davis's outcome-oriented definition. The present work
+adopts Davis's definition explicitly, grounding the terminology in the
+CBP tradition to achieve greater precision than prior EU cyber roadmaps.
+
+% -----------------------------------------------------------------
+% 3.3 MULTI-DIMENSIONAL ASSESSMENT
+% -----------------------------------------------------------------
+\subsection{Multi-Dimensional Capability Assessment Frameworks}
+\label{sec:rw_multidim}
+
+No single peer-reviewed framework combines technical readiness,
+regulatory alignment, market dynamics, and sovereignty assessment in a
+unified per-capability template. The relevant contributions are
+distributed across four disciplines.
+
+The defence tradition supplies DOTMLPF-P and DOTMLPFI, providing
+eight-axis internal decomposition of capability solutions but lacking
+external market and regulatory axes. The strategic management tradition
+supplies PESTEL (Political, Economic, Social, Technological,
+Environmental, Legal), recently applied to cybersecurity by Morgado
+\textit{et al.}~\cite{morgado2021}. The engineering tradition supplies
+the readiness-level suite: TRL~\cite{mankins1995}, MRL, IRL, and
+SRL~\cite{sauser2008}, reviewed systematically by Olechowski, Eppinger,
+and Joglekar~\cite{olechowski2015}. These readiness scales are strictly
+technical; they do not natively encode regulatory, market, or sovereignty
+dimensions. The political science tradition supplies the digital
+sovereignty axis, with canonical references including Pohle and
+Thiel~\cite{pohle2020}, Roberts~\textit{et al.}~\cite{roberts2021}
+(defining five sovereignty sub-dimensions: data governance, platform
+power, digital infrastructure, emerging technology, and cybersecurity),
+Celeste~\cite{celeste2023}, and Falkner~\textit{et al.}~\cite{falkner2024}.
+None of these constitutes a per-capability profiling template.
+
+Cybersecurity maturity models come closest to multi-dimensional
+profiling. The Oxford Global Cyber Security Capacity Centre Maturity
+Model for Nations (GCSCC CMM)~\cite{gcscc_cmm} uses five dimensions,
+24~factors, and five maturity stages (start-up through dynamic).
+Structurally, it follows a four-step logical pattern---framework
+identification, capability enumeration, profiling,
+phased progression---that closely parallels the pipeline proposed in this
+paper, but it is applied to national-level capacity assessment rather
+than technical cybersecurity capabilities and does not anchor to
+architectural reference models. The DOE C2M2~\cite{doe_c2m2} employs
+ten domains with approximately 356 practices scored at MIL~0--3. The
+NIST CSF~2.0~\cite{nist_csf2} uses six Functions, Categories,
+Subcategories, and four implementation Tiers. The ITU Global
+Cybersecurity Index uses five pillars (legal, technical, organisational,
+capacity development, cooperation). AlDaajeh and
+Alrabaee~\cite{aldaajeh2024} synthesise seven national strategy axes
+but lack sovereignty and readiness dimensions.
+
+The gap is clear: GCSCC covers technical, regulatory, societal,
+educational, and strategic aspects, but sovereignty and market dynamics
+are only implicit. ENISA's National Capabilities Assessment
+Framework~\cite{enisa_ncaf} covers regulatory and sectoral maturity but
+omits TRL and market axes. Roberts~\textit{et al.}~\cite{roberts2021}
+add sovereignty but at the policy-discourse level, not as a
+per-capability metric. A profiling template that fuses technical
+readiness, regulatory alignment, market feasibility, and an explicit
+digital sovereignty axis within a single per-capability instrument---as
+proposed in the 7-Dimensional Capability Profile of
+Section~\ref{sec:stage3}---has no direct precedent in the surveyed
+literature.
+
+% -----------------------------------------------------------------
+% 3.4 EUROPEAN CYBERSECURITY ROADMAP PRECEDENTS
+% -----------------------------------------------------------------
+\subsection{European Cybersecurity Roadmap Precedents}
+\label{sec:rw_eu}
+
+Every major European cybersecurity roadmap deliverable produced under the
+Horizon~2020 Cybersecurity Competence Network pilots has been reviewed.
+A consistent observation emerges: none cites the canonical TRM
+literature (Phaal, Garcia \& Bray, Kostoff) directly, and none employs
+quantitative per-capability maturity metrics.
+
+The sole EU precedent that formally grounds cybersecurity roadmapping in
+TRM theory is the CyberROAD FP7 project. Ariu~\textit{et al.}~\cite{ariu2016}
+cite Phaal, Probert, Carvalho, and the EIRMA formulation, proposing a
+co-evolutionary model of technology, threat, and policy trajectories.
+CyberROAD omits architecture-anchored capability derivation,
+regulatory and sovereignty profiling axes, and quantitative maturity
+progression. It is the single most important methodological predecessor
+to the present work.
+
+The four H2020 Competence Network pilots each contribute distinct
+methodological elements. CONCORDIA~\cite{concordia} (Deliverable~D4.4,
+2022) organises its roadmap across six dimensions (Research \&
+Innovation; Education \& Skills; Legal \& Policy; Economics \&
+Investments; Certification \& Standardisation; Community Building) with
+a per-dimension narrative pipeline from threat landscape through
+challenge identification to phased recommendations across three time
+horizons. It offers the strongest sovereignty-aware multi-dimensional
+framing among the pilots but employs no quantitative maturity metrics.
+SPARTA~\cite{sparta_d34} (Deliverables~D3.1--D3.5, 2019--2022) structures
+challenges against the JRC Cybersecurity Taxonomy (domains $\times$
+sectors) with a per-challenge template (Final Goal, EU Benefits, JRC
+Domain, JRC Sector, Emerging Technology relation). The taxonomy-grounded
+derivation is a strength, but quantitative maturity tracking is absent.
+CyberSec4Europe~\cite{cybersec4europe_d45} (Deliverable~D4.5, 2022) is
+the strongest multi-dimensional precedent: a structured per-vertical
+schema across seven application verticals profiles each challenge across
+SWOT analysis combined with Digital Sovereignty, Green Deal, and Digital
+Decade Strategy alignment, phased into three time horizons. Its
+methodology section explicitly paraphrases Phaal's formulation of
+roadmaps as ``structured visual representations.''
+ECHO~\cite{echo_d43} (Deliverables~D4.3 and D4.10) takes a
+methodological outlier path by mapping SCRUM onto roadmap
+development---EPICs, User Stories, acceptance criteria---and adds
+Analytic Hierarchy Process (AHP)-based multi-sector assessment.
+Quantitative prioritisation is present, but no unified phased-maturity
+matrix is produced.
+
+Beyond the Competence Network, the European Cyber Security Organisation
+(ECSO) Strategic Research and Innovation Agenda~\cite{ecso_sria} uses
+SWOT analysis across thematic pillars without per-priority
+multi-dimensional templates or maturity metrics. ENISA's Threat
+Landscape Methodology~\cite{enisa_ctl} supplies the most explicit
+multi-stage analytical pipeline in EU cybersecurity---six steps
+(Direction $\rightarrow$ Collection $\rightarrow$ Processing
+$\rightarrow$ Analysis \& Production $\rightarrow$ Dissemination
+$\rightarrow$ Feedback)---but adapts the classical intelligence cycle,
+not TRM, and is threat-centric rather than capability-centric. The ECCC
+Strategic Agenda~\cite{eccc} is a policy strategy rather than an
+operational roadmap methodology.
+
+Table~\ref{tab:eu_terminology} summarises the terminological
+heterogeneity across EU cybersecurity roadmaps, illustrating that
+``capability'' is almost never employed as the formal primary unit of
+analysis.
+
+\begin{table}[!ht]
+\centering
+\caption{Primary analytical units in EU cybersecurity roadmaps}
+\label{tab:eu_terminology}
+\footnotesize
+\begin{tabular}{p{2.8cm} p{2.5cm} p{2.2cm}}
+\toprule
+\textbf{Project} & \textbf{Primary Unit} & \textbf{Grouping} \\
+\midrule
+CONCORDIA & Recommendations, challenges & Dimensions \\
+ECSO & Priority areas, challenges & Pillars, WGs \\
+ENISA & Threats, incidents & Landscapes \\
+SPARTA & Challenges & JRC domains \\
+CyberSec4Europe & Research challenges & Verticals \\
+ECHO & User Stories & EPICs \\
+ECCC & Investment priorities & Strategic pillars \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% -----------------------------------------------------------------
+% 3.5 GAP ANALYSIS AND POSITIONING
+% -----------------------------------------------------------------
+\subsection{Gap Analysis and Methodological Positioning}
+\label{sec:rw_gap}
+
+The four research streams surveyed above are consolidated against the
+four pipeline elements that define the present methodology:
+(a)~architecture-anchored capability derivation, (b)~capability
+enumeration from architecture, (c)~multi-dimensional profiling covering
+technical, regulatory, market, and sovereignty axes, and (d)~phased
+progression matrix with quantitative maturity metrics.
+Table~\ref{tab:gap_analysis} presents the assessment.
+
+\begin{table*}[!ht]
+\centering
+\caption{Gap analysis: existing frameworks assessed against the four
+pipeline elements of the proposed methodology. Entries indicate coverage:
+Yes, Partial, Weak, or No.}
+\label{tab:gap_analysis}
+\footnotesize
+\begin{tabular}{p{3.8cm} c c c c c}
+\toprule
+\textbf{Framework} &
+\textbf{(a) Arch.} &
+\textbf{(b) Enum.} &
+\textbf{(c) Multi-dim.} &
+\textbf{(d) Quant.} &
+\textbf{All 4?} \\
+\midrule
+CyberROAD~\cite{ariu2016}
+    & Partial & Yes & Partial & No & \textbf{No} \\
+NIST CSF 2.0~\cite{nist_csf2}
+    & Yes & Partial & Weak & Partial & \textbf{No} \\
+ENISA NCAF~\cite{enisa_ncaf}
+    & Partial & Yes & Partial & Yes & \textbf{No} \\
+DOE C2M2~\cite{doe_c2m2}
+    & No & Yes & No & Yes & \textbf{No} \\
+Phaal T-Plan~\cite{phaal2004}
+    & Generic & Yes & Partial & Possible & \textbf{No} \\
+GCSCC CMM~\cite{gcscc_cmm}
+    & No & Yes & Partial & Yes & \textbf{No} \\
+CONCORDIA D4.4~\cite{concordia}
+    & Yes & Yes & Partial & No & \textbf{No} \\
+SPARTA D3.4~\cite{sparta_d34}
+    & Yes & Yes & Partial & No & \textbf{No} \\
+CyberSec4Europe D4.5~\cite{cybersec4europe_d45}
+    & Yes & Yes & Strong & No & \textbf{No} \\
+ECHO D4.3~\cite{echo_d43}
+    & Yes & Yes & Partial & Partial & \textbf{No} \\
+\textbf{This work}
+    & \textbf{Yes} & \textbf{Yes} & \textbf{Yes} & \textbf{Yes}
+    & \textbf{Yes} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+No existing framework integrates all four pipeline elements.
+CyberSec4Europe D4.5 is the closest precedent on multi-dimensional
+profiling; ECHO is the closest on quantitative prioritisation via AHP;
+ENISA's Threat Landscape methodology is the closest on explicit
+multi-stage analytical pipelines; CONCORDIA is the closest on
+sovereignty-driven framing; and the GCSCC CMM is the closest structural
+analogue but operates as a national-capacity maturity model rather than
+a technical roadmap anchored to architectural reference models.
+
+The present methodology occupies this gap by fusing three traditions:
+the Cambridge/Sandia TRM tradition~\cite{phaal2004,garcia1997} for
+phased planning structure and stage-gate logic, the Davis/JCIDS
+capability-based planning tradition~\cite{davis2002} for formal
+capability definition and architecture-to-capability derivation, and
+cybersecurity maturity models~\cite{nist_csf2,gcscc_cmm,doe_c2m2}
+for quantitative progression metrics. The novelty is defensible on
+three independent grounds: (i)~no canonical TRM framework separates
+capability identification from capability analysis as named, gated
+stages; (ii)~no EU cybersecurity roadmap employs quantitative
+per-capability maturity metrics anchored to an architectural reference
+model; and (iii)~no peer-reviewed framework profiles capabilities
+simultaneously across technical readiness, regulatory alignment, market
+dynamics, and digital sovereignty in a single template.
+
+

@@ -1,0 +1,134 @@
+\newif\ifieeeaccessclass
+\IfFileExists{ieeeaccess.cls}{
+\ieeeaccessclasstrue
+\documentclass{ieeeaccess}
+}{
+\ieeeaccessclassfalse
+\documentclass[10pt]{article}
+}
+
+\ifieeeaccessclass\else
+\newcommand{\history}[1]{}
+\newcommand{\doi}[1]{}
+\newcommand{\address}[1]{}
+\newcommand{\corresp}[1]{}
+\newenvironment{keywords}{\par\noindent\textbf{Keywords: }\itshape}{\par}
+\fi
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\emergencystretch=4pt
+\usepackage{tikz}
+\usetikzlibrary{positioning,shapes.geometric}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+        \usepackage{longtable}
+        \usepackage{pdflscape}
+        \usepackage{geometry}
+
+  \usepackage{colortbl}   % for \rowcolor and \cellcolor
+  \usepackage{xcolor}     % for \definecolor and color names
+  \usepackage{array}      % for extended column formatting
+  \usepackage{booktabs}   % already present in v6
+  \usepackage{multirow}   % for \multirow in phase label column
+
+
+  \usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{
+    positioning,
+    fit,
+    arrows.meta,
+    shapes.geometric,
+    shapes.misc,
+    calc
+}
+
+
+
+\history{Received XX Month XXXX, revised XX Month XXXX, accepted XX Month XXXX.}
+\doi{10.1109/ACCESS.XXXX.DOI}
+
+\title{Cybersecurity \& Cyber-Resilience Strategy for the Sovereign Cloud--Edge--IoT Continuum}
+\author{Iraklis Symeonidis}
+\address{RISE Research Institutes of Sweden, Sweden}
+\corresp{Corresponding author: Iraklis Symeonidis (e-mail: iraklis.symeonidis@ri.se).}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\maketitle
+\hypersetup{pageanchor=true}
+
+\begin{abstract}
+The rapid decentralization of computing infrastructures toward the Cloud--Edge--IoT continuum introduces unprecedented cybersecurity challenges, including expanded attack surfaces, heterogeneous environments, and increased dependency on non-sovereign technologies. This paper proposes a structured, multi-stage methodology for defining and prioritizing cybersecurity capabilities required to achieve a secure and sovereign European computing continuum. The approach combines a pipeline-oriented transformation model with a seven-dimensional analytical framework, enabling traceable transitions from architectural capabilities to strategic priorities and policy-aligned recommendations. A four-filter prioritization logic identifies critical capabilities based on regulatory urgency, architectural dependencies, sovereignty risks, and market feasibility. These priorities are further analyzed through a progression matrix capturing operational deployment and strategic sovereignty evolution across time phases. The methodology provides a reproducible and evidence-based framework for guiding research, innovation investments, and policy decisions in the context of the European digital sovereignty agenda.
+\end{abstract}
+
+\begin{keywords}
+Cybersecurity, Cloud-Edge-IoT, Digital Sovereignty, Zero Trust, Post-Quantum Cryptography, EU Policy, Cyber-Resilience
+\end{keywords}
+
+\include{1.introduction}
+ 
+\include{2.Related_work}
+
+\newpage
+\include{Methodology}
+
+
+\newpage
+\include{capabilities}
+
+\newpage
+\include{consolidated_priorities_v1}
+
+
+% =========================================================================
+% SECTION: Executive Summary & Strategic Recommendations
+% Compressed version — three-stream structure, priority-anchored,
+% gate-traceable, phase-differentiated verb register.
+% Applied R&D exceptions stated once per phase preamble.
+% Success metrics retained verbatim.
+% =========================================================================
+
+% \include{9.Executirve_summary}
+\newpage
+
+\newpage
+% =========================================================================
+% CHAPTER 2: PROMPT
+% =========================================================================
+\appendix
+
+\newpage
+% \include{Discussions}  
+
+\newpage
+% \include{Conclusions}
+
+% =========================================================================
+% REFERENCES
+% =========================================================================
+% Keep bibliography generation valid even when citation-heavy sections are commented.
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{references.bib}
+
+\end{document}

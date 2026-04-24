@@ -1,0 +1,401 @@
+
+% =========================================================================
+% STANDALONE COMPILABLE VERSION — generalized methodology table
+% Latest cleaned version with horizontal gates and per-column transition criteria
+% =========================================================================
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{pdflscape}
+
+\geometry{margin=1.5cm}
+
+% ---- Row background colours ----
+\definecolor{gaterow}{RGB}{240,240,238}
+\definecolor{currentrow}{RGB}{253,243,237}
+\definecolor{phase1row}{RGB}{237,245,253}
+\definecolor{phase2row}{RGB}{237,249,244}
+\definecolor{phase3row}{RGB}{245,244,254}
+\definecolor{endstaterow}{RGB}{238,237,254}
+\definecolor{colheader}{RGB}{245,245,243}
+
+% ---- SSL badge colours ----
+\definecolor{sslredbg}{RGB}{252,235,235}
+\definecolor{sslredtx}{RGB}{163,45,45}
+\definecolor{sslamberbg}{RGB}{250,238,218}
+\definecolor{sslambtx}{RGB}{133,79,11}
+\definecolor{ssltransbg}{RGB}{230,241,251}
+\definecolor{ssltrantx}{RGB}{24,95,165}
+\definecolor{ssltealbg}{RGB}{225,245,238}
+\definecolor{ssltealtx}{RGB}{15,110,86}
+\definecolor{sslpurbg}{RGB}{238,237,254}
+\definecolor{sslpurtx}{RGB}{60,52,137}
+
+\newcommand{\sslbadge}[3]{%
+  \parbox{\linewidth}{\raggedright
+    \colorbox{#1}{\scriptsize\parbox{0.92\linewidth}{\raggedright
+      \textbf{\textcolor{#2}{#3}}}}%
+  }
+}
+\newcommand{\kpistrip}[1]{%
+  \par\vspace{2pt}\noindent\rule{\linewidth}{0.2pt}%
+  \par\noindent\textit{\scriptsize #1}}
+\newcommand{\cellhead}[1]{\textbf{#1}\par\smallskip}
+\newcommand{\gatelbl}[1]{\scriptsize\textit{Gate~#1}}
+
+\begin{document}
+\begin{landscape}
+
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.3}
+
+% Generalized five-column methodology matrix
+\begin{longtable}{%
+|>{\footnotesize\raggedright\arraybackslash}p{3.0cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.6cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.6cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.6cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.6cm}|}
+
+\caption{Generalized methodology framework for phased capability transition in the
+European Cloud-Edge-IoT Cybersecurity Roadmap. Each row represents a distinct
+maturity stage, assessed across four analytical dimensions: R\&I maturity
+(measured via the Operational Deployment Phase, ODP, scale), the policy and
+standards environment, the operational deployment reality, and the market and
+sovereignty position (measured via the Strategic Sovereignty Level, SSL, scale).
+Gate rows define the minimum verifiable conditions required for a transition to
+be declared. The table is reused across all ten strategic priorities; priority-specific
+progression matrices instantiate this framework with domain-specific evidence.}
+\label{tab:master_transition}\\
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase /}
+\newline\textbf{Strategic Sovereignty}
+\newline\textbf{Level (SSL) Band} &
+\textbf{R\&I Maturity}
+  \newline{\scriptsize measured via ODP:
+  Applied R\&D $\rightarrow$ Fragmented Piloting
+  $\rightarrow$ Standardised Integration
+  $\rightarrow$ Ubiquitous Operation} &
+\textbf{Policy, Regulatory \& Standards}
+  \newline{\scriptsize governance formation $\cdot$ compliance
+  obligation $\cdot$ certification maturity
+  $\cdot$ standards formalisation} &
+\textbf{Operational Deployment \& Adoption}
+  \newline{\scriptsize deployment scale $\cdot$ actor types
+  $\cdot$ integration depth $\cdot$ sector coverage} &
+\textbf{Market Uptake \& Strategic Sovereignty}
+  \newline{\scriptsize measured via SSL:
+  High Foreign Dependency $\rightarrow$
+  Emerging EU Ecosystem $\rightarrow$
+  Full Sovereign Autonomy} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL Band} &
+\textbf{R\&I Maturity (ODP)} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Sovereignty (SSL)} \\
+\hline
+\endhead
+
+\hline\multicolumn{5}{r}{\footnotesize\textit{Continued\ldots}}\\
+\endfoot
+
+\hline
+\endlastfoot
+
+% =================================================================
+% ROW I — CURRENT STATUS
+% =================================================================
+\rowcolor{currentrow}
+\textbf{I.~Current Status}
+\newline\textit{Baseline diagnosis}
+\newline\sslbadge{sslredbg}{sslredtx}{SSL: High Foreign Dependency}
+&
+\cellhead{What the baseline shows in research and innovation}
+This cell captures the present level of scientific maturity, prototype availability,
+and technical readiness. It should summarise what already exists, what is still
+experimental, and where major capability gaps remain. Evidence may include low-TRL
+results, fragmented pilots, isolated demonstrators, or dependence on external
+technologies.
+\kpistrip{Methodological role: establishes the starting maturity level against
+which later technical progress is assessed.}
+&
+\cellhead{What the baseline shows in policy and standards}
+This cell describes the current regulatory and governance environment. It should
+indicate whether relevant legislation is absent, emerging, partially enforced, or
+already shaping behaviour. It may also note missing standards, immature
+certification schemes, or inconsistent national implementation.
+\kpistrip{Methodological role: defines the initial institutional conditions that
+constrain or enable capability development.}
+&
+\cellhead{What the baseline shows in deployment and adoption}
+This cell explains how far the capability has progressed in practice. It should
+state whether deployment is absent, limited to pilots, confined to research
+settings, or used by a narrow group of early adopters. It also identifies the
+main operational bottlenecks.
+\kpistrip{Methodological role: anchors the real-world starting point, not only
+the laboratory or policy position.}
+&
+\cellhead{What the baseline shows in market and strategic position}
+This cell characterises the current competitive and sovereignty situation. It
+should indicate external dependency, weak industrial presence, lack of procurement
+pull, limited SME participation, or structural asymmetry versus dominant foreign
+actors.
+\kpistrip{Methodological role: establishes the initial strategic exposure and
+market gap that the roadmap aims to reduce.}
+\\
+\hline
+
+% =================================================================
+% GATE I -> II
+% =================================================================
+\rowcolor{gaterow}
+\gatelbl{I $\rightarrow$ II} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{23.0cm}|}{%
+\cellcolor{gaterow}\textit{This gate defines the minimum conditions required to move from baseline diagnosis to Phase~1 action. It should contain named and verifiable triggers across all four dimensions: a research trigger (e.g.
+launch of targeted calls or validated early prototypes), a policy trigger (e.g.
+first guidance, implementing acts, or initial governance framework), an
+operational trigger (e.g.
+pilot initiation), and a market trigger (e.g.
+first investment signal, funding instrument, or procurement incentive).}}
+\\
+\hline
+
+% =================================================================
+% ROW II — PHASE 1
+% =================================================================
+\rowcolor{phase1row}
+\textbf{II.~Phase~1}
+\newline\textit{Pilot Validation \&}
+\textit{Applied Maturity}
+\newline\sslbadge{sslamberbg}{sslambtx}{SSL: Early EU Capability Emergence}
+&
+\cellhead{What Phase~1 means for research and innovation}
+This cell describes the transition from fragmented research to applied validation.
+It should cover targeted R\&I activity, prototype consolidation, and movement
+from exploratory work toward demonstrable use conditions. Typical evidence
+includes rising TRLs, benchmarking, and early integration into priority use cases.
+\par\smallskip\textbf{Transition criterion:} validated prototype evidence or TRL~4--5 maturity threshold.
+\kpistrip{Methodological role: shows that technical ideas are becoming credible,
+structured, and testable under realistic conditions.}
+&
+\cellhead{What Phase~1 means for policy and standards}
+This cell captures the first conversion of political intent into usable regulatory
+or standards-based direction. It may include guidance documents, implementing
+rules, pre-standardisation work, or the first compliance frameworks that create
+clear expectations for adopters.
+\par\smallskip\textbf{Transition criterion:} initial regulatory guidance, pre-standardisation output, or first compliance framework.
+\kpistrip{Methodological role: shows how the policy environment begins to create
+directional pull and reduce uncertainty.}
+&
+\cellhead{What Phase~1 means for deployment and adoption}
+This cell covers pilot deployment, first operational testing, and limited adoption
+by selected actors or sectors. It should explain where the capability is being
+trialled, under what constraints, and what kinds of users or infrastructures are
+engaged.
+\par\smallskip\textbf{Transition criterion:} at least one structured pilot deployment in a representative environment.
+\kpistrip{Methodological role: demonstrates that the capability is no longer
+purely conceptual and is entering applied operational contexts.}
+&
+\cellhead{What Phase~1 means for market and strategic position}
+This cell explains whether the first signs of industrial traction appear. It may
+include early procurement references, investment trajectories, SME support
+mechanisms, or the emergence of a business case linked to compliance or
+sovereignty needs.
+\par\smallskip\textbf{Transition criterion:} first investment signal, procurement reference, or industrial interest.
+\kpistrip{Methodological role: indicates whether experimentation is beginning to
+translate into strategic and economic relevance.}
+\\
+\hline
+
+% =================================================================
+% GATE II -> III
+% =================================================================
+\rowcolor{gaterow}
+\gatelbl{II $\rightarrow$ III} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{23.0cm}|}{%
+\cellcolor{gaterow}\textit{This gate marks the shift from validated pilots to broader scaling. It
+should specify evidence that Phase~1 results are stable enough to support
+industrialisation or structured expansion. Triggers usually include validated
+prototypes, operational policy instruments, successful pilots in multiple
+settings, and visible market commitment or investment momentum.}}
+\\
+\hline
+
+% =================================================================
+% ROW III — PHASE 2
+% =================================================================
+\rowcolor{phase2row}
+\textbf{III.~Phase~2}
+\newline\textit{Industrial Scaling,}
+\newline\textit{Standardisation \&}
+\textit{Cross-Sector Deployment}
+\newline\sslbadge{ssltransbg}{ssltrantx}{SSL: Emerging Autonomy / Structured Sovereignty}
+&
+\cellhead{What Phase~2 means for research and innovation}
+This cell describes the coexistence of advanced applied R\&I and industrial
+consolidation. It should show how research feeds productisation, performance
+optimisation, and architecture refinement. Evidence may include volume-ready
+designs, mature reference implementations, or cross-domain integration.
+\par\smallskip\textbf{Transition criterion:} reproducible reference implementation and validated scale-up readiness.
+\kpistrip{Methodological role: demonstrates that innovation is no longer isolated,
+but becomes a reproducible capability base.}
+&
+\cellhead{What Phase~2 means for policy and standards}
+This cell captures the formalisation stage. It should reflect ratified standards,
+sector rules, common compliance profiles, or interoperable certification
+pathways that transform pilots into repeatable practices. This is where voluntary
+direction becomes structured governance.
+\par\smallskip\textbf{Transition criterion:} ratified standards, formal policy instruments, or interoperable certification pathway.
+\kpistrip{Methodological role: explains how institutional coherence enables
+repeatability, interoperability, and trust at scale.}
+&
+\cellhead{What Phase~2 means for deployment and adoption}
+This cell explains cross-sector rollout and operational scaling. It should show
+how deployments extend beyond isolated pilots into multiple sectors,
+jurisdictions, or infrastructures, with improving reliability and integration into
+business or public-service operations.
+\par\smallskip\textbf{Transition criterion:} multi-sector deployment beyond isolated pilots.
+\kpistrip{Methodological role: marks the transition from pilot relevance to
+system-level operational presence.}
+&
+\cellhead{What Phase~2 means for market and strategic position}
+This cell shows whether a meaningful industrial and strategic position is being
+built. It may cover rising market share, growing procurement penetration,
+decreasing foreign dependency, and the emergence of continental-scale actors or
+federated offers.
+\par\smallskip\textbf{Transition criterion:} measurable market uptake and reduced strategic dependency.
+\kpistrip{Methodological role: assesses whether Europe is moving from technology
+participation toward structured competitive capacity.}
+\\
+\hline
+
+% =================================================================
+% GATE III -> IV
+% =================================================================
+\rowcolor{gaterow}
+\gatelbl{III $\rightarrow$ IV} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{23.0cm}|}{%
+\cellcolor{gaterow}\textit{This gate defines readiness for sovereign leadership. It should identify
+when the capability is sufficiently mature, standardised, deployed, and
+commercially credible to support autonomous large-scale operation. Triggers
+usually include mature products or infrastructures, binding standards or rules,
+continental deployment evidence, and proof of competitive viability.}}
+\\
+\hline
+
+% =================================================================
+% ROW IV — PHASE 3
+% =================================================================
+\rowcolor{phase3row}
+\textbf{IV.~Phase~3}
+\newline\textit{Autonomous Leadership}
+\newline\textit{\& Frontier Innovation}
+\newline\sslbadge{ssltealbg}{ssltealtx}{SSL: Full Sovereign Autonomy}
+&
+\cellhead{What Phase~3 means for research and innovation}
+This cell captures leadership-level innovation. It should describe frontier R\&I,
+continuous optimisation, and the ability to define new technical paradigms
+rather than merely adopting them. Evidence may include world-leading reference
+architectures, breakthrough performance gains, or agenda-setting research.
+\par\smallskip\textbf{Transition criterion:} frontier-level innovation capability and autonomous optimisation.
+\kpistrip{Methodological role: shows that the capability has moved from catch-up
+to leadership and future-shaping innovation.}
+&
+\cellhead{What Phase~3 means for policy and standards}
+This cell describes regulatory and standards leadership. It should show that the
+relevant frameworks are coherent, enforceable, and influential beyond the
+original jurisdiction, possibly shaping international practice.
+\par\smallskip\textbf{Transition criterion:} stable regulatory leadership and standards-setting influence.
+\kpistrip{Methodological role: indicates that governance has shifted from
+reactive adaptation to rule-setting capacity.}
+&
+\cellhead{What Phase~3 means for deployment and adoption}
+This cell explains full operationalisation. It should describe routine,
+large-scale, resilient deployment across infrastructures and sectors, with the
+capability treated as a default operating baseline rather than a special
+programme or exception.
+\par\smallskip\textbf{Transition criterion:} full-scale operationalisation across infrastructures and sectors.
+\kpistrip{Methodological role: confirms that the capability is embedded in the
+normal functioning of the ecosystem.}
+&
+\cellhead{What Phase~3 means for market and strategic position}
+This cell captures competitive parity or leadership. It should indicate a strong
+industrial base, reduced structural dependency, export potential, and strategic
+influence over ecosystem evolution.
+\par\smallskip\textbf{Transition criterion:} durable competitive parity or strategic leadership.
+\kpistrip{Methodological role: assesses whether capability development has
+translated into durable strategic advantage.}
+\\
+\hline
+
+% =================================================================
+% GATE IV -> V
+% =================================================================
+\rowcolor{gaterow}
+\gatelbl{IV $\rightarrow$ V} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{23.0cm}|}{%
+\cellcolor{gaterow}\textit{This gate marks the transition from autonomous capability to the
+intended end-state vision. It should summarise the evidence that the capability
+is not only deployed and sovereign, but durable, exportable, and structurally
+embedded. Triggers often include recognised leadership, stable policy coherence,
+continent-wide operational normalisation, and positive strategic spillovers.}}
+\\
+\hline
+
+% =================================================================
+% ROW V — STRATEGIC END-STATE
+% =================================================================
+\rowcolor{endstaterow}
+\textbf{V.~Strategic End-State Objective}
+\newline\textit{Long-term Vision}
+\newline\sslbadge{sslpurbg}{sslpurtx}{SSL: Full Autonomy + Strategic Influence}
+&
+\cellhead{What the end-state means for research and innovation}
+This cell describes the intended final technical condition of the roadmap. It
+should present the capability as mature, self-sustaining, and able to generate
+further innovation internally. Research no longer serves only catch-up, but
+continuously renews leadership.
+\kpistrip{Methodological role: defines the target state against which all
+preceding technical progression is interpreted.}
+&
+\cellhead{What the end-state means for policy and standards}
+This cell explains the desired governance condition at maturity. It should show
+a coherent and stable framework in which regulation, certification, and
+standards operate as an integrated system that supports trust and predictability.
+\kpistrip{Methodological role: defines the target institutional configuration
+for long-term capability sustainability.}
+&
+\cellhead{What the end-state means for deployment and adoption}
+This cell presents the operational vision once the capability has become normal,
+reliable, and widely embedded. It should express that deployment is no longer an
+exception or a programme milestone, but the accepted baseline across the target
+ecosystem.
+\kpistrip{Methodological role: defines the operational destination of the
+transition pathway.}
+&
+\cellhead{What the end-state means for market and strategic position}
+This cell captures the long-term strategic ambition. It should show that the
+capability supports competitiveness, autonomy, resilience, and wider influence,
+with sustainable participation across large actors, public institutions, and
+SMEs.
+\kpistrip{Methodological role: defines the final strategic outcome that justifies
+the phased roadmap as a whole.}
+\\
+\hline
+
+\end{longtable}
+\end{landscape}
+
+\end{document}

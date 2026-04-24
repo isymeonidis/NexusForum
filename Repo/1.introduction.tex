@@ -1,0 +1,120 @@
+\section{Introduction}
+
+\subsection{Contributions}
+
+This paper makes the following contributions:
+
+The
+methodology addresses a gap identified across three mature but previously
+separate research traditions: technology roadmapping (TRM),
+capability-based planning (CBP), and cybersecurity capability maturity
+assessment. To the best of our knowledge, no existing framework integrates
+all four elements---(a)~architecture-anchored capability derivation,
+(b)~multi-criteria prioritisation, (c)~multi-dimensional profiling across
+technical, regulatory, market, and sovereignty axes, and (d)~phased
+progression with quantitative maturity metrics---in a unified, traceable
+pipeline tailored to the Cloud--Edge--IoT cybersecurity domain.
+
+Canonical TRM frameworks~\cite{phaal2004,garcia1997} provide the phased
+planning structure but do not natively encode regulatory, sovereignty, or
+market dimensions. Capability-based planning~\cite{davis2002} provides the
+outcome-oriented capability concept and DOTMLPF-P decomposition logic but
+has not been systematically applied to civilian cybersecurity roadmapping.
+EU cybersecurity roadmap precedents---CyberROAD~\cite{ariu2016},
+CONCORDIA~\cite{concordia}, CyberSec4Europe~\cite{cybersec4europe_d45}---provide
+multi-dimensional framing and phased recommendations but lack quantitative
+per-capability maturity metrics and architecture-anchored capability
+derivation. The present methodology synthesises these traditions into a
+single reproducible instrument.
+
+\begin{itemize}
+    \item A structured pipeline methodology for cybersecurity capability prioritization in the Cloud--Edge--IoT continuum.
+    \item A 4-dimensional filtering logic linking regulatory, architectural, sovereignty, and market-adoption considerations.
+    \item A hybrid 7-dimensional profiling framework for actionable R\&I prioritization.
+    \item A progression matrix model capturing operational deployment and strategic sovereignty evolution across time phases.
+    \item A traceable transformation from technical capabilities to policy-aligned strategic recommendations.
+\end{itemize}
+\newpage
+% =========================================================================
+% CHAPTER 1: INSTRUCTIONS
+% =========================================================================
+
+\noindent
+This manuscript and roadmap defines the architectural guardrails required to secure the Cloud--Edge--IoT Continuum. It moves beyond traditional ``perimeter security'' toward a model of cyber-resilience---where systems are engineered to proactively anticipate, withstand, recover from, and adapt to attacks while maintaining strict digital sovereignty.
+\textbf{Approach:} To provide actionable, risk-aware Research \& Innovation (R\&I) priorities, the strategy is organized into a two-part framework:
+ 
+
+\subsection*{Purpose of This Document}
+This roadmap provides a structured methodology for European policymakers, research organizations, and industry stakeholders to:
+\begin{itemize}
+    \item Identify and prioritize cybersecurity R\&I investments for the Cloud-Edge-IoT continuum
+\item Track capability maturity using objective Operational Deployment Phase (ODP) and Strategic Sovereignty Level (SSL) metrics.
+    \item Align Horizon Europe funding with strategic autonomy goals and regulatory compliance requirements
+    \item Ensure coordinated implementation across Member States and European initiatives (ECCC, Digital Europe Programme, EU Chips Act)
+\end{itemize}
+
+\subsection*{Target Audiences}
+\begin{description}
+    \item[European Commission \& Funding Bodies:] Use the 4-Filter Prioritization Framework to allocate Horizon Europe, Digital Europe Programme, and ECCC funding to capabilities with the highest strategic impact.
+    
+    \item[National Cybersecurity Agencies:] Leverage the progression matrices to coordinate national R\&I investments with EU-wide timelines and ensure interoperability across Member States.
+    
+    \item[Research Consortia \& Industry:] Utilize the 7-Dimensional Analysis template to structure project proposals, clearly articulating baseline, target, drivers, risks, and alignment with European strategic goals.
+    
+    \item[Standardization Bodies (CEN/CENELEC, ETSI):] Reference the architectural framework and MIMs to develop harmonized standards for secure, interoperable computing continuum infrastructure.
+\end{description}
+
+\subsection*{How to Navigate This Document}
+\begin{enumerate}
+    \item \textbf{Start with Section 1-3:} Understand the threat landscape, regulatory drivers, and strategic context for securing the European computing continuum.
+    
+    \item \textbf{Review Section 4:} Familiarize yourself with the 6 Security Layers and 4 Cross-Layers comprising the architectural framework.
+    
+    \item \textbf{Apply Section 5:} Use the 4-Filter Prioritization Framework to assess which capabilities are critical for your specific context (national strategy, industrial sector, research focus).
+    
+    \item \textbf{Study Section 6-7:} Understand the 7-Dimensional Analysis methodology and ODP/SSL progression metrics before designing projects or policies.
+    
+    \item \textbf{Reference Section 9 (Priorities 1-3):} Use the detailed capability profiles as templates for structuring additional priorities relevant to your domain.
+    
+    \item \textbf{Implement Section 10:} Actionable strategic recommendations for Phase 1 (2025-2030) provide concrete next steps.
+\end{enumerate}
+
+\subsection*{Key Principles}
+\begin{itemize}
+    \item \textbf{Evidence-Based Prioritization:} All priorities must pass the 4-Filter Framework (Regulatory Urgency, Foundational Dependency, Sovereignty Cliff, Market Feasibility).
+    
+    \item \textbf{Sovereignty-First Design:} Investments should systematically reduce foreign dependencies (measured via SSL metrics) while building European industrial capacity.
+    
+    \item \textbf{Compliance-by-Design:} All R\&I outputs must align with or anticipate NIS2, CRA, AI Act, and Data Act requirements to ensure market relevance.
+    
+    \item \textbf{Federated Interoperability:} Solutions must prioritize standardization and open architectures (e.g., Simpl middleware, open-source RISC-V) over proprietary, siloed approaches.
+    
+    \item \textbf{Measurable Progression:} Avoid subjective TRL assessments; instead, use objective ODP (market integration) and SSL (sovereignty) metrics with clear phase transition criteria.
+\end{itemize}
+
+
+% \section{Structure and main components of the Roadmap}
+\section{Background \& Driving Factors}
+% \noindent\textbf{Topic:} Cybersecurity for the Cognitive Computing Continuum\\
+\textbf{Destinations:}
+\begin{itemize}
+    \item \textbf{Primary:} 4. A secure, sovereign European computing continuum infrastructure.
+    \item \textbf{Secondary:} 6. European leadership in emerging disruptive computing paradigms.
+\end{itemize}
+
+
+\begin{itemize}
+    \item \textbf{Decentralization Risk:} The paradigm shift from the centralized Cloud to a distributed Cloud-Edge-IoT continuum radically expands the attack surface. This creates environments that are often ``too many, too diverse, and too dispersed''  to secure with traditional perimeter defenses.
+    \item \textbf{Physical Exposure:} Edge nodes and far-edge IoT devices frequently operate in the field. Unlike hyperscaler data centers, they lack strict physical and environmental security controls, making them highly vulnerable to tampering.
+    \item \textbf{Regulatory Pressure:} There is an immediate, complex need to operationalize the NIS2 Directive \cite{nis2}, the Cyber Resilience Act (CRA) \cite{cra}, and the AI Act \cite{aiact} across a highly fragmented technological ecosystem to ensure compliance and market access.
+    \item \textbf{Digital Sovereignty:} Europe must urgently reduce its systemic reliance on non-EU technology providers. Doing so will mitigate extra-territorial data access risks and avoid geopolitical vendor lock-in, ensuring independent control over critical infrastructure.
+\end{itemize}
+
+\subsection{Europe in Relation to the State of the Art}
+\textbf{Comparison vs. Hyperscalers:}
+\begin{itemize}
+    \item \textbf{EU Strengths:} Europe leads globally in Trust, Privacy-by-Design, proactive regulation (GDPR, Data Act, AI Act), and rigorous, standardized certification frameworks (e.g., EUCS \cite{eucs}).
+    \item \textbf{EU Gaps:} The European market suffers from a lack of unified, hyper-scale security orchestration. Furthermore, there is a critical dependency on non-EU hardware (secure silicon) and highly fragmented threat intelligence sharing among member states.
+\end{itemize}
+\textbf{Strategic Goal:} To definitively transition the European computing continuum from a state of ``reactive, siloed security''  to an advanced architecture defined by ``autonomous, federated, and certified Security-by-Design.''
+

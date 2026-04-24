@@ -1,0 +1,2220 @@
+% =========================================================================
+% CONSOLIDATED STRATEGIC PRIORITY CLUSTERS
+% File: consolidated_priorities_v1.tex
+% Integration: \input{consolidated_priorities_v1} in master document
+%
+% Required packages (add to master preamble if not present):
+%   \usepackage[table]{xcolor}
+%   \usepackage{multirow}
+%   \usepackage{array}
+%
+% New bibliography keys required (entries provided at end of file):
+%   fips203, fips204, fips205, nistir8413, nistsp800207,
+%   etsi103744, etsizsmoo9, tgcpm20, isoiec11889,
+%   opentitan, keystone, threeGPP23288, threeGPP33501, dora, gdpr
+% =========================================================================
+
+% ---- Shared colors/macro helpers when included from a master document ----
+\providecolor{gaterow}{RGB}{240,240,238}
+\providecolor{phase1row}{RGB}{237,245,253}
+\providecolor{phase2row}{RGB}{237,249,244}
+\providecolor{phase3row}{RGB}{245,244,254}
+\providecolor{colheader}{RGB}{245,245,243}
+\providecolor{clusterheader}{RGB}{220,232,248}
+
+\providecolor{sslredbg}{RGB}{252,235,235}
+\providecolor{sslredtx}{RGB}{163,45,45}
+\providecolor{sslamberbg}{RGB}{250,238,218}
+\providecolor{sslambtx}{RGB}{133,79,11}
+\providecolor{ssltransbg}{RGB}{230,241,251}
+\providecolor{ssltrantx}{RGB}{24,95,165}
+\providecolor{ssltealbg}{RGB}{225,245,238}
+\providecolor{ssltealtx}{RGB}{15,110,86}
+
+\providecommand{\sslbadge}[3]{%
+      \parbox{\linewidth}{\raggedright
+            \colorbox{#1}{\scriptsize\parbox{0.92\linewidth}{\raggedright
+                  \textbf{\textcolor{#2}{#3}}}}}}
+
+\providecommand{\kpistrip}[1]{%
+      \par\vspace{2pt}\noindent\rule{\linewidth}{0.3pt}%
+      \par\noindent\textit{\scriptsize #1}}
+
+\providecommand{\cellhead}[1]{\noindent\textbf{#1}\par\smallskip}
+\providecommand{\gatelbl}[1]{\scriptsize\textit{Gate~#1:}}
+\providecommand{\subp}[1]{\textit{\scriptsize(#1)}}
+
+\section{Strategic Priority Clusters}
+\label{ch:strategic_priority_clusters}
+
+% \subsection{Consolidation Rationale and Structural Logic}
+% \label{sec:consolidation_rationale}
+
+% The ten executive priorities identified through the 4-Filter Prioritisation Framework represent
+% distinct technology domains, but they share deep structural dependencies and converge on three
+% strategic imperatives that define Europe's 15-year cybersecurity trajectory for the Cloud-Edge-IoT
+% continuum. Maintaining ten parallel profiles in a dual-audience deliverable risks fragmenting
+% the narrative for European Commission technical evaluators while obscuring the systemic
+% interdependencies that determine whether individual priorities succeed or fail.
+
+% The consolidation presented in this chapter reorganises the ten priorities into three strategic
+% clusters, each with a unifying architectural thesis. To preserve the analytical precision required
+% by IEEE Access peer review, each cluster retains its constituent sub-priorities as explicitly
+% labelled components within a nested progression matrix, allowing individual technology maturation
+% trajectories to be tracked independently while the cluster-level framing communicates strategic
+% coherence to policy audiences.
+
+% The mapping is as follows:
+% \begin{itemize}
+%   \item \textbf{Priority Cluster 1 --- Sovereign Trusted Infrastructure:}
+%         P1 (Hardware Roots of Trust), P2 (PQC Agility), P3 (Lightweight
+%         Cryptography and Physical-Layer Security), P8 (Confidential
+%         Computing), P9 (Resilient-by-Design / Island Mode).
+%   \item \textbf{Priority Cluster 2 --- Cognitive Security and Autonomous
+%         Cyber Defence:} P6 (Cognitive SecOps / LLMSecOps), P10 (Proactive
+%         APT Management), and the AI-as-target dimension drawn from
+%         Cross-Layers CL1.2, CL1.3, and CL4.7.
+%   \item \textbf{Priority Cluster 3 --- Federated Operational Sovereignty:}
+%         P4 (Security Interoperability via Simpl), P5 (Supply Chain
+%         Verification), P7 (Pan-European NaaS Federation).
+% \end{itemize}
+
+% One critical cross-priority dependency must be made explicit before the cluster profiles are
+% presented. Hardware supply chain attestation (P5) and Runtime SBOM verification constitute
+% a shared gate condition for both Cluster 1 (TEE and secure element integrity) and Cluster 3
+% (federated supply chain governance). Progression in P8 (Confidential Computing) is contingent
+% on the availability of trustworthy RISC-V secure elements from P1; P3 (Lightweight PhySec)
+% and P2 (PQC) both depend on EU Chips Act fabrication capacity as a common Phase 2 enabler.
+% These shared bottlenecks are identified explicitly in the Cross-Priority Bottleneck assessment
+% in Section~\ref{sec:bottlenecks} and traced to specific progression matrix gate conditions.
+
+% =========================================================================
+% PRIORITY CLUSTER 1: SOVEREIGN TRUSTED INFRASTRUCTURE
+% =========================================================================
+
+% \newpage
+\section{Priority Cluster 1: Sovereign Trusted Infrastructure}
+\label{sec:cluster1}
+
+\noindent\textbf{Constituent Sub-Priorities:} P1 (Hardware Roots of Trust \& EUCC `High'),
+P2 (PQC Agility for Edge/IoT), P3 (Lightweight Cryptography \& Physical-Layer Security),
+P8 (Confidential Computing \& Privacy-Preserving AI), P9 (Resilient-by-Design \& Island Mode).
+
+\medskip
+\noindent\textbf{Cluster Thesis:} Before any federated or AI-driven security capability can be
+trusted, the substrate on which it executes must provide cryptographically verifiable integrity,
+quantum-resistant confidentiality, and autonomous survivability independent of external
+infrastructure. This cluster defines the verifiable hardware and cryptographic foundation that
+all higher-order capabilities in Clusters 2 and 3 depend upon as an architectural prerequisite.
+
+\subsection*{7-Dimensional Analysis: Priority Cluster 1}
+
+\begin{enumerate}
+
+% ---- DIMENSION 1 ----
+\item \textbf{Baseline \& Target Objective}
+
+\textit{Baseline (2025--2026):}
+European critical infrastructure and edge deployments operate under high foreign dependency
+across all five constituent sub-priorities. Hardware roots of trust are dominated by non-EU
+Trusted Platform Module (TPM) manufacturers --- Infineon SLB9670, NXP SE050, and
+STMicroelectronics ST33 series collectively account for the majority of the EU market under
+ISO/IEC~11889~\cite{isoiec11889} and TCG TPM~2.0 specifications~\cite{tgcpm20}. The Trusted
+Execution Environment (TEE) market is dominated by Intel TDX, AMD SEV-SNP, and ARM TrustZone,
+none of which are EU-designed or manufactured. Post-Quantum Cryptography (PQC) standardisation
+reached a definitive milestone with NIST's publication of FIPS~203 (ML-KEM)~\cite{fips203},
+FIPS~204 (ML-DSA)~\cite{fips204}, and FIPS~205 (SLH-DSA)~\cite{fips205} in August~2024;
+however, hardware-optimised implementations for 8/16-bit microcontrollers remain at the
+Applied~R\&D stage, as confirmed by NIST IR~8413~\cite{nistir8413}. Physical-layer security
+for extreme-edge mMTC devices lacks standardised specifications. Edge nodes universally operate
+with hard cloud dependencies and no autonomous fallback architectures meeting the operational
+resilience mandates of NIS2~\cite{nis2} and DORA~\cite{dora}.
+
+Current cluster ODP: Applied R\&D (driven by PQC, Lightweight PhySec, and Confidential
+Computing sovereign alternatives). Current cluster SSL: High Foreign Dependency.
+
+\textit{Target (2040):}
+At least 60\% of EU critical infrastructure edge nodes deploy EU-designed RISC-V open-hardware
+secure elements certified at EUCC `High' assurance level~\cite{eucc}. 100\% of new EU critical
+IoT deployments support hybrid or full FIPS~203/204/205-compliant PQC. Zero-energy nodes
+execute quantum-resistant device authentication within a sub-100\,$\mu$J energy budget per
+operation. Trusted Execution Environments built on EU open-hardware architectures (Keystone~\cite{keystone},
+OpenTitan~\cite{opentitan}) cover at least 50\% of new EU cloud-edge deployments. All NIS2-essential
+and DORA-critical edge nodes demonstrate validated 72-hour autonomous Island Mode survivability
+independent of WAN connectivity.
+
+% ---- DIMENSION 2 ----
+\item \textbf{Primary Drivers}
+
+\textit{Threat Drivers:}
+\begin{itemize}
+  \item State-sponsored APT exploitation of JTAG debug interfaces and electromagnetic
+        side-channel analysis (EMSCA) on field-deployed edge nodes; the Spectre and Meltdown
+        class of microarchitectural side-channel vulnerabilities establishes that even
+        production-certified hardware can be compromised at scale, and far-edge nodes
+        operating without physical security controls present a materially higher exposure
+        surface than hyperscaler data centres.
+  \item ``Harvest Now, Decrypt Later'' (HNDL) campaigns: state-level adversaries are
+        actively archiving encrypted EU government and industrial communications under
+        the expectation of Cryptographically Relevant Quantum Computer (CRQC)
+        availability. NIST IR~8413 places the Q-Day horizon in the 10--20 year range
+        with a highly uncertain lower bound~\cite{nistir8413}; HNDL renders this a
+        present-tense threat against data with multi-decade confidentiality
+        requirements.
+  \item Physical tampering and environmental attacks on unattended far-edge nodes
+        (smart grid substations, O-RAN radio units, industrial gateways) where the
+        physical security controls available in hyperscaler facilities are absent.
+  \item Cascading WAN disconnection failures propagating through centrally-dependent edge
+        architectures, exploited by adversaries to degrade critical infrastructure
+        services during hybrid conflict scenarios.
+\end{itemize}
+
+\textit{Regulatory Drivers:}
+\begin{itemize}
+  \item CRA Articles~10 and~11: mandatory vulnerability handling and security update
+        obligations for products with digital elements; enforcement begins in 2027 for
+        most product categories~\cite{cra}.
+  \item NIS2 Article~21(2)(e): cryptographic policies and key management for essential
+        and important entities; full enforcement began October 2024~\cite{nis2}.
+  \item DORA Article~9: ICT resilience testing including hardware-level resilience
+        requirements for financial sector critical infrastructure~\cite{dora}.
+  \item AI Act Article~9: risk management system requirements for high-risk AI
+        systems; critical infrastructure AI components require hardware integrity
+        guarantees that only EUCC `High' certified secure elements can
+        provide~\cite{aiact}.
+\end{itemize}
+
+% ---- DIMENSION 3 ----
+\item \textbf{High Impact Activities}
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[Phase~1]} Develop sovereign European Secure Elements based on
+        RISC\-V open-hardware (building on OpenTitan~\cite{opentitan} and
+        Keystone~\cite{keystone} frameworks), targeting EUCC `High' assurance level
+        evaluation; implement automated hardware-level remote attestation protocols
+        interoperable with TPM~2.0~\cite{tgcpm20} and ISO/IEC~11889~\cite{isoiec11889}
+        for heterogeneous large-scale edge fleets.
+
+  \item \textbf{[Phase~1--2]} Optimise NIST FIPS~203 (ML-KEM)~\cite{fips203} and
+        FIPS~204 (ML-DSA)~\cite{fips204} for 8/16-bit microcontrollers under severe
+        energy and memory constraints (target: ML-KEM-512 within 32\,KB RAM on
+        Cortex-M0+ class devices); develop crypto-agility OTA update middleware enabling
+        algorithm rotation without hardware replacement, compatible with ETSI TS~103~744
+        hybrid key exchange profiles~\cite{etsi103744}.
+
+  \item \textbf{[Phase~1--2]} Implement ultra-lightweight PQC and keyless
+        Physical-Layer Security (RF fingerprinting exploiting Channel State Information
+        and Carrier Frequency Offset, CSI/CFO-based device authentication) for mMTC
+        devices operating under zero-energy or near-zero-energy constraints; target
+        integration with 6G ISAC (Integrated Sensing and Communication) interfaces per
+        SNS~JU~SRIA~\cite{snsju}.
+
+  \item \textbf{[Phase~2]} Deploy multi-party confidential computing pipelines
+        using TEE abstraction layers (Keystone enclaves on RISC-V~\cite{keystone})
+        combined with Fully Homomorphic Encryption (FHE) schemes for collaborative AI
+        training across multi-provider nodes without raw data exposure; align with
+        EUCS `High+' certification requirements~\cite{eucs}.
+
+  \item \textbf{[Phase~2--3]} Engineer autonomous Island Mode architecture: soft-state
+        edge orchestration using cached credentials with 72-hour validity windows,
+        LoRaWAN LPWAN fallback micro-slices, eBPF-based kernel-level policy enforcement
+        for autonomous node isolation, and bio-inspired self-healing swarm protocols
+        enabling edge nodes to sustain critical service delivery without cloud
+        connectivity or human intervention.
+\end{enumerate}
+
+% ---- DIMENSION 4 ----
+\item \textbf{Catalysts \& Enablers}
+
+\textit{Funding Alignment:}
+Horizon Europe Cluster~4 (Digital, Industry and Space) for sovereign secure silicon and
+PQC hardware implementation; Horizon Europe Cluster~3 (Civil Security for Society) for
+edge resilience and Island Mode architectures; EU Chips Act (Regulation (EU) 2023/1781)
+pilot fabrication lines for security-critical silicon via the Chips Joint Undertaking
+(KDT~JU); ECCC Strategic Agenda priority areas ``Secure Components and Systems'' and
+``Post-Quantum Cryptography transition infrastructure''~\cite{eccc}; Digital Europe
+Programme for PQC migration tooling and crypto-agility middleware.
+
+\textit{Standardisation:}
+NIST NCCoE ``Migration to Post-Quantum Cryptography'' project (reference architecture
+and migration playbooks); CEN/CENELEC JTC~13/WG~8 (hardware security standards aligned
+with EUCC Common Criteria); ETSI TC CYBER (ETSI TS~103~744 quantum-safe hybrid key
+exchanges~\cite{etsi103744}); ENISA PQC transition guidelines and cryptographic inventory
+tooling; 3GPP SA3 for physical-layer security integration with 5G/6G
+specifications~\cite{threeGPP33501}.
+
+\textit{Ecosystem Enablers:}
+RISC-V International open-hardware community; OpenTitan coalition pilot deployments
+for EU sovereign RoT~\cite{opentitan}; SNS~JU pilot networks for 6G-integrated PhySec
+validation~\cite{snsju}; federated Cyber Range infrastructure (CL3.5) for Island Mode
+and TEE attestation stress-testing.
+
+% ---- DIMENSION 5 ----
+\item \textbf{Disruptors \& Systemic Risks}
+
+\begin{itemize}
+  \item \textbf{Q-Day cliff:} CRQC becoming operational before EU PQC migration
+        completes; NIST IR~8413 places this horizon at 10--20 years with a highly
+        uncertain lower bound~\cite{nistir8413}. The EU PQC migration timeline targeting
+        critical infrastructure completion by 2030 has limited buffer against the
+        pessimistic lower bound, and HNDL campaigns make this a present-tense threat
+        against long-lived secrets.
+  \item \textbf{EU Chips Act EUV lithography shortfall:} RISC-V secure element
+        production at the node geometries required for EUCC `High' certification depends
+        on advanced lithography; EU 2030 Chips Act targets (20\% global market share)
+        do not specify security-critical silicon capacity independently, and ASML EUV
+        tooling remains subject to US--Netherlands export control dynamics that could
+        constrain sovereign fabrication timelines beyond 2028.
+  \item \textbf{Side-channel analysis breakthroughs against FIPS~203 software
+        implementations:} lattice-based algorithms have demonstrated timing and
+        cache-timing attack surfaces in software implementations on constrained devices;
+        hardware countermeasures are not yet standardised at the time of writing
+        [CITATION REQUIRES VERIFICATION --- recent SCA against ML-KEM implementations].
+  \item \textbf{TEE architectural monoculture:} if EU open-hardware TEE adoption
+        concentrates on a single architecture (e.g., Keystone only~\cite{keystone}), a
+        single discovered vulnerability propagates across the entire EU critical
+        infrastructure TEE estate without architectural diversity as a containment layer.
+  \item \textbf{LPWAN regulatory fragmentation:} Island Mode fallback using LoRaWAN
+        operates on unlicensed 868\,MHz spectrum in the EU; spectrum policy
+        fragmentation across Member States could prevent coordinated emergency
+        micro-slice activation under unified crisis response scenarios.
+\end{itemize}
+
+% ---- DIMENSION 6 ----
+\item \textbf{Failsafe Mechanisms \& Resilience}
+
+\begin{itemize}
+  \item \textbf{Hybrid cryptographic transition:} deploy ML-KEM (FIPS~203)~\cite{fips203}
+        combined with ECDH-P384 in a hybrid key encapsulation scheme per
+        ETSI TS~103~744~\cite{etsi103744}; if ML-KEM is found vulnerable via cryptanalytic
+        breakthrough, ECDH-P384 maintains classical confidentiality while SLH-DSA
+        (FIPS~205)~\cite{fips205} provides backup hash-based signature integrity with
+        distinct mathematical foundations.
+  \item \textbf{TEE implementation diversity:} deploy a minimum of two architecturally
+        distinct TEE technologies across critical EU infrastructure (ARM CCA on
+        server-class hardware and RISC-V Keystone~\cite{keystone} on edge nodes) to
+        prevent single-architecture compromise from cascading across the entire
+        confidential computing estate.
+  \item \textbf{Autonomous node quarantine via eBPF:} if TEE remote attestation fails,
+        eBPF-based network policy enforcement at the Linux kernel level (e.g., via
+        Cilium or Falco eBPF rulesets) isolates the affected node from the orchestration
+        plane within sub-second latency, blocking lateral movement before human
+        intervention is available.
+  \item \textbf{Island Mode failsafe:} edge nodes maintain cryptographically signed
+        cached credentials with defined 72-hour validity windows; on WAN disconnection,
+        a LoRaWAN LPWAN micro-slice activates a minimal viable network carrying
+        life-safety telemetry; if LPWAN also fails, nodes revert to local-only operation
+        with integrity-protected audit logging for post-incident forensics.
+  \item \textbf{RF fingerprinting fallback:} for zero-energy IoT nodes where
+        cryptographic processing exceeds the available energy budget, Physical-Layer
+        authentication via RF fingerprinting (CSI/CFO-based device identity) provides
+        keyless device verification using intrinsic wireless channel characteristics,
+        requiring no cryptographic key storage or computation.
+\end{itemize}
+
+% ---- DIMENSION 7 ----
+\item \textbf{Transversal Meta-Layer}
+
+\textit{Sovereignty \& Autonomy:}
+This cluster eliminates approximately 100\% foreign dependency on non-EU TPMs (Infineon,
+NXP, STMicroelectronics dominate the EU market under TCG TPM~2.0~\cite{tgcpm20}) and
+non-EU TEE architectures (Intel TDX, AMD SEV-SNP, ARM TrustZone, all non-EU designed and
+manufactured). Crypto-agility frameworks additionally reduce dependency on US-controlled
+NIST algorithm supply chains by enabling algorithm substitution if standardisation processes
+are constrained by geopolitical factors.
+
+\textit{Trust \& Ethics:}
+GDPR Article~25 (data protection by design and by default) is operationalised through
+TEE-enforced data minimisation and in-use encryption in multi-tenant environments,
+ensuring that sensitive data processing cannot be accessed by platform operators~\cite{gdpr}.
+AI Act Article~9 risk management system requirements for high-risk AI components require
+hardware integrity guarantees --- only EUCC `High' certified secure elements provide the
+mathematically verifiable trust anchor this obligation demands~\cite{aiact}.
+
+\textit{Sustainable Security (Green IT):}
+CRYSTALS-Kyber (ML-KEM) demonstrates approximately 1.5$\times$ computational overhead
+relative to ECDH at equivalent security levels on ARM Cortex-M4, per NIST IR~8413~\cite{nistir8413},
+representing a manageable energy penalty. Lightweight PQC research targets sub-100\,$\mu$J
+per authentication operation for zero-energy IoT nodes. EU-sovereign RISC-V secure
+elements designed for edge power constraints enable more energy-efficient cryptographic
+operations than general-purpose processor TPM emulation, reducing per-device carbon
+footprint at continental deployment scale.
+
+\end{enumerate}
+
+
+
+% =========================================================================
+% CLUSTER 1: SOVEREIGN TRUSTED INFRASTRUCTURE
+% =========================================================================
+\newpage
+
+\subsection{Progression Matrix: Priority Cluster 1 --- Sovereign Trusted Infrastructure}
+
+\begin{landscape}
+\setlength{\textwidth}{26.5cm}\setlength{\linewidth}{26.5cm}%
+\setlength{\hsize}{26.5cm}\setlength{\columnwidth}{26.5cm}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.35}
+
+\begin{longtable}{%
+|>{\footnotesize\raggedright\arraybackslash}p{2.8cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}|}
+
+\caption{\textbf{Cluster~1: Sovereign Trusted Infrastructure} (P1, P2, P3, P8, P9).
+Transition matrix across the four methodology dimensions. Sub-priority labels in
+parentheses indicate where individual priorities diverge from the cluster-level
+descriptor within a cell. ODP scale: Applied R\&D $\to$ Fragmented Piloting
+$\to$ Standardised Integration $\to$ Ubiquitous Operation. SSL scale:
+High Foreign Dependency $\to$ Emerging EU Ecosystem $\to$ Full Sovereign Autonomy.}
+\label{tab:cluster1}\\
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity}{\scriptsize ODP indicator per sub-priority} &
+\textbf{Policy, Regulatory \& Standards}{\scriptsize enforcement $\cdot$
+  certification $\cdot$ standardisation} &
+\textbf{Operational Deployment \& Adoption}{\scriptsize actor types $\cdot$
+  scale $\cdot$ sector coverage} &
+\textbf{Market Uptake \& Strategic Sovereignty}{\scriptsize SSL indicator
+  $\cdot$ dependency reduction $\cdot$ industrial capacity} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Sovereignty} \\
+\hline
+\endhead
+\hline\multicolumn{5}{r}{\footnotesize\textit{Continued\ldots}}\\ \endfoot
+\hline \endlastfoot
+
+% ---- PHASE 1 ----
+\rowcolor{phase1row}
+\textbf{Phase~1}
+\newline\textit{Foundation \&}
+\newline\textit{Compliance}
+\newline\textit{2025--2030}
+\newline\sslbadge{sslredbg}{sslredtx}{SSL: High Foreign Dependency}
+&
+\cellhead{Cluster ODP: Applied R\&D / Fragmented Piloting}
+The cluster is split at baseline. \subp{P1, P9} reach Fragmented
+Piloting: RISC-V secure element projects targeting EUCC `High' are
+funded under Horizon Europe and EU Chips Act; Island Mode soft-state
+protocols are validated in 5G research testbeds.
+\subp{P2, P3, P8} remain at Applied R\&D: NIST FIPS~203/204/205
+algorithms are being optimised for 8/16-bit microcontrollers under
+severe energy and memory constraints; Keystone and OpenTitan
+prototypes are under EUCC pre-evaluation; RF fingerprinting
+Physical-Layer Security is validated in controlled 5G lab environments;
+Fully Homomorphic Encryption approaches practical latency bounds in
+research settings only.
+\kpistrip{The cluster ODP is Applied R\&D, driven by the majority of
+sub-priorities. Deployment claims for P2, P3, P8 must be grounded in
+named Horizon Europe or ECCC project outcomes, not technology
+previews.}
+&
+\cellhead{Regulatory environment: enforcing, certification nascent}
+NIS2 Article~21(2)(e) cryptographic policies for essential entities
+entered full enforcement in October~2024. CRA Articles~10 and~11
+(vulnerability handling and security update obligations) begin
+enforcement in 2027, creating immediate procurement-level demand for
+hardware security certification. AI~Act Articles~9 and~15 establish
+hardware integrity requirements for high-risk AI systems and enter
+applicability in 2025--2026. ENISA PQC migration guidelines are
+published; EUCC evaluation processes are initiated for the first RISC-V
+prototypes, but no EU-specific EUCC~`High' certified sovereign secure
+element exists yet. CEN/CENELEC JTC~13 standards for hardware security
+MIMs are in draft phase.
+\kpistrip{The regulatory framework is enforcing existing obligations
+but lacks EU-specific hardware certification outputs; the critical gap
+is the absence of a ratified EUCC~`High' EU-origin product.}
+&
+\cellhead{Deployment: research consortia and national agencies only}
+RISC-V secure element pilots are operated by 3--5 Horizon Europe
+consortia and national cybersecurity agencies in controlled
+environments. Intel~TDX, AMD~SEV-SNP, and ARM~TrustZone dominate
+all operational TEE deployments across EU cloud and critical
+infrastructure. PQC is confined to cloud-side software implementations
+in pilot contexts; far-edge IoT devices run classical cryptography
+exclusively. Edge nodes operate with hard cloud dependencies and no
+validated autonomous fallback architecture meeting DORA or NIS2
+business continuity thresholds. SMEs have no access to EU-sovereign
+hardware alternatives at viable cost.
+\kpistrip{Operational deployment at Phase~1 is institutional and
+research-concentrated. The gap between pilot existence and operational
+availability for regulated-sector procurement must be explicitly
+acknowledged.}
+&
+\cellhead{SSL: High Foreign Dependency}
+Non-EU TPMs (Infineon~SLB9670, NXP~SE050, STMicroelectronics~ST33)
+hold $\geq$90\% of EU market share in hardware security modules.
+Intel, AMD, and ARM control the entire operational TEE market. No
+EU-designed and EU-manufactured secure element is commercially
+available. EU Chips Act fabrication investment for security-critical
+silicon is initiated but pre-production. US NIST algorithm supply chain
+is the sole PQC standardisation reference. Structural vulnerability is
+direct: geopolitical restriction of access to any of the three major
+TPM suppliers would immediately impair EU critical infrastructure
+attestation capability.
+\kpistrip{Quantified dependency at Phase~1 baseline: $\geq$90\% foreign
+market share, zero EU-certified sovereign hardware alternatives.
+Sovereignty progress is measured from this specific figure.}
+\\
+\hline
+
+% ---- GATE 1->2 ----
+\rowcolor{gaterow}
+\gatelbl{1 $\rightarrow$ 2} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} At least one EU-designed RISC-V secure element prototype
+has been independently validated against EUCC~`High' evaluation criteria and has
+entered the formal ENISA/national scheme certification process.
+\textbf{Policy trigger:} CRA Articles~10 and~11 are in active enforcement with
+documented non-compliance decisions, confirming that market incentives for
+certified EU hardware alternatives are financially material.
+\textbf{Operational trigger:} Documented operational deployment of hybrid
+ML-KEM (FIPS~203) plus ECDH-P384 PQC schemes in at least one EU critical
+infrastructure sector (energy or financial) at production scale, not pilot scale.
+\textbf{Market trigger:} EU Chips Act security-critical silicon fabrication
+pilot line has produced and delivered its first commercially viable batch of
+EU-origin secure elements, confirmed by independent yield and cost assessment.}
+\\
+\hline
+
+% ---- PHASE 2 ----
+\rowcolor{phase2row}
+\textbf{Phase~2}
+\newline\textit{Applied \& Industrial}
+\newline\textit{R\&D alongside}
+\newline\textit{Federation \&}
+\newline\textit{Standardisation}
+\newline\textit{2030--2035}
+\newline\sslbadge{ssltransbg}{ssltrantx}{SSL: Emerging EU Ecosystem}
+&
+\cellhead{Cluster ODP: Standardised Integration / continued Applied R\&D}
+\subp{P1, P9} reach Standardised Integration: the first EUCC~`High' certified
+EU-manufactured RISC-V secure elements are in production and being integrated
+into critical infrastructure; automated remote attestation at fleet scale is
+validated; 72-hour Island Mode achieves standardised certification under
+3GPP/ETSI fallback API profiles.
+\subp{P2, P3} transition from Applied R\&D to Fragmented Piloting: hybrid
+ML-KEM plus ECDH-P384 schemes are validated at Industrial IoT scale; lightweight
+PQC for sub-100~$\mu$J zero-energy nodes is demonstrated under 6G ISAC testbeds.
+\subp{P8} reaches Fragmented Piloting: RISC-V Keystone TEEs are operational
+in multi-provider Data Spaces; FHE performance approaches the threshold for
+selective production use in high-value financial analytics.
+\kpistrip{Phase~2 R\&I is not purely consolidation: three of five sub-priorities
+are still in active applied and industrial R\&D. Describing this phase as
+``standardisation only'' misrepresents the maturation arc.}
+&
+\cellhead{EUCC certification and PQC standards formalised}
+The EUCC~`High' certification of the first EU-manufactured RISC-V secure
+element is the definitive Phase~2 policy gate: it transforms applied research
+into a market-accessible, legally certifiable product and unlocks the procurement
+pathway for EU critical infrastructure operators. NIST FIPS~203/204/205 are
+adopted into ETSI~TS profiles for EU deployment contexts. ENISA publishes a
+mandatory PQC migration timeline for critical infrastructure operators, referenced
+in NIS2 sector-specific implementing acts. EU Chips Act fabrication investments
+are active and measurable. CEN/CENELEC hardware security standards for EU-origin
+secure elements enter ratification.
+\kpistrip{The single Phase~2 policy gate is EUCC~`High' certification of a
+EU-origin product. All other policy milestones are enabling conditions, not
+gate conditions.}
+&
+\cellhead{Critical infrastructure and regulated sectors deploying EU alternatives}
+EU EUCC~`High' certified secure elements are deployed in energy sector
+substations and telecommunications critical infrastructure in at least five
+Member States. Hybrid PQC schemes are standard in new Industrial IoT and
+financial sector (DORA-compliant) deployments. RISC-V Keystone TEEs operate
+in federated multi-provider Data Spaces alongside existing Intel TDX
+infrastructure. Validated 72-hour Island Mode is deployed in at least three
+EU 5G cross-border corridor pilots under SNS~JU governance. SME-accessible
+PQC tooling and SBOM compliance support are available commercially.
+\kpistrip{Phase~2 deployment evidence requires named sector and Member State
+scope; anonymous ``multi-sector deployment'' claims do not constitute
+verifiable operational maturity.}
+&
+\cellhead{SSL: Emerging EU Ecosystem}
+EU-designed secure elements achieve 15--30\% market share in new critical
+infrastructure procurement, rising from a near-zero baseline. EU Chips Act
+fabrication investments have created a domestic production capacity that is
+commercially credible, if not yet dominant. Foreign TPMs remain the standard
+for legacy deployments but are no longer the only option for new regulated-sector
+procurement. EU open-hardware TEE ecosystem (Keystone, OpenTitan) holds
+commercially certifiable products. The conditions for Full Sovereign Autonomy
+are structurally in place --- fabrication capacity, certification infrastructure,
+standards leadership --- but have not yet reached continental operational scale.
+\kpistrip{SSL transition requires industrial substance, not research demonstration.
+15--30\% new critical infra market share is the quantified Phase~2 SSL threshold.}
+\\
+\hline
+
+% ---- GATE 2->3 ----
+\rowcolor{gaterow}
+\gatelbl{2 $\rightarrow$ 3} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} Production-ready PQC-native RISC-V silicon is available
+from EU-domiciled fabrication at commercially viable yields, confirmed by
+independent cost-per-unit assessment against equivalent non-EU alternatives.
+\textbf{Policy trigger:} EUCC~`High' certification is mandated as a procurement
+requirement for all new EU critical infrastructure edge node deployments, with
+no waiver provisions for new procurements (legacy replacement programmes are
+time-bound).
+\textbf{Operational trigger:} Validated 72-hour Island Mode is deployed as a
+standard operational baseline --- not a pilot --- in $\geq$50\% of new EU
+NIS2-essential entity edge node procurements in the energy and
+telecommunications sectors.
+\textbf{Market trigger:} EU Chips Act sovereign fabrication capacity achieves
+$\geq$50\% self-sufficiency for security-critical silicon in new EU critical
+infrastructure procurement, measured by share of new orders fulfilled by
+EU-origin fabrication.}
+\\
+\hline
+
+% ---- PHASE 3 ----
+\rowcolor{phase3row}
+\textbf{Phase~3}
+\newline\textit{Autonomy \&}
+\newline\textit{Leadership}
+\newline\textit{2035--2040}
+\newline\sslbadge{ssltealbg}{ssltealtx}{SSL: Full Sovereign Autonomy}
+&
+\cellhead{Cluster ODP: Ubiquitous Operation}
+All five sub-priorities operate at Ubiquitous Operation. EU-designed
+RISC-V secure elements are the hardware default across all new EU ICT
+products. Fully Homomorphic Encryption is operationalised for
+end-to-end confidential processing from IoT to HPC, not confined to
+high-value analytics. Zero-energy PhySec authentication via RF
+fingerprinting operates as a standard device identity mechanism for
+battery-less mMTC nodes. Bio-inspired swarm protocols enable autonomous
+cyber-physical recovery without cloud intervention. Phase~3 R\&I is
+oriented toward the next-generation frontier: neuromorphic secure
+compute, post-second-generation quantum hardware, and post-CMOS
+security architectures --- EU research groups define the agenda rather
+than adopting it.
+\kpistrip{Ubiquitous Operation requires deployment statistics, not
+deployment plans. Phase~3 evidence must cite procurement share data
+and operational audit findings, not programme milestone completions.}
+&
+\cellhead{EU as international hardware security standards reference}
+EUCC~`High' certification is mandatory for all new EU ICT products
+without waiver provisions. PQC-native silicon is the EU procurement
+default. EU hardware security standards are referenced in ISO/IEC
+international standardisation and in bilateral digital trade
+agreements. Continuous automated EUCC lifecycle maintenance replaces
+point-in-time audit models completely. The EU sets the terms of
+hardware security compliance for market access, transforming its
+internal market standard into a de facto international reference.
+\kpistrip{Phase~3 policy maturity requires evidence of international
+standards influence: at least one EU hardware security standard adopted
+or formally referenced in an ISO/IEC or ITU-T international standard.}
+&
+\cellhead{Security-by-Design the unconditional hardware and crypto default}
+$\geq$60\% of EU critical infrastructure edge nodes deploy EUCC~`High'
+certified EU-designed secure elements. FHE is operational end-to-end
+from IoT sensor to HPC compute node. Autonomous Island Mode provides
+validated 72-hour survivability as a mandatory operational baseline
+across all NIS2-essential and DORA-critical edge deployments. No new
+EU ICT product enters the market without a hardware root of trust.
+The question ``does this deployment have hardware-level integrity?''
+has no non-trivial answer for any new EU deployment.
+\kpistrip{Phase~3 deployment normalisation: $\geq$60\% market penetration
+for EU secure elements in critical infra; 100\% of new EU ICT products
+with hardware RoT as a default.}
+&
+\cellhead{SSL: Full Sovereign Autonomy}
+EU-designed and EU-manufactured secure elements hold $\geq$60\% of new
+critical infrastructure procurement market share. Foreign legacy
+dependency operates under binding replacement programmes with defined
+timelines. EU sovereign RISC-V silicon and open-hardware TEE
+architectures are exported to and adopted by partner jurisdictions.
+EU PQC and hardware TEE standards are the international reference.
+Structural exposure to geopolitical disruption of any single non-EU
+hardware supplier has been eliminated for new deployments. The EU
+has moved from defensive sovereignty (reducing dependency) to offensive
+strategic posture (defining the terms of global hardware security
+competition).
+\kpistrip{Full Sovereign Autonomy is verified by $\geq$60\% market share
+in new critical infra procurement plus the existence of binding
+replacement programmes for legacy foreign hardware --- not by 100\%
+market share.}
+\\
+\hline
+
+\end{longtable}
+\end{landscape}
+
+
+% ---- PROGRESSION MATRIX: CLUSTER 1 ----
+
+% \noindent
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|p{4.2cm}|p{5.6cm}|p{5.6cm}|p{5.6cm}|}
+% \hline
+% \rowcolor{gray!30}
+% \multicolumn{4}{|c|}{\textbf{Progression Matrix: Priority Cluster 1 ---
+%   Sovereign Trusted Infrastructure (P1, P2, P3, P8, P9)}} \\
+% \hline
+% \rowcolor{gray!15}
+% \textbf{Metric} &
+% \textbf{Phase 1: Foundation \& Compliance (2025--2030)} &
+% \textbf{Phase 2: Federation \& Standardisation (2030--2035)} &
+% \textbf{Phase 3: Autonomy \& Leadership (2035--2040)} \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Cluster-Level Progression Indicators}}} \\
+% \hline
+% \textbf{Cluster ODP} &
+% Applied R\&D &
+% Standardised Integration &
+% Ubiquitous Operation \\
+% \hline
+% \textbf{Cluster SSL} &
+% High Foreign Dependency &
+% Emerging EU Ecosystem &
+% Full Sovereign Autonomy \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Sub-Priority Decomposition (Individual ODP / SSL per Phase)}}} \\
+% \hline
+% \textit{P1: Hardware RoT \newline \& EUCC `High'} &
+% ODP: Fragmented Piloting \newline
+% SSL: High Foreign Dependency &
+% ODP: Standardised Integration \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \textit{P2: PQC Agility \newline for Edge/IoT} &
+% ODP: Applied R\&D \newline
+% SSL: High Foreign Dependency &
+% ODP: Fragmented Piloting \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \textit{P3: Lightweight Crypto \newline \& Physical-Layer Sec.} &
+% ODP: Applied R\&D \newline
+% SSL: High Foreign Dependency &
+% ODP: Standardised Integration \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \textit{P8: Confidential Computing \newline \& Privacy-Pres. AI} &
+% ODP: Applied R\&D \newline
+% SSL: High Foreign Dependency &
+% ODP: Fragmented Piloting \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \textit{P9: Resilient-by-Design \newline \& Island Mode} &
+% ODP: Fragmented Piloting \newline
+% SSL: High Foreign Dependency &
+% ODP: Standardised Integration \newline
+% SSL: Contained Local Survivability &
+% ODP: Ubiquitous Operation \newline
+% SSL: Systemic EU Resilience \\
+% \hline
+% \rowcolor{blue!7}
+% \textbf{Operational State} &
+% EU-funded RISC-V secure element pilot projects commence EUCC evaluation;
+% NIST FIPS~203/204/205 algorithms are adopted by research consortia and
+% optimised for constrained devices in laboratory settings; Intel TDX
+% and AMD SEV-SNP dominate all operational TEE deployments while
+% EU open-hardware alternatives remain at prototype stage;
+% edge nodes operate with hard cloud dependencies and lack
+% autonomous fallback architectures validated at operational scale. &
+% EU-manufactured EUCC `High' certified secure elements enter
+% critical infrastructure deployments across energy and
+% telecommunications sectors; hybrid ML-KEM plus ECDH-P384 schemes
+% are standardised and deployed in Industrial IoT corridors;
+% RISC-V Keystone-based TEEs are operational in federated
+% multi-provider Data Spaces; validated 72-hour Island Mode
+% survivability demonstrated in designated EU 5G cross-border
+% corridor pilots under SNS~JU governance. &
+% EU Chips Act sovereign fabrication supplies $\geq$60\% of EU demand
+% for security-critical silicon; all new EU ICT products ship with
+% EUCC `High' certified hardware roots of trust by default;
+% fully homomorphic encryption is operationalised for
+% end-to-end confidential processing from IoT to HPC;
+% bio-inspired swarm protocols coordinate autonomous
+% cyber-physical recovery without any cloud intervention,
+% achieving DORA-mandated recovery time objectives
+% autonomously at continental scale. \\
+% \hline
+% \rowcolor{orange!12}
+% \textbf{Critical Enabler} &
+% CRA Articles~10 and~11 enforcement (2024--2027) creating
+% mandatory market demand for hardware security certification,
+% establishing the commercial conditions for EU secure element
+% pilot investment &
+% EUCC `High' certification of the first EU-manufactured
+% RISC-V secure element, constituting the gate condition
+% for the hardware sovereignty transition and unlocking
+% EU Chips Act fabrication investment justification &
+% EU Chips Act sovereign EUV-capable fabrication capacity
+% achieving $\geq$60\% market self-sufficiency in
+% security-critical silicon, removing the last structural
+% foreign dependency in the infrastructure trust chain \\
+% \hline
+% \end{tabular}%
+% }
+
+% =========================================================================
+% PRIORITY CLUSTER 2: COGNITIVE SECURITY AND AUTONOMOUS CYBER DEFENCE
+% =========================================================================
+
+\newpage
+\section{Priority Cluster 2: Cognitive Security and Autonomous Cyber Defence}
+\label{sec:cluster2}
+
+\noindent\textbf{Constituent Sub-Priorities:} P6 (Cognitive SecOps / LLMSecOps \& Automated
+Threat Intelligence), P10 (Proactive APT Management), and the AI-as-target dimension
+drawn from CL1.2 (Model Integrity / DataBOMs), CL1.3 (Dynamic Supply Chain Verification /
+Runtime SBOMs), and CL4.7 (AI Trustworthiness \& Algorithmic Accountability).
+
+\medskip
+\noindent\textbf{Cluster Thesis:} Artificial intelligence is simultaneously the most powerful
+instrument available for autonomous cyber defence and the most consequential new attack surface
+introduced into the security architecture. A roadmap that deploys AI agents for autonomous
+threat containment without hardening those agents against adversarial manipulation creates a
+critical second-order vulnerability. This cluster therefore addresses three inseparable
+sub-dimensions: AI as security instrument (LLMSecOps and APT hunting), AI as adversary
+amplifier (AI-generated APT tooling), and AI as target (model poisoning, adversarial evasion,
+and algorithmic accountability for autonomous containment decisions).
+
+\subsection*{7-Dimensional Analysis: Priority Cluster 2}
+
+\begin{enumerate}
+
+% ---- DIMENSION 1 ----
+\item \textbf{Baseline \& Target Objective}
+
+\textit{Baseline (2025--2026):}
+European Security Operations Centres (SOCs) rely predominantly on rule-based SIEM platforms ---
+Splunk (US-domiciled, acquired by Cisco in 2023) and IBM QRadar dominate enterprise
+deployments. AI-based tools are deployed as analyst ``copilots'' with human analysts
+retaining all containment authority; no EU-sovereign foundation models for security
+operations exist at production scale. APT dwell times in European enterprise environments
+average 150--200 days, with state-sponsored threat actors demonstrating extended persistence
+in EU critical infrastructure. The adversarial robustness of AI security agents --- their
+resistance to prompt injection, model evasion, and training data poisoning --- is addressed
+only in research contexts without operational certification frameworks. NWDAF integration
+per 3GPP TS~23.288~\cite{threeGPP23288} exists in 5G standalone deployments but remains
+fragmented across operators, and no EU-mandated framework for the trustworthiness of
+autonomous security AI exists prior to AI Act enforcement.
+
+Current cluster ODP: Applied R\&D (AI-as-target and sovereign LLM development); Siloed AI
+Copilots (P6); Multi-Layered Alert Correlation (P10). Cluster ODP: Applied R\&D.
+Cluster SSL: High Reliance on US Foundation Models / High Dependency on Global Threat Feeds.
+
+\textit{Target (2040):}
+\begin{sloppypar}
+Swarm-based agentic AI defends the EU Cloud-Edge Continuum autonomously, with APT dwell
+time reduced to under 24 hours in certified critical infrastructure deployments. EU-sovereign
+edge Small Language Models (SLMs) and Large Context Models (LCMs) for security operations
+are certified under AI Act Article~9 and cover at least 50\% of EU critical infrastructure
+SOC deployments. All autonomous security agents pass mandatory adversarial robustness
+validation before operational deployment. Moving Target Defense reduces APT reconnaissance
+success rates below 5\% in validated simulation environments. EU AI security frameworks
+are adopted as global reference implementations by partner jurisdictions.
+\end{sloppypar}
+
+% ---- DIMENSION 2 ----
+\item \textbf{Primary Drivers}
+
+\textit{Threat Drivers:}
+\begin{itemize}
+  \item Nation-state APT campaigns (attributed by EU agencies to APT28/GRU,
+        APT29/SVR, and Sandworm) increasingly exploit LLM hallucination and
+        prompt injection vulnerabilities to manipulate autonomous security agents
+        into executing incorrect containment actions --- weaponising the defence
+        architecture against itself.
+  \item AI-generated spear-phishing and poly\-morphic malware
+        enabling automated, highly-targeted APT campaigns that adapt
+        faster than signature-based
+        detection cycles, invalidating the static detection rules that rule-based
+        SIEM platforms depend upon.
+  \item Supply chain attacks targeting AI model training pipelines: data poisoning
+        and backdoor insertion into security AI models deployed at continental scale
+        can silently degrade detection capability without triggering observable
+        anomalies in standard monitoring.
+  \item Systematic abuse of MITRE ATT\&CK-catalogued techniques (T1027 Obfuscated
+        Files or Information; T1055 Process Injection) within AI-assisted
+        reconnaissance tools, enabling more efficient bypass of detection rules
+        derived from those same frameworks.
+\end{itemize}
+
+\textit{Regulatory Drivers:}
+\begin{itemize}
+  \item AI Act Article~9: risk management system requirements for high-risk AI
+        systems --- autonomous security containment agents making access revocation
+        or network isolation decisions qualify as high-risk systems requiring
+        mandatory conformity assessment before operational deployment~\cite{aiact}.
+  \item AI Act Article~15: accuracy, robustness, and cybersecurity requirements
+        for high-risk AI, including specific resilience requirements against
+        adversarial manipulation of inputs and training data~\cite{aiact}.
+  \item AI Act Article~13: transparency and provision of information for high-risk
+        AI --- autonomous security decisions must be explainable to affected
+        entities and competent national authorities~\cite{aiact}.
+  \item NIS2 Article~21(2)(b): incident handling procedures, including
+        AI-augmented detection and response, for essential entities~\cite{nis2}.
+\end{itemize}
+
+% ---- DIMENSION 3 ----
+\item \textbf{High Impact Activities}
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[Phase~1]} Deploy NWDAF-integrated (3GPP TS~23.288~\cite{threeGPP23288})
+        telemetry pipelines feeding ML-based UEBA (User and Entity Behaviour Analytics)
+        for APT indicator correlation; establish behavioural baseline profiles across
+        federated enterprise environments targeting reduction of APT dwell time from
+        the current 150--200 day average to under 72 hours in pilot deployments via
+        ML-assisted Indicator of Compromise (IoC) pattern detection.
+
+  \item \textbf{[Phase~1--2]} Develop EU-sovereign Small Language Models (SLMs,
+        under 10B parameters) and Large Context Models (LCMs) for edge-native SOC
+        operations (LLMSecOps), trained on MITRE ATT\&CK-aligned threat intelligence
+        corpora under GDPR-compliant data governance~\cite{gdpr}; establish mandatory
+        AI Act Article~9 conformity assessment pipelines for all autonomous security
+        agent deployments prior to production authorisation~\cite{aiact}.
+
+  \item \textbf{[Phase~2]} Deploy edge-native ``Guardian'' nodes executing autonomous
+        Zero-Trust reconfigurations per NIST SP~800-207 ZTA principles~\cite{nistsp800207}
+        and Moving Target Defense (MTD) --- dynamically shuffling IP addressing, network
+        topology, and software diversity to disrupt APT reconnaissance --- governed by
+        ETSI GS~ZSM~009 closed-loop automation standards~\cite{etsizsm009}.
+
+  \item \textbf{[Phase~2]} Establish mandatory adversarial robustness validation
+        pipelines for all AI security agents prior to operational deployment: automated
+        red-team adversarial testing (prompt injection, model evasion, backdoor
+        detection via CL1.4 purple-team automation), with continuous certification
+        under a CEN/CENELEC-standardised AI security agent assurance framework
+        aligned with CL4.7 AI Trustworthiness requirements.
+
+  \item \textbf{[Phase~3]} Deploy swarm-based agentic AI coordination protocols
+        enabling decentralised, self-evolving threat intelligence synthesis across
+        the EU Cloud-Edge Continuum; integrate with Deception Technology
+        infrastructure (CL2.6: honeypots, honeynets, credential canaries, fake API
+        endpoints) to generate high-fidelity, low-noise adversarial ground truth for
+        continuous autonomous agent retraining.
+\end{enumerate}
+
+% ---- DIMENSION 4 ----
+\item \textbf{Catalysts \& Enablers}
+
+\textit{Funding Alignment:}
+EuroHPC Joint Undertaking AI Factories for training EU-sovereign security foundation
+models at the compute scale required; ECCC Strategic Agenda priority areas ``Cybersecurity
+of AI'' and ``AI-enabled cybersecurity tools and services''~\cite{eccc}; Horizon Europe
+Cluster~3 (Civil Security for Society) calls targeting AI-driven threat intelligence and
+autonomous incident response; EU AI Office for conformity assessment infrastructure
+supporting high-risk security AI certification under the AI Act.
+
+\textit{Standardisation:}
+ETSI GS~ZSM~009 (Zero-Touch Network and Service Management, Closed-Loop
+Automation~\cite{etsizsm009}); 3GPP TS~23.288 (NWDAF architecture for AI-native 5G
+network analytics~\cite{threeGPP23288}); MITRE ATT\&CK framework (behavioural threat
+intelligence taxonomy for agent training corpora); NIST SP~800-207 (Zero Trust
+Architecture~\cite{nistsp800207}); CEN/CENELEC JTC~13 working groups on AI security
+agent assurance standardisation.
+
+\textit{Ecosystem Enablers:}
+ENISA AI cybersecurity threat landscape guidelines; federated Cyber Range infrastructure
+(CL3.5) for adversarial agent testing under realistic attack scenarios; CONCORDIA
+successor programme for EU-wide SOC federation and cross-border CTI sharing~\cite{concordia};
+EU AI Act notified conformity assessment bodies for high-risk AI product certification.
+
+% ---- DIMENSION 5 ----
+\item \textbf{Disruptors \& Systemic Risks}
+
+\begin{itemize}
+  \item \textbf{Adversarial AI arms race:} threat actors weaponising LLMs for
+        automated zero-day discovery and polymorphic exploit generation may outpace
+        the defensive AI maturation timeline --- specifically, AI-generated
+        vulnerability discovery could exceed human patching bandwidth within the
+        Phase~1--2 window, before EU-sovereign autonomous response agents are
+        certified for operational deployment.
+  \item \textbf{LLM hallucination in containment agents:} false positive isolation
+        of critical infrastructure nodes (e.g., a hospital network segment incorrectly
+        quarantined during a medical emergency) constitutes an operational safety risk
+        that may impose worse harm than the threat the agent was designed to
+        contain --- this is the central argument for mandatory HITL escalation in Phase~1.
+  \item \textbf{EU sovereign LLM compute deficit:} training security-relevant
+        foundation models requires EuroHPC-scale compute; as of 2025--2026, EU frontier
+        model training capacity lags US and China by approximately one order of
+        magnitude, constraining Phase~1 EU-sovereign models to SLM/LCM scale
+        ($<$10B parameters) and limiting capability relative to US foundation models.
+  \item \textbf{AI model poisoning via CTI feed corruption:} if adversaries inject
+        false indicators into NWDAF analytics pipelines or Cyber Threat Intelligence
+        (CTI) sharing platforms (CL2.1), behavioural baselines trained on poisoned
+        data will silently misclassify legitimate traffic and fail to detect real APTs
+        --- a harder failure mode to detect than outright system unavailability.
+  \item \textbf{AI Act certification bottleneck:} mandatory conformity assessment
+        for high-risk autonomous security agents may create a 24--36 month regulatory
+        gap during which EU organisations operate without certified autonomous
+        containment, relying on slower human-in-the-loop processes that cannot match
+        AI-assisted adversary speed.
+\end{itemize}
+
+% ---- DIMENSION 6 ----
+\item \textbf{Failsafe Mechanisms \& Resilience}
+
+\begin{itemize}
+  \item \textbf{Shadow mode operation:} all autonomous AI security agents run in
+        parallel with human-supervised rule-based SIEM during Phases~1--2;
+        containment actions affecting Tier-1 critical infrastructure (energy,
+        healthcare, transport per NIS2 Annex~I) require mandatory Human-In-The-Loop
+        (HITL) escalation regardless of AI confidence score, with reversible quarantine
+        actions bounded by a defined 60-minute rollback window~\cite{nis2}.
+  \item \textbf{Model diversity and behavioural circuit breakers:} deploy a minimum
+        of two architecturally distinct AI detection models (e.g., transformer-based
+        LLM plus graph neural network UEBA) to prevent a single-model adversarial
+        exploit from disabling the entire detection capability; behavioural circuit
+        breakers automatically suspend any agent exhibiting an anomalous action rate
+        or pattern deviating beyond $3\sigma$ from its established operational
+        baseline, reverting to rule-based SIEM until re-certification.
+  \item \textbf{RLHF continuous correction:} incorporate analyst override decisions
+        into continuous Reinforcement Learning from Human Feedback (RLHF) retraining
+        to prevent model drift from training distribution; quarterly adversarial
+        red-team audits (CL1.4) detect capability degradation before it reaches
+        operational significance.
+  \item \textbf{Air-gapped CTI validation:} all external CTI feeds ingested by
+        NWDAF analytics pipelines pass through an isolated validation environment
+        where indicator quality is assessed against independent behavioural ground
+        truth before poisoned data can influence operational AI model weights.
+  \item \begin{sloppypar}\textbf{Deception-backed calibration:} honeynet and credential canary
+        infrastructure (CL2.6) provides high-fidelity, low-noise ground truth against
+        which AI behavioural models are continuously calibrated, reducing false
+        positive rates and providing an independent signal for detecting model
+        poisoning via discrepancy analysis between canary alerts and AI model
+        predictions.\end{sloppypar}
+\end{itemize}
+
+% ---- DIMENSION 7 ----
+\item \textbf{Transversal Meta-Layer}
+
+\textit{Sovereignty \& Autonomy:}
+This cluster eliminates reliance on US-domiciled SIEM platforms (Splunk/Cisco, IBM QRadar)
+and US foundation models for operational security intelligence. EU-sovereign SLMs trained
+under GDPR-compliant data governance~\cite{gdpr} ensure that sensitive threat intelligence
+and behavioural telemetry does not transit non-EU cloud infrastructure. EU leadership in
+trustworthy AI security tools creates an exportable technology capability aligned with
+the AI Act's ambition for global regulatory standard-setting.
+
+\textit{Trust \& Ethics:}
+AI Act Article~13 (transparency requirements) is mandated for all autonomous security
+decisions --- affected entities must receive meaningful explanations for AI-driven access
+revocations or network isolation actions~\cite{aiact}. GDPR Article~22 (restrictions on
+automated individual decision-making) applies where AI containment decisions affect
+individual data subjects; human review mechanisms must be structurally embedded, not
+optional add-ons~\cite{gdpr}. AI Act Article~15 adversarial robustness requirements
+ensure security AI systems cannot be weaponised against the infrastructure they are
+designed to protect~\cite{aiact}.
+
+\textit{Sustainable Security (Green IT):}
+Edge-native SLMs under 10B parameters reduce inference energy consumption by two to
+three orders of magnitude compared to centralised GPT-class model inference, enabling
+real-time threat classification at the point of detection without data centre energy
+overhead. Federated training paradigms reduce repeated data transmission overhead
+compared to centralised training architectures and are compatible with the privacy
+preservation requirements of GDPR Article~25~\cite{gdpr}.
+
+\end{enumerate}
+
+% =========================================================================
+% CLUSTER 2: COGNITIVE SECURITY AND AUTONOMOUS CYBER DEFENCE
+% =========================================================================
+\newpage
+\subsection{Progression Matrix: Priority Cluster 2 --- Cognitive Security and Autonomous
+Cyber Defence}
+
+\begin{landscape}
+\setlength{\textwidth}{26.5cm}\setlength{\linewidth}{26.5cm}%
+\setlength{\hsize}{26.5cm}\setlength{\columnwidth}{26.5cm}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.35}
+
+\begin{longtable}{%
+|>{\footnotesize\raggedright\arraybackslash}p{2.8cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}|}
+
+\caption{\textbf{Cluster~2: Cognitive Security \& Autonomous Cyber Defence}
+(P6, P10, AI-as-target dimension from CL1.2, CL1.3, CL4.7).
+Transition matrix across the four methodology dimensions. The AI-as-target
+dimension (model integrity, adversarial robustness, algorithmic accountability)
+is labelled \textit{(AI-T)} where it diverges from P6 or P10 descriptors.}
+\label{tab:cluster2}\\
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity}{\scriptsize ODP indicator per sub-priority} &
+\textbf{Policy, Regulatory \& Standards}{\scriptsize enforcement $\cdot$
+  certification $\cdot$ standardisation} &
+\textbf{Operational Deployment \& Adoption}{\scriptsize actor types $\cdot$
+  scale $\cdot$ sector coverage} &
+\textbf{Market Uptake \& Strategic Sovereignty}{\scriptsize SSL indicator
+  $\cdot$ dependency reduction $\cdot$ industrial capacity} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Sovereignty} \\
+\hline
+\endhead
+\hline\multicolumn{5}{r}{\footnotesize\textit{Continued\ldots}}\\ \endfoot
+\hline \endlastfoot
+
+% ---- PHASE 1 ----
+\rowcolor{phase1row}
+\textbf{Phase~1}
+\newline\textit{Foundation \&}
+\newline\textit{Compliance}
+\newline\textit{2025--2030}
+\newline\sslbadge{sslredbg}{sslredtx}{SSL: High Reliance on}
+\newline\sslbadge{sslredbg}{sslredtx}{US Foundation Models}
+&
+\cellhead{Cluster ODP: Applied R\&D / Siloed AI Copilots}
+\subp{P6} reaches Siloed AI Copilots: commercial LLMs (GPT-4-class)
+assist human SOC analysts in alert triage, threat report generation, and
+MITRE ATT\&CK technique mapping; no EU-sovereign LLM for security
+operations exists at production scale; NWDAF (3GPP TS~23.288)
+telemetry pipelines are integrated in 5G SA pilot deployments for
+anomaly detection. \subp{P10} is at Multi-Layered Alert Correlation:
+ML-based UEBA is applied to APT IoC detection in research and pilot
+contexts; APT dwell time reduction from the 150--200 day average is
+demonstrated in controlled settings. \subp{AI-T} is at Applied R\&D:
+adversarial robustness testing (prompt injection, model evasion,
+DataBOM verification) is an academic research function without
+operational certification frameworks.
+\kpistrip{Phase~1 R\&I distinguishes three sub-dimensions with
+different maturity levels. Conflating them into a single ODP cell
+obscures that AI-as-target capability is the least mature and the
+most consequential gap.}
+&
+\cellhead{AI Act enforcing; conformity assessment infrastructure absent}
+AI~Act Articles~9 (risk management), 13 (transparency), and 15
+(adversarial robustness) enter applicability in 2025--2026, establishing
+mandatory requirements for autonomous security AI as high-risk systems.
+However, no EU conformity assessment bodies with capacity to certify
+autonomous security agents are operational at the start of Phase~1.
+ETSI GS~ZSM~009 (closed-loop automation) is published but not mandated.
+NIS2 Article~21(2)(b) incident handling procedures are being
+operationalised across essential entities. ENISA AI cybersecurity threat
+landscape guidelines are published. The critical regulatory gap is the
+absence of a standardised adversarial robustness test suite applicable
+to security-specific AI agents.
+\kpistrip{The AI Act creates obligations before the conformity
+assessment infrastructure exists to fulfil them. This 24--36 month gap
+is the dominant Phase~1 policy risk for this cluster.}
+&
+\cellhead{Deployment: SOC copilot use by large enterprises and national CSIRTs}
+US-platform LLMs (GPT-4-class, under data processor agreements) operate
+as analyst copilots in large enterprise and national CSIRT SOCs.
+Rule-based SIEMs (Splunk/Cisco, IBM~QRadar) remain the primary
+detection infrastructure across EU regulated sectors. NWDAF-integrated
+AI analytics operate in 3--5 5G SA deployments run by major EU
+telecom operators. No certified autonomous security containment agent
+is in operational deployment anywhere in the EU. APT dwell times of
+150--200 days in EU enterprise environments reflect the gap between
+AI-assisted detection capability and operational deployment at scale.
+SMEs lack access to AI-powered SOC tooling at viable cost.
+\kpistrip{Phase~1 deployment is concentrated in the largest institutional
+actors (national CSIRTs, Tier-1 operators, major financial entities).
+The gap between these deployments and SME access defines the adoption
+challenge for Phase~2.}
+&
+\cellhead{SSL: High Reliance on US Foundation Models}
+The EU SOC tooling market is dominated by US-domiciled platforms:
+Splunk (Cisco), IBM QRadar, and Microsoft Sentinel collectively control
+the EU enterprise SIEM market. The foundation models used for SOC
+copilot functions are US-origin (OpenAI, Anthropic, Google) and are
+accessed under data processor agreements, creating persistent
+extra-territorial data exposure. No EU-sovereign foundation model at
+production scale for security operations exists. EuroHPC compute
+capacity is insufficient for frontier-class security model training.
+The adversarial robustness validation market is pre-commercial.
+\kpistrip{Quantified dependency: US platforms hold $\geq$80\% of EU
+enterprise SIEM market; US-origin models are the sole source for
+LLM-based SOC tooling. This specific dependency structure is what
+Phases~2 and~3 must reduce.}
+\\
+\hline
+
+% ---- GATE 1->2 ----
+\rowcolor{gaterow}
+\gatelbl{1 $\rightarrow$ 2} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} At least one EU-sovereign Small Language Model
+($\leq$10B parameters) trained on GDPR-compliant security corpora has
+been validated against an independently benchmarked EU critical infrastructure
+SOC use case at production-equivalent scale.
+\textbf{Policy trigger:} AI~Act conformity assessment bodies with capacity
+to certify autonomous security AI as high-risk systems under Articles~9 and~15
+are operational and have issued at least one certificate to a security AI
+agent product.
+\textbf{Operational trigger:} At least one EU-sovereign LLMSecOps agent is
+in certified operational deployment in a named NIS2-essential entity,
+demonstrating APT dwell time below 72 hours in a documented production
+environment.
+\textbf{Market trigger:} A standardised adversarial robustness test suite
+for security AI agents, developed under CEN/CENELEC or ETSI TC~CYBER
+governance, has been published and is referenced in at least one EU
+procurement framework for critical infrastructure AI tools.}
+\\
+\hline
+
+% ---- PHASE 2 ----
+\rowcolor{phase2row}
+\textbf{Phase~2}
+\newline\textit{Applied \& Industrial}
+\newline\textit{R\&D alongside}
+\newline\textit{Federation \&}
+\newline\textit{Standardisation}
+\newline\textit{2030--2035}
+\newline\sslbadge{ssltransbg}{ssltrantx}{SSL: Sovereign EU Edge}
+\newline\sslbadge{ssltransbg}{ssltrantx}{LLMs Emerging}
+&
+\cellhead{Cluster ODP: Federated Edge Agents / Automated Triage}
+\subp{P6} reaches Federated Edge Agents: EU-sovereign SLMs ($\leq$10B
+parameters) trained on MITRE ATT\&CK-aligned corpora are operational
+at the edge for real-time SOC analytics without cloud inference
+dependency; Guardian nodes execute autonomous Zero-Trust
+reconfigurations per NIST~SP~800-207. \subp{P10} reaches Automated
+Triage and LLMSecOps Containment: LLMSecOps agents ingest CTI feeds,
+track APT lateral movement against behavioural frameworks, and
+orchestrate incident triage autonomously under ETSI GS~ZSM~009
+governance; APT dwell time $\leq$72 hours in certified pilot deployments.
+\subp{AI-T} reaches Standardised Integration: adversarial robustness
+validation pipelines (prompt injection, model evasion, backdoor
+detection) are standardised and mandatory under AI~Act~Article~9
+conformity assessment; continuous RLHF retraining and circuit-breaker
+mechanisms are in production.
+\kpistrip{Phase~2 R\&I includes active applied and industrial R\&D for
+all three sub-dimensions --- swarm AI protocols, post-quantum AI
+security, and next-generation adversarial testing frameworks --- not
+merely consolidation of Phase~1 results.}
+&
+\cellhead{AI Act conformity assessment operational: the Phase~2 gate}
+The single Phase~2 policy gate is the operationalisation of a
+standardised AI~Act conformity assessment framework for autonomous
+security agents, enabling certified deployment without per-case
+regulatory approval. ETSI GS~ZSM~009 is mandated within EU NaaS
+federation governance frameworks. A CEN/CENELEC-standardised adversarial
+robustness test suite for security AI is published. MITRE ATT\&CK
+behavioural framework is formally referenced in NIS2 sector-specific
+incident handling guidance. EuroHPC AI Factory compute contracts for
+EU-sovereign security model training are active.
+\kpistrip{Without operational AI~Act conformity assessment
+infrastructure, autonomous security agents cannot be certified for
+regulated-sector deployment regardless of technical readiness.
+This is the dominant Phase~2 policy dependency.}
+&
+\cellhead{Certified EU sovereign AI agents in critical infrastructure SOCs}
+EU SLM-based LLMSecOps agents are in certified operational deployment
+in energy, financial (DORA), and telecommunications critical
+infrastructure SOCs in $\geq$3 Member States. Guardian nodes execute
+autonomous Zero-Trust reconfigurations under human-in-the-loop
+escalation protocols for Tier-1 critical actions. NWDAF-integrated
+analytics are mandatory in 5G SA deployments. Deception infrastructure
+(honeynets, credential canaries, fake API endpoints per CL2.6) is
+deployed alongside AI detection systems, providing high-fidelity
+ground truth for model calibration. APT dwell time $\leq$72 hours
+demonstrated in pilot critical infrastructure deployments.
+\kpistrip{Phase~2 deployment evidence requires named critical
+infrastructure sector, Member State scope, and a documented APT dwell
+time metric from an operational --- not simulated --- environment.}
+&
+\cellhead{SSL: Sovereign EU Edge LLMs Emerging}
+EU-sovereign SLMs cover $\geq$30\% of critical infrastructure SOC
+deployments in regulated sectors, rising from zero at baseline.
+EuroHPC AI Factories supply training infrastructure for EU-origin
+security models, reducing dependence on US hyperscaler compute.
+US-platform SIEMs retain market share in legacy deployments but
+face procurement competition from certified EU alternatives.
+Adversarial robustness validation is a commercially available service
+with EU-domiciled providers. EU AI security tool exports to partner
+jurisdictions have begun, indicating the transition from security
+consumer to security producer posture.
+\kpistrip{SSL evidence at Phase~2: $\geq$30\% critical infra SOC market
+share for EU-sovereign AI tools; at least one documented EU AI security
+tool export event to a non-EU partner jurisdiction.}
+\\
+\hline
+
+% ---- GATE 2->3 ----
+\rowcolor{gaterow}
+\gatelbl{2 $\rightarrow$ 3} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} EU-certified swarm AI coordination protocols
+enabling decentralised autonomous threat intelligence synthesis have passed
+independent security evaluation and are deployed in at least one cross-border
+EU critical infrastructure corridor under ETSI GS~ZSM~009 governance.
+\textbf{Policy trigger:} EU AI security standards (adversarial robustness
+profiles, autonomous agent accountability frameworks) are adopted or formally
+referenced in at least one ISO/IEC or ITU-T international standard, confirming
+EU regulatory leadership beyond domestic jurisdiction.
+\textbf{Operational trigger:} APT dwell time $\leq$24 hours is documented in
+a named NIS2-essential entity operational deployment (not a simulation),
+attributable to autonomous AI-driven detection and containment.
+\textbf{Market trigger:} EU-sovereign AI security tools hold $\geq$50\% market
+share in new critical infrastructure SOC deployments across at least five
+Member States, displacing US-platform SIEMs as the procurement default in
+regulated sectors.}
+\\
+\hline
+
+% ---- PHASE 3 ----
+\rowcolor{phase3row}
+\textbf{Phase~3}
+\newline\textit{Autonomy \&}
+\newline\textit{Leadership}
+\newline\textit{2035--2040}
+\newline\sslbadge{ssltealbg}{ssltealtx}{SSL: Global Leadership in}
+\newline\sslbadge{ssltealbg}{ssltealtx}{Trustworthy AI Security}
+&
+\cellhead{Cluster ODP: Ubiquitous AI Immune System}
+All three sub-dimensions reach Ubiquitous Operation. Swarm-based
+agentic AI defends the EU Cloud-Edge Continuum via self-evolving,
+decentralised threat intelligence without any central coordination
+dependency. Moving Target Defense continuously shuffles IP addressing,
+network topology, and software diversity; validated APT reconnaissance
+success rates fall below 5\% in certified operational environments.
+Adversarial robustness validation is continuous and fully automated:
+no security AI agent operates in EU critical infrastructure without
+an active conformity certification. Phase~3 R\&I addresses
+post-swarm frontiers: quantum-native AI security architectures,
+brain-inspired neuromorphic threat detection, and AI-to-AI
+adversarial dynamics beyond current threat models.
+\kpistrip{Phase~3 ODP evidence requires operational statistics from
+production deployments: APT dwell time figures, MTD effectiveness
+metrics, and autonomous containment accuracy rates from certified
+environments --- not from cyber range simulations.}
+&
+\cellhead{EU AI security governance as international reference}
+EU AI Act frameworks for trustworthy autonomous security agents are
+adopted internationally and referenced in bilateral digital
+partnership agreements. Autonomous agent certification operates at
+continental scale without per-case regulatory review. Zero-touch
+network management under ETSI GS~ZSM~009 governs all EU NaaS
+operations. The EU AI Office and ENISA jointly define the international
+standard for security AI accountability. EU AI security governance
+has transitioned from reactive adaptation to agenda-setting: other
+jurisdictions adopt EU frameworks to access EU market and partnership
+programmes.
+\kpistrip{Phase~3 policy leadership is verified by international
+adoption events --- not by the number of EU instruments in force.
+At least one non-EU jurisdiction formally adopting EU security AI
+governance standards constitutes the Phase~3 policy evidence threshold.}
+&
+\cellhead{Autonomous continental-scale AI cyber defence as operational default}
+APT dwell time $\leq$24 hours in all certified EU NIS2-essential
+critical infrastructure deployments. MTD is deployed as a mandatory
+operational baseline. Swarm AI coordination operates without central
+cloud dependency: each EU Cloud-Edge node participates in a
+self-organising threat intelligence mesh. Deception infrastructure
+is fully integrated into the autonomous response loop, providing
+continuous model calibration ground truth. Human intervention is
+reserved for exceptional legal escalation scenarios; routine security
+operations are fully autonomous within the governance framework.
+\kpistrip{The Phase~3 deployment test: is autonomous AI defence
+the unconditional operational baseline, or is it still a premium
+programme? 100\% of new critical infrastructure deployments
+incorporating autonomous AI security constitutes the evidence threshold.}
+&
+\cellhead{SSL: Global Leadership in Trustworthy AI Security}
+EU-sovereign AI security tools hold $\geq$50\% of new critical
+infrastructure SOC deployments across the EU. US-platform SIEMs
+are legacy infrastructure under active replacement programmes with
+defined timelines. EU AI security models are exported to and
+commercially adopted by partner jurisdictions. EU sets the commercial
+terms for security AI market access: certification against EU AI~Act
+Article~9/15 profiles is a de facto global procurement requirement.
+The EU has transitioned from defensive sovereignty to offensive
+strategic posture: it defines the technical terms on which the
+global security AI industry must compete.
+\kpistrip{Full sovereign leadership in this cluster requires both
+domestic dominance ($\geq$50\% critical infra SOC market share)
+and international influence (at least two partner jurisdictions
+formally adopting EU security AI governance). Both conditions must
+be met.}
+\\
+\hline
+
+\end{longtable}
+\end{landscape}
+
+% ---- PROGRESSION MATRIX: CLUSTER 2 ----
+
+% \noindent
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|p{4.2cm}|p{5.6cm}|p{5.6cm}|p{5.6cm}|}
+% \hline
+% \rowcolor{gray!30}
+% \multicolumn{4}{|c|}{\textbf{Progression Matrix: Priority Cluster 2 ---
+%   Cognitive Security and Autonomous Cyber Defence (P6, P10, AI-as-Target)}} \\
+% \hline
+% \rowcolor{gray!15}
+% \textbf{Metric} &
+% \textbf{Phase 1: Foundation \& Compliance (2025--2030)} &
+% \textbf{Phase 2: Federation \& Standardisation (2030--2035)} &
+% \textbf{Phase 3: Autonomy \& Leadership (2035--2040)} \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Cluster-Level Progression Indicators}}} \\
+% \hline
+% \textbf{Cluster ODP} &
+% Applied R\&D / Siloed AI Copilots &
+% Federated Edge Agents &
+% Ubiquitous AI Immune System \\
+% \hline
+% \textbf{Cluster SSL} &
+% High Reliance on US Foundation Models &
+% Sovereign European Edge LLMs / SLMs &
+% Global Leadership in Trustworthy AI Security \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Sub-Priority Decomposition (Individual ODP / SSL per Phase)}}} \\
+% \hline
+% \textit{P6: Cognitive SecOps \newline (LLMSecOps)} &
+% ODP: Siloed AI Copilots \newline
+% SSL: High Reliance on US Foundation Models &
+% ODP: Federated Edge Agents \newline
+% SSL: Sovereign EU Edge LLMs Emerging &
+% ODP: Ubiquitous AI Immune System \newline
+% SSL: Global Leadership in Trustworthy AI \\
+% \hline
+% \textit{P10: Proactive APT \newline Management} &
+% ODP: Multi-Layered Alert \newline Correlation \& Hunting \newline
+% SSL: High Dependency on Global Threat Feeds &
+% ODP: Automated Triage \& \newline LLMSecOps Containment \newline
+% SSL: Sovereign Pan-EU CTI \& Behavioural Analytics &
+% ODP: Ubiquitous Moving \newline Target Defense (MTD) \newline
+% SSL: Full Autonomous Counter-Adversarial Resilience \\
+% \hline
+% \textit{AI-as-Target \newline (CL1.2, CL1.3, CL4.7)} &
+% ODP: Applied R\&D \newline
+% SSL: High Foreign Dependency &
+% ODP: Standardised Integration \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \rowcolor{blue!7}
+% \textbf{Operational State} &
+% LLMs assist human SOC analysts in alert triage and threat report
+% synthesis; NWDAF telemetry is routed to centralised AI for anomaly
+% detection in 5G standalone deployments; APT dwell times are
+% reduced via ML-assisted IoC correlation in pilot enterprise environments;
+% adversarial robustness validation of AI security agents is conducted
+% in academic and research settings without operational certification
+% frameworks in force. &
+% Edge-native EU-sovereign SLMs execute autonomous Zero-Trust
+% reconfigurations and traffic throttling in certified critical
+% infrastructure deployments; LLMSecOps agents ingest CTI and
+% track lateral movement against MITRE ATT\&CK behavioural
+% frameworks in real time; adversarial robustness validation
+% is standardised under AI Act Article~9 conformity assessment;
+% APT dwell time reduced to under 72 hours in EU critical
+% infrastructure pilot deployments. &
+% Swarm-based agentic AI defends the EU Cloud-Edge Continuum
+% via self-evolving, decentralised threat intelligence without
+% central coordination dependency; Moving Target Defense
+% continuously shuffles network topology, IP addressing, and
+% software diversity, achieving validated APT reconnaissance
+% success rates below 5\% in operational simulation environments;
+% EU AI security models are formally adopted as reference
+% implementations by partner jurisdictions. \\
+% \hline
+% \rowcolor{orange!12}
+% \textbf{Critical Enabler} &
+% AI Act Articles~9 and~15 enforcement (2025--2026) establishing
+% mandatory risk management and adversarial robustness
+% requirements for autonomous security AI, creating the
+% regulatory framework for certified Phase~2 deployment &
+% Standardised AI Act conformity assessment framework for
+% autonomous security agents, enabling certified operational
+% deployment without per-case regulatory approval and
+% unlocking Phase~3 swarm-level autonomy &
+% EU-certified self-evolving AI swarm protocols achieving
+% full operational deployment under ETSI GS~ZSM~009
+% zero-touch automation governance with Pan-EU
+% CTI-sharing infrastructure \\
+% \hline
+% \end{tabular}%
+% }
+
+% =========================================================================
+% PRIORITY CLUSTER 3: FEDERATED OPERATIONAL SOVEREIGNTY
+% =========================================================================
+
+\newpage
+\section{Priority Cluster 3: Federated Operational Sovereignty}
+\label{sec:cluster3}
+
+\noindent\textbf{Constituent Sub-Priorities:} P4 (Security Interoperability via Simpl
+Middleware), P5 (Supply Chain Verification and Secured Infrastructure), P7 (Pan-European
+NaaS Federation --- ``Schengen for Cloud-Edge/AI'').
+
+\medskip
+\noindent\textbf{Cluster Thesis:} Technical excellence in Cluster~1 and autonomous
+defence capability in Cluster~2 deliver no strategic value if they cannot operate
+verifiably across borders, across providers, and across supply chains. This cluster
+defines the governance fabric, interoperability standards, and supply chain integrity
+mechanisms that transform individually sovereign components into a collectively sovereign
+European computing continuum. Critically, it addresses the legal and semantic as well as
+the technical interoperability problem --- without a ``Schengen for Cloud'' legal framework,
+cross-border compute federation remains commercially fragile regardless of technical
+standardisation.
+
+\subsection*{7-Dimensional Analysis: Priority Cluster 3}
+
+\begin{enumerate}
+
+% ---- DIMENSION 1 ----
+\item \textbf{Baseline \& Target Objective}
+
+\textit{Baseline (2025--2026):}
+European cloud and edge infrastructure remains highly fragmented across proprietary provider
+silos with incompatible security policies, authentication mechanisms, and data exchange
+protocols. Common European Data Spaces (Manufacturing, Health, Energy, Agriculture) are in
+early piloting stages, with security interoperability relying on bilateral agreements rather
+than standardised automated mechanisms aligned with the Simpl open-source middleware
+stack~\cite{cloud_edge_roadmap}. Supply chain verification is largely static: CRA-mandated
+Software Bills of Materials (SBOMs)~\cite{cra} are point-in-time declarations without runtime
+verification; Digital Product Passport (DPP) frameworks remain in pilot stage under the EU
+Ecodesign Regulation. NaaS federation across EU telecom operators does not exist at
+operational scale --- cross-border edge compute sharing requires bespoke commercial agreements.
+CAMARA Network APIs are being standardised by GSMA but remain fragmentedly implemented
+across European operators.
+
+Current cluster ODP: Fragmented Piloting (P4, P7); early supply chain disclosure phase
+(P5). Cluster SSL: Emerging EU Ecosystem (P4); Hyperscaler Platform Dominance (P7);
+High reliance on fragmented non-EU supply chain auditing (P5).
+
+\textit{Target (2040):}
+A unified European NaaS platform enables seamless cross-border compute roaming under a
+``Schengen for Cloud'' legal framework, legally operable as a single jurisdiction for
+data workloads. All Common European Data Spaces operate on Simpl-based security
+interoperability with automated MIM compliance --- provider-agnostic, cryptographically
+verifiable, and free of vendor lock-in. Runtime SBOMs with Zero-Knowledge Proof (ZKP)
+verification eliminate unverified components from EU critical infrastructure supply chains.
+EU achieves full sovereign control over supply chain transparency with pan-European Cyber
+Threat Intelligence sharing for supply chain compromise indicators.
+
+% ---- DIMENSION 2 ----
+\item \textbf{Primary Drivers}
+
+\textit{Threat Drivers:}
+\begin{itemize}
+  \item Supply chain attacks exploiting the disaggregation complexity of Open RAN
+        deployments, where a single compromised firmware component sourced from one
+        of 50-plus hardware and software vendors per macro cell deployment can affect
+        thousands of base stations across multiple operators before detection.
+  \item ``Weakest link'' cascading failures in federated NaaS environments: a
+        single provider with a compromised Minimal Interoperability Mechanism (MIM)
+        implementation can propagate malicious policies across the entire federated
+        fabric before semantic validation detects the enforcement inconsistency.
+  \item US CLOUD Act extra-territorial reach over non-EU cloud providers processing
+        EU data creates a structural sovereignty risk that persists regardless of
+        technical security measures if the legal framework enabling EU-sovereign
+        federated compute is not established.
+  \item Silent policy translation failures: automated security policy translation
+        between heterogeneous provider MIM implementations may produce semantically
+        equivalent but enforcement-different policies, creating exploitable gaps
+        invisible to standard compliance auditing procedures.
+\end{itemize}
+
+\textit{Regulatory Drivers:}
+\begin{itemize}
+  \item Data Act interoperability obligations (Articles~23--31): mandatory
+        requirements for cloud service providers covering security interface
+        standardisation and data portability~\cite{nis2}.
+        [CITATION REQUIRES VERIFICATION --- confirm final Data Act article numbering
+        for interoperability provisions.]
+  \item NIS2 Article~21(2)(h): supply chain security measures mandatory for essential
+        entities, requiring documented risk assessment of all ICT suppliers~\cite{nis2}.
+  \item CRA Annex~I Part~II: supply chain vulnerability handling requirements for
+        products with digital elements, including SBOM disclosure
+        obligations~\cite{cra}.
+  \item DORA Article~28: ICT third-party risk management requiring continuous
+        monitoring and documented exit strategies for critical ICT
+        suppliers~\cite{dora}.
+\end{itemize}
+
+% ---- DIMENSION 3 ----
+\item \textbf{High Impact Activities}
+
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{[Phase~1]} Define and standardise security-specific Minimal
+        Interoperability Mechanisms (MIMs) within the Simpl open-source middleware
+        stack~\cite{cloud_edge_roadmap}; deploy pilots in three Common European Data
+        Spaces (Manufacturing, Health, Energy) with automated cross-provider policy
+        enforcement, federated identity attestation, and cryptographically verifiable
+        compliance reporting.
+
+  \item \textbf{[Phase~1--2]} Implement Runtime SBOMs with cryptographic proof of
+        execution for all containerised microservices and AI components migrating across
+        the multi-provider continuum; integrate Digital Product Passports (DPP) for
+        hardware component traceability from silicon fabrication to operational
+        deployment, aligned with CRA SBOM obligations~\cite{cra}.
+
+  \item \textbf{[Phase~1--2]} Deploy harmonised CAMARA Network APIs across a minimum
+        of five EU telecom operators establishing standardised interfaces for cross-border
+        edge compute roaming; test Automated Compliance Negotiators in designated EU
+        5G cross-border corridor deployments under IPCEI-CIS governance.
+
+  \item \textbf{[Phase~2]} Establish ``Data Visa'' mechanisms enabling dynamic
+        cross-border AI model and data migration without manual legal friction, governed
+        by a common semantic security ontology (CL3.4) aligned with STIX~2.1/TAXII
+        threat intelligence standards and automated EUCS compliance verification~\cite{eucs}.
+
+  \item \textbf{[Phase~2--3]} Deploy Zero-Knowledge Proofs (ZKPs) for IP-protected
+        supply chain component verification: hardware vendors prove FIPS~203/204/205
+        algorithm compliance and absence of known vulnerabilities without revealing
+        proprietary design details~\cite{fips203,fips204,fips205}; operationalise
+        pan-European supply chain compromise indicator sharing via standardised
+        CTI lifecycle platforms (CL2.5).
+\end{enumerate}
+
+% ---- DIMENSION 4 ----
+\item \textbf{Catalysts \& Enablers}
+
+\textit{Funding Alignment:}
+IPCEI-CIS (Important Project of Common European Interest on Next Generation Cloud
+Infrastructure and Services) as the primary funding vehicle for cross-border NaaS federation
+pilots; Digital Europe Programme for Simpl development, Common Data Space pilots, and
+MIM standardisation infrastructure; ECCC Strategic Agenda priority areas ``Supply Chain
+Security'' and ``Secure Interoperability of Systems and Networks''~\cite{eccc}; European
+Alliance for Industrial Data, Edge and Cloud for governance and pilot ecosystem
+coordination~\cite{cloud_edge_roadmap}.
+
+\textit{Standardisation:}
+CEN/CENELEC JTC~13 for security MIM standardisation within the Simpl ecosystem;
+GSMA CAMARA API Alliance for harmonised Network API standardisation across operators;
+ETSI TC CYBER for supply chain security standards; OASIS STIX~2.1/TAXII for threat
+intelligence interoperability; W3C Verifiable Credentials Data Model for SSI-based
+supply chain attestation chains.
+
+\textit{Ecosystem Enablers:}
+Gaia-X Federation Services trust framework alignment with Simpl MIM security policies;
+Digital Product Passport pilot programmes under EU Ecodesign Regulation~2024;
+ENISA supply chain risk management guidelines and threat landscape reports for ICT
+sectors; dedicated SME compliance support programmes for CRA-mandated SBOM tooling,
+recognising that sub-50 person software vendors represent the most vulnerable link in
+the supply chain verification architecture~\cite{cra}.
+
+% ---- DIMENSION 5 ----
+\item \textbf{Disruptors \& Systemic Risks}
+
+\begin{itemize}
+  \item \textbf{Hyperscaler resistance to Simpl MIM adoption:} AWS, Azure, and
+        GCP collectively control approximately 65\% of the EU cloud market as of
+        2024 and have strong commercial incentives to maintain proprietary APIs;
+        without mandatory EU Cloud Rulebook provisions requiring MIM compliance,
+        voluntary adoption rates are unlikely to achieve genuine interoperability
+        within Phase~1 timelines.
+  \item \textbf{IPCEI-CIS implementation delays:} complex EU state aid notification
+        procedures have historically delayed IPCEI projects by 18--36 months
+        (IPCEI-H2 delayed by state aid clearance processes); P7 NaaS federation
+        Phase~1 milestones carry material schedule risk if IPCEI-CIS governance
+        does not streamline implementation mechanisms.
+  \item \textbf{Semantic interoperability gap:} automated security policy translation
+        between heterogeneous MIM implementations is architecturally harder than
+        syntactic interoperability --- subtle semantic differences in ``deny'' versus
+        ``drop'' versus ``quarantine'' semantics across provider implementations
+        can create silent enforcement gaps undetectable through standard compliance
+        auditing.
+  \item \textbf{ZKP computational overhead:} current ZKP schemes for supply chain
+        verification carry 10--100$\times$ computational overhead relative to
+        standard cryptographic verification, limiting practical deployment to
+        batch verification rather than real-time per-transaction attestation
+        in Phases~1--2.
+  \item \textbf{EU semiconductor supply chain concentration:} advanced node
+        fabrication (sub-7\,nm) required for cutting-edge supply chain attestation
+        hardware remains concentrated in Taiwan (TSMC) and South Korea (Samsung);
+        a Taiwan Strait contingency would immediately constrain EU supply chain
+        verification capability at the silicon level, exposing a gap the EU Chips Act
+        does not address within the 2030 timeframe.
+\end{itemize}
+
+% ---- DIMENSION 6 ----
+\item \textbf{Failsafe Mechanisms \& Resilience}
+
+\begin{itemize}
+  \item \textbf{Autonomous unfederation:} if a provider fails Runtime SBOM
+        verification or MIM compliance checks, eBPF-based zero-trust policy
+        enforcement severs that provider from the federated NaaS fabric and redirects
+        workloads to verified compliant nodes within a sub-60-second SLA; provider
+        re-admission requires fresh ZKP-verified attestation, not manual
+        recertification.
+  \item \textbf{Graceful national fallback:} cross-border SLA failure or ``Data
+        Visa'' mechanism collapse triggers workload redirect to national infrastructure
+        maintained at sufficient sovereign capacity for essential services, fulfilling
+        NIS2 Article~21(2)(c) business continuity obligations and DORA Article~9 ICT
+        resilience requirements~\cite{nis2,dora}.
+  \item \textbf{Cryptographic attestation of MIM enforcement:} all Simpl MIM security
+        controls include verifiable proofs that policies are enforced as declared --- not
+        merely configured --- using TEE-backed attestation integrated with Cluster~1
+        secure element infrastructure~\cite{cloud_edge_roadmap}, eliminating
+        compliance-theatre scenarios where declared and actual enforcement diverge.
+  \item \textbf{Supply chain quarantine:} unverified or high-risk components are
+        isolated into quarantined network slices (VLAN/VxLAN-isolated segments with
+        eBPF-enforced east-west traffic blocking) pending ZKP verification;
+        quarantined components cannot interact with production workloads or access
+        sensitive data paths.
+  \item \textbf{Multi-jurisdictional residency fallback:} if cross-border ``Data
+        Visa'' mechanisms fail legally or technically, automated GDPR Article~44
+        compliance enforcement pins workloads to the originating jurisdiction,
+        preventing unauthorised cross-border data transfers under federation failure
+        conditions~\cite{gdpr}.
+\end{itemize}
+
+% ---- DIMENSION 7 ----
+\item \textbf{Transversal Meta-Layer}
+
+\textit{Sovereignty \& Autonomy:}
+This cluster breaks non-EU hyperscaler API lock-in (AWS, Azure, GCP controlling
+approximately 65\% of EU cloud market as of 2024) by enabling European providers to
+compete on standardised Simpl-based infrastructure. A ``Schengen for Cloud'' legal
+framework eliminates US CLOUD Act extra-territorial jurisdiction exposure for EU data
+processed on federated EU-sovereign NaaS infrastructure. Runtime SBOM verification and
+ZKP-based supply chain attestation reduce EU dependency on non-EU vendor self-certification
+declarations --- the dominant model under current CRA-baseline SBOM obligations.
+
+\textit{Trust \& Ethics:}
+GDPR Article~25 (privacy by design and by default) is operationalised through
+MIM-enforced data minimisation policies that are cryptographically verifiable, not
+declarative~\cite{gdpr}. Data Act interoperability obligations are fulfilled through
+Simpl MIM compliance, providing auditable trust chains for GDPR Article~5(2) data
+processing accountability. Transparent Runtime SBOM verification provides the
+supply chain integrity that GDPR Article~25 implicitly requires for processors
+handling EU personal data at scale~\cite{gdpr}.
+
+\textit{Sustainable Security (Green IT):}
+Federated NaaS resource pooling across EU operators eliminates redundant edge compute
+over-provisioning by individual operators, reducing total EU edge infrastructure carbon
+footprint through shared utilisation efficiency. DPP-based supply chain traceability
+aligns with EU Ecodesign Regulation circular economy requirements for ICT hardware,
+enabling component reuse lifecycle tracking that reduces electronic waste from
+premature infrastructure replacement driven by opacity in component provenance.
+
+\end{enumerate}
+
+
+% =========================================================================
+% CLUSTER 3: FEDERATED OPERATIONAL SOVEREIGNTY
+% =========================================================================
+\newpage
+\subsection{Progression Matrix: Priority Cluster 3 --- Federated Operational Sovereignty}
+
+\begin{landscape}
+\setlength{\textwidth}{26.5cm}\setlength{\linewidth}{26.5cm}%
+\setlength{\hsize}{26.5cm}\setlength{\columnwidth}{26.5cm}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.35}
+
+\begin{longtable}{%
+|>{\footnotesize\raggedright\arraybackslash}p{2.8cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}%
+|>{\footnotesize\raggedright\arraybackslash}p{5.4cm}|}
+
+\caption{\textbf{Cluster~3: Federated Operational Sovereignty} (P4, P5, P7).
+Transition matrix across the four methodology dimensions. P4 (Simpl
+Interoperability), P5 (Supply Chain Verification), and P7 (NaaS Federation)
+are labelled where their maturity trajectories diverge within a cell.}
+\label{tab:cluster3}\\
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity}{\scriptsize ODP indicator per sub-priority} &
+\textbf{Policy, Regulatory \& Standards}{\scriptsize enforcement $\cdot$
+  certification $\cdot$ standardisation} &
+\textbf{Operational Deployment \& Adoption}{\scriptsize actor types $\cdot$
+  scale $\cdot$ sector coverage} &
+\textbf{Market Uptake \& Strategic Sovereignty}{\scriptsize SSL indicator
+  $\cdot$ dependency reduction $\cdot$ industrial capacity} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{colheader}
+\textbf{Phase / SSL} &
+\textbf{R\&I Maturity} &
+\textbf{Policy, Regulatory \& Standards} &
+\textbf{Operational Deployment \& Adoption} &
+\textbf{Market Uptake \& Strategic Sovereignty} \\
+\hline
+\endhead
+\hline\multicolumn{5}{r}{\footnotesize\textit{Continued\ldots}}\\ \endfoot
+\hline \endlastfoot
+
+% ---- PHASE 1 ----
+\rowcolor{phase1row}
+\textbf{Phase~1}
+\newline\textit{Foundation \&}
+\newline\textit{Compliance}
+\newline\textit{2025--2030}
+\newline\sslbadge{sslredbg}{sslredtx}{SSL: Fragmented; Hyperscaler}
+\newline\sslbadge{sslredbg}{sslredtx}{Dominance (P7); Emerging}
+\newline\sslbadge{sslredbg}{sslredtx}{EU Ecosystem (P4)}
+&
+\cellhead{Cluster ODP: Fragmented Piloting (P4, P7) / Disclosure Phase (P5)}
+\subp{P4} is at Fragmented Piloting: Simpl security MIM pilots are
+launched in three Common European Data Spaces (Manufacturing, Health,
+Energy) with manual policy coordination and proof-of-concept
+implementations. \subp{P7} is at Bilateral Interconnection: harmonised
+CAMARA Network APIs are deployed in 2--3 bilateral 5G corridor agreements
+between individual EU telecom operators; cross-border edge compute
+roaming does not exist at operational scale. \subp{P5} is at Supply
+Chain Disclosure: CRA-mandated static SBOM declarations are being
+submitted as point-in-time compliance artefacts without runtime
+verification; Digital Product Passport pilot programmes are initiated
+under the EU Ecodesign Regulation; Zero-Knowledge Proof verification
+for supply chain attestation is at Applied R\&D stage.
+\kpistrip{The three sub-priorities have meaningfully different Phase~1
+maturity levels. P5 is the least mature and the most consequential
+shared dependency: Runtime SBOM verification is a gate condition for
+both P4 (MIM compliance trust) and Cluster~1 (TEE integrity claims).}
+&
+\cellhead{Multiple legislative obligations activating; standards nascent}
+CRA~SBOM obligations (Annex~I Part~II) enter enforcement in 2027,
+mandating static SBOM disclosure for all products with digital elements
+entering the EU market. NIS2~Article~21(2)(h) makes supply chain risk
+assessment mandatory for essential entities. DORA~Article~28 requires
+continuous ICT third-party risk monitoring for financial sector entities.
+Data Act interoperability obligations activate, creating procurement-level
+pressure for cross-provider security interface standardisation. The
+Simpl-Open official launch with initial MIM definitions constitutes the
+Phase~1 technical policy trigger for P4. IPCEI-CIS enters its
+deployment phase. GSMA CAMARA API Alliance standardisation work is
+active but not yet mandated in EU regulatory instruments.
+\kpistrip{Phase~1 policy activity is high-volume but fragmented:
+multiple legislative instruments activate simultaneously without
+a unified interoperability mandate that would create coherent market
+pull for Simpl-based standardisation.}
+&
+\cellhead{Deployment: bilateral pilots and Data Space proof-of-concepts}
+Three Common European Data Space security pilots operate Simpl-based
+MIM proof-of-concepts with manual policy coordination; cross-provider
+security policy enforcement is not automated. CAMARA API deployments
+are confined to 2--3 bilateral 5G corridor agreements between single
+operator pairs. Static SBOM declarations are submitted as CRA
+compliance artefacts but are not verified at runtime; supply chain
+risk assessment is vendor-declared rather than independently attested.
+Hyperscalers (AWS, Azure, GCP) retain $\approx$65\% of EU cloud market
+through proprietary API ecosystems. Cross-border AI model migration
+requires bespoke bilateral legal review per transfer event. SME-accessible
+SBOM tooling and MIM compliance support are not yet standardised or
+commercially affordable.
+\kpistrip{Phase~1 deployment is bilateral and pilot-scale. The gap
+between proof-of-concept MIM implementations and automated enforcement
+across the majority of Data Spaces defines the core operational
+challenge for Phase~2.}
+&
+\cellhead{SSL: Mixed --- Emerging EU Ecosystem (P4) / Hyperscaler Dominance (P7)}
+\subp{P4} has reached Emerging EU Ecosystem: the Simpl open-source
+stack exists and is being piloted with EU institutional backing.
+\subp{P7} remains at Hyperscaler Platform Dominance: AWS, Azure, and GCP
+collectively control $\approx$65\% of EU cloud market; no EU NaaS
+federation operates at commercially relevant scale; cross-border edge
+compute is fragmented into national silos. \subp{P5} is at High
+Reliance on Fragmented Non-EU Auditing: supply chain verification
+is vendor-declared under US-dominated certification ecosystems (Common
+Criteria national schemes, SOC2). The cluster's dominant SSL profile
+is foreign dependency, driven by the weight of P7 market structure.
+\kpistrip{P4 and P7 require separate SSL tracking in Phase~1: conflating
+them into a single cluster SSL figure obscures that Simpl has achieved
+Emerging Ecosystem while NaaS federation has not.}
+\\
+\hline
+
+% ---- GATE 1->2 ----
+\rowcolor{gaterow}
+\gatelbl{1 $\rightarrow$ 2} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} At least one Common European Data Space has deployed
+automated (not manually coordinated) Simpl MIM-based cross-provider security
+policy enforcement, with documented evidence that enforcement is cryptographically
+verifiable rather than declaratively asserted.
+\textbf{Policy trigger:} Simpl security MIM definitions are published in
+candidate CEN/CENELEC standard form and referenced as a compliance pathway in
+at least one EU sector-specific NIS2 or Data Act implementing act.
+\textbf{Operational trigger:} CAMARA-based cross-border edge compute roaming is
+operational between at least three distinct EU telecom operator pairs (not a single
+bilateral agreement), with documented SLA performance and compliance evidence.
+\textbf{Market trigger:} Runtime SBOM tooling with cryptographic execution proofs
+is available as a commercially supported product or service from at least two
+EU-domiciled vendors, establishing the market infrastructure for Phase~2
+mandatory adoption.}
+\\
+\hline
+
+% ---- PHASE 2 ----
+\rowcolor{phase2row}
+\textbf{Phase~2}
+\newline\textit{Applied \& Industrial}
+\newline\textit{R\&D alongside}
+\newline\textit{Federation \&}
+\newline\textit{Standardisation}
+\newline\textit{2030--2035}
+\newline\sslbadge{ssltransbg}{ssltrantx}{SSL: Growing Pan-EU}
+\newline\sslbadge{ssltransbg}{ssltrantx}{Sovereignty}
+&
+\cellhead{Cluster ODP: Standardised Integration (P4) / Federated Edge Roaming (P7) / Dynamic Runtime Verification (P5)}
+\subp{P4} reaches Standardised Integration: automated policy translation
+via standardised Simpl MIMs is deployed across the majority of active
+Common European Data Spaces; federated identity attestation and
+cross-provider compliance reporting are automated. \subp{P7} reaches
+Federated Edge Roaming: CAMARA-based cross-border roaming operates
+across $\geq$5 EU operator pairs; ``Data Visa'' mechanisms enable
+dynamic AI model migration without manual legal review in certified
+corridors. \subp{P5} transitions from disclosure to dynamic runtime
+verification: Runtime SBOMs with cryptographic proof-of-execution
+verify containerised components as they migrate across multi-provider
+nodes; ZKP batch verification of supply chain attestation is operationally
+validated; Digital Product Passports are mandatory under the EU
+Ecodesign Regulation.
+\kpistrip{Phase~2 R\&I activity includes industrial R\&D for ZKP
+real-time verification (currently batch-only due to 10--100$\times$
+overhead), semantic security ontology standardisation, and legal
+engineering of the ``Schengen for Cloud'' framework --- not solely
+standardisation of existing prototypes.}
+&
+\cellhead{Security MIMs as CEN/CENELEC standards: the Phase~2 gate}
+The single Phase~2 policy gate is the adoption of Simpl security MIMs
+as ratified CEN/CENELEC standards, referenced as mandatory compliance
+requirements in the EU Cloud Rulebook. This transforms MIM adoption
+from voluntary best-practice to market-access obligation for providers
+serving EU-regulated sectors. DPP becomes mandatory under the EU
+Ecodesign Regulation~2024 for ICT hardware categories. Data Act full
+enforcement creates binding procurement-level interoperability
+obligations. DORA continuous ICT third-party monitoring is fully
+operationalised in the financial sector. IPCEI-CIS cross-border NaaS
+governance framework is operational.
+\kpistrip{The Phase~2 policy gate is the CEN/CENELEC ratification of
+security MIMs. Voluntary Simpl adoption without this standards event
+does not constitute Phase~2 policy maturity.}
+&
+\cellhead{Cross-sector rollout; SME participation; Runtime SBOM in production}
+Simpl MIMs are deployed across the majority of active Common European
+Data Spaces with automated cross-provider enforcement. Runtime SBOMs
+with cryptographic execution proofs verify supply chain components in
+critical infrastructure deployments in at least five Member States.
+CAMARA cross-border roaming operates across $\geq$5 EU operator pairs
+with documented SLA performance. ``Data Visa'' mechanisms are
+operational in certified cross-border AI model migration corridors.
+SME-accessible Simpl MIM compliance tooling and Runtime SBOM services
+are commercially available from EU-domiciled providers. Unverified
+supply chain components are automatically quarantined in isolated
+network slices.
+\kpistrip{Phase~2 deployment must show geographic breadth ($\geq$5 Member
+States), cross-sector presence ($\geq$3 Data Spaces under automated MIM
+enforcement), and SME participation in at least one deployment context.
+Single-sector rollout does not constitute Phase~2 operational maturity.}
+&
+\cellhead{SSL: Growing Pan-EU Sovereignty}
+EU Data Space infrastructure operating under Simpl achieves $\geq$30\%
+non-hyperscaler share in new regulated-sector cloud procurement. Runtime
+SBOM ecosystem is commercially mature with multiple competing EU-domiciled
+vendors. EU NaaS consortium (under IPCEI-CIS) operates cross-border
+compute at pilot commercial scale, demonstrating that EU providers
+can federate to compete with hyperscaler geographic coverage. DPP
+traceability reduces procurement risk for EU critical infrastructure
+buyers by making supply chain provenance verifiable. Foreign hyperscaler
+market share in EU regulated sectors declines for the first time from
+its $\approx$65\% Phase~1 baseline.
+\kpistrip{Phase~2 SSL evidence: $\geq$30\% non-hyperscaler share in new
+regulated procurement; first documented market share decline for
+non-EU hyperscalers in EU regulated cloud procurement.}
+\\
+\hline
+
+% ---- GATE 2->3 ----
+\rowcolor{gaterow}
+\gatelbl{2 $\rightarrow$ 3} &
+\multicolumn{4}{>{\footnotesize\raggedright\arraybackslash}p{22.0cm}|}{%
+\cellcolor{gaterow}%
+\textbf{R\&I trigger:} ZKP verification for supply chain attestation has
+achieved real-time per-transaction performance (eliminating the current
+batch-only constraint) in at least one production critical infrastructure
+deployment, confirmed by independent performance benchmarking.
+\textbf{Policy trigger:} A ``Schengen for Cloud'' legal framework --- or
+equivalent EU legal instrument resolving US CLOUD Act extra-territorial
+jurisdiction conflict for federated EU-sovereign NaaS workloads --- has
+been enacted, providing the jurisdictional basis for single-market operation
+of federated compute.
+\textbf{Operational trigger:} The EU NaaS federation (under IPCEI-CIS or its
+successor) operates at commercial scale across $\geq$10 EU telecom operator
+members, offering cross-border edge compute services as a standard commercial
+product with documented customer deployments outside its founding consortium.
+\textbf{Market trigger:} EU supply chain governance frameworks (Runtime SBOM
+plus ZKP attestation) are adopted or formally referenced by at least two
+non-EU partner jurisdictions as part of digital trade or partnership agreements,
+confirming that EU governance leadership is internationally exportable.}
+\\
+\hline
+
+% ---- PHASE 3 ----
+\rowcolor{phase3row}
+\textbf{Phase~3}
+\newline\textit{Autonomy \&}
+\newline\textit{Leadership}
+\newline\textit{2035--2040}
+\newline\sslbadge{ssltealbg}{ssltealtx}{SSL: Full Federated}
+\newline\sslbadge{ssltealbg}{ssltealtx}{Sovereign Autonomy}
+&
+\cellhead{Cluster ODP: Ubiquitous Operation across all sub-priorities}
+All three sub-priorities reach Ubiquitous Operation. Simpl-based
+security is the universal standard for cross-provider Data Space
+operation in the EU; no alternative interoperability model holds
+market relevance in regulated sectors. ZKP-verified supply chain
+attestation operates at real-time transaction scale for all critical
+infrastructure component verification. The EU NaaS federation operates
+as a single commercial entity legally equivalent to a unified
+jurisdiction for data workloads. Phase~3 R\&I pursues next-generation
+frontiers: post-ZKP cryptographic verification, semantic AI-to-AI
+policy negotiation, and legal engineering of the next-generation
+``Digital Single Market'' framework beyond cloud-edge compute.
+\kpistrip{Phase~3 ODP evidence: Simpl MIM compliance rate in new regulated
+EU cloud procurement; ZKP verification throughput in production critical
+infrastructure deployments; EU NaaS federation revenue relative to
+hyperscaler EU revenue in regulated sectors.}
+&
+\cellhead{EU federated governance as international model}
+The ``Schengen for Cloud'' legal framework is enacted and operational,
+resolving US CLOUD Act jurisdiction conflicts for federated EU-sovereign
+workloads and enabling single-market legal operation of cross-border
+compute. EU Cloud Rulebook is mandatory for all new cloud deployments
+in EU regulated sectors without exception. EU supply chain governance
+standards (Runtime SBOM plus ZKP) are referenced in international
+supply chain security standards (ISO/IEC) and in digital trade
+agreements with partner jurisdictions. The EU has transitioned from
+rule-taker to rule-setter in international cloud and supply chain
+governance.
+\kpistrip{Phase~3 governance leadership is verified by two events:
+enactment of the ``Schengen for Cloud'' framework (domestic) and
+formal adoption of EU supply chain governance standards by $\geq$2
+non-EU partner jurisdictions (international).}
+&
+\cellhead{Provider-agnostic EU trust fabric as continental operational default}
+A single provider-agnostic EU trust fabric operates continuously across
+all active Common European Data Spaces with real-time automated security
+orchestration and zero manual policy coordination. ZKP-verified supply
+chain attestation eliminates all unverified components from EU critical
+infrastructure deployments in regulated sectors. The EU NaaS federation
+is a standard commercial service operating at hyperscaler-comparable
+scale, with EU operators collectively competitive on cost and coverage.
+Security-by-Design is not an add-on: every new cloud-edge deployment
+in the EU incorporates Simpl MIM compliance, Runtime SBOM verification,
+and cross-border sovereignty assurance as architectural defaults.
+\kpistrip{Phase~3 deployment normalisation: Simpl MIM compliance in
+$\geq$90\% of new regulated EU cloud deployments; ZKP supply chain
+verification in 100\% of new critical infrastructure component
+procurement; EU NaaS federation operating as a single commercial entity
+with documented non-founding-member customers.}
+&
+\cellhead{SSL: Full Federated Sovereign Autonomy}
+Non-EU hyperscaler market share in EU regulated cloud procurement
+falls below 40\% for new deployments (from $\approx$65\% at baseline),
+with a binding trajectory toward continued reduction. EU NaaS
+federation achieves hyperscaler-comparable geographic coverage and
+commercial viability across the EU. Supply chain governance
+internationally adopted: at least two partner jurisdictions have
+formally adopted EU Runtime SBOM plus ZKP attestation standards as
+domestic procurement requirements. The EU has removed the structural
+dependency that allowed US CLOUD Act jurisdiction to apply to
+EU-regulated data: federated sovereignty is legally guaranteed, not
+only technically implemented.
+\kpistrip{Full Federated Sovereign Autonomy requires three
+concurrent conditions: $<$40\% hyperscaler new-procurement share;
+``Schengen for Cloud'' legally enacted; $\geq$2 partner jurisdictions
+formally adopting EU supply chain governance standards. Achieving
+any two without the third does not constitute this SSL level.}
+\\
+\hline
+
+\end{longtable}
+\end{landscape}
+
+% ---- PROGRESSION MATRIX: CLUSTER 3 ----
+
+
+% \noindent
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{|p{4.2cm}|p{5.6cm}|p{5.6cm}|p{5.6cm}|}
+% \hline
+% \rowcolor{gray!30}
+% \multicolumn{4}{|c|}{\textbf{Progression Matrix: Priority Cluster 3 ---
+%   Federated Operational Sovereignty (P4, P5, P7)}} \\
+% \hline
+% \rowcolor{gray!15}
+% \textbf{Metric} &
+% \textbf{Phase 1: Foundation \& Compliance (2025--2030)} &
+% \textbf{Phase 2: Federation \& Standardisation (2030--2035)} &
+% \textbf{Phase 3: Autonomy \& Leadership (2035--2040)} \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Cluster-Level Progression Indicators}}} \\
+% \hline
+% \textbf{Cluster ODP} &
+% Fragmented Piloting &
+% Standardised Integration &
+% Ubiquitous Operation \\
+% \hline
+% \textbf{Cluster SSL} &
+% Emerging EU Ecosystem &
+% Growing Pan-EU Sovereignty &
+% Full Federated Sovereign Autonomy \\
+% \hline
+% \rowcolor{gray!10}
+% \multicolumn{4}{|l|}{\textit{\textbf{Sub-Priority Decomposition (Individual ODP / SSL per Phase)}}} \\
+% \hline
+% \textit{P4: Security Interoperability \newline via Simpl Middleware} &
+% ODP: Fragmented Piloting \newline
+% SSL: Emerging EU Ecosystem &
+% ODP: Standardised Integration \newline
+% SSL: Full Sovereign Autonomy &
+% ODP: Ubiquitous Operation \newline
+% SSL: Full Sovereign Autonomy \\
+% \hline
+% \textit{P5: Supply Chain \newline Verification \& Infra.} &
+% ODP: Full Supply Chain Disclosure \newline
+% SSL: High Reliance on \newline Fragmented Non-EU Auditing &
+% ODP: Partial Restriction \& \newline Dynamic Runtime Verification \newline
+% SSL: Emerging EU Supply Chain \newline Tracking Frameworks &
+% ODP: Full Restriction Process \& \newline ZKP-Verified Attestation \newline
+% SSL: Full Sovereign Supply \newline Chain Control \& Transparency \\
+% \hline
+% \textit{P7: Pan-European NaaS \newline Federation} &
+% ODP: Bilateral Interconnection \newline
+% SSL: Hyperscaler Platform Dominance &
+% ODP: Federated Edge Roaming \newline
+% SSL: Pan-EU Consortium Competes &
+% ODP: True Digital Single Market \newline
+% SSL: European Scale Parity Achieved \\
+% \hline
+% \rowcolor{blue!7}
+% \textbf{Operational State} &
+% Initial Simpl security pilots are deployed in three Common European
+% Data Spaces with manual policy coordination and proof-of-concept
+% MIM implementations; CRA-baseline SBOM declarations are submitted
+% by hardware and software vendors as static point-in-time documents
+% without runtime verification; harmonised CAMARA APIs are tested in
+% bilateral 5G corridor agreements between individual EU telecom
+% operators; hyperscalers retain dominant market share through
+% proprietary API ecosystems. &
+% Automated policy translation via standardised Simpl MIMs is
+% deployed across the majority of active Common European Data Spaces;
+% Runtime SBOMs with cryptographic execution proofs verify
+% containerised components dynamically as they migrate across
+% multi-provider continuum nodes; harmonised CAMARA-based cross-border
+% edge roaming operates across five or more EU operator pairs;
+% ``Data Visa'' mechanisms enable AI model migration without
+% manual legal review in certified corridor deployments. &
+% A single provider-agnostic European trust fabric operates
+% continuously across all EU Common Data Spaces with real-time
+% automated security orchestration; ZKP-verified supply chain
+% attestation eliminates unverified components from all
+% EU critical infrastructure deployments; a unified NaaS
+% platform legally operable as a single data jurisdiction
+% enables EU operators to achieve hyperscaler-comparable
+% scale; EU supply chain governance frameworks are adopted
+% as reference implementations internationally. \\
+% \hline
+% \rowcolor{orange!12}
+% \textbf{Critical Enabler} &
+% Simpl-Open official launch with initial security MIM definitions
+% published as open standards, establishing the technical
+% baseline for cross-provider security policy automation &
+% Security MIMs adopted as CEN/CENELEC standards with
+% mandatory reference in EU Cloud Rulebook, creating the
+% regulatory basis for non-voluntary hyperscaler compliance &
+% ``Schengen for Cloud'' legal framework enacted, resolving
+% US CLOUD Act extra-territorial jurisdiction conflict and
+% enabling single-jurisdiction data workload operation at
+% continental scale \\
+% \hline
+% \end{tabular}%
+% }
+
+% =========================================================================
+% CROSS-PRIORITY BOTTLENECK ASSESSMENT
+% =========================================================================
+
+\newpage
+\section{Cross-Priority Bottleneck Assessment}
+\label{sec:bottlenecks}
+
+Three shared structural dependencies determine whether individual sub-priority
+progressions can advance on their stated timelines, regardless of cluster-level investment.
+These bottlenecks are identified here because they constitute cross-cutting gate conditions
+that cannot be resolved by any single cluster in isolation.
+
+\textbf{Bottleneck 1 --- EU Chips Act Sovereign Fabrication Capacity.}
+The Phase~2 gate conditions for P1 (EUCC `High' certified RISC-V secure elements),
+P2 (PQC-native RISC-V silicon), P3 (zero-energy secure hardware), and P8 (RISC-V
+Keystone TEE scaling) all converge on the same physical dependency: sovereign EU
+fabrication capacity for security-critical silicon at commercially viable yields.
+The Phase~2 critical enabler for P1 (``EUCC `High' certification of first
+EU-manufactured RISC-V secure element'') and the Phase~3 enabler (``EU Chips Act
+sovereign EUV-capable fabrication achieving $\geq$60\% self-sufficiency'') constitute
+a single two-stage gate that controls the SSL trajectory of four of the five Cluster~1
+sub-priorities simultaneously.
+
+\textbf{Bottleneck 2 --- AI Act Conformity Assessment Infrastructure.}
+The Phase~2 gate condition for Cluster~2 (``standardised AI Act conformity assessment
+framework for autonomous security agents'') is a prerequisite not only for P6 and P10
+but also for any AI-driven capability within Cluster~1 (autonomous Island Mode swarm
+protocols) and Cluster~3 (Automated Compliance Negotiators in NaaS federation) that
+incorporates autonomous decision-making. The absence of EU AI Act conformity assessment
+bodies with sufficient capacity to certify high-risk security AI at scale represents a
+systemic bottleneck that, if unresolved by 2028--2030, will delay the Phase~2 SSL
+transition across all three clusters.
+
+\textbf{Bottleneck 3 --- Runtime SBOM and Supply Chain Attestation Infrastructure.}
+Runtime SBOM verification (P5) is a prerequisite for both the Cluster~1 TEE integrity
+claim (P8 confidential computing pipelines cannot be trusted without verified component
+provenance) and the Cluster~3 MIM compliance model (Simpl-based interoperability
+cannot provide cryptographic enforcement guarantees if component integrity is
+unverifiable). The Phase~1 critical enabler for Cluster~3 (Simpl-Open MIM definitions)
+and the Phase~1 ODP for P5 (full supply chain disclosure) must therefore proceed in
+coordination, not sequentially, with the Phase~1 applied research activities in
+Cluster~1. This interdependency must be explicitly reflected in Horizon Europe project
+call design to ensure that SBOM infrastructure investment is not siloed within supply
+chain security calls but is structurally integrated into hardware security and
+interoperability funding instruments.
+
+% =========================================================================
+% NEW BIBLIOGRAPHY ENTRIES
+% =========================================================================
+
+% Add the following entries to the master \begin{thebibliography}{99} block:
