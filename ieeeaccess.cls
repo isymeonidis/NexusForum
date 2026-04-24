@@ -4,9 +4,9 @@
 \RequirePackage{xkeyval}
 
 \ifpdf
- \pdfmapfile{+ t1-times.map}
- \pdfmapfile{+ t1-formata.map}
- \pdfmapfile{+ t1-giovannistd.map}
+\IfFileExists{t1-times.map}{\pdfmapfile{+ t1-times.map}}{}
+\IfFileExists{t1-formata.map}{\pdfmapfile{+ t1-formata.map}}{}
+\IfFileExists{t1-giovannistd.map}{\pdfmapfile{+ t1-giovannistd.map}}{}
 \fi
 
 \newif\iflineno\linenofalse
