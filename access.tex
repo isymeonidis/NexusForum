@@ -11,6 +11,7 @@
 \definecolor{execbg}{rgb}{0.90,0.95,1.00}
 \definecolor{layerbg}{rgb}{0.94,0.94,0.94}
 \definecolor{crossbg}{rgb}{1.00,0.93,0.86}
+\newcommand{\tofix}[1]{{\color{blue}#1}}
 \setlength{\emergencystretch}{2em}
 \hbadness=10000
 \vbadness=10000
@@ -38,8 +39,7 @@ Computing Continuum: A Strategic Roadmap}
 \address[1]{Affiliation 1 (e-mail: author1@domain)}
 \address[2]{Affiliation 2 (e-mail: author2@domain)}
 \address[3]{Affiliation 3 (e-mail: author3@domain)}
-\tfootnote{This work was supported in part by the NexusForum coordination
-action and the EuCloudEdgeIoT initiative under Horizon Europe.}
+% \tfootnote{This work was supported in part by the NexusForum coordination  action and the EuCloudEdgeIoT initiative under Horizon Europe.}
 
 \markboth
 {Author \headeretal: Cybersecurity for the European Cloud--Edge--IoT Continuum}
@@ -86,17 +86,31 @@ cryptography, security roadmap, Zero-Trust architecture.
 \section{Introduction}
 \label{sec:intro}
 
-The shift from centralised cloud to a distributed Cloud--Edge--IoT continuum
-relocates computation, storage, and inference closer to devices, users, and
-physical processes \cite{dustdar2023,bittencourt2018,ecroadmap2024}. The
-architectural benefit is lower latency and higher operational autonomy; the
-security consequence is a sharp increase in attack surface,
-heterogeneity, and the number of administrative and trust domains that a
-defender must reason about simultaneously. Perimeter-oriented and siloed
-security models, designed for consolidated data-centre environments, are
-not structurally adequate for infrastructures that are geographically
-dispersed, resource-constrained, and physically exposed
-\cite{rose2020zta,chandramouli2023zta}.
+The shift from centralised cloud to a distributed Cloud--Edge--IoT
+continuum relocates computation, storage, and inference closer to
+devices, users, and physical processes
+\cite{dustdar2023,bittencourt2018,ecroadmap2024}. The architectural
+gains (lower latency, higher operational autonomy, and locality of
+data processing) come at a structural cost: attack surface, system
+heterogeneity, and the number of administrative and trust domains that
+a defender must reason about simultaneously all increase sharply, while
+the perimeter-oriented and siloed security models designed for
+consolidated data-centre environments become structurally inadequate
+for infrastructures that are geographically dispersed,
+resource-constrained, and physically exposed
+\cite{rose2020zta,chandramouli2023zta,alwarafy2021}. Each relocation
+of workload across providers and jurisdictions is also a transfer of
+control, which makes continuum security inseparable from digital
+sovereignty, that is, the ability to govern, audit, and operate
+critical infrastructure under credible European influence. This
+coupling is sharpened by concurrent global trends, namely hyperscaler
+concentration in the EU cloud market \cite{synergy2025}, the migration
+to post-quantum cryptography \cite{niscg2025pqc}, and the weaponisation
+of generative AI against both human operators and AI-enabled defences,
+and by the European regulatory response, which translates these
+pressures into binding obligations on essential entities, products with
+digital elements, financial services, and high-risk AI systems
+\cite{eunis2,eucra2024,eudora,euaiact}.
 
 Europe faces this transition under four simultaneous regulatory
 activations. NIS2 \cite{eunis2}, the Cyber Resilience Act (CRA)
@@ -125,22 +139,34 @@ mechanisms that span providers and jurisdictions (federated), and
 assurance embedded through the system lifecycle (certified
 Security-by-Design) \cite{enisa2019iotsdlc,cavoukian2009,rose2020zta}.
 
-\textbf{\textbf{The paper makes four contributions. 
+The paper makes four contributions.
 \begin{itemize}
-\item First, it decomposes continuum
-cybersecurity into six Security Layers and four Transversal
-Cross-Layers and identifies the specific capabilities required at each
-(Section~\ref{sec:stage1}). 
-\item Second, it defines a two-stage methodology
-linking architectural decomposition to European strategic concerns
-through a Sovereignty Level construct (Section~\ref{sec:method}).
-\item Third, it consolidates the resulting capabilities into three priority
-clusters analysed through a seven-dimension template over a
-2026--2040 transition horizon (Section~\ref{sec:clusters}). 
-\item Fourth, it derives implementation-oriented recommendations connecting research,
-policy, industrial capacity, and sovereignty
-(Section~\ref{sec:recs}).
-\end{itemize}}}
+\item First, a \emph{two-stage methodology} for constructing
+cybersecurity roadmaps under conditions of ecosystem uncertainty,
+combining architectural decomposition (Stage~1) with priority
+clustering and phased transition-matrix analysis (Stage~2), and
+integrating a \emph{Sovereignty Level} construct as an interpretive
+strategic lens (Section~\ref{sec:method}).
+\item Second, an \emph{architectural decomposition} of the
+Cloud--Edge--IoT continuum into six Security Layers and four
+Transversal Cross-Layers, populated with their constituent
+capabilities, as the Stage~1 output
+(Section~\ref{sec:stage1}).
+\item Third, a consolidation of those capabilities into \emph{ten
+strategic priorities} grouped in three priority clusters (Sovereign
+Trusted Infrastructure; Cognitive Security and Autonomous Cyber
+Defence; Federated Operational Sovereignty), each analysed through a
+\emph{seven-dimension template} and projected onto a three-phase
+transition matrix over 2026--2040 (Section~\ref{sec:clusters}).
+\item Fourth, a set of implementation-oriented recommendations
+derived from the cluster analysis and anchored in the current EU
+regulatory and industrial landscape, identifying concrete
+\emph{Phase-1 critical enablers} (e.g.\ EUCC ``High'' certification of
+an EU-origin RISC-V secure element; OASC MIM6 progression; a
+standardised adversarial robustness test suite for security AI) whose
+absence or delivery determines whether the 2040 target state is
+reachable (Section~\ref{sec:recs}).
+\end{itemize}
 
 Section~\ref{sec:background} provides the strategic and regulatory
 context. Section~\ref{sec:method} presents the two-stage methodology.
@@ -154,26 +180,27 @@ Section~\ref{sec:concl} concludes.
 \section{Background and Driving Factors}
 \label{sec:background}
 
-The continuum is characterised by decentralisation and physical
-exposure. Decentralisation complicates visibility, orchestration,
-patching, identity, and incident response across multiple administrative
-domains and increases the probability of inconsistent security postures
-across deployments \cite{roman2018,ranaweera2021}. Physical exposure
-removes the environmental and access controls that hyperscale data
-centres rely on: edge nodes in factories, substations, transport hubs,
-and telecom sites are exposed to tampering, fault injection, side-channel
-attacks, and supply chain compromise \cite{alwarafy2021}. Hardware roots
-of trust, secure boot, remote attestation, and tamper-aware design are
-baseline requirements rather than optional enhancements
+The first vector shaping the continuum transition is architectural: the
+continuum is characterised by decentralisation and physical exposure.
+Decentralisation complicates visibility, orchestration, patching,
+identity, and incident response across multiple administrative domains
+and increases the probability of inconsistent security postures across
+deployments \cite{roman2018,ranaweera2021}. Physical exposure removes
+the environmental and access controls that hyperscale data centres rely
+on: edge nodes in factories, substations, transport hubs, and telecom
+sites are exposed to tampering, fault injection, side-channel attacks,
+and supply chain compromise \cite{alwarafy2021}. Hardware roots of
+trust, secure boot, remote attestation, and tamper-aware design are
+therefore baseline requirements rather than optional enhancements
 \cite{tpm2spec,sailer2004}.
 
-The European regulatory activation is historically dense. NIS2
+The European regulatory landscape constitutes a second major vector
+shaping the continuum transition. NIS2
 \cite{eunis2}, the CRA \cite{eucra2024}, the AI Act \cite{euaiact}, DORA
 \cite{eudora}, the Data Act \cite{eudataact}, and GDPR \cite{eugdpr}
 together impose obligations that must be translated into architectures,
 assurance mechanisms, and lifecycle controls operating across cloud,
-edge, and IoT. The simultaneity burdens SMEs and smaller Member States
-disproportionately.
+edge, and IoT. This simultaneity creates disproportionate implementation pressures for SMEs and smaller Member States.
 
 Sovereignty is the third vector. Dependence on non-EU providers for
 secure silicon, cloud platforms, and enterprise security tooling creates
@@ -189,10 +216,9 @@ the dominant secure element products and achieved EUCC ``High''
 certification for multiple product families in 2025
 \cite{enisaeucc2025}, but fabrication depends on non-EU foundries and
 designs remain proprietary, preventing sovereign auditability at the
-silicon level. Intel, AMD, and ARM control the operational Trusted
-Execution Environment (TEE) market. No EU-origin RISC-V processor has
-received EUCC or Common Criteria certification as of April 2026. The
-enterprise SIEM market is dominated by US platforms, with no
+silicon level. Intel SGX/TDX, AMD SEV-SNP, and Arm TrustZone/CCA constitute the dominant operational hardware-backed TEE families across cloud/server
+and embedded deployments; EU-origin RISC-V alternatives remain largely
+at research or prototype stage \cite{Munoz2023-pw}. \tofix{No EU-origin RISC-V processor has received EUCC or Common Criteria certification as of April 2026. The enterprise SIEM market is dominated by US platforms, with no
 EU-headquartered vendor in the Gartner Leaders quadrant as of late 2025
 \cite{gartner2025siem}. Hyperscalers hold approximately 70\% of the EU
 cloud market; EU-headquartered providers collectively hold about 15\%,
@@ -200,7 +226,7 @@ stable since 2022 but below the 29\% share recorded in 2017
 \cite{synergy2025}. For post-quantum migration the NIS Cooperation Group
 roadmap \cite{niscg2025pqc} now provides a binding framework, but
 production-scale post-quantum cryptographic (PQC) hardware tailored for
-edge and IoT is not yet available in Europe.
+edge and IoT is not yet available in Europe.}
 
 \section{Methodology}
 \label{sec:method}
