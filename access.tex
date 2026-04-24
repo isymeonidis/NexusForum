@@ -139,6 +139,28 @@ mechanisms that span providers and jurisdictions (federated), and
 assurance embedded through the system lifecycle (certified
 Security-by-Design) \cite{enisa2019iotsdlc,cavoukian2009,rose2020zta}.
 
+In this paper, a \emph{roadmap} is understood as a structured strategic
+instrument that links current capability gaps to future target states
+through phased actions, dependencies, and transition conditions. It is
+not a forecast of technological development, but a coordination tool for
+aligning research, innovation, policy, standardisation, deployment, and
+ecosystem investment over time \cite{ecroadmap2024}. The
+\emph{Cloud--Edge--IoT continuum} refers to the distributed execution
+environment in which computation, storage, networking, sensing, and AI
+inference are dynamically placed across central cloud platforms,
+intermediate edge infrastructures, and resource-constrained devices
+\cite{dustdar2023,bittencourt2018,ecroadmap2024}. The term
+\emph{continuum} is used because these tiers are increasingly
+interdependent rather than isolated: workloads, data flows, trust
+decisions, and control functions move across them according to latency,
+resilience, privacy, energy, and sovereignty requirements
+\cite{etsimec003,dustdar2023}. The term \emph{ecosystem} captures the
+fact that secure operation depends not only on technologies, but also on
+providers, standards bodies, regulators, certification schemes,
+open-source communities, research infrastructures, SMEs, large
+industrial actors, and public authorities whose decisions jointly
+determine deployment capacity \cite{ecroadmap2024,eucsa,commreg2024eucc}.
+
 The paper makes four contributions.
 \begin{itemize}
 \item First, a \emph{two-stage methodology} for constructing
@@ -231,29 +253,34 @@ edge and IoT is not yet available in Europe.}
 \section{Methodology}
 \label{sec:method}
 
-The methodology transforms a heterogeneous strategic landscape into a
-structured roadmap for research, innovation, policy, deployment, and
-ecosystem development. It proceeds in two stages, followed by
-iterative validation. Stage~1 (Section~\ref{sec:stage1}) decomposes the
-Cloud--Edge--IoT continuum into architectural layers and cross-layers,
-and identifies the specific capabilities required at each. Stage~2
-(Section~\ref{sec:clusters}) consolidates those capabilities into
-priority clusters and analyses each cluster through a seven-dimension
-template and a phased transition matrix covering the 2026--2040
-horizon.
+The methodology examines the heterogeneous landscape of the
+Cloud--Edge--IoT ecosystem and translates it into a structured roadmap
+for research, innovation, policy, deployment, and ecosystem development.
+It proceeds in two stages, followed by iterative validation. Stage~1
+(Section~\ref{sec:stage1}) decomposes the Cloud--Edge--IoT continuum
+into architectural layers and cross-layers and identifies the specific
+capabilities required within each. This first stage is a prerequisite for
+prioritisation: it establishes the common analytical vocabulary,
+exposes cross-layer dependencies, and prevents priorities from being
+selected as isolated technologies detached from their architectural and
+operational context. Stage~2 (Section~\ref{sec:clusters}) then
+consolidates those capabilities into priority clusters and analyses each
+cluster through a seven-dimension template and a phased transition matrix
+covering the 2026--2040 horizon.
 
-Two commitments shape the methodology. First, it supports strategic
-roadmap construction, not deterministic forecasting. Progress in
-complex socio-technical ecosystems is non-linear and depends on
-interacting technical, regulatory, operational, and market
-developments whose timing cannot be predicted precisely. Second, the
-methodology connects technical cybersecurity capabilities with broader
-European strategic concerns (resilience, interoperability, trust) and
-with \emph{Sovereignty Level}, understood as the degree to which
-critical capabilities, control points, and dependencies remain under
-credible European influence, governance, or operational control.
-Sovereignty Level is used as an interpretive strategic lens rather
-than a rigid scoring model.
+Rather than predicting when each technology or policy milestone will
+occur, the methodology organises the capabilities, dependencies, and
+transition conditions that make progress plausible. This distinction is
+important because the Cloud--Edge--IoT ecosystem evolves through the
+interaction of technical maturity, regulatory obligations, deployment
+readiness, market adoption, and industrial capacity. The methodology
+also links technical cybersecurity capabilities to broader European
+strategic objectives: resilience, interoperability, trust, and
+sovereignty. In this context, \emph{Sovereignty Level} denotes the
+extent to which critical capabilities, control points, and dependencies
+remain under credible European influence, governance, or operational
+control. It is used as an interpretive lens for assessing strategic
+dependency, not as a rigid quantitative score.
 
 \subsection{Stage~1: Cloud--Edge--IoT Core Dimensions (Layers) and Capabilities Identification}
 \label{sec:stage1intro}
@@ -1446,30 +1473,35 @@ of capability and priority formulations, coherence of priority clustering,
 credibility of transition conditions, and reasonableness of Sovereignty
 Level assessments.
 
-\subsection{Limitations}
-The architectural decomposition reflects a particular analytical
-perspective and may not capture intersections with adjacent domains
-(energy, industrial policy, trade). The seven-dimension analyses rely
-on expert judgement rather than empirical measurement. Transition
-conditions sacrifice precision for robustness; they are suited to
-strategic orientation rather than operational planning. The Sovereignty
-Level construct resists precise quantification and is used
-interpretively. The paper also reflects the ambition--implementation
-gap of the 2026 regulatory landscape: NIS2 transposition delays in
-several large Member States \cite{ec2025nis2status}, a contested 20\%
-semiconductor target \cite{eurochipsaudit2025}, EUCS remaining
-unadopted \cite{ec2025cloudsov}, and no harmonised CRA standards yet
-cited in the Official Journal. These realities constrain Phase~1
-governance specificity and locate the roadmap's primary value in
-structuring coordination.
+\subsection{Discussions, Limitations and Future Work}
+The methodology is intended to support strategic agenda setting,
+expert discussion, cross-priority comparison, and iterative roadmap
+refinement under conditions of ecosystem uncertainty. Its value lies in
+providing a shared analytical structure through which stakeholders can
+align research, policy, deployment, and investment decisions around a
+common set of objectives.
 
-\subsection{Methodological Positioning}
-The methodology is suited to strategic agenda setting, expert
-discussion, cross-priority comparison, and iterative roadmap evolution
-under conditions of ecosystem uncertainty. Its value lies in providing
-a shared analytical structure within which stakeholders can coordinate
-research, policy, and investment decisions toward a common set of
-objectives.
+At the same time, the roadmap should not be interpreted as a precise
+forecast of future cybersecurity developments. The Cloud--Edge--IoT
+landscape is shaped by rapidly evolving technologies, regulatory
+implementation, market dynamics, and geopolitical conditions, all of
+which may alter the trajectory of the priority clusters. The analysis
+therefore offers a strategic synthesis of the state of the art and
+expert judgement, rather than a deterministic prediction of how the
+cybersecurity landscape will evolve.
+
+Future work could extend the roadmap in three directions. First, the
+architectural analysis could be instantiated in sector-specific use
+cases, such as energy, healthcare, finance, and public procurement, to
+examine how cybersecurity priorities are affected by sector-specific
+regulation, procurement rules, supply-chain constraints, and market
+structure. This would help capture dependencies that fall
+outside a cybersecurity-centred perspective. Second, the
+\emph{Sovereignty Level} construct should be further operationalised by
+identifying measurable proxies for strategic dependency, such as
+provider concentration, certification availability, fabrication capacity,
+and cross-border deployability. Third, the roadmap should be maintained as an iterative and dynamic instrument, periodically revised as new empirical evidence, stakeholder feedback, regulatory milestones, and technological developments become available.
+
 
 \section{Conclusion}
 \label{sec:concl}
