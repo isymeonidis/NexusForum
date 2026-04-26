@@ -62,15 +62,7 @@ prioritising cybersecurity capabilities: architectural decomposition of
 the continuum into six Security Layers and four Transversal Security Cross-Layers
 together with their constituent capabilities, followed by priority
 clustering and phased transition-matrix analysis through a
-seven-dimension template analysis. Applying the methodology, the paper identifies ten strategic
-capabilities spanning hardware roots of trust, post-quantum cryptographic
-agility, lightweight edge security, federated interoperability, supply chain
-verification, cognitive security operations, pan-European network
-federation, confidential computing, resilient infrastructure, and proactive
-threat management. These are consolidated into three executive priority
-clusters, Sovereign Trusted Infrastructure, Cognitive Security and
-Autonomous Cyber Defence, and Federated Operational Sovereignty, analysed
-over a 2026--2040 transition horizon. The contribution is both methodological,
+seven-dimension template. Applying the methodology, the paper identifies a set of layer and cross-layer cybersecurity capabilities spanning hardware roots of trust, post-quantum cryptographic agility, lightweight edge security, federated interoperability, supply-chain verification, cognitive security operations, pan-European network federation, confidential computing, resilient infrastructure, and proactive threat management. These capabilities are consolidated into three executive priority clusters: Sovereign Trusted Infrastructure, Cognitive Security and Autonomous Cyber Defence, and Federated Operational Sovereignty, each analysed through the seven-dimension template and then projected over a 2026--2040 transition horizon. The contribution is both methodological,
 providing a reproducible template for cybersecurity roadmap construction,
 and strategic, framing autonomous, federated, and certified
 Security-by-Design as the operational target for European digital
@@ -177,28 +169,14 @@ Cloud--Edge--IoT continuum into six Security Layers and four
 Transversal Security Cross-Layers, populated with their constituent
 capabilities, as the Stage~1 output
 (Section~\ref{sec:stage1}).
-\item Third, a consolidation of those capabilities into \emph{ten
-strategic priorities} grouped in three priority clusters (Sovereign
-Trusted Infrastructure; Cognitive Security and Autonomous Cyber
-Defence; Federated Operational Sovereignty), each analysed through a
-\emph{seven-dimension template} and projected onto a three-phase
-transition matrix over 2026--2040 (Section~\ref{sec:clusters}).
-\item Fourth, a set of implementation-oriented recommendations
-derived from the cluster analysis and anchored in the current EU
-regulatory and industrial landscape, identifying concrete
-\emph{Phase-1 critical enablers} (e.g.\ EUCC ``High'' certification of
-an EU-origin RISC-V secure element; OASC MIM6 progression; a
-standardised adversarial robustness test suite for security AI) whose
-absence or delivery determines whether the 2040 target state is
-reachable (Section~\ref{sec:recs}).
+\item Third, a consolidation of those capabilities into \emph{three priority clusters} (Sovereign Trusted Infrastructure; Cognitive Security and Autonomous Cyber Defence; Federated Operational Sovereignty), each analysed through a \emph{seven-dimension template} (Section~\ref{sec:clusters}) and subsequently projected onto a three-phase transition matrix over 2026--2040 (Section~\ref{sec:phases}).
+\item Fourth, a set of implementation-oriented recommendations derived from the cluster analysis and transition matrices, anchored in the current EU regulatory and industrial landscape, and focused on concrete \emph{Phase-1 critical enablers} whose absence or delivery determines whether the 2040 target state is reachable (Section~\ref{sec:recs}).
 \end{itemize}
 
 Section~\ref{sec:background} provides the strategic and regulatory
 context. Section~\ref{sec:method} presents the two-stage methodology.
 Section~\ref{sec:stage1} defines the layered system model and its
-constituent capabilities. Section~\ref{sec:clusters} presents the three
-priority clusters and their transition matrices.
-Section~\ref{sec:recs} states the recommendations.
+constituent capabilities. Section~\ref{sec:clusters} presents the three priority clusters and their seven-dimension analysis. Section~\ref{sec:phases} presents the phase logic and transition matrices. Section~\ref{sec:recs} states the recommendations.
 Section~\ref{sec:disc} discusses validation and limitations.
 Section~\ref{sec:concl} concludes.
 
@@ -264,7 +242,7 @@ edge and IoT is not yet available in Europe.}
 \footnotesize literature, regulation, standards, ecosystem dependencies, stakeholder review\\[5pt]
 \normalsize
 \textbf{Stage~1} Architectural Decomposition\\
-\footnotesize 6 Security Layers + 4 Cross-Layers\\[3pt]
+\footnotesize 6 Security Layers + 4 Transversal Security Cross-Layers\\[3pt]
 \normalsize
 \textbf{Capability Identification}\\
 \footnotesize layer and cross-layer capabilities\\[5pt]
@@ -284,11 +262,11 @@ edge and IoT is not yet available in Europe.}
 \textit{Sovereignty Level as interpretive lens: assesses whether critical capabilities and dependencies can be shaped, governed, assured, and operated under European influence or control}
 }%
 }
-\caption{Two-stage methodology for constructing the cybersecurity and cyber-resilience roadmap. Stage~1 decomposes the Cloud--Edge--IoT continuum into security layers, cross-layers, and constituent capabilities. Stage~2 consolidates these capabilities into priority clusters, analyses them through a seven-dimension template, and projects them onto a three-phase transition matrix. Sovereignty Level is used as an interpretive lens across capability, dependency, and cluster assessment.}
+\caption{Two-stage methodology for constructing the cybersecurity and cyber-resilience roadmap. Stage~1 decomposes the Cloud--Edge--IoT continuum into Security Layers, Transversal Security Cross-Layers, and constituent capabilities. Stage~2 consolidates these capabilities into priority clusters, analyses them through a seven-dimension template, and projects them onto a three-phase transition matrix. Sovereignty Level is used as an interpretive lens across capability, dependency, and cluster assessment.}
 \label{fig:methodology}
 \end{figure*}
 
-The methodology examines the heterogeneous landscape of the Cloud--Edge--IoT ecosystem and translates it into a structured roadmap for research, innovation, policy, deployment, and ecosystem development. It proceeds in two stages, followed by iterative review and refinement. Stage~1 (Section~\ref{sec:stage1}) decomposes the Cloud--Edge--IoT continuum into architectural layers and cross-layers and identifies the specific capabilities required within each. This first stage is a prerequisite for prioritisation: it establishes a common analytical vocabulary, exposes cross-layer dependencies, and prevents priorities from being selected as isolated technologies detached from their architectural and operational context. Stage~2 (Section~\ref{sec:clusters}) then consolidates those capabilities into priority clusters and analyses each cluster through a seven-dimension template and a phased transition matrix covering the 2026--2040 horizon.
+The methodology examines the heterogeneous landscape of the Cloud--Edge--IoT ecosystem and translates it into a structured roadmap for research, innovation, policy, deployment, and ecosystem development. It proceeds in two stages, followed by iterative review and refinement. Stage~1 (Section~\ref{sec:stage1}) decomposes the Cloud--Edge--IoT continuum into architectural layers and cross-layers and identifies the specific capabilities required within each. This first stage is a prerequisite for prioritisation: it establishes a common analytical vocabulary, exposes cross-layer dependencies, and prevents priorities from being selected as isolated technologies detached from their architectural and operational context. Stage~2 groups the capabilities identified in Stage~1 into three Priority Clusters: (i)~\emph{Sovereign Trusted Infrastructure}, the hardware, cryptographic, software-update, data-protection, and resilience foundations that anchor trust across the continuum; (ii)~\emph{Cognitive Security and Autonomous Cyber Defence}, the AI-assisted operational layer that scales detection, analysis, and response beyond human-paced workflows; and (iii)~\emph{Federated Operational Sovereignty}, the interoperability, supply-chain verification, assurance, and federation substrate that converts individually sovereign components into a unified European trust fabric.
 
 Rather than predicting when each technology or policy milestone will occur, the methodology organises the capabilities, dependencies, and transition conditions that make progress plausible. This distinction is important because the Cloud--Edge--IoT ecosystem evolves through the interaction of technical maturity, regulatory obligations, deployment readiness, market adoption, and industrial capacity. The methodology also links technical cybersecurity capabilities to broader European strategic objectives: resilience, interoperability, trust, and sovereignty.
 
@@ -319,9 +297,9 @@ The use of three priority clusters is a deliberate synthesis choice rather than 
 
 Each priority cluster is analysed through a seven-dimension template applied consistently across the three clusters. The same template also preserves traceability to the underlying capabilities from which each cluster is derived:
 \begin{itemize}
-    \item \textbf{(D1)~Baseline and Target Objective}, describing the current state of the priority cluster, the intended future state, and the strategic change required to move from one to the other;
-    \item \textbf{(D2)~Primary Drivers}, identifying the threat and regulatory drivers that make the priority cluster urgent and non-deferrable;
-    \item \textbf{(D3)~High-Impact Activities}, identifying the concrete research, innovation, standardisation, or deployment actions expected to advance the priority cluster, with each action assigned to a target phase;
+    \item \textbf{(D1)~Baseline}, describing the current state of the priority cluster, its capability maturity, dependencies, and main implementation gaps;
+    \item \textbf{(D2)~High-Impact Activities and Target Outcomes}, identifying the concrete research, innovation, standardisation, or deployment actions expected to advance the priority cluster, with each action assigned to a target phase and linked to the intended target outcome;
+    \item \textbf{(D3)~Primary Drivers}, identifying the threat and regulatory drivers that make the priority cluster urgent and non-deferrable;
     \item \textbf{(D4)~Catalysts and Enablers}, identifying the funding instruments, regulatory and standardisation mechanisms, pilot infrastructures, and ecosystem coordination mechanisms that can accelerate the priority cluster;
     \item \textbf{(D5)~Disruptors and Systemic Risks}, identifying technical cliffs such as the emergence of cryptographically relevant quantum computers, dependency risks such as supply-chain exposure and vendor lock-in, market concentration, and geopolitical constraints that could delay, weaken, or redirect the priority cluster;
     \item \textbf{(D6)~Failsafe Mechanisms}, specifying fallback, isolation, rollback, redundancy, and graceful-degradation mechanisms that preserve security and resilience if the primary capability or deployment pathway is delayed, compromised, or only partially realised; and
@@ -388,13 +366,11 @@ Capabilities Identification}
 \label{fig:framework}
 \end{figure}
 
-The continuum is modelled as a layered reference architecture spanning four execution environments (HPC, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} serving as horizontal enablers, as illustrated in Figure~\ref{fig:framework}. These environments represent distinct but interconnected sites of computation and control: HPC provides large-scale scientific and AI training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and IoT endpoints operating closest to the physical world.
+The continuum is modelled as a layered reference architecture spanning four execution environments (HPC, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Figure~\ref{fig:framework}. HPC provides large-scale scientific and AI training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and IoT endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for Zero Trust~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for IoT~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
 
-The decomposition aligns with authoritative reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for Zero Trust \cite{rose2020zta,chandramouli2023zta}, NIST CSF 2.0~\cite{nistcsf2}, ISO/IEC 27400~\cite{iso27400}, and the ENISA baseline for IoT \cite{enisa2017iot}. It is also consistent with the distributed computing-continuum framing established in recent literature \cite{dustdar2023,bittencourt2018} and consolidated in the European industrial technology roadmap for the next-generation cloud-edge \cite{ecroadmap2024}.
+The layers are analytically distinct but operationally interdependent: gaps at one layer can propagate to adjacent layers, as documented in the edge-computing security literature~\cite{alwarafy2021,ranaweera2021,roman2018}. The model provides the shared vocabulary used throughout the paper and exposes cross-layer dependencies, allowing the priority clusters and transition matrices in Section~\ref{sec:clusters} to be analysed as an interconnected portfolio rather than as isolated priorities. The EU cybersecurity certification framework~\cite{eucsa} and its EUCC operationalisation~\cite{commreg2024eucc} provide the regulatory anchoring for several of the capabilities defined below.
 
-The layers are analytically distinct but operationally interdependent: a gap at one layer can propagate to adjacent layers, as documented across the edge-computing security literature \cite{alwarafy2021,ranaweera2021,roman2018}. The model provides the shared vocabulary used throughout the paper and makes cross-layer dependencies explicit, allowing the priority clusters and transition matrices in Section~\ref{sec:clusters} to be analysed as an interconnected portfolio rather than as isolated priorities. The EU cybersecurity certification framework \cite{eucsa} and its EUCC operationalisation~\cite{commreg2024eucc} provide the regulatory anchoring for several of the capabilities defined below.
-
-The remainder of this section introduces each layer and cross-layer by first explaining its purpose within the security framework and then listing the capabilities associated with it. Table~\ref{tab:capabilities} consolidates these capabilities, their layer or cross-layer codes, and their principal references. Each capability is treated as an atomic analytical unit: the ten strategic priorities analysed in Section~\ref{sec:clusters} are derived by aggregating and translating these capabilities into actionable strategic needs.
+The remainder of this section introduces each layer and cross-layer by describing its purpose within the security framework and listing its constituent capabilities. Table~\ref{tab:capabilities} consolidates the capabilities, their layer or cross-layer codes, and their principal references. Each capability is treated as an atomic analytical unit; the three priority clusters analysed in Section~\ref{sec:clusters} are obtained by aggregating and translating these capabilities into actionable strategic needs.
 
 \begin{table*}[t]
 \caption{Layer and cross-layer capabilities with their principal references.}
@@ -444,7 +420,7 @@ L6.2 & Physical resilience and IT/OT safety
 L6.3 & Edge-native autonomous guardians
   &~\cite{oran2024,oranzt2024,snsju2023} \\
 L6.4 & Non-terrestrial network and satellite security
-  &~\cite{tgppntn} \\
+  &~\cite{tgppntn,tgpp33836} \\
 \midrule
 CL1.1 & Continuous DevSecOps
   &~\cite{chandramouli2022devsecops} \\
@@ -492,93 +468,92 @@ CL4.7 & AI trustworthiness and algorithmic accountability
 \end{tabularx}
 \end{table*}
 
-
 \subsection{Security Layers (vertical stack)}
 
-The six Security Layers define the vertical stack of the continuum, moving from physical and silicon-level trust foundations to software, applications, identity and orchestration, data protection, and network infrastructure. They are presented from the lowest trust anchors to the communication fabric because weaknesses at lower layers can undermine the guarantees provided by higher layers, while higher-layer controls are needed to operationalise security, governance, and resilience across distributed environments.
+The six Security Layers define the vertical stack of the continuum, moving from physical and silicon-level trust foundations through software, applications, identity and orchestration, data protection, and the network infrastructure. They are presented from the lowest trust anchor upwards because weaknesses at lower layers can undermine guarantees provided by higher layers, while higher-layer controls are required to operationalise security, governance, and resilience across distributed environments.
 
 \subsubsection{Layer 1: Hardware-Centric Security}
 \label{sec:L1}
 
-Layer~1 addresses the physical and silicon-level trust foundations of the continuum, providing the verifiable anchors on which higher-layer security assurances depend. It covers hardware roots of trust, secure boot, remote attestation, Trusted Platform Modules, Physical Unclonable Functions, and physical-layer detection primitives \cite{tpm2spec,sailer2004}. Without a verifiable silicon anchor, software-level attestation and cryptographic identity rest on assumptions that may be difficult to validate in distributed and physically exposed environments. Layer~1 is the principal locus of hardware sovereignty and the layer in which EUCC ``High'' certification \cite{commreg2024eucc} operates as a regulatory instrument of trust.
+Layer~1 addresses the physical and silicon-level trust foundations of the continuum and provides the verifiable anchors on which higher-layer security assurances depend. It covers hardware roots of trust, secure boot, remote attestation, Trusted Platform Modules, Physical Unclonable Functions, and physical-layer detection primitives~\cite{tpm2spec,sailer2004}. Without a verifiable silicon anchor, software-level attestation and cryptographic identity rest on assumptions that are difficult to validate in distributed and physically exposed environments. Layer~1 is the principal regulatory locus of hardware sovereignty in the continuum, and it is the layer at which EUCC ``High'' certification~\cite{commreg2024eucc} operates.
 
 \textbf{Capability L1.1, Hardware Roots of Trust.} Cryptographically verifiable device and supply-chain integrity from fabrication to deployment, with a strategic focus on advancing European open-hardware designs (RISC-V) toward EUCC ``High'' assurance. Technical foundations derive from TPM~2.0~\cite{tpm2spec} and integrity measurement architectures~\cite{sailer2004}. European instances include OpenTitan~\cite{opentitan2024}, Keystone~\cite{keystone2020}, and the DARE SGA1 RISC-V initiative~\cite{eurohpcdare2025}.
 
-\textbf{Capability L1.2, Physical-Layer Threat Detection and Fingerprinting.} Exploitation of intrinsic wireless channel characteristics, such as Channel State Information, Carrier Frequency Offset, and RSSI, to support real-time device authentication and anomaly detection at the lowest communication layer. This capability complements upper-layer cryptographic protections and can provide additional identity assurance for resource-constrained devices that cannot reliably execute conventional authentication protocols.
+\textbf{Capability L1.2, Physical-Layer Threat Detection and Fingerprinting.} Exploitation of intrinsic wireless channel characteristics, including Channel State Information, Carrier Frequency Offset, and RSSI, to support real-time device authentication and anomaly detection at the lowest communication layer. This capability complements upper-layer cryptographic protections and provides additional identity assurance for resource-constrained devices that cannot reliably execute conventional authentication protocols~\cite{alwarafy2021,ranaweera2021}.
 
 \subsubsection{Layer 2: Software-Centric Security}
 \label{sec:L2}
 
-Layer~2 secures the software substrate on which continuum workloads execute, including hypervisors, container runtimes, distributed operating systems, and the pipelines that maintain them. Its central concerns are attack-surface reduction through OS and middleware hardening, and cryptographically verified, failure-resilient software distribution to field-deployed nodes where physical access for remediation is limited or infeasible \cite{ietfrfc9019,uptanestd}. Assurance at Layer~2 is necessary for trustworthy execution of the services and workloads built above it.
+Layer~2 secures the software substrate on which continuum workloads execute, including hypervisors, container runtimes, distributed operating systems, and the pipelines that maintain them. Its central concerns are attack-surface reduction through OS and middleware hardening, and cryptographically verified, failure-resilient software distribution to field-deployed nodes for which physical access for remediation is limited or infeasible~\cite{ietfrfc9019,uptanestd}. Assurance at Layer~2 is necessary for trustworthy execution of the services and workloads built above it.
 
-\textbf{Capability L2.1, OS and Middleware Hardening.} Security hardening of hypervisors (KVM/QEMU), container runtimes, and distributed operating systems, with emphasis on sovereign, lightweight Linux distributions optimised for edge resource constraints and reduced attack surface.
+\textbf{Capability L2.1, OS and Middleware Hardening.} Security hardening of hypervisors (KVM/QEMU), container runtimes, and distributed operating systems, with emphasis on sovereign, lightweight Linux distributions optimised for edge resource constraints and reduced attack surface, in line with DevSecOps and Zero Trust guidance~\cite{chandramouli2022devsecops,rose2020zta}.
 
-\textbf{Capability L2.2, Secure OTA Patch and Update Management.} Cryptographically verified, failure-resilient over-the-air update pipelines for field-deployed edge nodes such as smart grids, O-RAN radios, and industrial gateways, where physical access for remediation is limited or infeasible. The IETF SUIT architecture~\cite{ietfrfc9019} and the Uptane standard~\cite{uptanestd} provide the main reference frameworks.
+\textbf{Capability L2.2, Secure OTA Patch and Update Management.} Cryptographically verified, failure-resilient over-the-air update pipelines for field-deployed edge nodes such as smart grids, O-RAN radios, and industrial gateways. The IETF SUIT architecture~\cite{ietfrfc9019} and the Uptane standard~\cite{uptanestd} provide the main reference frameworks.
 
 \subsubsection{Layer 3: Application-Centric Security}
 \label{sec:L3}
 
-Layer~3 protects the workloads and service interfaces executing across the continuum, including containerised applications, serverless functions, service meshes, and the APIs that expose them. Application-layer defences are a key enforcement point for obligations that surface as runtime behaviours rather than infrastructure properties, including AI Act~\cite{euaiact} and GDPR Article~25~\cite{eugdpr} requirements. The NIST SP~800-204 microservices security series \cite{chandramouli2019,chandramouli2020,chandramouli2022devsecops} and the OWASP API Security Top~10~\cite{owaspapi2023} provide the main reference controls.
+Layer~3 protects the workloads and service interfaces executing across the continuum, including containerised applications, serverless functions, service meshes, and the APIs that expose them. Application-layer defences are a key enforcement point for obligations that surface as runtime behaviours rather than infrastructure properties, including AI Act~\cite{euaiact} and GDPR Article~25~\cite{eugdpr} requirements. The NIST SP~800-204 microservices security series~\cite{chandramouli2019,chandramouli2020,chandramouli2022devsecops} and the OWASP API Security Top~10~\cite{owaspapi2023} provide the main reference controls.
 
 \textbf{Capability L3.1, Workload Security.} Securing containerised applications and serverless functions through hardened service meshes and sidecar proxies that provide mutual TLS, traffic policy enforcement, and granular inspection while preserving operational performance, aligned with NIST SP~800-204~\cite{chandramouli2019} and SP~800-204A~\cite{chandramouli2020}.
 
-\textbf{Capability L3.2, In-Band Network Telemetry and Deep Observability.} Embedding telemetry directly into packets or service-mesh flows traversing containerised workloads, enabling real-time security monitoring and anomaly detection without relying exclusively on dedicated out-of-band monitoring infrastructure.
+\textbf{Capability L3.2, In-Band Network Telemetry and Deep Observability.} Embedding telemetry directly into packets or service-mesh flows traversing containerised workloads, enabling real-time security monitoring and anomaly detection without exclusive reliance on dedicated out-of-band monitoring infrastructure~\cite{chandramouli2019,chandramouli2020}.
 
 \textbf{Capability L3.3, API Security Gateway and Policy Enforcement.} A unified enforcement point for authentication tokens, rate limiting, schema validation, and payload inspection, increasingly important as containerised and AI-enabled workloads communicate through REST and gRPC APIs. This capability follows the OWASP API Security Top~10 taxonomy~\cite{owaspapi2023} and the DevSecOps-for-service-mesh guidance in NIST SP~800-204C~\cite{chandramouli2022devsecops}.
 
 \subsubsection{Layer 4: User and Orchestration-Centric Security}
 \label{sec:L4}
 
-Layer~4 governs identity, access, and policy enforcement across the multi-provider continuum. It implements continuous, context-adaptive authorisation aligned with NIST SP~800-207~\cite{rose2020zta} and its cloud-native extension SP~800-207A~\cite{chandramouli2023zta}; federated and self-sovereign identity for humans, machines, and autonomous workloads based on the W3C Verifiable Credentials Data Model~\cite{w3cvc2025} and, in Europe, the eIDAS~2 framework~\cite{eueidas2} and its implementing acts for the EU Digital Identity Wallet~\cite{eudiwallet2024}; and privileged-access controls that reduce reliance on standing credentials. Layer~4 is where identity-centric and policy-driven security replace assumptions of stable network perimeter control.
+Layer~4 governs identity, access, and policy enforcement across the multi-provider continuum. It implements continuous, context-adaptive authorisation aligned with NIST SP~800-207~\cite{rose2020zta} and its cloud-native extension SP~800-207A~\cite{chandramouli2023zta}; federated and self-sovereign identity for humans, machines, and autonomous workloads based on the W3C Verifiable Credentials Data Model~\cite{w3cvc2025} and, in Europe, the eIDAS~2 framework~\cite{eueidas2} and its implementing acts for the EU Digital Identity Wallet~\cite{eudiwallet2024}; and privileged-access controls that reduce reliance on standing credentials. Layer~4 is the layer at which identity-centric and policy-driven controls substitute for assumptions of stable network perimeter control.
 
 \textbf{Capability L4.1, Zero-Trust Orchestration.} Policy Enforcement Point and Policy Decision Point architectures that enable continuous authorisation and dynamic access controls adapted to request context, device posture, workload identity, and operational risk, aligned with NIST SP~800-207~\cite{rose2020zta} and its cloud-native extension~\cite{chandramouli2023zta}.
 
 \textbf{Capability L4.2, Federated Identity and Access Management.} Federated and self-sovereign identity mechanisms enabling cryptographically verifiable, decentralised authentication of machines, users, and automated workloads across heterogeneous cloud-edge domains, based on the W3C Verifiable Credentials Data Model~\cite{w3cvc2025} and, in Europe, the eIDAS~2 framework~\cite{eueidas2} and the EU Digital Identity Wallet implementing acts~\cite{eudiwallet2024}.
 
-\textbf{Capability L4.3, Privileged Access Management and Just-In-Time Access.} Reduction of over-provisioned standing privileges, a recurring enabler of advanced persistent threat campaigns, by replacing permanent access with time-bounded, contextually justified, and auditable grants.
+\textbf{Capability L4.3, Privileged Access Management and Just-In-Time Access.} Reduction of over-provisioned standing privileges, a recurring enabler of advanced persistent threat campaigns, by replacing permanent access with time-bounded, contextually justified, and auditable grants, consistent with Zero Trust authorisation principles~\cite{rose2020zta,chandramouli2023zta}.
 
 \subsubsection{Layer 5: Data-Centric Security}
 \label{sec:L5}
 
-Layer~5 protects data across the continuum lifecycle: at rest, in transit, and in use. It spans confidential computing through Trusted Execution Environments~\cite{ccc2022}; post-quantum cryptography based on NIST FIPS~203/204/205~\cite{nistfips203,nistfips204,nistfips205}; signalling and data-plane protection; distributed reputation and trust; Quantum Key Distribution for selected high-value links~\cite{etsiqkd014,etsiqkd004}; and Secure Multi-Party Computation for collaborative processing across mutually distrusting parties. Layer~5 is where GDPR Article~32~\cite{eugdpr} and AI Act Article~15~\cite{euaiact} obligations on confidentiality, integrity, and robustness are most directly operationalised.
+Layer~5 protects data across the continuum lifecycle: at rest, in transit, and in use. It spans confidential computing through Trusted Execution Environments~\cite{ccc2022}; post-quantum cryptography based on NIST FIPS~203/204/205~\cite{nistfips203,nistfips204,nistfips205}; signalling and data-plane protection; distributed reputation and trust; Quantum Key Distribution for selected high-value links~\cite{etsiqkd014,etsiqkd004}; and Secure Multi-Party Computation for collaborative processing across mutually distrusting parties. Layer~5 is the layer at which GDPR Article~32~\cite{eugdpr} and AI Act Article~15~\cite{euaiact} obligations on confidentiality, integrity, and robustness are most directly operationalised.
 
 \textbf{Capability L5.1, Confidential Computing.} Protection of data in use through Trusted Execution Environments spanning the cloud-to-IoT data path, as defined by the Confidential Computing Consortium~\cite{ccc2022}.
 
-\textbf{Capability L5.2, Post-Quantum Cryptography.} Migration to quantum-resistant algorithms, namely ML-KEM~\cite{nistfips203}, ML-DSA~\cite{nistfips204}, and SLH-DSA~\cite{nistfips205}, including adaptations for resource-constrained devices exposed to long-term ``Harvest Now, Decrypt Later'' threats. This capability is complemented by ETSI TS~103~744 hybrid key-exchange profiles~\cite{etsiqshybrid} and aligned with the NIS CG PQC roadmap~\cite{niscg2025pqc}.
+\textbf{Capability L5.2, Post-Quantum Cryptography.} Migration to quantum-resistant algorithms, namely ML-KEM~\cite{nistfips203}, ML-DSA~\cite{nistfips204}, and SLH-DSA~\cite{nistfips205}, including adaptations for resource-constrained devices exposed to long-term ``Harvest~Now, Decrypt~Later'' threats. This capability is complemented by ETSI TS~103~744 hybrid key-exchange profiles~\cite{etsiqshybrid} and aligned with the NIS~CG PQC roadmap~\cite{niscg2025pqc}.
 
-\textbf{Capability L5.3, Signalling and Data-Plane Security.} Embedding trust into signalling, control-plane, and data-plane interactions, moving beyond best-effort packet forwarding toward cryptographically authenticated and integrity-protected exchanges.
+\textbf{Capability L5.3, Signalling and Data-Plane Security.} Embedding cryptographic authentication and integrity protection into signalling, control-plane, and data-plane interactions, beyond best-effort packet forwarding, in alignment with 3GPP TS~33.501~\cite{tgpp33501}, O-RAN security specifications~\cite{oran2024,oranzt2024}, and the SNS~JU SRIA~\cite{snsju2023}.
 
-\textbf{Capability L5.4, Distributed Reputation and Trust Networking.} Distributed reputation and trust mechanisms, potentially supported by Distributed Ledger Technology and smart contracts, enabling decentralised trust evaluation across heterogeneous providers without relying on a single governance point.
+\textbf{Capability L5.4, Distributed Reputation and Trust Networking.} Distributed reputation and trust mechanisms, potentially supported by Distributed Ledger Technology and smart contracts, enabling decentralised trust evaluation across heterogeneous providers without reliance on a single governance point, and aligned with Simpl federation interfaces~\cite{ecsimpl,oascmim5,etsingsild,eucsa}.
 
-\textbf{Capability L5.5, Quantum Key Distribution for Critical Links.} Information-theoretically secure key exchange over optical fibre for selected point-to-point high-value links, such as government communications and critical infrastructure backbones, complementing algorithmic PQC for link-layer protection and governed by ETSI GS QKD~004~\cite{etsiqkd004} and GS QKD~014~\cite{etsiqkd014}.
+\textbf{Capability L5.5, Quantum Key Distribution for Critical Links.} Information-theoretically secure key exchange over optical fibre for selected point-to-point high-value links, such as government communications and critical infrastructure backbones, complementing algorithmic PQC for link-layer protection and governed by ETSI GS QKD~004~\cite{etsiqkd004} and GS QKD~014~\cite{etsiqkd014}. QKD is treated here as a complement to algorithmic PQC, not a substitute for it.
 
-\textbf{Capability L5.6, Secure Multi-Party Computation.} Mechanisms that allow multiple mutually distrusting parties to jointly compute functions over combined private inputs without revealing those inputs, extending confidential computing (Capability~L5.1) beyond single-party workloads to collaborative analytics across providers and jurisdictions.
+\textbf{Capability L5.6, Secure Multi-Party Computation.} Mechanisms allowing multiple mutually distrusting parties to jointly compute functions over combined private inputs without revealing those inputs, extending confidential computing (Capability~L5.1) beyond single-party workloads to collaborative analytics across providers and jurisdictions, and supporting GDPR~\cite{eugdpr} and AI Act~\cite{euaiact} obligations on data minimisation and confidentiality.
 
 \subsubsection{Layer 6: Network Infrastructure and Perimeter-Centric Security}
 \label{sec:L6}
 
-Layer~6 secures the communication fabric of the continuum, including 5G and 6G cores, disaggregated RAN, IT/OT gateways, far-edge compute, and non-terrestrial network segments. It aligns with 3GPP TS~33.501~\cite{tgpp33501}, O-RAN WG11 security specifications~\cite{oran2024}, Zero Trust for O-RAN~\cite{oranzt2024}, the SNS~JU SRIA~\cite{snsju2023}, and 3GPP NTN security~\cite{tgppntn}. Layer~6 is where cybersecurity intersects most directly with physical resilience, because failures or compromises in the communication fabric can cascade into operational disruption, safety hazards, or kinetic effects in critical infrastructures.
+Layer~6 secures the communication fabric of the continuum, including 5G and 6G cores, disaggregated RAN, IT/OT gateways, far-edge compute, and non-terrestrial network segments. It aligns with 3GPP TS~33.501~\cite{tgpp33501}, O-RAN WG11 security specifications~\cite{oran2024}, Zero Trust for O-RAN~\cite{oranzt2024}, the SNS~JU SRIA~\cite{snsju2023}, and 3GPP NTN security~\cite{tgppntn,tgpp33836}. It is the layer at which cybersecurity intersects most directly with physical resilience, because failures or compromises in the communication fabric can cascade into operational disruption, safety hazards, or kinetic effects in critical infrastructures~\cite{alwarafy2021,ranaweera2021}.
 
 \textbf{Capability L6.1, Telco-Cloud and O-RAN Security.} Hardening of distributed 5G and 6G cores and RAN components in alignment with 3GPP TS~33.501~\cite{tgpp33501}, O-RAN WG11 security specifications~\cite{oran2024}, Zero Trust for O-RAN~\cite{oranzt2024}, and the SNS~JU SRIA~\cite{snsju2023}, with emphasis on secure network slice isolation, virtualised RAN protection, and sovereign operational control over critical telecom infrastructure.
 
-\textbf{Capability L6.2, Physical Resilience and Safety.} IT/OT gateway security for high-availability edge environments such as smart grids, transport systems, and manufacturing sites, reducing the risk that digital breaches cascade into operational disruption, kinetic damage, or safety hazards.
+\textbf{Capability L6.2, Physical Resilience and Safety.} IT/OT gateway security for high-availability edge environments such as smart grids, transport systems, and manufacturing sites, reducing the risk that digital breaches cascade into operational disruption, kinetic damage, or safety hazards~\cite{tgpp33501,snsju2023,alwarafy2021,ranaweera2021}.
 
-\textbf{Capability L6.3, Edge-Native Autonomous Guardians.} Lightweight, localised security control functions, including Security-as-a-Service aggregators, hosted directly at far-edge gateways or within Open-RAN Radio Intelligent Controllers to enable autonomous enforcement at the network periphery.
+\textbf{Capability L6.3, Edge-Native Autonomous Guardians.} Lightweight, localised security control functions, including Security-as-a-Service aggregators, hosted directly at far-edge gateways or within Open-RAN Radio Intelligent Controllers (xApps/rApps) to enable autonomous enforcement at the network periphery~\cite{oran2024,oranzt2024,snsju2023}.
 
-\textbf{Capability L6.4, Non-Terrestrial Network and Satellite Security.} Security requirements for integrating satellite and non-terrestrial network segments into 6G architectures for coverage continuity, backhaul resilience, and emergency operations, aligned with 3GPP NTN specifications~\cite{tgppntn} and the EU Space Programme.
+\textbf{Capability L6.4, Non-Terrestrial Network and Satellite Security.} Security requirements for integrating satellite and non-terrestrial network segments into 6G architectures for coverage continuity, backhaul resilience, and emergency operations, aligned with 3GPP NTN specifications~\cite{tgppntn,tgpp33836} and the EU Space Programme.
 
 \subsection{Transversal Security Cross-Layers}
 
-The four Transversal Security Cross-Layers define horizontal security capabilities that span the vertical stack and address properties that no single layer can provide on its own: lifecycle integrity of software and AI components, operational response capacity, interoperability across providers and jurisdictions, and continuous regulatory assurance.
+The four Transversal Security Cross-Layers define horizontal security capabilities that span the vertical stack and address properties no single layer can provide on its own: lifecycle integrity of software and AI components, operational response capacity, interoperability across providers and jurisdictions, and continuous regulatory assurance.
 
 \subsubsection{Cross-Layer 1: Automated Security Processes and Cyber-Resilient AI Lifecycle}
 \label{sec:CL1}
 
-Cross-Layer~1 spans the lifecycle of software and AI component security, from secure development and integration to runtime supply-chain verification and continuous adversarial validation. It aligns with service-mesh DevSecOps patterns~\cite{chandramouli2022devsecops}, the NIST AI Risk Management Framework and its Generative AI Profile~\cite{nistairmf,nistaigenai}, the SLSA provenance framework~\cite{slsa2023}, and the adversarial robustness literature~\cite{madry2018}. Its role is to embed cyber-resilience into how software and AI components are designed, built, shipped, verified, and tested, rather than treating security assurance as a post-deployment activity.
+Cross-Layer~1 spans the lifecycle of software and AI component security, from secure development and integration to runtime supply-chain verification and continuous adversarial validation. It treats AI systems both as defensive instruments and as attack targets, the latter framing being required by AI Act Article~9 risk-management obligations for high-risk systems~\cite{euaiact}. CL1 aligns with service-mesh DevSecOps patterns~\cite{chandramouli2022devsecops}, the NIST AI Risk Management Framework and its Generative AI Profile~\cite{nistairmf,nistaigenai}, the SLSA provenance framework~\cite{slsa2023}, and the adversarial robustness literature~\cite{madry2018}, with the objective of embedding cyber-resilience into how software and AI components are designed, built, shipped, verified, and tested rather than treating assurance as a post-deployment activity.
 
 \textbf{Capability CL1.1, Continuous DevSecOps.} AI-assisted code analysis, vulnerability detection, and remediation integrated into the earliest stages of the software lifecycle, following NIST SP~800-204C~\cite{chandramouli2022devsecops}.
 
-\textbf{Capability CL1.2, Model Integrity and DataBOMs.} Protection of AI training and deployment pipelines against data poisoning, unauthorised model manipulation, and insufficient traceability of training data and model artefacts, aligned with the NIST AI Risk Management Framework~\cite{nistairmf} and its Generative AI Profile~\cite{nistaigenai}.
+\textbf{Capability CL1.2, Model Integrity and DataBOMs.} Protection of AI training and deployment pipelines against data poisoning, unauthorised model manipulation, and insufficient traceability of training data and model artefacts, aligned with the NIST AI Risk Management Framework~\cite{nistairmf} and its Generative AI Profile~\cite{nistaigenai}, and supporting AI Act Article~9 risk-management requirements~\cite{euaiact}.
 
 \textbf{Capability CL1.3, Dynamic Supply-Chain Verification and Runtime SBOMs.} Dynamic Software Bills of Materials and cryptographic proof-of-execution mechanisms that continuously verify the integrity of containerised microservices and AI components as they migrate across the multi-provider continuum, supported by the SLSA provenance framework~\cite{slsa2023}.
 
@@ -591,246 +566,92 @@ Cross-Layer~2 governs threat detection, analytics, cyber threat intelligence, an
 
 \textbf{Capability CL2.1, Automated SOC and Collaborative Threat Intelligence.} Federated SOC and collaborative threat-intelligence mechanisms across Member States, supported by legally protected sharing platforms that reduce institutional trust barriers and enable coordinated situational awareness~\cite{concordia2022}.
 
-\textbf{Capability CL2.2, High-Precision Telemetry and Security Signalling.} High-fidelity telemetry and security signalling mechanisms that feed real-time threat intelligence and detection pipelines while managing bandwidth, latency, and alert-volume constraints.
+\textbf{Capability CL2.2, High-Precision Telemetry and Security Signalling.} High-fidelity telemetry and security signalling mechanisms that feed real-time threat-intelligence and detection pipelines while managing bandwidth, latency, and alert-volume constraints, integrating with 5G NWDAF analytics interfaces~\cite{tgpp23288} and threat-landscape baselines~\cite{enisaetl2025}.
 
-\textbf{Capability CL2.3, Internet of Behaviour and Evidence Sharing.} Collection, correlation, and sharing of behavioural evidence across infrastructure components to detect anomalous patterns that may be invisible to purely signature-based defences.
+\textbf{Capability CL2.3, Internet of Behaviour and Evidence Sharing.} Collection, correlation, and sharing of behavioural evidence across infrastructure components to detect anomalous patterns invisible to purely signature-based defences, structured through MITRE ATT\&CK~\cite{mitre2020} and STIX/TAXII~2.1~\cite{stix21,taxii21} and informed by ENISA threat reporting~\cite{enisaetl2025}.
 
-\textbf{Capability CL2.4, AI-Native Analytics Integration (NWDAF and LLMSecOps).} Integration of cybersecurity telemetry with 5G NWDAF analytics~\cite{tgpp23288} and LLM-assisted security operations to support triage, correlation, investigation, and response.
+\textbf{Capability CL2.4, AI-Native Analytics Integration (NWDAF and LLMSecOps).} Integration of cybersecurity telemetry with 5G NWDAF analytics~\cite{tgpp23288} and LLM-assisted security operations to support triage, correlation, investigation, and response, framed by the NIST AI RMF and its Generative AI Profile~\cite{nistairmf,nistaigenai}.
 
 \textbf{Capability CL2.5, Cyber Threat Intelligence Lifecycle Management.} Governance of the CTI lifecycle as a prerequisite for federated SOC operation, using MITRE ATT\&CK~\cite{mitre2020} and STIX/TAXII~2.1~\cite{stix21,taxii21}, complemented by ENISA threat landscape reporting~\cite{enisaetl2025}.
 
-\textbf{Capability CL2.6, Deception Technology and Active Defence.} Deployment of decoy assets, such as honeypots, honeynets, credential canaries, and fake API endpoints, to generate high-fidelity alerts based on adversary interaction and to support earlier detection of lateral movement or reconnaissance.
+\textbf{Capability CL2.6, Deception Technology and Active Defence.} Deployment of decoy assets, including honeypots, honeynets, credential canaries, and fake API endpoints, to generate high-fidelity alerts based on adversary interaction and to support earlier detection of lateral movement or reconnaissance~\cite{mitre2020,enisaetl2025}.
 
-\subsubsection{Cross-Layer 3: Interoperable Security Mechanisms and
-Open-Source Verifiability}
+\subsubsection{Cross-Layer 3: Interoperable Security Mechanisms and Open-Source Verifiability}
 \label{sec:CL3}
 
-Cross-Layer~3 enables secure interoperation across heterogeneous
-providers, infrastructures, and jurisdictions. It anchors federation in the Simpl open-source middleware for Common European Data Spaces~\cite{ecsimpl}, CAMARA Network APIs for pan-European compute federation~\cite{camara2025}, semantic interoperability through OASC Minimal Interoperability Mechanisms~\cite{oascmim5} and the ETSI NGSI-LD API~\cite{etsingsild}, and federated cyber ranges for shared validation infrastructure. Its role is to convert individually sovereign components into a collectively sovereign European trust fabric while avoiding new forms of vendor lock-in.
+Cross-Layer~3 enables secure interoperation across heterogeneous providers, infrastructures, and jurisdictions. It anchors federation in the Simpl open-source middleware for Common European Data Spaces~\cite{ecsimpl}, CAMARA Network APIs for pan-European compute federation~\cite{camara2025}, semantic interoperability through OASC Minimal Interoperability Mechanisms~\cite{oascmim5} and the ETSI NGSI-LD API~\cite{etsingsild}, and federated cyber ranges for shared validation infrastructure. Its objective is to convert individually sovereign components into a collectively sovereign European trust fabric while avoiding new forms of vendor lock-in.
 
-\textbf{Capability CL3.1, Heterogeneous Interoperability and Simpl Integration.} Alignment with the Simpl open-source smart middleware~\cite{ecsimpl} to support secure federated access, policy portability, and interoperability across Common European Data Spaces.
+\textbf{Capability CL3.1, Heterogeneous Interoperability and Simpl Integration.} Alignment with the Simpl open-source smart middleware~\cite{ecsimpl} to support secure federated access, policy portability, and interoperability across Common European Data Spaces, with semantic anchoring in OASC MIMs~\cite{oascmim5} and the ETSI NGSI-LD API~\cite{etsingsild}.
 
-\textbf{Capability CL3.2, Neutral Host and Multi-Tenant Isolation.} Enforcement of Zero Trust edge operations across network partitions, tenants, and shared-infrastructure models, ensuring that infrastructure sharing does not imply implicit trust between operators or workloads.
+\textbf{Capability CL3.2, Neutral Host and Multi-Tenant Isolation.} Enforcement of Zero Trust edge operations across network partitions, tenants, and shared-infrastructure models, ensuring that infrastructure sharing does not imply implicit trust between operators or workloads~\cite{rose2020zta,chandramouli2023zta}.
 
 \textbf{Capability CL3.3, Pan-European NaaS Federation and Cross-Border Edge Roaming.} Standardised interfaces leveraging CAMARA Network APIs~\cite{camara2025} to support a federated Network-as-a-Service model for cross-border edge and connectivity services.
 
 \textbf{Capability CL3.4, Semantic Security Interoperability.} Common ontologies and data models for security events, asset taxonomies, policy attributes, and risk classifications, operationalised through OASC Minimal Interoperability Mechanisms~\cite{oascmim5} and the ETSI NGSI-LD API~\cite{etsingsild}.
 
-\textbf{Capability CL3.5, Cyber Range and Digital Twin Federation.} Federation of national cyber ranges and digital-twin environments into shared EU-wide validation infrastructure for testing cross-provider security, resilience, and interoperability assumptions, aligned with the Cyber Solidarity Act.
+\textbf{Capability CL3.5, Cyber Range and Digital Twin Federation.} Federation of national cyber ranges and digital-twin environments into shared EU-wide validation infrastructure for testing cross-provider security, resilience, and interoperability assumptions, building on EU certification frameworks~\cite{eucsa}, CONCORDIA outputs~\cite{concordia2022}, and the European industrial cloud-edge roadmap~\cite{ecroadmap2024}, and aligned with the Cyber Solidarity Act.
 
-\subsubsection{Cross-Layer 4: Compliance-by-Design, Agile Governance
-and Automated Assurance}
+\subsubsection{Cross-Layer 4: Compliance-by-Design, Agile Governance and Automated Assurance}
 \label{sec:CL4}
 
-Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerations into technical architecture. It operationalises continuous assurance for cloud services (EUCS, when adopted) and edge products (EUCC)~\cite{commregreg2024eucc,eucsa} through machine-readable control catalogues and assessment results using NIST OSCAL~\cite{oscal2024,iorga2024oscal}; cryptographic key management across multi-provider operations; privacy-preserving federated computation satisfying GDPR Article~25~\cite{eugdpr}; cyber risk quantification that translates technical posture into financial and operational risk language; and AI trustworthiness and algorithmic accountability for autonomous security decisions under AI Act Article~9~\cite{euaiact}, aligned with the NIST AI RMF~\cite{nistairmf}. Its role is to shift assurance from point-in-time audit towards continuous, evidence-based, and telemetry-supported verification.
+Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerations into technical architecture. It operationalises continuous assurance for cloud services (EUCS, when adopted) and edge products (EUCC)~\cite{commreg2024eucc,eucsa} through machine-readable control catalogues and assessment results based on NIST OSCAL~\cite{oscal2024,iorga2024oscal}; cryptographic key management across multi-provider operations; privacy-preserving federated computation satisfying GDPR Article~25~\cite{eugdpr}; cyber risk quantification that translates technical posture into financial and operational risk language under NIS2~\cite{eunis2}, DORA~\cite{eudora}, and NIST CSF~2.0~\cite{nistcsf2}; and AI trustworthiness and algorithmic accountability for autonomous security decisions under AI Act Article~9~\cite{euaiact}, aligned with the NIST AI RMF~\cite{nistairmf}. Its objective is to shift assurance from point-in-time audit towards continuous, evidence-based, and telemetry-supported verification.
 
-\textbf{Capability CL4.1, Post-Quantum Readiness and Zero Trust Architectures.} Continuous Zero Trust verification and post-quantum readiness embedded into cloud-edge infrastructure, aligned with NIST SP~800-207~\cite{rose2020zta} and SP~800-207A~\cite{chandramouli2023zta}.
+\textbf{Capability CL4.1, Post-Quantum Readiness and Zero Trust Architectures.} Continuous Zero Trust verification and post-quantum readiness embedded into cloud-edge infrastructure, aligned with NIST SP~800-207~\cite{rose2020zta} and SP~800-207A~\cite{chandramouli2023zta} and with FIPS~203/204/205 algorithm selection~\cite{nistfips203,nistfips204,nistfips205}.
 
 \textbf{Capability CL4.2, Continuous Automated Certification.} Lifecycle certification tracking for cloud services (EUCS, when adopted) and edge products (EUCC)~\cite{commreg2024eucc,eucsa}, operationalised through machine-readable control catalogues, assessment artefacts, and evidence exchange using NIST OSCAL~\cite{oscal2024,iorga2024oscal}.
 
-\textbf{Capability CL4.3, Multicloud Key Management as a Service.} Cryptographic key, policy, and lifecycle management across dynamic multi-provider computing-continuum operations.
+\textbf{Capability CL4.3, Multicloud Key Management as a Service.} Cryptographic key, policy, and lifecycle management across dynamic multi-provider computing-continuum operations, integrating Zero Trust authorisation~\cite{rose2020zta,chandramouli2023zta} with PQC algorithm selection~\cite{nistfips203,nistfips204,nistfips205}.
 
-\textbf{Capability CL4.4, Privacy-Preserving Federated Computation.} Cross-jurisdictional AI training and inference over distributed private datasets using privacy-preserving computation mechanisms, supporting GDPR Article~25~\cite{eugdpr} data-protection-by-design objectives.
+\textbf{Capability CL4.4, Privacy-Preserving Federated Computation.} Cross-jurisdictional AI training and inference over distributed private datasets using privacy-preserving computation mechanisms~\cite{ccc2022}, supporting GDPR Article~25~\cite{eugdpr} data-protection-by-design objectives.
 
-\textbf{Capability CL4.6, Cyber Risk Quantification and Board-Level Reporting.} Translation of technical security posture into financial, operational, and strategic risk language for decision-makers.
+\textbf{Capability CL4.6, Cyber Risk Quantification and Board-Level Reporting.} Translation of technical security posture into financial, operational, and strategic risk language for decision-makers, aligned with NIS2 governance obligations~\cite{eunis2}, DORA~\cite{eudora}, and NIST CSF~2.0 governance functions~\cite{nistcsf2}.
 
-\textbf{Capability CL4.7, AI Trustworthiness and Algorithmic Accountability.} Assurance that AI systems making or supporting autonomous security decisions remain robust, accountable, and auditable, in compliance with AI Act Article~9~\cite{euaiact} and aligned with the NIST AI RMF~\cite{nistairmf}.
+\textbf{Capability CL4.7, AI Trustworthiness and Algorithmic Accountability.} Assurance that AI systems making or supporting autonomous security decisions remain robust, accountable, and auditable, in compliance with AI Act Article~9~\cite{euaiact} and aligned with the NIST AI RMF and Generative AI Profile~\cite{nistairmf,nistaigenai}.
 
 
-\section{Priority Clusters and Transition Matrices}
+\section{Priority Cluster Seven-Dimension Analysis}
 \label{sec:clusters}
 
-Stage~2 consolidates the layer and cross-layer capabilities identified
-in Section~\ref{sec:stage1} into ten strategic priorities and groups
-those priorities into three coordinated clusters. Each cluster is
-presented below through the seven-dimension template defined in
-Section~\ref{sec:method} (D1 Baseline and Target; D2 Primary Drivers;
-D3 High-Impact Activities; D4 Catalysts and Enablers; D5 Disruptors and
-Systemic Risks; D6 Failsafe Mechanisms; D7 Transversal Meta-Layer),
-with per-priority sub-entries where a cluster aggregates more than one
-priority, and is then projected through a three-phase transition matrix
-spanning 2026--2040.
-
-
+Stage~2 consolidates the layer and cross-layer capabilities identified in Section~\ref{sec:stage1} into three coordinated priority clusters. Each cluster aggregates related capabilities that share architectural dependencies, enabling conditions, or strategic outcomes, and is presented below through the seven-dimension template defined in Section~\ref{sec:method} (D1 Baseline; D2 High-Impact Activities and Target Outcomes; D3 Primary Drivers; D4 Catalysts and Enablers; D5 Disruptors and Systemic Risks; D6 Failsafe Mechanisms; D7 Transversal Meta-Layer). Where relevant, the analysis refers to the underlying layer or cross-layer capabilities from which the cluster is derived. The resulting priority clusters are subsequently projected through the three-phase transition matrices in Section~\ref{sec:phases}.
 
 \subsection{Cluster~1: Sovereign Trusted Infrastructure}
 \label{sec:c1}
 
-Cluster~1 unifies P1 (Hardware Roots of Trust), P2 (PQC Agility), P3
-(Lightweight Cryptography and Physical-Layer Security), P8 (Confidential
-Computing), and P9 (Resilient-by-Design Infrastructure and Island Mode).
-Federated policies and autonomous defence gain operational credibility
-in proportion to the maturity of the execution substrate. The substrate
-must guarantee hardware integrity through open-source silicon roots of
-trust, quantum-resistant confidentiality through crypto-agile schemes
-aligned with FIPS~203/204/205, and autonomous resilience under network
-or orchestration-plane compromise. The shared critical dependency is
-European sovereign fabrication capacity under the EU Chips Act
-\cite{euchipsact,eurochipsaudit2025}.
+Cluster~1 consolidates the capabilities that provide the trusted execution substrate of the continuum: hardware roots of trust and physical-layer assurance (L1.1--L1.2), secure software foundations and update mechanisms (L2.1--L2.2), confidential computing and data-in-use protection (L5.1), post-quantum cryptographic agility and lightweight security for constrained environments (L5.2 and L5.5--L5.6), signalling and data-plane integrity (L5.3), and resilience mechanisms for critical network infrastructure (L6.1--L6.4). Federated policies and autonomous defence gain operational credibility in proportion to the maturity of this execution substrate. The substrate must support hardware integrity through verifiable silicon roots of trust, quantum-resistant confidentiality through crypto-agile schemes aligned with FIPS~203/204/205, and autonomous resilience under network or orchestration-plane compromise. The shared critical dependency is European sovereign fabrication capacity under the EU Chips Act~\cite{euchipsact,eurochipsaudit2025}.
 
-\paragraph{D1 Baseline and Target.}
-\emph{P1:} Infineon, NXP, and STMicroelectronics achieved EUCC ``High''
-for proprietary secure element families in 2025~\cite{enisaeucc2025};
-fabrication remains non-EU. No EU-origin RISC-V processor has received
-EUCC or Common Criteria certification. Target: $\geq 60\%$ of critical
-infrastructure edge nodes use EU-designed, EUCC ``High'' certified
-secure elements by 2040.
-\emph{P2:} Edge and IoT environments depend on classical algorithms.
-The NIS~CG roadmap~\cite{niscg2025pqc} mandates national roadmaps by
-December~2026, high-risk critical infrastructure transitioned by
-December~2030, full completion by December~2035. Target: quantum-native
-continuum with full cryptographic agility.
-\emph{P3:} Extreme-edge devices (mMTC, body-area, backscatter) are
-constrained in compute, energy, and memory; conventional cryptography
-is impractical. Target: lightweight, adaptive security mechanisms,
-including zero-energy physical-layer authentication.
-\emph{P8:} Intel TDX, AMD SEV-SNP, and ARM TrustZone dominate
-operational TEE deployments; EU alternatives (Keystone
-\cite{keystone2020}, OpenTitan~\cite{opentitan2024}) are at research or
-prototype stage. Target: end-to-end privacy-preserving AI pipelines with
-progressive migration to EU-origin hardware.
-\emph{P9:} Current infrastructures assume persistent connectivity.
-Target: validated $\geq 72$~h Island Mode across NIS2-essential and
-DORA-critical deployments.
+\paragraph{D1 Baseline.}
+At the hardware and physical layer (L1.1--L1.2), Infineon, NXP, and STMicroelectronics achieved EUCC ``High'' for proprietary secure element families in 2025~\cite{enisaeucc2025}, but fabrication remains dependent on non-EU foundries and no EU-origin RISC-V processor has received EUCC or Common Criteria certification. At the software and update layer (L2.1--L2.2), field-deployed edge infrastructure remains dependent on heterogeneous hardening practices and update mechanisms. At the data-centric layer (L5.1--L5.6), edge and IoT environments remain dependent on classical cryptography and non-European TEE families, while extreme-edge devices remain constrained in compute, energy, and memory. The NIS~CG roadmap~\cite{niscg2025pqc} requires national PQC roadmaps by December~2026, transition of high-risk critical infrastructure by December~2030, and full completion by December~2035. At the network infrastructure layer (L6.1--L6.4), current deployments often assume persistent connectivity and central orchestration.
 
-\paragraph{D2 Primary Drivers.}
-\emph{Threat:} state-sponsored exploitation of debug interfaces and
-side-channel attacks on field-deployed nodes; supply chain insertion;
-``Harvest~Now, Decrypt~Later'' campaigns; cascading failures from
-cyberattacks, extreme weather, and geopolitical tensions.
-\emph{Regulatory:} CRA Articles~10--11 with enforcement from
-December~2027~\cite{eucra2024}; NIS2 Article~21(2)(e) on cryptographic
-policies~\cite{eunis2}; AI Act Articles~9 and~15 on hardware integrity
-for high-risk systems~\cite{euaiact}; NIS~CG PQC roadmap
-\cite{niscg2025pqc}; DORA Article~11 on business continuity
-\cite{eudora}; SNS~JU SRIA on 6G resilience~\cite{snsju2023}.
+\paragraph{D2 High-Impact Activities and Target Outcomes.}
+Phase~1 activities should establish the technical basis for the trusted execution substrate: fund three to five RISC-V secure element pilots under Horizon Europe Cluster~3 targeting EUCC ``High'' pre-evaluation and submit OpenTitan and Keystone prototypes for structured assessment (L1.1); evaluate physical-layer authentication and fingerprinting for constrained edge devices (L1.2); harden field-deployed edge software stacks and validate failure-resilient update paths (L2.1--L2.2); optimise FIPS~203/204/205 implementations for 8/16-bit microcontrollers and deploy hybrid ML-KEM plus ECDH-P384 on the cloud side according to ETSI TS~103~744~\cite{etsiqshybrid} (L5.2); and validate Island Mode soft-state protocols in 5G testbeds (L6.1--L6.4). Phase~2 activities should scale validated pilots into operational environments: bring the first EUCC ``High'' certified EU-manufactured RISC-V secure elements into production through Chips~Act pilot lines such as NanoIC and FAMES (L1.1); deploy RISC-V Keystone TEEs in multi-provider Data Spaces (L5.1); certify 72~h Island Mode under 3GPP/ETSI fallback profiles in cross-border 5G corridors (L6.1--L6.4); and require hybrid PQC in DORA-scoped deployments (L5.2). Phase~3 activities should consolidate trusted infrastructure as the default operating model: make EU-designed, EUCC ``High'' certified secure elements available for at least $\geq 60\%$ of critical infrastructure edge nodes by 2040 (L1.1); support a quantum-resilient and crypto-agile continuum combining PQC, lightweight security mechanisms, confidential computing, QKD for selected critical links, and privacy-preserving collaborative computation (L5.1--L5.6); deploy zero-energy physical-layer authentication for battery-less mMTC devices (L1.2); and require validated $\geq 72$~h autonomous Island Mode for NIS2-essential and DORA-critical deployments (L6.1--L6.4).
 
-\paragraph{D3 High-Impact Activities.}
-Phase~1: fund three to five RISC-V secure element pilots under Horizon
-Europe Cluster~3 targeting EUCC ``High'' pre-evaluation; submit
-OpenTitan and Keystone prototypes; optimise FIPS~203/204/205 for
-8/16-bit microcontrollers; deploy hybrid ML-KEM plus ECDH-P384 on the
-cloud side per ETSI TS~103~744~\cite{etsiqshybrid}; validate Island
-Mode soft-state protocols in 5G testbeds. Phase~2: first EUCC ``High''
-certified EU-manufactured RISC-V secure elements in production via
-Chips~Act pilot lines (NanoIC, FAMES); RISC-V Keystone TEEs in
-multi-provider Data Spaces; certified 72~h Island Mode under 3GPP/ETSI
-fallback profiles in cross-border 5G corridors; mandatory hybrid PQC in
-DORA-scoped deployments. Phase~3: EU-designed RISC-V secure elements as
-the hardware default; FHE end-to-end from IoT sensor to HPC compute
-node; zero-energy PHY authentication for battery-less mMTC; mandatory
-validated 72~h autonomous Island Mode for NIS2-essential and
-DORA-critical deployments.
+\paragraph{D3 Primary Drivers.}
+The primary threat drivers for this cluster arise from attacks against the trusted execution substrate itself: state-sponsored exploitation of debug interfaces and side-channel leakage in field-deployed nodes (L1.1--L1.2); supply-chain insertion and compromised update paths affecting software and firmware maintenance (L2.1--L2.2); ``Harvest~Now, Decrypt~Later'' campaigns targeting long-lived data confidentiality and cryptographic migration gaps (L5.1--L5.6); and cascading failures caused by cyberattacks, extreme weather, or geopolitical disruption to communication and orchestration infrastructure (L6.1--L6.4). The regulatory drivers are equally distributed across the underlying capabilities: CRA Articles~10--11 establish cybersecurity and vulnerability-handling obligations with enforcement from December~2027~\cite{eucra2024}; NIS2 Article~21(2)(e) requires policies and procedures for cryptography and encryption~\cite{eunis2}; AI Act Articles~9 and~15 create risk-management, accuracy, robustness, and cybersecurity obligations for high-risk AI systems~\cite{euaiact}; the NIS~CG PQC roadmap defines the migration milestones for quantum-resistant cryptography~\cite{niscg2025pqc}; DORA Article~11 requires ICT business continuity and disaster recovery capabilities~\cite{eudora}; and the SNS~JU SRIA frames resilience as a core requirement for future 6G infrastructures~\cite{snsju2023}.
 
 \paragraph{D4 Catalysts and Enablers.}
-EU Chips Act pilot lines (NanoIC, FAMES, APECS, PIXEurope, WBG;
-combined funding $\approx \mathrm{\text{\euro}}3.7$B~\cite{euchipsact});
-DARE~SGA1 (EuroHPC, $\mathrm{\text{\euro}}240$M)~\cite{eurohpcdare2025};
-ECCC Strategic Agenda~\cite{eccc2024}; CEN/CENELEC JTC~13 hardware
-security standards; NIST FIPS~203/204/205
-\cite{nistfips203,nistfips204,nistfips205} and ETSI TS~103~744
-\cite{etsiqshybrid}; SNS~JU 6G resilience projects~\cite{snsju2023}.
+The main catalysts for this cluster map directly to the trusted-substrate capabilities. For hardware roots of trust and physical-layer assurance (L1.1--L1.2), the key enablers are the EU Chips Act pilot lines, including NanoIC, FAMES, APECS, PIXEurope, and WBG, with combined funding of approximately $\mathrm{\text{\euro}}3.7$B~\cite{euchipsact}; the DARE~SGA1 EuroHPC initiative, with $\mathrm{\text{\euro}}240$M funding~\cite{eurohpcdare2025}; CEN/CENELEC JTC~13 hardware security standardisation; and EUCC ``High'' certification pathways. For secure software foundations and update mechanisms (L2.1--L2.2), relevant enablers include ECCC Strategic Agenda priorities~\cite{eccc2024}, secure update frameworks, and coordinated pilot infrastructures for edge and critical-infrastructure deployments. For post-quantum cryptographic agility, confidential computing, QKD, and privacy-preserving computation (L5.1--L5.6), the primary enablers are NIST FIPS~203/204/205~\cite{nistfips203,nistfips204,nistfips205}, ETSI TS~103~744 hybrid key-exchange profiles~\cite{etsiqshybrid}, the NIS~CG PQC roadmap, and confidential-computing and data-space pilots. For network resilience and Island Mode capabilities (L6.1--L6.4), SNS~JU 6G resilience projects~\cite{snsju2023}, 3GPP/ETSI standardisation, and cross-border 5G/6G testbeds provide the main transition infrastructure.
 
 \paragraph{D5 Disruptors and Systemic Risks.}
-EU Chips Act fabrication capacity shortfall: ECA Special Report 12/2025
-projects $\approx 11.7\%$ global semiconductor share by 2030 against the
-20\% target~\cite{eurochipsaudit2025}; the cancellation of Intel
-Magdeburg in July~2025 removed the largest EU-based advanced node
-commitment. Early arrival of a Cryptographically Relevant Quantum
-Computer before migration is complete. PQC computational overhead on
-battery-powered IoT (ML-KEM at $\approx 1.5\times$ ECDH on
-Cortex-M4 at equivalent security~\cite{nistir8413}). Side-channel
-breakthroughs against current TEE architectures. Insufficient
-cryptographic inventory of legacy OT/IoT systems.
+The main systemic risks affect different parts of the trusted execution substrate. For hardware roots of trust (L1.1), the key disruptor is the EU Chips Act fabrication-capacity shortfall: ECA Special Report~12/2025 projects approximately $11.7\%$ global semiconductor share by 2030 against the 20\% target~\cite{eurochipsaudit2025}, while the cancellation of Intel Magdeburg in July~2025 removed the largest EU-based advanced-node commitment. For physical-layer assurance and constrained edge security (L1.2), energy, memory, and signal-quality constraints may limit deployability of lightweight authentication and fingerprinting techniques. For secure software foundations and update mechanisms (L2.1--L2.2), the main risks are heterogeneous legacy stacks, incomplete asset inventories, and insufficiently resilient update paths in OT and field-deployed edge environments. For data-centric security (L5.1--L5.6), early arrival of a Cryptographically Relevant Quantum Computer before migration is complete, PQC computational overhead on battery-powered IoT devices, side-channel breakthroughs against current TEE architectures, and incomplete cryptographic inventories of legacy OT/IoT systems could delay transition. For network resilience (L6.1--L6.4), dependencies on central orchestration, telecom supply-chain concentration, and insufficiently validated fallback modes could weaken Island Mode readiness.
 
 \paragraph{D6 Failsafe Mechanisms.}
-TEE abstraction layers to avoid vendor lock-in during the Phase~1
-dependency period; hybrid cryptographic schemes (classical plus PQC) for
-backward compatibility and harvest resistance; crypto-agility frameworks
-enabling sub-second algorithm switching; diversification across PQC
-algorithm families (lattice, code, hash) to avoid single-point
-cryptanalytic failure; autonomous node quarantine via eBPF network
-policy if attestation fails; layered lightweight cryptography with PHY
-signatures as last-resort authentication under energy starvation;
-redundant trust anchors, segmented autonomy zones, and tamper-resistant
-local decision logic for Island Mode.
+Failsafe mechanisms should preserve security and continuity when parts of the trusted substrate are delayed, compromised, or only partially available. For hardware and physical-layer capabilities (L1.1--L1.2), these include redundant trust anchors, layered lightweight cryptography, PHY signatures as last-resort authentication under energy starvation, and tamper-resistant local decision logic. For secure software foundations and update mechanisms (L2.1--L2.2), the main failsafes are staged rollout, rollback, secure recovery partitions, and autonomous node quarantine via eBPF network policy when attestation or update verification fails. For data-centric security (L5.1--L5.6), the relevant failsafes are TEE abstraction layers to avoid vendor lock-in during the dependency period, hybrid cryptographic schemes combining classical and PQC mechanisms for backward compatibility and harvest resistance, crypto-agility frameworks enabling rapid algorithm replacement, and diversification across PQC algorithm families, including lattice-, code-, and hash-based approaches, to avoid single-point cryptanalytic failure. For network resilience and Island Mode (L6.1--L6.4), failsafes include segmented autonomy zones, redundant local control paths, fallback routing, and validated autonomous operation for critical services when connectivity or orchestration planes are degraded.
 
 \paragraph{D7 Transversal Meta-Layer.}
-\emph{Sovereignty:} eliminates proprietary hardware dependencies and
-quantum decryption exposure; current TEE dependency approaches 100\%.
-\emph{Trust and Ethics:} EUCC ``High'' aligns with Common Criteria
-EAL4+, AVA\_VAN.5; PQC alignment with GDPR Article~32
-\cite{eugdpr}; the 18-Member-State joint statement ``Securing
-Tomorrow, Today'' (November~2024) formalises PQC as a collective
-sovereignty concern.
-\emph{Sustainable Security:} energy-efficient secure silicon for
-far-edge; lightweight PQC extends device lifecycles and avoids premature
-replacement.
-
-\begin{table*}[t]
-\caption{Cluster~1 transition matrix, Sovereign Trusted Infrastructure.}
-\label{tab:c1}
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}lXXX@{}}
-\toprule
- & \textbf{Phase~1 (2026--2030)} & \textbf{Phase~2 (2030--2035)} & \textbf{Phase~3 (2035--2040)} \\
-\midrule
-\textbf{ODP} & Applied R\&D to Fragmented Piloting & Standardised Integration & Ubiquitous Operation \\
-\textbf{SSL} & High Foreign Dependency & Emerging EU Ecosystem & Full Sovereign Autonomy \\
-\textbf{Operational State} &
-RISC-V secure element pilots in three to five Horizon Europe consortia;
-Intel/AMD/ARM TEEs dominate all operational deployments; classical
-cryptography on far-edge IoT; Island Mode validated in 5G testbeds by
-SNS~JU consortia. &
-First EUCC ``High'' EU-manufactured RISC-V secure elements in production
-from Chips~JU pilot lines; deployed in energy substations and telecom
-critical infrastructure in $\geq 5$ Member States; RISC-V Keystone TEEs
-operational in multi-provider Data Spaces alongside Intel TDX; 72~h
-Island Mode certified in cross-border 5G corridors. &
-EU-designed secure elements as default in new EU ICT products;
-$\geq 60\%$ of critical infrastructure edge nodes on EUCC ``High''
-EU-designed elements; FHE end-to-end across continuum;
-72~h autonomous Island Mode mandatory in NIS2-essential and
-DORA-critical deployments. \\
-\textbf{Critical Enabler} &
-EUCC ``High'' certification of an EU-origin open-source RISC-V secure
-element before end of phase. &
-Ratification of ETSI TS profiles for FIPS~203/204/205 tailored to EU
-deployment contexts; operational Chips~JU fabrication capacity at the
-advanced nodes required for secure elements. &
-Mandatory EUCC ``High'' without waiver for new EU ICT products; PQC-native
-silicon as EU procurement default. \\
-\bottomrule
-\end{tabularx}
-\end{table*}
+\emph{Sovereignty:} Across L1, L2, L5, and L6, the cluster reduces dependence on proprietary hardware roots of trust, non-European TEE stacks, classical cryptographic assumptions, and externally controlled network resilience mechanisms. Hardware sovereignty is primarily addressed through EU-designed secure elements and EUCC ``High'' assurance (L1.1), while cryptographic sovereignty is addressed through PQC migration, crypto-agility, and selected critical-link QKD (L5.2 and L5.5). \emph{Trust and Ethics:} EUCC ``High'' aligns hardware assurance with Common Criteria EAL4+ and AVA\_VAN.5 expectations; PQC and confidential-computing migration support GDPR Article~32 confidentiality and integrity obligations~\cite{eugdpr}; and the 18-Member-State joint statement ``Securing Tomorrow, Today'' (November~2024) formalises PQC as a collective sovereignty concern. \emph{Sustainable Security:} Energy-efficient secure silicon and lightweight cryptography support far-edge deployment without premature device replacement, while resilient update mechanisms, crypto-agility, and validated Island Mode extend the operational lifetime of critical infrastructure assets.
 
 \subsection{Cluster~2: Cognitive Security and Autonomous Cyber Defence}
 \label{sec:c2}
 
-Cluster~2 encompasses P6 (LLMSecOps) and P10 (Proactive APT Management),
-with cross-layer dependencies on Model Integrity and DataBOMs (CL1.2),
-Dynamic Supply Chain Verification (CL1.3), and AI Trustworthiness
-(CL4.7). The cluster is structured by three inseparable sub-dimensions:
-AI as a security instrument (sovereign models, edge-native agents,
-autonomous SOC, Moving Target Defence); AI as adversary amplifier
-(polymorphic malware, automated exploit discovery); AI as target
-(training pipelines and inference endpoints as attack surfaces under
-AI Act Article~9).
+Cluster~2 consolidates the capabilities that enable cognitive security operations and autonomous cyber defence across the continuum: software and AI lifecycle assurance (CL1.2--CL1.4), federated SOC and cyber threat intelligence functions (CL2.1 and CL2.5), high-precision telemetry and AI-native analytics (CL2.2--CL2.4), deception and active defence (CL2.6), Zero Trust reconfiguration and containment (L4.1), telecom telemetry integration (L6.1), and trustworthy algorithmic accountability for autonomous security decisions (CL4.7). The cluster is structured by three inseparable sub-dimensions: AI as a security instrument, including sovereign models, edge-native agents, autonomous SOC, and Moving Target Defence; AI as an adversary amplifier, including polymorphic malware, automated exploit discovery, and scaled social engineering; and AI as a target, where training pipelines and inference endpoints become attack surfaces under AI Act Article~9.
 
-\paragraph{D1 Baseline and Target.}
-\emph{P6:} US-platform SIEMs dominate the EU market, no
-EU-headquartered vendor in the Gartner Leaders quadrant
-\cite{gartner2025siem}. Sovereign EU security-specific foundation models
-are absent; OpenEuroLLM~\cite{openeurollm2025} has no dedicated security
-stream. Target: cognitive SecOps model with EU-sovereign models,
-auditable under AI Act Article~9, covering $\geq 50\%$ of new
-critical infrastructure SOC deployments by 2040.
-\emph{P10:} Average APT dwell times in European organisations are
-150--200 days. Target: $\leq 72$~h dwell time in Phase~2 and
-$\leq 24$~h in Phase~3 across NIS2-essential deployments.
+\paragraph{D1 Baseline.}
+At the operational cyber-resilience layer (CL2.1--CL2.6), European SOC and CTI capabilities remain fragmented across organisations, Member States, and commercial platforms. US-platform SIEMs dominate the EU market, with no EU-headquartered vendor in the Gartner Leaders quadrant~\cite{gartner2025siem}, and average APT dwell times in European organisations remain approximately 150--200 days. At the AI lifecycle layer (CL1.2 and CL1.4), sovereign security-specific foundation models and standardised adversarial robustness validation for security AI remain underdeveloped; OpenEuroLLM~\cite{openeurollm2025} does not yet include a dedicated security stream. At the analytics and telemetry layer (CL2.2--CL2.4 and L6.1), NWDAF-enabled telecom telemetry and LLM-assisted SecOps remain at pilot or early integration stage rather than being operationally federated across the continuum. At the governance and assurance layer (CL4.7), trustworthy, auditable, and AI Act-compliant autonomous security decision-making remains immature, particularly for systems that support containment, reconfiguration, or prioritisation of critical incidents.
 
-\paragraph{D2 Primary Drivers.}
+\paragraph{D2 High-Impact Activities and Target Outcomes.}
+Phase~1 activities should establish the technical basis for cognitive cyber defence: integrate commercial LLMs into SOC workflows for alert triage, summarisation, and MITRE ATT\&CK mapping (CL2.1 and CL2.5); route NWDAF telemetry into centralised AI analytics in three to five 5G SA pilots~\cite{tgpp23288} (CL2.2--CL2.4 and L6.1); train a first EU-sovereign security-focused SLM ($\leq 10$B parameters) on GDPR-compliant security corpora using EuroHPC~\cite{eurohpcaifactories} (CL1.2 and CL2.4); apply ML-based UEBA and deception-supported evidence collection for APT IoC detection (CL2.3 and CL2.6); and demonstrate sub-72~h dwell time in at least one certified NIS2-essential pilot. Phase~2 activities should scale cognitive security into operational environments: deploy EU-sovereign SLMs at the edge for real-time SOC analytics without dependence on external cloud inference (CL2.4); deploy deception infrastructure, including honeynets and credential canaries, for calibration and high-fidelity detection (CL2.6); introduce autonomous triage under ETSI GS~ZSM~009~\cite{etsizsm} with human oversight and auditability (CL2.1, CL2.4, and CL4.7); and enable Zero Trust reconfiguration and containment actions aligned with NIST SP~800-207~\cite{rose2020zta} (L4.1). The target for Phase~2 is sub-72~h dwell time across certified critical-infrastructure deployments. Phase~3 activities should consolidate autonomous cyber defence as a trusted operational capability: deploy swarm-based agentic AI for decentralised threat intelligence and coordinated response (CL2.1 and CL2.4); operate continuous Moving Target Defence across IP addressing, topology, and software diversity (CL2.6 and L4.1); and implement continuous automated adversarial robustness validation for security AI (CL1.4 and CL4.7). The target for Phase~3 is $\leq 24$~h dwell time across NIS2-essential deployments and EU-sovereign AI security tools covering at least $\geq 50\%$ of new critical-infrastructure SOC deployments by 2040.
+
+\paragraph{D3 Primary Drivers.}
 \emph{Threat:} weaponisation of generative AI for polymorphic malware,
 automated exploit discovery, and scaled social engineering;
 nation-state actors blending espionage with organised crime;
@@ -840,22 +661,6 @@ requirements for autonomous security AI classified as high-risk
 \cite{euaiact}; NIS2 Article~21(2)(b) on incident handling
 \cite{eunis2}. Conformity assessment capacity lags obligations by
 approximately 24--36 months~\cite{ep2026aiact}.
-
-\paragraph{D3 High-Impact Activities.}
-Phase~1: integrate commercial LLMs into SOC workflows for alert triage
-and MITRE ATT\&CK mapping; route NWDAF telemetry into centralised AI
-analytics in three to five 5G SA pilots~\cite{tgpp23288}; train a first
-EU-sovereign SLM ($\leq 10$B parameters) on GDPR-compliant security
-corpora using EuroHPC~\cite{eurohpcaifactories}; apply ML-based UEBA for
-APT IoC detection; target sub-72~h dwell time in one certified
-NIS2-essential pilot. Phase~2: deploy EU-sovereign SLMs at the edge for
-real-time SOC analytics; deception infrastructure (honeynets, credential
-canaries) for calibration; autonomous triage under ETSI GS~ZSM~009
-\cite{etsizsm}; Zero-Trust reconfigurations per NIST~SP~800-207
-\cite{rose2020zta}. Phase~3: swarm-based agentic AI for decentralised
-threat intelligence; continuous Moving Target Defence (IP, topology,
-software diversity); continuous automated adversarial robustness
-validation.
 
 \paragraph{D4 Catalysts and Enablers.}
 EuroHPC AI Factories (19 confirmed across 16 Member States; cumulative
@@ -895,89 +700,18 @@ NIS2 sector-specific implementing acts should reference MITRE ATT\&CK
 energy cost versus cloud round-trips for high-volume security
 telemetry.
 
-\begin{table*}[t]
-\caption{Cluster~2 transition matrix, Cognitive Security and Autonomous
-Cyber Defence.}
-\label{tab:c2}
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}lXXX@{}}
-\toprule
- & \textbf{Phase~1 (2026--2030)} & \textbf{Phase~2 (2030--2035)} & \textbf{Phase~3 (2035--2040)} \\
-\midrule
-\textbf{ODP} & Applied R\&D, Siloed AI Copilots & Standardised Integration & Ubiquitous Operation \\
-\textbf{SSL} & High Reliance on US Foundation Models & Sovereign EU Edge LLMs Emerging & Global Leadership in Trustworthy AI Security \\
-\textbf{Operational State} &
-Commercial LLMs integrated into SOC workflows for triage; NWDAF pilots
-in three to five 5G SA deployments; first EU-sovereign SLM under
-training on EuroHPC AI Factory compute; sub-72~h dwell time achieved in
-at least one certified pilot; no operational autonomous containment
-agent. &
-EU-sovereign SLMs deployed at the edge for real-time SOC analytics
-without cloud inference; autonomous triage governed by ETSI GS~ZSM~009
-in production; sub-72~h dwell time in certified critical infrastructure
-deployments; deception infrastructure operational for calibration. &
-Swarm-based agentic AI defending the continuum via self-evolving
-decentralised CTI; Moving Target Defence continuous in certified
-environments; $\leq 24$~h dwell time across NIS2-essential
-deployments; EU-sovereign AI security tools in $\geq 50\%$ of new
-critical infrastructure SOC deployments. \\
-\textbf{Critical Enabler} &
-CEN/CENELEC or ETSI TC CYBER publication of a standardised adversarial
-robustness test suite for security AI before end of phase. &
-Operationalisation of an AI Act Article~9 conformity assessment
-framework specific to autonomous security agents; activation of EuroHPC
-AI Factory compute contracts for EU-sovereign security model training. &
-International adoption of EU AI Act frameworks for trustworthy
-autonomous security agents by at least one non-EU partner jurisdiction. \\
-\bottomrule
-\end{tabularx}
-\end{table*}
-
 \subsection{Cluster~3: Federated Operational Sovereignty}
 \label{sec:c3}
 
-Cluster~3 encompasses P4 (Security Interoperability via Simpl), P5
-(Supply Chain Verification), and P7 (Pan-European NaaS Federation). The
-cluster addresses three mechanisms that transform sovereign components
-into a collectively sovereign continuum: federated interoperability
-through Minimal Interoperability Mechanisms (MIMs) in the Simpl stack
-\cite{ecsimpl} under Data~Act portability mandates~\cite{eudataact};
-supply chain integrity through Runtime SBOMs, Digital Product
-Passports, and cryptographic proof-of-execution under CRA Annex~I
-\cite{eucra2024}; and compute federation through harmonised CAMARA
-Network APIs~\cite{camara2025} and cross-border edge roaming. Supply
-chain verification bridges Clusters~1 and~3 because hardware attestation
-depends on the RISC-V secure elements matured in Cluster~1.
+Cluster~3 consolidates the capabilities that transform sovereign components into a collectively sovereign continuum: heterogeneous interoperability and Simpl integration (CL3.1), neutral-host and multi-tenant isolation (CL3.2), pan-European NaaS federation and cross-border edge roaming (CL3.3), semantic security interoperability (CL3.4), cyber range and digital twin federation (CL3.5), dynamic supply-chain verification and Runtime SBOMs (CL1.3), continuous automated certification and assurance (CL4.2), privacy-preserving federated computation (CL4.4), and Zero Trust policy enforcement across shared infrastructure (L4.1). Supply-chain verification bridges Clusters~1 and~3 because software, runtime, and federation assurance increasingly depend on the hardware roots of trust and attestation capabilities matured in Cluster~1.
 
-\paragraph{D1 Baseline and Target.}
-\emph{P4:} European cloud-edge ecosystems remain fragmented across
-proprietary vendor silos with incompatible security policies. The
-Simpl-Open iterative MVP has been available since January~2025, with
-enhanced releases in June and December~2025~\cite{ecsimpl}. OASC MIM6
-(Security management) remains a ``Work item'' without a formally
-published specification. Target: unified European trust fabric based on
-Simpl MIMs ratified as CEN/CENELEC standards and referenced in the EU
-Cloud Rulebook.
-\emph{P5:} Current supply chains are opaque and globally distributed.
-CRA Annex~I Part~II mandates static SBOM disclosure from December~2027
-\cite{eucra2024}; NIS2 Article~21(2)(h) mandates supply chain risk
-assessment~\cite{eunis2}; DORA Article~28 requires continuous ICT
-third-party monitoring~\cite{eudora}, operationalised through the first
-19 Critical ICT Third-Party Provider designations on 18~November~2025
-\cite{esa2025ctpp}. Target: progression from static SBOM disclosure
-(Phase~1) to Runtime SBOMs with cryptographic proof-of-execution
-(Phase~2) to ZKP-verified supply chain attestation at transaction scale
-(Phase~3).
-\emph{P7:} The CAMARA Fall~2025 meta-release comprises 60 APIs (10
-stable)~\cite{camara2025}; GSMA Open Gateway reaches 86 operator groups
-\cite{gsmaopengateway2026}. Cross-border edge compute roaming does not
-exist at operational scale. Target: commercial EU NaaS federation as a
-unified jurisdiction for data workloads, with non-EU hyperscaler market
-share in EU regulated cloud procurement below 40\% for new deployments
-by 2040.
+\paragraph{D1 Baseline.}
+At the interoperability layer (CL3.1--CL3.4), European cloud-edge ecosystems remain fragmented across proprietary vendor silos, incompatible security policies, and uneven semantic models. The Simpl-Open iterative MVP has been available since January~2025, with enhanced releases in June and December~2025~\cite{ecsimpl}, but OASC MIM6 (Security management) remains a ``Work item'' without a formally published specification. At the supply-chain and runtime-verification layer (CL1.3 and CL4.2), current supply chains remain opaque and globally distributed: CRA Annex~I Part~II mandates static SBOM disclosure from December~2027~\cite{eucra2024}, NIS2 Article~21(2)(h) mandates supply-chain risk assessment~\cite{eunis2}, and DORA Article~28 requires continuous ICT third-party monitoring~\cite{eudora}, operationalised through the first 19 Critical ICT Third-Party Provider designations on 18~November~2025~\cite{esa2025ctpp}. At the federation and connectivity layer (CL3.3, L6.1, and L4.1), the CAMARA Fall~2025 meta-release comprises 60 APIs, of which 10 are stable~\cite{camara2025}, and GSMA Open Gateway reaches 86 operator groups~\cite{gsmaopengateway2026}, but cross-border edge compute roaming does not yet exist at operational scale. At the governance and assurance layer (CL4.2--CL4.6), continuous assurance, cyber risk quantification, and policy portability remain insufficiently integrated across providers and jurisdictions.
 
-\paragraph{D2 Primary Drivers.}
+\paragraph{D2 High-Impact Activities and Target Outcomes.}
+Phase~1 activities should establish the technical basis for federated operational sovereignty: run Simpl security MIM pilots in three Common European Data Spaces, including Manufacturing, Health~\cite{ehds2025}, and Energy (CL3.1 and CL3.4); deploy harmonised CAMARA APIs in two to three bilateral 5G corridor agreements (CL3.3 and L6.1); submit CRA-mandated static SBOM declarations and initiate Digital Product Passport pilots (CL1.3 and CL4.2); advance zero-knowledge proof verification towards demonstrator readiness for supply-chain attestation (CL1.3 and CL4.2); and validate Zero Trust isolation policies for shared and multi-tenant infrastructure (CL3.2 and L4.1). Phase~2 activities should scale federation into operational environments: automate policy translation via standardised Simpl MIMs across active Data Spaces (CL3.1 and CL3.4); deploy Runtime SBOMs with cryptographic proof-of-execution in critical infrastructure in at least $\geq 5$ Member States (CL1.3 and CL4.2); implement automatic quarantine of unverified components in isolated network slices (CL3.2, L4.1, and L6.1); scale CAMARA cross-border roaming to at least $\geq 5$ operator pairs (CL3.3); and operationalise ``Data Visa'' mechanisms for dynamic AI model migration across jurisdictions (CL3.1, CL4.4, and CL4.7). The target for Phase~2 is standardised integration of Simpl-based security interoperability, runtime supply-chain attestation, and cross-border edge federation across multiple Member States. Phase~3 activities should consolidate federated operational sovereignty as the default model: establish Simpl-based security as the universal Data Space standard (CL3.1 and CL3.4); operate ZKP-verified supply-chain attestation at real-time transaction scale (CL1.3 and CL4.2); deploy an operational EU NaaS federation for cross-border edge and connectivity services (CL3.3 and L6.1); and enact a ``Schengen for Cloud'' legal framework resolving US CLOUD Act jurisdictional conflict. The target for Phase~3 is a unified European trust fabric in which Simpl MIMs are ratified as CEN/CENELEC standards and referenced in the EU Cloud Rulebook, non-EU hyperscaler market share in new EU regulated cloud procurement falls below 40\%, and federated policy, supply-chain verification, and NaaS roaming operate at commercial scale by 2040.
+
+\paragraph{D3 Primary Drivers.}
 \emph{Threat:} SolarWinds-class software supply chain attacks;
 disaggregation of telco clouds introducing multi-vendor complexity; the
 sovereignty cliff where absence of a Digital Single Market prevents EU
@@ -988,23 +722,6 @@ operators from scaling against US and China hyperscalers.
 \cite{eucra2024}; DORA CTPP monitoring~\cite{eudora}; the Digital
 Networks Act proposal (COM(2026)~16, January~2026) signals EC intent
 for network federation but does not mandate API standards.
-
-\paragraph{D3 High-Impact Activities.}
-Phase~1: Simpl security MIM pilots in three Common European Data Spaces
-(Manufacturing, Health~\cite{ehds2025}, Energy); deploy harmonised
-CAMARA APIs in two
-to three bilateral 5G corridor agreements; submit CRA-mandated static
-SBOM declarations; initiate Digital Product Passport pilots; advance
-ZKP verification towards demonstrator readiness. Phase~2: automated
-policy translation via standardised Simpl MIMs across active Data
-Spaces; Runtime SBOMs with cryptographic proof-of-execution in critical
-infrastructure in $\geq 5$ Member States; automatic quarantine of
-unverified components in isolated network slices; CAMARA cross-border
-roaming scaled to $\geq 5$ operator pairs; ``Data Visa'' mechanisms for
-dynamic AI model migration. Phase~3: Simpl-based security as universal
-Data Space standard; ZKP-verified supply chain attestation at real-time
-scale; operational EU NaaS federation; ``Schengen for Cloud'' legal
-framework resolving US CLOUD Act jurisdictional conflict.
 
 \paragraph{D4 Catalysts and Enablers.}
 Digital Europe Programme funding for Simpl~\cite{ecsimpl}; CEN-CLC/JTC
@@ -1043,6 +760,118 @@ mechanisms enabling cross-border trust; the 2025 DINUM Bilan reports
 market-wide and 99\% within the State perimeter~\cite{dinum2026bilan}.
 \emph{Sustainable Security:} shared infrastructure reduces duplication
 of compute and certification overhead across Member States.
+
+\subsection{Cross-Cutting Enablers}
+\label{sec:crosscut}
+
+Four dependencies span at least two clusters and require dedicated
+governance to avoid becoming systemic bottlenecks.
+
+\emph{EU Chips Act sovereign fabrication} (Clusters~1 and~3). Five
+Chips~JU pilot lines are operational, with combined EU and national
+funding of $\mathrm{\text{\euro}}3.7$B~\cite{euchipsact}. No pilot line
+is dedicated to secure element fabrication; restriction of access to
+any major non-EU foundry would immediately impair EU critical
+infrastructure attestation capability. Mitigation: strategic
+stockpiling, second-source agreements, and dedicated pilot lines for
+security-critical components.
+
+\emph{AI Act conformity assessment infrastructure} (Cluster~2). A 24--36
+month gap between AI Act obligations and CA body operational readiness
+is documented~\cite{ep2026aiact}. As of March~2026, 8 of 27~Member
+States have designated single points of contact. Mitigation:
+accelerated CEN/CENELEC adversarial robustness test suite development
+and AI Act sandbox provisions for security use cases.
+
+\emph{Runtime SBOM attestation} (Clusters~1 and~3). Static SBOMs
+(CRA-mandated) are insufficient for dynamic continuum operations.
+Progression to cryptographic proof-of-execution and ZKP batch
+verification is a shared Phase~2--3 transition condition.
+
+\emph{SME access and inclusion} (all clusters). Cost barriers exclude
+SMEs from sovereign hardware alternatives, AI-powered SOC tooling, and
+Simpl MIM compliance. Digital Europe Programme co-funding should target
+shared-infrastructure pathways and subsidised certification programmes.
+
+\section{Phases for Priority Clusters and Transition Matrices}
+\label{sec:phases}
+
+\begin{table*}[t]
+\caption{Cluster~1 transition matrix, Sovereign Trusted Infrastructure.}
+\label{tab:c1}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}lXXX@{}}
+\toprule
+ & \textbf{Phase~1 (2026--2030)} & \textbf{Phase~2 (2030--2035)} & \textbf{Phase~3 (2035--2040)} \\
+\midrule
+\textbf{ODP} & Applied R\&D to Fragmented Piloting & Standardised Integration & Ubiquitous Operation \\
+\textbf{SSL} & High Foreign Dependency & Emerging EU Ecosystem & Full Sovereign Autonomy \\
+\textbf{Operational State} &
+RISC-V secure element pilots in three to five Horizon Europe consortia;
+Intel/AMD/ARM TEEs dominate all operational deployments; classical
+cryptography on far-edge IoT; Island Mode validated in 5G testbeds by
+SNS~JU consortia. &
+First EUCC ``High'' EU-manufactured RISC-V secure elements in production
+from Chips~JU pilot lines; deployed in energy substations and telecom
+critical infrastructure in $\geq 5$ Member States; RISC-V Keystone TEEs
+operational in multi-provider Data Spaces alongside Intel TDX; 72~h
+Island Mode certified in cross-border 5G corridors. &
+EU-designed secure elements as default in new EU ICT products;
+$\geq 60\%$ of critical infrastructure edge nodes on EUCC ``High''
+EU-designed elements; FHE end-to-end across continuum;
+72~h autonomous Island Mode mandatory in NIS2-essential and
+DORA-critical deployments. \\
+\textbf{Critical Enabler} &
+EUCC ``High'' certification of an EU-origin open-source RISC-V secure
+element before end of phase. &
+Ratification of ETSI TS profiles for FIPS~203/204/205 tailored to EU
+deployment contexts; operational Chips~JU fabrication capacity at the
+advanced nodes required for secure elements. &
+Mandatory EUCC ``High'' without waiver for new EU ICT products; PQC-native
+silicon as EU procurement default. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\begin{table*}[t]
+\caption{Cluster~2 transition matrix, Cognitive Security and Autonomous
+Cyber Defence.}
+\label{tab:c2}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}lXXX@{}}
+\toprule
+ & \textbf{Phase~1 (2026--2030)} & \textbf{Phase~2 (2030--2035)} & \textbf{Phase~3 (2035--2040)} \\
+\midrule
+\textbf{ODP} & Applied R\&D, Siloed AI Copilots & Standardised Integration & Ubiquitous Operation \\
+\textbf{SSL} & High Reliance on US Foundation Models & Sovereign EU Edge LLMs Emerging & Global Leadership in Trustworthy AI Security \\
+\textbf{Operational State} &
+Commercial LLMs integrated into SOC workflows for triage; NWDAF pilots
+in three to five 5G SA deployments; first EU-sovereign SLM under
+training on EuroHPC AI Factory compute; sub-72~h dwell time achieved in
+at least one certified pilot; no operational autonomous containment
+agent. &
+EU-sovereign SLMs deployed at the edge for real-time SOC analytics
+without cloud inference; autonomous triage governed by ETSI GS~ZSM~009
+in production; sub-72~h dwell time in certified critical infrastructure
+deployments; deception infrastructure operational for calibration. &
+Swarm-based agentic AI defending the continuum via self-evolving
+decentralised CTI; Moving Target Defence continuous in certified
+environments; $\leq 24$~h dwell time across NIS2-essential
+deployments; EU-sovereign AI security tools in $\geq 50\%$ of new
+critical infrastructure SOC deployments. \\
+\textbf{Critical Enabler} &
+CEN/CENELEC or ETSI TC CYBER publication of a standardised adversarial
+robustness test suite for security AI before end of phase. &
+Operationalisation of an AI Act Article~9 conformity assessment
+framework specific to autonomous security agents; activation of EuroHPC
+AI Factory compute contracts for EU-sovereign security model training. &
+International adoption of EU AI Act frameworks for trustworthy
+autonomous security agents by at least one non-EU partner jurisdiction. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
 
 \begin{table*}[t]
 \caption{Cluster~3 transition matrix, Federated Operational Sovereignty.}
@@ -1085,38 +914,6 @@ CLOUD Act jurisdictional conflict. \\
 \bottomrule
 \end{tabularx}
 \end{table*}
-
-\subsection{Cross-Cutting Enablers}
-\label{sec:crosscut}
-
-Four dependencies span at least two clusters and require dedicated
-governance to avoid becoming systemic bottlenecks.
-
-\emph{EU Chips Act sovereign fabrication} (Clusters~1 and~3). Five
-Chips~JU pilot lines are operational, with combined EU and national
-funding of $\mathrm{\text{\euro}}3.7$B~\cite{euchipsact}. No pilot line
-is dedicated to secure element fabrication; restriction of access to
-any major non-EU foundry would immediately impair EU critical
-infrastructure attestation capability. Mitigation: strategic
-stockpiling, second-source agreements, and dedicated pilot lines for
-security-critical components.
-
-\emph{AI Act conformity assessment infrastructure} (Cluster~2). A 24--36
-month gap between AI Act obligations and CA body operational readiness
-is documented~\cite{ep2026aiact}. As of March~2026, 8 of 27~Member
-States have designated single points of contact. Mitigation:
-accelerated CEN/CENELEC adversarial robustness test suite development
-and AI Act sandbox provisions for security use cases.
-
-\emph{Runtime SBOM attestation} (Clusters~1 and~3). Static SBOMs
-(CRA-mandated) are insufficient for dynamic continuum operations.
-Progression to cryptographic proof-of-execution and ZKP batch
-verification is a shared Phase~2--3 transition condition.
-
-\emph{SME access and inclusion} (all clusters). Cost barriers exclude
-SMEs from sovereign hardware alternatives, AI-powered SOC tooling, and
-Simpl MIM compliance. Digital Europe Programme co-funding should target
-shared-infrastructure pathways and subsidised certification programmes.
 
 \section{Strategic Recommendations}
 \label{sec:recs}
