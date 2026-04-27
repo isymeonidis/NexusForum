@@ -51,7 +51,7 @@ Computing Continuum: A Strategic Roadmap}
 \corresp{Corresponding author: First A. Author (e-mail: author1@domain).}
 
 \begin{abstract}
-The distribution of computation across cloud, edge, and IoT tiers, combined with the simultaneous operationalisation of NIS2, the Cyber Resilience Act, the AI Act, and DORA, has made cybersecurity, resilience, and digital sovereignty an integrated strategic problem for Europe. Perimeter-oriented security models do not scale to heterogeneous, physically exposed, and multi-jurisdictional continuum infrastructures, and Europe's normative leadership in trust, privacy, and certification translates into strategic advantage only when embedded in deployable capabilities. We term this distance the \emph{ambition--implementation gap}. This paper addresses that gap through a three-stage methodology for identifying and prioritising cybersecurity capabilities: architectural decomposition of the continuum into six Security Layers and four Transversal Security Cross-Layers together with their constituent capabilities (Stage~1); consolidation of those capabilities into three executive priority clusters, namely Sovereign Trusted Infrastructure, Cognitive Security and Autonomous Cyber Defence, and Federated Operational Sovereignty, analysed through a seven-dimension synthesis template (Stage~2); and projection of each cluster onto a 2026--2040 transition matrix anchored by Operational Deployment Phase and Strategic Sovereignty Level bands and terminating in a single Critical Enabler per phase column (Stage~3). The methodology integrates a Sovereignty Level construct as an interpretive strategic lens. From the cluster trajectories and a phase-gate readiness assessment, the paper derives seven implementation-oriented recommendations (three cluster-aligned and four cross-cutting), each tracing quantified Phase~2 and Phase~3 targets to the gate condition on which delivery depends. The contribution is both methodological, providing a reproducible template for cybersecurity roadmap construction under ecosystem uncertainty, and strategic, framing autonomous, federated, and certified Security-by-Design as the operational target for European digital infrastructure.
+The distribution of computation across cloud, edge, and IoT tiers, combined with the simultaneous operationalisation of NIS2, the Cyber Resilience Act, the AI Act, and DORA, has made cybersecurity, resilience, and digital sovereignty an integrated strategic problem for Europe. Perimeter-oriented security models do not scale to heterogeneous, physically exposed, and multi-jurisdictional continuum infrastructures, and Europe's normative leadership in trust, privacy, and certification translates into strategic advantage only when embedded in deployable capabilities. We term this distance the \emph{ambition--implementation gap}. This paper addresses that gap through a three-stage methodology for identifying and prioritising cybersecurity capabilities: architectural decomposition of the continuum into six Security Layers and four Transversal Security Cross-Layers together with their constituent capabilities (Stage~1); consolidation of those capabilities into three executive priority clusters, namely Sovereign Trusted Infrastructure, Cognitive Security and Autonomous Cyber Defence, and Federated Operational Sovereignty, analysed through a seven-dimension synthesis template (Stage~2); and projection of each cluster onto a 2026--2040 transition matrix anchored by Operational Deployment Phase and Strategic Sovereignty Level bands and terminating in a single Critical Enabler per phase column (Stage~3). The methodology integrates a Sovereignty Level construct as an interpretive strategic lens. From the cluster trajectories and a phase-gate readiness assessment, the paper derives seven implementation-oriented recommendations (three cluster-aligned and four cross-cutting), each tracing quantified Phase~2 and Phase~3 targets to the gate condition on which delivery depends. The contribution is methodological and strategic: it provides a reproducible template for cybersecurity roadmap construction under ecosystem uncertainty and frames autonomous, federated, and certified Security-by-Design as the operational target for European digital infrastructure.
 \end{abstract}
 
 \begin{keywords}
@@ -64,71 +64,32 @@ Certification, Cloud--Edge--IoT continuum, confidential computing, Critical Enab
 \section{Introduction}
 \label{sec:intro}
 
-The shift from centralised cloud to a distributed Cloud--Edge--IoT continuum relocates computation, storage, and inference closer to devices, users, and physical processes~\cite{dustdar2023,bittencourt2018,ecroadmap2024}. The architectural gains---lower latency, higher operational autonomy, locality of data processing---come at a structural cost: attack surface, system heterogeneity, and the number of administrative and trust domains a defender must reason about simultaneously all increase sharply, while perimeter-oriented security models designed for consolidated data-centre environments are structurally inadequate for infrastructures that are geographically dispersed, resource-constrained, and physically exposed~\cite{rose2020zta,chandramouli2023zta,alwarafy2021}. Each relocation of workload across providers and jurisdictions is also a transfer of control, which makes continuum security inseparable from digital sovereignty---the ability to govern, audit, and operate critical infrastructure under credible European influence. This coupling is sharpened by three concurrent global trends: structural hyperscaler concentration in the EU cloud market~\cite{synergy2025}, the migration to post-quantum cryptography under a now-binding European framework~\cite{niscg2025pqc}, and the weaponisation of generative AI against both human operators and AI-enabled defences.
+The shift from centralised cloud to a distributed Cloud--Edge--IoT continuum relocates computation, storage, and inference closer to devices, users, and physical processes~\cite{dustdar2023,bittencourt2018,ecroadmap2024}. These architectural gains, including lower latency, higher operational autonomy, and locality of data processing, come with a structural cost. The attack surface expands, system heterogeneity increases, and defenders must reason across a larger number of administrative and trust domains. Perimeter-oriented security models designed for consolidated data-centre environments are therefore inadequate for infrastructures that are geographically dispersed, resource-constrained, and physically exposed~\cite{rose2020zta,chandramouli2023zta,alwarafy2021}. Each relocation of workload across providers and jurisdictions is also a transfer of control, which makes continuum security inseparable from digital sovereignty, understood here as the ability to govern, audit, and operate critical infrastructure under credible European influence. This coupling is sharpened by three concurrent global trends: structural hyperscaler concentration in the EU cloud market~\cite{synergy2025}, migration to post-quantum cryptography under a now-binding European framework~\cite{niscg2025pqc}, and the weaponisation of generative AI against both human operators and AI-enabled defences.
 
-Europe faces this transition under four simultaneous regulatory activations. NIS2~\cite{eunis2}, the Cyber Resilience Act (CRA)~\cite{eucra2024}, the AI~Act~\cite{euaiact}, and DORA~\cite{eudora} together raise the baseline of mandatory security, resilience, accountability, and supply-chain obligations across essential entities, ICT products, high-risk AI systems, and financial-sector third-party providers, with the EU cybersecurity certification framework~\cite{eucsa,commreg2024eucc} providing the assurance substrate these regulations presuppose. Operationalisation of this combined regime is uneven: national transposition lags the legal timetable in several large Member States~\cite{ec2025nis2status}, EUCS remains unadopted~\cite{ec2025cloudsov}, and conformity-assessment infrastructure for AI-specific security obligations is not yet in place~\cite{ep2026aiact}. Detailed evidence on these patterns and on the asymmetry between Europe's regulatory leadership and its industrial position is presented in Section~\ref{sec:background}.
+Europe faces this transition under four simultaneous regulatory activations. NIS2~\cite{eunis2}, the Cyber Resilience Act (CRA)~\cite{eucra2024}, the AI~Act~\cite{euaiact}, and DORA~\cite{eudora} together raise the baseline of mandatory security, resilience, accountability, and supply-chain obligations across essential entities, ICT products, high-risk AI systems, and financial-sector third-party providers. The EU cybersecurity certification framework~\cite{eucsa,commreg2024eucc} provides the assurance substrate that these regulations presuppose. Operationalisation of this combined regime is uneven: national transposition lags the legal timetable in several large Member States~\cite{ec2025nis2status}, EUCS remains unadopted~\cite{ec2025cloudsov}, and conformity-assessment infrastructure for AI-specific security obligations is not yet in place~\cite{ep2026aiact}. Section~\ref{sec:background} provides detailed evidence on these patterns and on the asymmetry between Europe's regulatory leadership and its industrial position.
 
-The central argument of this paper is that Europe's normative leadership in trust, privacy, governance, and certification~\cite{madiega2020,farrand2024} translates into strategic advantage only when it is embedded in deployable capabilities. We call the distance between normative leadership and deployable capacity the \emph{ambition--implementation gap}. Closing this gap requires a transition from reactive, siloed security towards autonomous, federated, and certified Security-by-Design: infrastructures that sustain trustworthy operation under adverse conditions (autonomous), security mechanisms that span providers and jurisdictions (federated), and assurance embedded through the system lifecycle (certified Security-by-Design)~\cite{enisa2019iotsdlc,cavoukian2009,rose2020zta}.
+The central argument of this paper is that Europe's normative leadership in trust, privacy, governance, and certification~\cite{madiega2020,farrand2024} translates into strategic advantage only when it is embedded in deployable capabilities. We call the distance between normative leadership and deployable capacity the \emph{ambition--implementation gap}. Closing this gap requires a transition from reactive and siloed security towards autonomous, federated, and certified Security-by-Design: infrastructures that sustain trustworthy operation under adverse conditions, security mechanisms that span providers and jurisdictions, and assurance embedded throughout the system lifecycle~\cite{enisa2019iotsdlc,cavoukian2009,rose2020zta}.
 
 In this paper, a \emph{roadmap} is understood as a structured strategic instrument that links current capability gaps to future target states through phased actions, dependencies, and transition conditions. It is not a forecast of technological development, but a coordination tool for aligning research, innovation, policy, standardisation, deployment, and ecosystem investment over time~\cite{ecroadmap2024}. The \emph{Cloud--Edge--IoT continuum} refers to the distributed execution environment in which computation, storage, networking, sensing, and AI inference are dynamically placed across central cloud platforms, intermediate edge infrastructures, and resource-constrained devices~\cite{dustdar2023,bittencourt2018,ecroadmap2024}. The term \emph{continuum} is used because these tiers are increasingly interdependent rather than isolated: workloads, data flows, trust decisions, and control functions move across them according to latency, resilience, privacy, energy, and sovereignty requirements~\cite{etsimec003,dustdar2023}. The term \emph{ecosystem} captures the fact that secure operation depends not only on technologies, but also on providers, standards bodies, regulators, certification schemes, open-source communities, research infrastructures, SMEs, large industrial actors, and public authorities whose decisions jointly determine deployment capacity~\cite{ecroadmap2024,eucsa,commreg2024eucc}.
 
-The paper makes five contributions. First, a \emph{three-stage methodology} for constructing cybersecurity roadmaps under conditions of ecosystem uncertainty, combining architectural decomposition (Stage~1), priority clustering with seven-dimension analysis (Stage~2), and phased transition-matrix projection (Stage~3), and integrating a \emph{Sovereignty Level} construct as an interpretive strategic lens (Section~\ref{sec:method}). Second, an \emph{architectural decomposition} of the Cloud--Edge--IoT continuum into six Security Layers and four Transversal Security Cross-Layers, populated with their constituent capabilities, as the Stage~1 output (Section~\ref{sec:stage1}). Third, a consolidation of those capabilities into \emph{three priority clusters}---Sovereign Trusted Infrastructure, Cognitive Security and Autonomous Cyber Defence, and Federated Operational Sovereignty---each analysed through a \emph{seven-dimension template} as the Stage~2 output (Section~\ref{sec:clusters}). Fourth, a \emph{three-phase transition matrix} for each priority cluster, projecting the seven-dimension analysis onto the 2026--2040 horizon and identifying, for each phase boundary, the Critical Enabler whose delivery determines whether progression to the next phase is plausible, as the Stage~3 output (Section~\ref{sec:phases}). Fifth, a set of \emph{seven implementation-oriented recommendations}---three cluster-aligned and four cross-cutting---derived from the cluster trajectories and phase-gate readiness assessment, with quantified Phase~2 and Phase~3 targets traced to the gate conditions on which delivery depends (Section~\ref{sec:recs}).
+The paper makes five contributions. First, it introduces a \emph{three-stage methodology} for constructing cybersecurity roadmaps under conditions of ecosystem uncertainty, combining architectural decomposition (Stage~1), priority clustering with seven-dimension analysis (Stage~2), and phased transition-matrix projection (Stage~3), while integrating a \emph{Sovereignty Level} construct as an interpretive strategic lens (Section~\ref{sec:method}). Second, it provides an \emph{architectural decomposition} of the Cloud--Edge--IoT continuum into six Security Layers and four Transversal Security Cross-Layers, populated with their constituent capabilities, as the Stage~1 output (Section~\ref{sec:stage1}). Third, it consolidates those capabilities into \emph{three priority clusters}: Sovereign Trusted Infrastructure, Cognitive Security and Autonomous Cyber Defence, and Federated Operational Sovereignty. Each cluster is analysed through a \emph{seven-dimension template} as the Stage~2 output (Section~\ref{sec:clusters}). Fourth, it develops a \emph{three-phase transition matrix} for each priority cluster, projecting the seven-dimension analysis onto the 2026--2040 horizon and identifying, for each phase boundary, the Critical Enabler whose delivery determines whether progression to the next phase is plausible, as the Stage~3 output (Section~\ref{sec:phases}). Fifth, it derives a set of \emph{seven implementation-oriented recommendations}, including three cluster-aligned and four cross-cutting recommendations, from the cluster trajectories and phase-gate readiness assessment, with quantified Phase~2 and Phase~3 targets traced to the gate conditions on which delivery depends (Section~\ref{sec:recs}).
 
 Section~\ref{sec:background} provides the strategic and regulatory context. Section~\ref{sec:method} presents the three-stage methodology. Section~\ref{sec:stage1} defines the layered system model and its constituent capabilities. Section~\ref{sec:clusters} presents the three priority clusters and their seven-dimension synthesis. Section~\ref{sec:phases} presents the phase logic and cluster transition matrices. Section~\ref{sec:recs} states the recommendations. Section~\ref{sec:disc} discusses validation and limitations. Section~\ref{sec:concl} concludes.
 
 \section{Background and Driving Factors}
 \label{sec:background}
 
-The first vector shaping the continuum transition is architectural: the
-continuum is characterised by decentralisation and physical exposure.
-Decentralisation complicates visibility, orchestration, patching,
-identity, and incident response across multiple administrative domains
-and increases the probability of inconsistent security postures across
-deployments~\cite{roman2018,ranaweera2021}. Physical exposure removes
-the environmental and access controls that hyperscale data centres rely
-on: edge nodes in factories, substations, transport hubs, and telecom
-sites are exposed to tampering, fault injection, side-channel attacks,
-and supply chain compromise~\cite{alwarafy2021}. Hardware roots of
-trust, secure boot, remote attestation, and tamper-aware design are
-therefore baseline requirements rather than optional enhancements
-\cite{tpm2spec,sailer2004}.
+The first vector shaping the continuum transition is architectural: the continuum is characterised by decentralisation and physical exposure. Decentralisation complicates visibility, orchestration, patching, identity, and incident response across multiple administrative domains and increases the probability of inconsistent security postures across deployments~\cite{roman2018,ranaweera2021}. Physical exposure removes the environmental and access controls that hyperscale data centres rely on: edge nodes in factories, substations, transport hubs, and telecom sites are exposed to tampering, fault injection, side-channel attacks, and supply-chain compromise~\cite{alwarafy2021}. Hardware roots of trust, secure boot, remote attestation, and tamper-aware design are therefore baseline requirements rather than optional enhancements~\cite{tpm2spec,sailer2004}.
 
-The European regulatory landscape constitutes a second major vector
-shaping the continuum transition. NIS2
-\cite{eunis2}, the CRA~\cite{eucra2024}, the AI Act~\cite{euaiact}, DORA
-\cite{eudora}, the Data Act~\cite{eudataact}, and GDPR~\cite{eugdpr}
-together impose obligations that must be translated into architectures,
-assurance mechanisms, and lifecycle controls operating across cloud,
-edge, and IoT. This simultaneity creates disproportionate implementation pressures for SMEs and smaller Member States.
+The European regulatory landscape constitutes a second major vector shaping the continuum transition. NIS2~\cite{eunis2}, the CRA~\cite{eucra2024}, the AI Act~\cite{euaiact}, DORA~\cite{eudora}, the Data Act~\cite{eudataact}, and GDPR~\cite{eugdpr} together impose obligations that must be translated into architectures, assurance mechanisms, and lifecycle controls operating across cloud, edge, and IoT. This simultaneity creates disproportionate implementation pressures for SMEs and smaller Member States.
 
-Sovereignty is the third vector. Dependence on non-EU providers for
-secure silicon, cloud platforms, and enterprise security tooling creates
-geopolitical and operational risk. Extra-territorial data access under
-foreign jurisdiction has been confirmed as a practical constraint for EU
-users of hyperscaler services~\cite{microsoftsenat2025}.
+Sovereignty is the third vector. Dependence on non-EU providers for secure silicon, cloud platforms, and enterprise security tooling creates geopolitical and operational risk. Extra-territorial data access under foreign jurisdiction has been confirmed as a practical constraint for EU users of hyperscaler services~\cite{microsoftsenat2025}.
 
-Europe's position in this landscape is asymmetric.
-A world-leading regulatory foundation and a rigorous certification
-framework~\cite{commreg2024eucc,eucsa} coexist with structural industrial
-gaps. EU-headquartered vendors (Infineon, NXP, STMicroelectronics) design
-the dominant secure element products and achieved EUCC ``High''
-certification for multiple product families in 2025
-\cite{enisaeucc2025}, but fabrication depends on non-EU foundries and
-designs remain proprietary, preventing sovereign auditability at the
-silicon level. Intel SGX/TDX, AMD SEV-SNP, and Arm TrustZone/CCA constitute the dominant operational hardware-backed TEE families across cloud/server
-and embedded deployments; EU-origin RISC-V alternatives remain largely
-at research or prototype stage~\cite{Munoz2023-pw}. \tofix{No EU-origin RISC-V processor has received EUCC or Common Criteria certification as of April 2026. The enterprise SIEM market is dominated by US platforms, with no
-EU-headquartered vendor in the Gartner Leaders quadrant as of late 2025
-\cite{gartner2025siem}. Hyperscalers hold approximately 70\% of the EU
-cloud market; EU-headquartered providers collectively hold about 15\%,
-stable since 2022 but below the 29\% share recorded in 2017
-\cite{synergy2025}. For post-quantum migration the NIS Cooperation Group
-roadmap~\cite{niscg2025pqc} now provides a binding framework, but
-production-scale post-quantum cryptographic (PQC) hardware tailored for
-edge and IoT is not yet available in Europe.}
+Europe's position in this landscape is asymmetric. A world-leading regulatory foundation and a rigorous certification framework~\cite{commreg2024eucc,eucsa} coexist with structural industrial gaps. EU-headquartered vendors (Infineon, NXP, STMicroelectronics) design the dominant secure-element products and achieved EUCC ``High'' certification for multiple product families in 2025~\cite{enisaeucc2025}, but fabrication depends on non-EU foundries and designs remain proprietary, preventing sovereign auditability at the silicon level. Intel SGX/TDX, AMD SEV-SNP, and Arm TrustZone/CCA constitute the dominant operational hardware-backed TEE families across cloud, server, and embedded deployments; EU-origin RISC-V alternatives remain largely at research or prototype stage~\cite{Munoz2023-pw}, and no EU-origin RISC-V processor has received EUCC or Common Criteria certification as of April~2026. The enterprise SIEM market is dominated by US platforms, with no EU-headquartered vendor in the Gartner Leaders quadrant as of late 2025~\cite{gartner2025siem}. Hyperscalers hold approximately 70\% of the EU cloud market; EU-headquartered providers collectively hold about 15\%, stable since 2022 but below the 29\% share recorded in 2017~\cite{synergy2025}. For post-quantum migration the NIS Cooperation Group roadmap~\cite{niscg2025pqc} now provides a binding framework, but production-scale post-quantum cryptographic (PQC) hardware tailored for edge and IoT is not yet available in Europe. This asymmetry between regulatory and certification leadership on the one hand, and structural industrial gaps on the other, is the empirical instantiation of the ambition--implementation gap that Section~\ref{sec:intro} introduces and that the methodology of Section~\ref{sec:method} is designed to address.
 
 \section{Methodology}
 \label{sec:method}
+
 \begin{figure*}[t]
 \centering
 \fbox{%
@@ -152,79 +113,22 @@ edge and IoT is not yet available in Europe.}
 \textit{Sovereignty Level as interpretive lens: assesses whether critical capabilities and dependencies can be shaped, governed, assured, and operated under European influence or control}
 }%
 }
-\caption{Three-stage methodology for constructing the cybersecurity
-and cyber-resilience roadmap. Stage~1 decomposes the Cloud--Edge--IoT
-continuum into Security Layers, Transversal Security Cross-Layers, and
-constituent capabilities. Stage~2 consolidates these capabilities into
-priority clusters and analyses each through a seven-dimension template.
-Stage~3 projects the clusters onto three-phase transition matrices,
-each row reflecting one of four assessment perspectives and the
-Critical Enabler row identifying the gate condition for phase
-progression. Sovereignty Level is used as an interpretive lens
-across capability, dependency, cluster, and phase assessment.}
+\caption{Three-stage methodology for constructing the cybersecurity and cyber-resilience roadmap. Stage~1 decomposes the Cloud--Edge--IoT continuum into Security Layers, Transversal Security Cross-Layers, and constituent capabilities. Stage~2 consolidates these capabilities into priority clusters and analyses each through a seven-dimension template. Stage~3 projects the clusters onto three-phase transition matrices, each row reflecting one of four assessment perspectives and the Critical Enabler row identifying the gate condition for phase progression. Sovereignty Level is used as an interpretive lens across capability, dependency, cluster, and phase assessment.}
 \label{fig:methodology}
 \end{figure*}
 
-The methodology examines the heterogeneous landscape of the
-Cloud--Edge--IoT ecosystem and translates it into a structured roadmap
-for research, innovation, policy, deployment, and ecosystem
-development. It proceeds in three stages, followed by iterative review
-and refinement. Stage~1 (Section~\ref{sec:stage1intro}) decomposes the
-continuum into architectural layers and cross-layers and identifies the
-specific capabilities required within each. Stage~2
-(Section~\ref{sec:stage2}) consolidates those capabilities into
-priority clusters and analyses each cluster through a seven-dimension
-template. Stage~3 (Section~\ref{sec:stage3}) projects the priority
-clusters onto three-phase transition matrices covering the 2026--2040
-horizon, identifying the Critical Enabler associated with each phase
-boundary.
+The methodology examines the heterogeneous landscape of the Cloud--Edge--IoT ecosystem and translates it into a structured roadmap for research, innovation, policy, deployment, and ecosystem development. It proceeds in three stages, followed by iterative review and refinement. Stage~1 (Section~\ref{sec:stage1intro}) decomposes the continuum into architectural layers and cross-layers and identifies the specific capabilities required within each. Stage~2 (Section~\ref{sec:stage2}) consolidates those capabilities into priority clusters and analyses each cluster through a seven-dimension template. Stage~3 (Section~\ref{sec:stage3}) projects the priority clusters onto three-phase transition matrices covering the 2026--2040 horizon, identifying the Critical Enabler associated with each phase boundary.
 
-This separation is deliberate. Stage~1 is a \emph{decompositional}
-operation: it establishes the analytical vocabulary, exposes
-cross-layer dependencies, and prevents priorities from being selected
-as isolated technologies detached from their architectural context.
-Stage~2 is a \emph{synthetic} operation: it aggregates capabilities
-that share dependencies or strategic outcomes into coherent investment
-and coordination domains and characterises each through a static
-seven-dimension profile. Stage~3 is a \emph{projective} operation: it
-embeds those static profiles in time, exposing the sequencing of
-research, regulation, deployment, and market uptake required to move
-each cluster from its 2026 baseline to its 2040 target. Critical
-Enablers, phase-gate conditions, and shared bottlenecks are products of
-Stage~3 rather than of Stage~2, because they only become visible once
-the cluster is examined as a temporal trajectory.
+This separation is deliberate. Stage~1 is a \emph{decompositional} operation: it establishes the analytical vocabulary, exposes cross-layer dependencies, and prevents priorities from being selected as isolated technologies detached from their architectural context. Stage~2 is a \emph{synthetic} operation: it aggregates capabilities that share dependencies or strategic outcomes into coherent investment and coordination domains and characterises each through a static seven-dimension profile. Stage~3 is a \emph{projective} operation: it embeds those static profiles in time, exposing the sequencing of research, regulation, deployment, and market uptake required to move each cluster from its 2026 baseline to its 2040 target. Critical Enablers, phase-gate conditions, and shared bottlenecks are products of Stage~3 rather than of Stage~2, because they only become visible once the cluster is examined as a temporal trajectory.
 
-Rather than predicting when each technology or policy milestone will
-occur, the methodology organises the capabilities, dependencies, and
-transition conditions that make progress plausible. This distinction is
-important because the Cloud--Edge--IoT ecosystem evolves through the
-interaction of technical maturity, regulatory obligations, deployment
-readiness, market adoption, and industrial capacity. The methodology
-also links technical cybersecurity capabilities to broader European
-strategic objectives: resilience, interoperability, trust, and
-sovereignty.
+Rather than predicting when each technology or policy milestone will occur, the methodology organises the capabilities, dependencies, and transition conditions that make progress plausible. This distinction is important because the Cloud--Edge--IoT ecosystem evolves through the interaction of technical maturity, regulatory obligations, deployment readiness, market adoption, and industrial capacity. The methodology also links technical cybersecurity capabilities to broader European strategic objectives: resilience, interoperability, trust, and sovereignty.
 
-In this paper, \emph{Sovereignty Level} denotes the extent to which
-critical capabilities and dependencies can be shaped, governed,
-assured, and operated under European influence or control. It is
-assessed at the capability and dependency level in Stage~1, used to
-interpret the strategic significance of priority clusters in Stage~2,
-and projected as a per-phase qualitative band in Stage~3 (the SSL row
-of each transition matrix). It is used as an interpretive strategic
-lens rather than as a rigid quantitative score.
+In this paper, \emph{Sovereignty Level} denotes the extent to which critical capabilities and dependencies can be shaped, governed, assured, and operated under European influence or control. It is assessed at the capability and dependency level in Stage~1, used to interpret the strategic significance of priority clusters in Stage~2, and projected as a per-phase qualitative band in Stage~3 (the SSL row of each transition matrix). It is used as an interpretive strategic lens rather than as a rigid quantitative score.
 
 \subsection{Stage~1: Architectural Decomposition and Capability Identification}
 \label{sec:stage1intro}
 
-Stage~1 decomposes the continuum into architectural vertical and
-cross-cutting layers. These layers are treated as analytically distinct
-but operationally interdependent: a vulnerability or governance gap at
-one layer typically propagates to adjacent layers, so effective
-security requires coordinated action across the vertical and horizontal
-extent of the architecture~\cite{alwarafy2021,ranaweera2021}. For each
-layer, Stage~1 further identifies the constituent \emph{capabilities}:
-the technical and operational sub-domains in which strategic
-investment, standardisation, and ecosystem building are required.
+Stage~1 decomposes the continuum into architectural vertical and cross-cutting layers. These layers are treated as analytically distinct but operationally interdependent: a vulnerability or governance gap at one layer typically propagates to adjacent layers, so effective security requires coordinated action across the vertical and horizontal extent of the architecture~\cite{alwarafy2021,ranaweera2021}. For each layer, Stage~1 further identifies the constituent \emph{capabilities}: the technical and operational sub-domains in which strategic investment, standardisation, and ecosystem building are required.
 
 Stage~1 answers three questions:
 \begin{enumerate}
@@ -233,63 +137,18 @@ Stage~1 answers three questions:
     \item Which capabilities within each layer are sufficiently strategic, cross-cutting, or underdeveloped to justify dedicated roadmap attention?
 \end{enumerate}
 
-Capabilities are derived from four sources: the architectural
-characteristics of distributed systems across HPC, cloud, edge, and
-device tiers; the recurring cybersecurity challenges observed at those
-tiers (hardware integrity, software supply chain verification, workload
-isolation, identity federation, data confidentiality, and perimeter
-control); cross-cutting strategic concerns (sovereignty, trust,
-interoperability, resilience, assurance, and regulatory alignment); and
-the need to connect technical architecture with operational
-constraints, governance requirements, and deployment pathways. A
-capability is therefore defined as a strategic ability that the
-European ecosystem should be able to design, deploy, govern,
-standardise, assure, coordinate, or scale in order to achieve
-trustworthy, resilient, and sovereign operation of the continuum.
-Capabilities may encompass technical controls, governance mechanisms,
-interoperability instruments, assurance functions, ecosystem
-coordination capacities, and deployment enablers.
+Capabilities are derived from four sources: the architectural characteristics of distributed systems across HPC, cloud, edge, and device tiers; the recurring cybersecurity challenges observed at those tiers (hardware integrity, software supply-chain verification, workload isolation, identity federation, data confidentiality, and perimeter control); cross-cutting strategic concerns (sovereignty, trust, interoperability, resilience, assurance, and regulatory alignment); and the need to connect technical architecture with operational constraints, governance requirements, and deployment pathways. A capability is therefore defined as a strategic ability that the European ecosystem should be able to design, deploy, govern, standardise, assure, coordinate, or scale in order to achieve trustworthy, resilient, and sovereign operation of the continuum. Capabilities may encompass technical controls, governance mechanisms, interoperability instruments, assurance functions, ecosystem coordination capacities, and deployment enablers.
 
-The output of Stage~1 is a structured map of the problem space,
-organised into six Security Layers and four Transversal Security
-Cross-Layers, each populated with its constituent capabilities (see
-Section~\ref{sec:stage1}). Sovereignty-sensitive capabilities, where
-dependencies on external providers or assurance mechanisms are
-structurally significant, are identified so that Stage~2 can track
-their evolution.
+The output of Stage~1 is a structured map of the problem space, organised into six Security Layers and four Transversal Security Cross-Layers, each populated with its constituent capabilities (see Section~\ref{sec:stage1}). Sovereignty-sensitive capabilities, where dependencies on external providers or assurance mechanisms are structurally significant, are identified so that Stage~2 can track their evolution.
 
 \subsection{Stage~2: Priority Clustering and Seven-Dimension Analysis}
 \label{sec:stage2}
 
-Stage~2 groups the capabilities identified in Stage~1 into three
-Priority Clusters: (i)~\emph{Sovereign Trusted Infrastructure}, the
-hardware, cryptographic, software-update, data-protection, and
-resilience foundations that anchor trust across the continuum;
-(ii)~\emph{Cognitive Security and Autonomous Cyber Defence}, the
-AI-assisted operational layer that scales detection, analysis, and
-response beyond human-paced workflows; and (iii)~\emph{Federated
-Operational Sovereignty}, the interoperability, supply-chain
-verification, assurance, and federation substrate that converts
-individually sovereign components into a unified European trust fabric.
+Stage~2 groups the capabilities identified in Stage~1 into three Priority Clusters: (i)~\emph{Sovereign Trusted Infrastructure}, the hardware, cryptographic, software-update, data-protection, and resilience foundations that anchor trust across the continuum; (ii)~\emph{Cognitive Security and Autonomous Cyber Defence}, the AI-assisted operational layer that scales detection, analysis, and response beyond human-paced workflows; and (iii)~\emph{Federated Operational Sovereignty}, the interoperability, supply-chain verification, assurance, and federation substrate that converts individually sovereign components into a unified European trust fabric.
 
-The use of three priority clusters is a deliberate synthesis choice
-rather than an assertion that only three cybersecurity priorities
-exist. This is consistent with technology-roadmapping practice, where
-roadmaps function as strategic planning and communication instruments
-that organise complex technical trajectories into a smaller number of
-decision-relevant domains~\cite{phaal2004roadmapping}. A roadmap may
-identify many relevant capabilities, but policy and funding
-coordination require higher-level priorities that communicate strategic
-direction, expose shared dependencies, and support portfolio-level
-decision-making. The three clusters therefore function as an executive
-structuring layer: they consolidate related capabilities into coherent
-investment and coordination domains while preserving the more granular
-capability analysis underneath.
+The use of three priority clusters is a deliberate synthesis choice rather than an assertion that only three cybersecurity priorities exist. This is consistent with technology-roadmapping practice, where roadmaps function as strategic planning and communication instruments that organise complex technical trajectories into a smaller number of decision-relevant domains~\cite{phaal2004roadmapping}. A roadmap may identify many relevant capabilities, but policy and funding coordination require higher-level priorities that communicate strategic direction, expose shared dependencies, and support portfolio-level decision-making. The three clusters therefore function as an executive structuring layer: they consolidate related capabilities into coherent investment and coordination domains while preserving the more granular capability analysis underneath.
 
-Each priority cluster is analysed through a seven-dimension template
-applied consistently across the three clusters. The same template also
-preserves traceability to the underlying capabilities from which each
-cluster is derived:
+Each priority cluster is analysed through a seven-dimension template applied consistently across the three clusters. The same template also preserves traceability to the underlying capabilities from which each cluster is derived:
 \begin{itemize}
     \item \textbf{(D1)~Baseline}, describing the current state of the priority cluster, its capability maturity, dependencies, and main implementation gaps;
     \item \textbf{(D2)~High-Impact Activities and Target Outcomes}, identifying the concrete research, innovation, standardisation, or deployment actions expected to advance the priority cluster, with each action assigned to a target phase and linked to the intended target outcome;
@@ -300,23 +159,12 @@ cluster is derived:
     \item \textbf{(D7)~Transversal Meta-Layer}, assessing how the priority cluster contributes to broader European strategic objectives, including sovereignty, trust and ethics, and sustainable security.
 \end{itemize}
 
-D2 lists the activities that should advance a cluster but treats them
-as a static portfolio. D4 identifies the broader funding,
-standardisation, and pilot infrastructures that can accelerate the
-cluster as a whole. The temporal sequencing of these activities and the
-identification of the specific gate conditions whose delivery
-determines phase progression are operations of Stage~3, not Stage~2.
-The seven-dimension template therefore provides a structured and
-sufficiently comprehensive static profile of each priority cluster,
-enabling cross-cluster comparison, funding prioritisation, and the
-identification of shared dependencies, while leaving the temporal
-projection to the next stage.
+D2 lists the activities that should advance a cluster but treats them as a static portfolio. D4 identifies the broader funding, standardisation, and pilot infrastructures that can accelerate the cluster as a whole. The temporal sequencing of these activities and the identification of the specific gate conditions whose delivery determines phase progression are operations of Stage~3, not Stage~2. The seven-dimension template therefore provides a structured and sufficiently comprehensive static profile of each priority cluster, enabling cross-cluster comparison, funding prioritisation, and the identification of shared dependencies, while leaving the temporal projection to the next stage.
 
 \subsection{Stage~3: Phase Logic and Transition Matrices}
 \label{sec:stage3}
 
-Stage~3 projects each priority cluster onto a three-phase transition
-matrix covering the 2026--2040 horizon. The phases are:
+Stage~3 projects each priority cluster onto a three-phase transition matrix covering the 2026--2040 horizon. The phases are:
 \begin{itemize}
     \item \textbf{Phase~1: Near-Term Implementation and Pilot Actions (2026--2030)}, focused on deploying near-ready solutions, enforcing enacted regulation, validating early pilots, and closing immediate governance gaps;
     \item \textbf{Phase~2: Mid-Term Scale-Up, Industrial R\&D and Standardisation (2030--2035)}, focused on industrialising sovereign capabilities, federating architectures, scaling validated pilots, and building the workforce and institutional infrastructure required for wider adoption; and
@@ -324,73 +172,28 @@ matrix covering the 2026--2040 horizon. The phases are:
 \end{itemize}
 
 \subsubsection{Assessment Perspectives}
-The content of each phase column is informed by four assessment
-perspectives. The four are chosen because they jointly capture the
-distinct ecosystem conditions that must align for a cluster to
-progress, while being narrow enough to remain analytically tractable.
-Technical readiness alone does not predict adoption; regulatory
-obligation alone does not produce deployment; deployment alone does not
-produce market viability. The four perspectives are therefore treated
-as concurrent rather than sequential:
+
+The content of each phase column is informed by four assessment perspectives. The four are chosen because they jointly capture the distinct ecosystem conditions that must align for a cluster to progress, while being narrow enough to remain analytically tractable. Technical readiness alone does not predict adoption; regulatory obligation alone does not produce deployment; deployment alone does not produce market viability. The four perspectives are therefore treated as concurrent rather than sequential:
 \begin{itemize}
     \item \textbf{R\&I Maturity}, covering the technical maturity of the capabilities underlying the priority cluster, the maturity of their enabling dependencies, the availability of pilot deployments, and the readiness of the research and innovation ecosystem to support transition;
     \item \textbf{Policy, Regulation, and Standards}, covering the regulatory obligations that drive the priority cluster, the standards and certification mechanisms that support it, and the policy instruments that can accelerate or constrain adoption;
     \item \textbf{Operational Deployment and Adoption}, covering the availability of deployable solutions, the maturity of deployment pathways, and the readiness of users, operators, and infrastructure providers to adopt the priority cluster; and
     \item \textbf{Ecosystem Uptake and Strategic Impact}, covering the ecosystem conditions that shape adoption, the strategic significance of achieving the target state, and the consequences of delay or failure.
 \end{itemize}
-These four perspectives are not represented as separate rows in the
-compact transition matrices presented in Section~\ref{sec:phases}, but
-are folded into the \emph{Operational State} row of each matrix, which
-characterises the observable state of the cluster within each phase
-column across all four perspectives concurrently. The narrative cluster
-analyses in Section~\ref{sec:clusters} expand each perspective in
-prose.
+
+These four perspectives are not represented as separate rows in the compact transition matrices presented in Section~\ref{sec:phases}, but are folded into the \emph{Operational State} row of each matrix, which characterises the observable state of the cluster within each phase column across all four perspectives concurrently. The narrative cluster analyses in Section~\ref{sec:clusters} expand each perspective in prose.
 
 \subsubsection{Operational Deployment Phase and Strategic Sovereignty Level Rows}
-Each transition matrix uses two scalar rows to position the cluster
-within each phase. The \emph{Operational Deployment Phase} (ODP) row
-uses the fixed vocabulary \textit{Applied R\&D} $\rightarrow$
-\textit{Fragmented Piloting} $\rightarrow$ \textit{Standardised
-Integration} $\rightarrow$ \textit{Ubiquitous Operation}, and
-characterises how broadly and how operationally the cluster is
-deployed. The \emph{Strategic Sovereignty Level} (SSL) row uses the
-fixed vocabulary \textit{High Foreign Dependency} $\rightarrow$
-\textit{Emerging EU Ecosystem} $\rightarrow$ \textit{Full Sovereign
-Autonomy}. The SSL row operationalises, at the cluster level and per
-phase, the same Sovereignty Level construct introduced as an
-interpretive lens in Section~\ref{sec:method}: it is the per-phase
-expression of that lens, not an independent metric. Where a cluster
-contains capabilities at heterogeneous sovereignty positions
-(Cluster~3 in Phase~1 being the principal example), the SSL cell
-records that heterogeneity rather than smoothing it into a single
-band.
+
+Each transition matrix uses two scalar rows to position the cluster within each phase. The \emph{Operational Deployment Phase} (ODP) row uses the fixed vocabulary \textit{Applied R\&D} $\rightarrow$ \textit{Fragmented Piloting} $\rightarrow$ \textit{Standardised Integration} $\rightarrow$ \textit{Ubiquitous Operation}, and characterises how broadly and how operationally the cluster is deployed. The \emph{Strategic Sovereignty Level} (SSL) row uses the fixed vocabulary \textit{High Foreign Dependency} $\rightarrow$ \textit{Emerging EU Ecosystem} $\rightarrow$ \textit{Full Sovereign Autonomy}. The SSL row operationalises, at the cluster level and per phase, the same Sovereignty Level construct introduced as an interpretive lens in Section~\ref{sec:method}: it is the per-phase expression of that lens, not an independent metric. Where a cluster contains capabilities at heterogeneous sovereignty positions (Cluster~3 in Phase~1 being the principal example), the SSL cell records that heterogeneity rather than smoothing it into a single band.
 
 \subsubsection{Critical Enabler Row}
-Each phase column terminates in a \emph{Critical Enabler} cell. The
-Critical Enabler is a single named gate condition whose delivery is
-treated as necessary for the cluster to progress to the next phase. It
-is distinguished from the broader \emph{Catalysts and Enablers} of
-Stage~2 (D4) in two respects. First, where D4 lists the funding
-instruments, standards bodies, and pilot infrastructures that can
-accelerate a cluster as a whole, the Critical Enabler names the single
-condition whose absence would block phase transition irrespective of
-the wider catalyst landscape. Second, where D4 entries are static
-contextual enablers, the Critical Enabler is an event with a
-phase-bound delivery expectation: a regulatory enforcement date, a
-standard finalisation, a fabrication-line milestone, or an equivalent
-named occurrence. The Critical Enabler is therefore the principal
-phase-gate instrument of the roadmap, and the assessment of whether
-it is on track, at risk, or blocked is the principal analytical
-output of Stage~3.
 
-A transition condition expressed through the Critical Enabler row
-indicates that a technical basis has matured, that a policy or
-standardisation basis has emerged, that a deployment pathway has been
-validated, that a strategic ecosystem condition has materialised, or
-that a Sovereignty Level improvement has become plausible through
-reduced dependency or increased European capacity. These conditions are
-not deterministic predictions or precise quantitative thresholds unless
-the available evidence supports such specificity.
+Each phase column terminates in a \emph{Critical Enabler} cell. The Critical Enabler is a single named gate condition whose delivery is treated as necessary for the cluster to progress to the next phase. It is distinguished from the broader \emph{Catalysts and Enablers} of Stage~2 (D4) in two respects. First, where D4 lists the funding instruments, standards bodies, and pilot infrastructures that can accelerate a cluster as a whole, the Critical Enabler names the single condition whose absence would block phase transition irrespective of the wider catalyst landscape. Second, where D4 entries are static contextual enablers, the Critical Enabler is an event with a phase-bound delivery expectation: a regulatory enforcement date, a standard finalisation, a fabrication-line milestone, or an equivalent named occurrence. The Critical Enabler is therefore the principal phase-gate instrument of the roadmap, and the assessment of whether it is on track, at risk, or blocked is the principal analytical output of Stage~3.
+
+A transition condition expressed through the Critical Enabler row indicates that a technical basis has matured, that a policy or standardisation basis has emerged, that a deployment pathway has been validated, that a strategic ecosystem condition has materialised, or that a Sovereignty Level improvement has become plausible through reduced dependency or increased European capacity. These conditions are not deterministic predictions or precise quantitative thresholds unless the available evidence supports such specificity.
+
+
 \section{Stage 1: Cloud--Edge--IoT Core Dimensions (Layers) and
 Capabilities Identification}
 \label{sec:stage1}
@@ -677,7 +480,7 @@ Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerat
 \section{Stage~2 Output: Priority Clusters and Seven-Dimension Synthesis}
 \label{sec:clusters}
 
-Stage~2 consolidates the layer and cross-layer capabilities identified in Section~\ref{sec:stage1} into three coordinated priority clusters and analyses each through the seven-dimension template defined in Section~\ref{sec:method}. The synthesis here is \emph{static and architectural}: it establishes why the priorities cohere, which capabilities they aggregate, which dependencies they share, and which strategic outcomes they target. The temporal projection of each cluster across Phase~1, Phase~2, and Phase~3, including phase-bound activities and Critical Enablers, is presented separately in Section~\ref{sec:phases}, and quantified targets, coverage thresholds, and market-share objectives are concentrated in Section~\ref{sec:recs}, where they can be traced back to specific phase gates and recommendation actions. Where relevant, the analysis below refers to the underlying layer or cross-layer capabilities from which each cluster is derived.
+Stage~2 consolidates the layer and cross-layer capabilities identified in Section~\ref{sec:stage1} into three coordinated priority clusters and analyses each through the seven-dimension template defined in Section~\ref{sec:method}. The synthesis here is \emph{capability-anchored and time-invariant}: it establishes why the priorities cohere, which capabilities they aggregate, which dependencies they share, and which strategic outcomes they target. The temporal projection of each cluster across Phase~1, Phase~2, and Phase~3, including phase-bound activities and Critical Enablers, is presented separately in Section~\ref{sec:phases}, and quantified targets, coverage thresholds, and market-share objectives are concentrated in Section~\ref{sec:recs}, where they can be traced back to specific phase gates and recommendation actions. Where relevant, the analysis below refers to the underlying layer or cross-layer capabilities from which each cluster is derived.
 
 \subsection{Cluster~1: Sovereign Trusted Infrastructure}
 \label{sec:c1}
@@ -760,9 +563,7 @@ Failsafe mechanisms should preserve trust when federation assumptions fail or wh
 \section{Stage~3 Output: Phase Logic and Cluster Transition Matrices}
 \label{sec:phases}
 
-Stage~3 projects the three priority clusters of Section~\ref{sec:clusters} onto the 2026--2040 horizon. The static, capability-level synthesis of Stage~2 is converted here into a temporal trajectory: where each cluster sits in each phase, what observable conditions characterise that phase, and which single gate condition---the \emph{Critical Enabler}---must be delivered for the cluster to progress to the next phase. Tables~\ref{tab:c1}--\ref{tab:c3} present the per-cluster transition matrices: each phase column folds the four assessment perspectives of Section~\ref{sec:stage3} (research and innovation maturity; policy, regulation, and standards; operational deployment and adoption; and ecosystem uptake and strategic impact) into a single \emph{Operational State} narrative, anchored by Operational Deployment Phase (ODP) and Strategic Sovereignty Level (SSL) bands, and terminates in a \emph{Critical Enabler} cell. The remainder of this section walks through the trajectory of each cluster across the three phases, focusing on \emph{what changes} between phases and \emph{which gate condition controls the change}, rather than restating the static cluster analysis. Cross-cutting dependencies shared by two or more clusters were treated in Section~\ref{sec:crosscut}; quantified coverage thresholds, market-share targets, and dwell-time objectives are concentrated in the strategic recommendations of Section~\ref{sec:recs}, where each numeric target is traced to the phase gate it depends on.
-
-% --- Tables c1, c2, c3 are positioned here as in the existing file ---
+Stage~3 projects the three priority clusters of Section~\ref{sec:clusters} onto the 2026--2040 horizon. The static, capability-level synthesis of Stage~2 is converted here into a temporal trajectory: where each cluster sits in each phase, what observable conditions characterise that phase, and which single gate condition, the \emph{Critical Enabler}, must be delivered for the cluster to progress to the next phase. Tables~\ref{tab:c1}--\ref{tab:c3} present the per-cluster transition matrices. Each phase column folds the four assessment perspectives of Section~\ref{sec:stage3} (research and innovation maturity; policy, regulation, and standards; operational deployment and adoption; and ecosystem uptake and strategic impact) into a single \emph{Operational State} narrative, anchored by Operational Deployment Phase (ODP) and Strategic Sovereignty Level (SSL) bands, and terminates in a \emph{Critical Enabler} cell. The remainder of this section walks through the trajectory of each cluster across the three phases, focusing on \emph{what changes} between phases and \emph{which gate condition controls the change}, rather than restating the static cluster analysis. Cross-cutting dependencies shared by two or more clusters were treated in Section~\ref{sec:crosscut}. Quantified coverage thresholds, market-share targets, and dwell-time objectives are concentrated in the strategic recommendations of Section~\ref{sec:recs}, where each numeric target is traced to the phase gate it depends on.
 
 \subsection{Cluster~1 Trajectory: Sovereign Trusted Infrastructure}
 \label{sec:c1traj}
@@ -840,9 +641,9 @@ Future work follows three directions. First, the architectural analysis should b
 \section{Conclusion}
 \label{sec:concl}
 
-The Cloud--Edge--IoT continuum requires Europe to move beyond reactive and fragmented cybersecurity models towards autonomous, federated, and certified Security-by-Design. The three-stage methodology presented here decomposes the continuum into six Security Layers and four Transversal Security Cross-Layers populated with their constituent capabilities (Stage~1), consolidates those capabilities into three executive priority clusters analysed through a seven-dimension template (Stage~2), and projects each cluster onto a 2026--2040 transition matrix in which a single Critical Enabler per phase column functions as the gate condition for progression (Stage~3). The seven recommendations of Section~\ref{sec:recs}---three cluster-aligned and four cross-cutting---trace each quantified target back to the phase gate it depends on, making the ambition--implementation gap operationally actionable rather than rhetorical.
+The Cloud--Edge--IoT continuum requires Europe to move beyond reactive and fragmented cybersecurity models towards autonomous, federated, and certified Security-by-Design. The three-stage methodology presented here decomposes the continuum into six Security Layers and four Transversal Security Cross-Layers populated with their constituent capabilities (Stage~1), consolidates those capabilities into three executive priority clusters analysed through a seven-dimension template (Stage~2), and projects each cluster onto a 2026--2040 transition matrix in which a single Critical Enabler per phase column functions as the gate condition for progression (Stage~3). The seven recommendations of Section~\ref{sec:recs}, comprising three cluster-aligned and four cross-cutting recommendations, trace each quantified target back to the phase gate it depends on, making the ambition--implementation gap operationally actionable rather than rhetorical.
 
-The 2025--2026 evidence base shows concrete milestones alongside persistent gaps. EUCC~``High'' certifications across the three major EU secure-element designers~\cite{enisaeucc2025}, a binding NIS~CG PQC migration framework~\cite{niscg2025pqc}, DORA operationalisation through the first CTPP designations~\cite{esa2025ctpp}, and the iterative Simpl-Open MVP~\cite{ecsimpl} establish Phase~1 readiness in domains where standardisation and certification are the binding constraints. Conversely, NIS2 transposition delays~\cite{ec2025nis2status}, EUCS deadlock~\cite{ec2025cloudsov}, contested Chips~Act semiconductor targets~\cite{eurochipsaudit2025}, AI~Act conformity-assessment capacity shortfalls~\cite{ep2026aiact}, and continued hyperscaler concentration in the EU cloud market~\cite{synergy2025} mark the gates where Phase~1$\rightarrow$Phase~2 transition is at risk. The Phase-1 Critical Enablers identified for each cluster---EUCC~``High'' for an EU-origin RISC-V secure element, a CEN/CENELEC or ETSI~TC~CYBER adversarial-robustness test suite for security AI, and ratification of OASC~MIM6 with EU~Cloud~Rulebook reference---are differently constrained and require differently calibrated mitigation instruments.
+The 2025--2026 evidence base shows concrete milestones alongside persistent gaps. EUCC~``High'' certifications across the three major EU secure-element designers~\cite{enisaeucc2025}, a binding NIS~CG PQC migration framework~\cite{niscg2025pqc}, DORA operationalisation through the first CTPP designations~\cite{esa2025ctpp}, and the iterative Simpl-Open MVP~\cite{ecsimpl} establish Phase~1 readiness in domains where standardisation and certification are the binding constraints. At the same time, NIS2 transposition delays~\cite{ec2025nis2status}, EUCS deadlock~\cite{ec2025cloudsov}, contested Chips~Act semiconductor targets~\cite{eurochipsaudit2025}, AI~Act conformity-assessment capacity shortfalls~\cite{ep2026aiact}, and continued hyperscaler concentration in the EU cloud market~\cite{synergy2025} mark the gates where the Phase~1$\rightarrow$Phase~2 transition is at risk. The Phase~1 Critical Enablers identified for each cluster, namely EUCC~``High'' for an EU-origin RISC-V secure element, a CEN/CENELEC or ETSI~TC~CYBER adversarial-robustness test suite for security AI, and ratification of OASC~MIM6 with EU~Cloud~Rulebook reference, are constrained in different ways and require tailored mitigation instruments.
 
 Future work should extend this analysis in three directions: empirical validation and operationalisation of the Sovereignty Level construct through measurable proxies for provider concentration, certification availability, fabrication capacity, and cross-border deployability; sector-specific instantiation of the cluster trajectories in energy, healthcare, financial services, and public procurement, where sector-specific regulation and supply-chain structure modify the generic phase logic; and integration of the recommendations with the next EU Framework Programme funding landscape, with periodic gate-readiness reassessment as Phase~1 enforcement, certification, and procurement signals accumulate.
 
