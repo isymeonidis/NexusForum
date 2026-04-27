@@ -565,8 +565,33 @@ Failsafe mechanisms should preserve trust when federation assumptions fail or wh
 
 Stage~3 projects the three priority clusters of Section~\ref{sec:clusters} onto the 2026--2040 horizon. The static, capability-level synthesis of Stage~2 is converted here into a temporal trajectory: where each cluster sits in each phase, what observable conditions characterise that phase, and which single gate condition, the \emph{Critical Enabler}, must be delivered for the cluster to progress to the next phase. Tables~\ref{tab:c1}--\ref{tab:c3} present the per-cluster transition matrices. Each phase column folds the four assessment perspectives of Section~\ref{sec:stage3} (research and innovation maturity; policy, regulation, and standards; operational deployment and adoption; and ecosystem uptake and strategic impact) into a single \emph{Operational State} narrative, anchored by Operational Deployment Phase (ODP) and Strategic Sovereignty Level (SSL) bands, and terminates in a \emph{Critical Enabler} cell. The remainder of this section walks through the trajectory of each cluster across the three phases, focusing on \emph{what changes} between phases and \emph{which gate condition controls the change}, rather than restating the static cluster analysis. Cross-cutting dependencies shared by two or more clusters were treated in Section~\ref{sec:crosscut}. Quantified coverage thresholds, market-share targets, and dwell-time objectives are concentrated in the strategic recommendations of Section~\ref{sec:recs}, where each numeric target is traced to the phase gate it depends on.
 
+
 \subsection{Cluster~1 Trajectory: Sovereign Trusted Infrastructure}
 \label{sec:c1traj}
+
+\begin{table*}[t]
+\caption{Cluster~1 transition matrix: Sovereign Trusted Infrastructure.}
+\label{tab:c1}
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{0.12\textwidth}X X}
+\toprule
+\textbf{Phase} & \textbf{Operational State} & \textbf{Critical Enabler} \\
+\midrule
+\textbf{Phase~1\newline 2026--2030} &
+Applied R\&D and fragmented piloting. EU-origin RISC-V secure elements, OpenTitan, Keystone, and DARE~SGA1 provide the main hardware-security vehicles; PQC, lightweight cryptography, confidential computing, and Island~Mode remain at pilot or applied-research maturity. Operational TEEs remain dominated by Intel~TDX, AMD~SEV-SNP, and Arm~TrustZone/CCA, while EU secure-element certification is achieved mainly for proprietary designs. &
+EUCC~``High'' pre-evaluation path for an EU-origin, auditable RISC-V secure element, coupled with Chips~JU pilot-line access and TEE abstraction layers to avoid continued lock-in. \\
+\midrule
+\textbf{Phase~2\newline 2030--2035} &
+Standardised integration. EU-manufactured, EUCC~``High'' RISC-V secure elements enter critical-infrastructure procurement; hybrid PQC becomes the default for new Industrial IoT and DORA-scoped deployments; RISC-V TEEs are deployed in multi-provider Data Spaces; and certified Island~Mode is validated in cross-border 5G corridors. &
+Production availability of EU-manufactured, EUCC~``High'' RISC-V secure elements with second-source fabrication resilience and cross-vendor attestation interoperability. \\
+\midrule
+\textbf{Phase~3\newline 2035--2040} &
+Ubiquitous operation and sovereign leadership. EU-designed secure elements become the default for new EU ICT products; PQC-native silicon becomes the procurement baseline; privacy-preserving computation operates end-to-end across federated Data Spaces; and zero-energy physical-layer authentication supports battery-less mMTC identity. &
+Mandatory lifecycle assurance for EUCC~``High'' hardware, PQC-native procurement, and international adoption of at least one EU-origin hardware-security standard. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
 
 Phase~1 establishes the technical and certification preconditions for a sovereign trusted execution substrate. Hardware roots of trust (L1.1) and resilient-by-design infrastructure (L6.1--L6.4) advance through Horizon~Europe Cluster~3 consortia targeting EU-origin RISC-V secure elements for EUCC~``High'' pre-evaluation, with OpenTitan~\cite{opentitan2024}, Keystone~\cite{keystone2020}, and the DARE~SGA1 EuroHPC initiative~\cite{eurohpcdare2025} as principal vehicles, and with Island~Mode soft-state protocols validated in 5G testbeds aligned with the SNS~JU SRIA~\cite{snsju2023}. Post-quantum cryptographic agility, lightweight cryptography, and confidential computing (L5.1--L5.6) remain in applied research, with FIPS~203/204/205~\cite{nistfips203,nistfips204,nistfips205} implementations optimised for constrained microcontrollers and hybrid ML-KEM plus ECDH-P384 under ETSI~TS~103~744~\cite{etsiqshybrid} deployed in cloud-side software, while far-edge IoT continues to operate predominantly under classical cryptography. The regulatory perimeter is binding throughout this phase: NIS2 Article~21(2)(e) cryptographic-policy obligations~\cite{eunis2}, CRA Articles~10--11 hardware-security requirements~\cite{eucra2024}, AI~Act Articles~9 and~15 hardware-integrity obligations~\cite{euaiact}, and the NIS Cooperation Group migration milestones~\cite{niscg2025pqc} apply concurrently. Operational TEE deployments are dominated by Intel~TDX, AMD~SEV-SNP, and Arm~TrustZone/CCA, and no EU-origin RISC-V processor is EUCC- or Common Criteria-certified at the start of the phase~\cite{Munoz2023-pw}. EU-headquartered designers achieved EUCC~``High'' for proprietary secure-element families in 2025~\cite{enisaeucc2025}, but fabrication remains dependent on non-EU foundries and the Chips~JU pilot lines~\cite{euchipsact} reach pre-production rather than commercial-source milestones.
 
