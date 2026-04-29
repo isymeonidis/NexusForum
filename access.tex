@@ -263,7 +263,7 @@ L3.1 & Workload security (service mesh, mTLS, sidecar)
 L3.2 & In-band network telemetry and deep observability
   &~\cite{chandramouli2019,chandramouli2020} \\
 L3.3 & API security gateway and policy enforcement
-  &~\cite{owaspapi2023,chandramouli2022devsecops} \\
+  &~\cite{owaspapi,chandramouli2022devsecops} \\
 L4.1 & Zero Trust orchestration (PEP/PDP)
   &~\cite{rose2020zta,chandramouli2023zta} \\
 L4.2 & Federated IAM and SSI
@@ -362,13 +362,13 @@ Layer~2 secures the software substrate on which continuum workloads execute, inc
 \subsubsection{Layer 3: Application-Centric Security}
 \label{sec:L3}
 
-Layer~3 protects the workloads and service interfaces executing across the continuum, including containerised applications, serverless functions, service meshes, and the APIs that expose them. Application-layer defences are a key enforcement point for obligations that surface as runtime behaviours rather than infrastructure properties, including AI Act~\cite{euaiact} and GDPR Article~25~\cite{eugdpr} requirements. The NIST SP~800-204 microservices security series~\cite{chandramouli2019,chandramouli2020,chandramouli2022devsecops} and the OWASP API Security Top~10~\cite{owaspapi2023} provide the main reference controls.
+Layer~3 protects the workloads and service interfaces executing across the continuum, including containerised applications, serverless functions, service meshes, and the APIs that expose them. Application-layer defences are a key enforcement point for obligations that surface as runtime behaviours rather than infrastructure properties, including AI Act~\cite{euaiact} and GDPR Article~25~\cite{eugdpr} requirements. The NIST SP~800-204 microservices security series~\cite{chandramouli2019,chandramouli2020,chandramouli2022devsecops} and the OWASP API Security Top~10~\cite{owaspapi} provide the main reference controls.
 
 \textbf{Capability L3.1, Workload Security.} Securing containerised applications and serverless functions through hardened service meshes and sidecar proxies that provide mutual TLS, traffic policy enforcement, and granular inspection while preserving operational performance, aligned with NIST SP~800-204~\cite{chandramouli2019} and SP~800-204A~\cite{chandramouli2020}.
 
 \textbf{Capability L3.2, In-Band Network Telemetry and Deep Observability.} Embedding telemetry directly into packets or service-mesh flows traversing containerised workloads, enabling real-time security monitoring and anomaly detection without exclusive reliance on dedicated out-of-band monitoring infrastructure~\cite{chandramouli2019,chandramouli2020}.
 
-\textbf{Capability L3.3, API Security Gateway and Policy Enforcement.} A unified enforcement point for authentication tokens, rate limiting, schema validation, and payload inspection, increasingly important as containerised and AI-enabled workloads communicate through REST and gRPC APIs. This capability follows the OWASP API Security Top~10 taxonomy~\cite{owaspapi2023} and the DevSecOps-for-service-mesh guidance in NIST SP~800-204C~\cite{chandramouli2022devsecops}.
+\textbf{Capability L3.3, API Security Gateway and Policy Enforcement.} A unified enforcement point for authentication tokens, rate limiting, schema validation, and payload inspection, increasingly important as containerised and AI-enabled workloads communicate through REST and gRPC APIs. This capability follows the OWASP API Security Top~10 taxonomy~\cite{owaspapi} and the DevSecOps-for-service-mesh guidance in NIST SP~800-204C~\cite{chandramouli2022devsecops}.
 
 \subsubsection{Layer 4: User and Orchestration-Centric Security}
 \label{sec:L4}
