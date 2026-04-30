@@ -1,352 +1,495 @@
-\documentclass{article}
-\usepackage{graphicx} % Required for inserting images
-\usepackage{tikz} % Required for TikZ diagrams
-\usetikzlibrary{positioning} % Required for positioning library
+% =====================================================================
+% figures.tex — Five TikZ figures for the EU Cloud-Edge-IoT roadmap
+% Tested standalone; intended to be merged into the IEEE Access manuscript.
+% Required preamble additions (see notes at the bottom of this file).
+% =====================================================================
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=15mm,landscape]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,shapes.geometric,fit,calc,backgrounds,decorations.pathreplacing,shadows.blur}
 \usepackage{xcolor}
-\usepackage{amssymb} % Required for checkmark symbol
+\usepackage{amsmath,amssymb}
+\usepackage{textcomp}
+\providecommand{\euro}{\texteuro}
 
-\title{NexusForum - Cybersecurity}
-\author{Iraklis Symeonidis}
-\date{February 2026}
+% --- Project palette (consistent across all figures) ---
+\definecolor{c1col}{HTML}{1F4E79}   % Cluster 1 — Sovereign Trusted Infrastructure (deep blue)
+\definecolor{c2col}{HTML}{7B2D26}   % Cluster 2 — Cognitive Defence (deep red)
+\definecolor{c3col}{HTML}{2E7D32}   % Cluster 3 — Federated Sovereignty (deep green)
+\definecolor{c1bg}{HTML}{D6E4F0}
+\definecolor{c2bg}{HTML}{F0DCDA}
+\definecolor{c3bg}{HTML}{D9EAD3}
+\definecolor{layerbg}{HTML}{ECECEC}
+\definecolor{crossbg}{HTML}{FFE8D6}
+\definecolor{execbg}{HTML}{E5F0FA}
+\definecolor{accent}{HTML}{B45F06}
+\definecolor{darkgrey}{HTML}{4A4A4A}
+\definecolor{ontrack}{HTML}{2E7D32}
+\definecolor{atrisk}{HTML}{B45F06}
+\definecolor{blocked}{HTML}{8B0000}
+\definecolor{phase1}{HTML}{F2EEE5}
+\definecolor{phase2}{HTML}{E6E2D5}
+\definecolor{phase3}{HTML}{D9D5C5}
 
 \begin{document}
 
-\maketitle
+% =====================================================================
+% FIGURE 1 — Methodology pipeline (replaces fig:methodology)
+% =====================================================================
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\footnotesize,
+  stage/.style={
+    rectangle, rounded corners=2pt, draw=darkgrey, thick,
+    minimum width=42mm, minimum height=20mm,
+    align=center, fill=white, drop shadow={opacity=0.15}
+  },
+  io/.style={
+    rectangle, rounded corners=8pt, draw=darkgrey, thick,
+    minimum width=34mm, minimum height=16mm,
+    align=center, fill=layerbg
+  },
+  arr/.style={-{Latex[length=2.5mm]}, thick, darkgrey},
+  label/.style={font=\sffamily\scriptsize\itshape, darkgrey},
+  stagelabel/.style={font=\sffamily\bfseries\footnotesize, darkgrey}
+]
 
-\section{Introduction}
+% --- Sovereignty Level lens drawn FIRST as a background band ---
+\fill[accent!12, draw=accent, thick, dashed, rounded corners=3pt]
+  (1.7,-2.4) rectangle (16.0,-1.4);
+\node[font=\sffamily\bfseries\scriptsize, accent] at (8.85,-1.9)
+  {Sovereignty Level — interpretive lens applied at every stage};
 
-\section{NexusForum Security Framework}
+% --- Inputs ---
+\node[io] (inputs) at (0,0) {\textbf{Inputs}\\[1pt]\scriptsize literature, regulation,\\standards, ecosystem,\\stakeholder review};
 
-This section presents the comprehensive security framework consisting of six layers integrated with five security verticals.
+% --- Stage boxes ---
+\node[stage, right=8mm of inputs] (s1) {\textbf{Stage~1}\\[2pt]Architectural\\Decomposition\\[2pt]\scriptsize 6 Layers + 4 Cross-Layers\\$\rightarrow$ capabilities};
+\node[stage, right=8mm of s1] (s2) {\textbf{Stage~2}\\[2pt]Priority Clustering\\\& 7-D Analysis\\[2pt]\scriptsize 3 clusters\\$\rightarrow$ D1--D7 profile};
+\node[stage, right=8mm of s2] (s3) {\textbf{Stage~3}\\[2pt]Phase Logic \&\\Transition Matrices\\[2pt]\scriptsize 2026--2030--2035--2040\\$\rightarrow$ Critical Enablers};
 
-\subsection{Security Layers}
+% --- Outputs ---
+\node[io, right=8mm of s3] (out) {\textbf{Outputs}\\[1pt]\scriptsize transition conditions,\\Critical Enablers,\\7 recommendations};
 
-\begin{enumerate}
-	\item \textbf{Orchestration} - Central coordination and management
-	\item \textbf{User} - User identity and access management
-	\item \textbf{Application/Service Centric Security} - Application and service-level security controls
-	\item \textbf{Data Centric Security} - Data protection and privacy controls
-	\item \textbf{Software/Middleware/OS Centric Security} - Operating system and middleware security
-	\item \textbf{Device/Hardware Centric Security} - Physical device and hardware protection
-\end{enumerate}
+% --- Arrows ---
+\draw[arr] (inputs) -- (s1);
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (out);
 
-\subsection{Security Verticals}
+% --- Stage type labels above ---
+\node[label, above=0.5mm of s1] {\textit{decompositional}};
+\node[label, above=0.5mm of s2] {\textit{synthetic}};
+\node[label, above=0.5mm of s3] {\textit{projective}};
 
-\begin{enumerate}
-	\item \textbf{Network} - Network infrastructure and perimeter security
-	\item \textbf{Automation and Cyber-Resilient AI Lifecycle} - Automated security processes and AI integration
-	\item \textbf{Dynamic Risk Management \& Operational Cyber Resilience} - Risk assessment and incident response
-	\item \textbf{Interoperable Security Mechanisms} - Cross-platform security standards and integration
-	\item \textbf{Agile Governance, Compliance-by-Design \& Automated Assurance} - Governance and compliance automation
-\end{enumerate}
+% --- Iterative review arrow (curved, top) ---
+\draw[arr, dashed, accent] (s3.north)
+  .. controls +(0,10mm) and +(0,10mm) ..
+  node[above, font=\sffamily\scriptsize\itshape, accent]{iterative review and refinement}
+  (s1.north);
 
-\subsection{Security Framework Matrix}
+% --- Connecting marks from each stage to lens band ---
+\foreach \s in {s1,s2,s3}
+  \draw[accent, dashed, thick, opacity=0.7] (\s.south) -- ($(\s.south)+(0,-0.5)$);
 
-\begin{table}[h!]
-	\centering
-	\begin{tabular}{|l|c|c|c|c|c|}
-		\hline
-		\textbf{Layers / Verticals} & \textbf{Network} & \textbf{Automation \& AI} & \textbf{Risk Mgmt} & \textbf{Interoperable} & \textbf{Governance} \\
-		\hline
-		\textbf{Orchestration} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-		\textbf{User} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-		\textbf{Application/Service} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-		\textbf{Data Centric} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-		\textbf{Software/Middleware/OS} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-		\textbf{Device/Hardware} & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
-		\hline
-	\end{tabular}
-	\caption{NexusForum Security Framework: Layers and Verticals Integration Matrix}
-	\label{tab:security_framework}
-\end{table}
-
-\subsection{Security Framework Diagram}
-
-
-	\begin{figure}[h!]
-		\centering
-		\resizebox{\textwidth}{!}{%
-		\begin{tikzpicture}[every node/.style={font=\small}]
-			% Define colors
-			\definecolor{archblue}{RGB}{46, 117, 182}
-			\definecolor{sec_verticals_bg}{RGB}{245, 124, 0}
-			\definecolor{env_bg}{RGB}{112, 112, 112}
-			\definecolor{overlay}{RGB}{0, 77, 122}
-
-			% Styles
-			\tikzstyle{arch_col} = [fill=archblue, draw=black, text=white, font=\bfseries, minimum width=3.5cm, minimum height=6cm, align=center, text width=3cm]
-			\tikzstyle{env_box} = [fill=env_bg, draw=black, text=white, font=\bfseries, minimum width=2.5cm, minimum height=1.2cm, align=center]
-			\tikzstyle{top_tool} = [draw=black, fill=env_bg, text=white, minimum height=0.8cm, align=center, font=\bfseries]
-			\tikzstyle{overlay_box} = [fill=overlay, draw=black, text=white, font=\bfseries, minimum height=0.8cm, align=center, opacity=0.7, text opacity=1]
-			\tikzstyle{vertical_box} = [fill=sec_verticals_bg, draw=black, text=white, font=\bfseries, minimum width=17.0cm, minimum height=1.1cm, align=left, text width=16.3cm]
-
-			% Column X positions
-			\def\colone{-4.5}
-			\def\coltwo{0}
-			\def\colthree{4.5}
-			\def\colfour{9}
-
-			% Environment boxes (left)
-			\node[env_box] at (-8.5, 2.4) {HPC};
-			\node[env_box] at (-8.5, 0.8) {Cloud};
-			\node[env_box] at (-8.5, -0.8) {Edge};
-			\node[env_box] at (-8.5, -2.4) {Devices};
-
-			% Main architecture columns representing layers
-			\node[arch_col] (hw) at (\colone, 0) {Layer 1: \\ Hardware Centric Security \\ (Device/Edge\\ /Cloud/HPC)};
-			\node[arch_col] (mw) at (\coltwo, 0) {Layer 2: \\ Software Centric Security \\ (Middleware/OS)};
-			\node[arch_col] (app) at (\colthree, 0) {Layer 3: \\ Application Centric Security \\ (Apps/Services)};
-			\node[arch_col] (user) at (\colfour, 0) {Layer 4: \\ User Centric Security \\ (Authentication\\ /Access/Identity\\ /Orchestration)};
-
-			% Top tooling boxes
-			\node[top_tool, minimum width=3.5cm] at (\colone, 4) {Infrastructure};
-			\node[top_tool, minimum width=8cm] at (2.25, 4) {Operation Domains};
-
-			% Arrows from tooling
-			\draw[->, line width=2pt, white] (\colone, 3.5) -- (\colone, 3.1);
-			\draw[->, line width=2pt, white] (2.25, 3.5) -- (2.25, 3.1);
-
-			% Other layers as overlays/headers
-			\node[overlay_box, minimum width=12.5cm] at (4.5, 1.5) {Layer 5: Data Centric Security};
-			\node[overlay_box, minimum width=12.5cm] at (4.5, 2.4) {Layer 6: Network infrastructure and perimeter Centric Security};
-
-			% Separated vertical boxes
-			\node[vertical_box] at (2.25, -3.75) {\textbf{Cross Layer 1: Automated security processes and Cyber-Resilient AI Lifecycle}};
-			\node[vertical_box] at (2.25, -5.05) {\textbf{Cross Layer 2: Dynamic Risk Management \& Operational Cyber Resilience}};
-			\node[vertical_box] at (2.25, -6.35) {\textbf{Cross Layer 3: Interoperable Security Mechanisms}};
-			\node[vertical_box] at (2.25, -7.65) {\textbf{Cross Layer 4: Agile Governance, Compliance-by-Design \& Automated Assurance}};
-
-			% Title
-			\node[font=\Large\bfseries, anchor=center] at (2.25, 6.5) {Security Framework with Separated Security Verticals};
-
-		\end{tikzpicture}%
-		}
-		\caption{Security Framework with separated security verticals in dedicated boxes.}
-		\label{fig:security_framework_verticals_boxes}
-	\end{figure}
-	
-
-\begin{figure}[h!]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tikzpicture}[every node/.style={font=\small}]
-		% Define colors
-		\definecolor{archblue}{RGB}{46, 117, 182} % Similar to reference PDF
-		\definecolor{sec_verticals_bg}{RGB}{245, 124, 0} % Orange for verticals bar
-		\definecolor{env_bg}{RGB}{112, 112, 112}
-		\definecolor{overlay}{RGB}{0, 77, 122}
-
-		% Styles
-		\tikzstyle{arch_col} = [fill=archblue, draw=black, text=white, font=\bfseries, minimum width=3.5cm, minimum height=6cm, align=center, text width=3cm]
-		\tikzstyle{env_box} = [fill=env_bg, draw=black, text=white, font=\bfseries, minimum width=2.5cm, minimum height=1.2cm, align=center]
-		\tikzstyle{bottom_bar} = [fill=sec_verticals_bg, draw=black, text=white, font=\bfseries, minimum width=11.5cm, minimum height=1.2cm, align=center, text width=11cm]
-		\tikzstyle{top_tool} = [draw=black, fill=archblue, text=white, minimum height=0.8cm, align=center, font=\bfseries]
-		\tikzstyle{layer_label} = [font=\bfseries\large, align=center]
-		\tikzstyle{overlay_box} = [fill=overlay, draw=black, text=white, font=\bfseries, minimum height=0.8cm, align=center, opacity=0.7, text opacity=1]
-
-		% Column X positions
-		\def\colone{-4.5}
-		\def\coltwo{0}
-		\def\colthree{4.5}
-		\def\colfour{9}
-
-		% Environment boxes (left)
-		\node[env_box] at (-8.5, 3.5) {HPC};
-		\node[env_box] at (-8.5, 1.5) {Cloud};
-		\node[env_box] at (-8.5, -0.5) {Edge Servers};
-		\node[env_box] at (-8.5, -2.5) {Device Edge};
-
-		% Main architecture columns representing layers
-		\node[arch_col] (hw) at (\colone, 0) {Layer 6: \\ Device/Hardware};
-		\node[arch_col] (mw) at (\coltwo, 0) {Layer 5: \\ SW/Middleware/OS};
-		\node[arch_col] (app) at (\colthree, 0) {Layer 3: \\ App/Service};
-		\node[arch_col] (user) at (\colfour, 0) {Layer 2: \\ User Centric (Access \& Identity)};
-
-		% Labels for columns
-		\node[below=0.2cm of hw, font=\bfseries, anchor=north] {Infrastructure};
-		\node[below=0.2cm of user, font=\bfseries, anchor=north] {Operation Domains};
-
-		% Top tooling boxes
-		\node[top_tool, minimum width=3.5cm] at (\colone, 4) {Hardware Design};
-		\node[top_tool, minimum width=8cm] at (2.25, 4) {Software Engineering};
-		
-		% Arrows from tooling
-		\draw[->, line width=2pt, white] (\colone, 3.5) -- (\colone, 3.1);
-		\draw[->, line width=2pt, white] (2.25, 3.5) -- (2.25, 3.1);
-
-		% Other layers as overlays/headers
-		\node[overlay_box, minimum width=8cm] at (2.25, 1.5) {Layer 4: Data Centric Security};
-		\node[overlay_box, minimum width=17.5cm] at (2.25, 5) {Layer 1: Orchestration};
-
-		% Bottom bar for Security Verticals
-		\node[bottom_bar, minimum width=17.5cm, text width=17cm] at (2.25, -4.5) {Cross-Cutting Security Verticals: \\ Network, Automation \& AI, Risk Mgmt, Interoperable Mechanisms, Governance};
-		
-		% Arrow to bottom bar
-		\draw[<->, line width=2pt, white] (2.25, -3.5) -- (2.25, -3.9);
-
-		% Title
-		\node[font=\Large\bfseries, anchor=center] at (2.25, 6.5) {Security Framework in System Architecture Context};
-
-	\end{tikzpicture}%
-	}
-	\caption{Security Framework in a System Architecture Context, inspired by the reference draft.}
-	\label{fig:security_framework}
+\end{tikzpicture}
+\caption{Three-stage methodology. Stage~1 decomposes the continuum into Security Layers, Transversal Cross-Layers, and constituent capabilities. Stage~2 consolidates capabilities into three priority clusters analysed through a seven-dimension template (D1--D7). Stage~3 projects the clusters onto three-phase transition matrices, terminating in a single Critical Enabler per phase boundary. The Sovereignty Level construct is applied as an interpretive lens across all stages rather than as a metric of any single stage.}
+\label{fig:methodology}
 \end{figure}
 
+% =====================================================================
+% FIGURE 2 — Security Framework (replaces fig:framework)
+% =====================================================================
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  exec/.style={rectangle, draw=darkgrey, fill=execbg, thick,
+               minimum width=27mm, minimum height=8mm, align=center,
+               font=\sffamily\bfseries\footnotesize},
+  layer/.style={rectangle, draw=darkgrey, fill=layerbg, thick,
+                minimum width=110mm, minimum height=8.5mm, align=center,
+                font=\sffamily\footnotesize},
+  cross/.style={rectangle, draw=accent, fill=crossbg, thick,
+                minimum width=110mm, minimum height=8.5mm, align=center,
+                font=\sffamily\footnotesize},
+  lcode/.style={font=\sffamily\bfseries\footnotesize, darkgrey},
+  ccode/.style={font=\sffamily\bfseries\footnotesize, accent}
+]
 
+% Execution environments — header row
+\node[exec] (hpc)    at (0,0)        {HPC};
+\node[exec] (cloud)  at (2.75,0)     {Cloud};
+\node[exec] (edge)   at (5.5,0)      {Edge};
+\node[exec] (dev)    at (8.25,0)     {Devices};
 
-\subsection{Layered Stack with Vertical Spans}
+% Header label (placed above the row, centred)
+\node[font=\sffamily\bfseries\footnotesize, darkgrey] at (4.125,0.7) {\textit{Execution environments}};
 
-\begin{figure}[h!]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tikzpicture}[every node/.style={font=\small}]
-		% Define colors
-		\definecolor{layer1}{RGB}{2, 119, 189}
-		\definecolor{layer2}{RGB}{1, 87, 155}
-		\definecolor{layer3}{RGB}{0, 77, 122}
-		\definecolor{layer4}{RGB}{0, 61, 92}
-		\definecolor{layer5}{RGB}{0, 41, 64}
-		\definecolor{layer6}{RGB}{0, 26, 26}
-		\definecolor{vert1}{RGB}{245, 124, 0}
-		\definecolor{vert2}{RGB}{230, 81, 0}
-		\definecolor{vert3}{RGB}{191, 54, 12}
-		\definecolor{vert4}{RGB}{255, 111, 0}
-		\definecolor{vert5}{RGB}{255, 143, 0}
-		
-		% ===== PYRAMID LAYERS (Bottom to Top) =====
-		% Layer 6 - Device/Hardware (widest, bottom)
-		\draw[fill=layer6, draw=black, line width=2pt] (0, 0) -- (10, 0) -- (10, 0.8) -- (0, 0.8) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 0.4) {6. Device/Hardware Centric};
-		
-		% Layer 5
-		\draw[fill=layer5, draw=black, line width=2pt] (0.8, 0.8) -- (9.2, 0.8) -- (9.2, 1.6) -- (0.8, 1.6) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 1.2) {5. Software/Middleware/OS Centric};
-		
-		% Layer 4
-		\draw[fill=layer4, draw=black, line width=2pt] (1.6, 1.6) -- (8.4, 1.6) -- (8.4, 2.6) -- (1.6, 2.6) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 2.1) {4. Data Centric Security};
-		
-		% Layer 3
-		\draw[fill=layer3, draw=black, line width=2pt] (2.4, 2.6) -- (7.6, 2.6) -- (7.6, 3.4) -- (2.4, 3.4) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 3.0) {3. Application/Service Centric};
-		
-		% Layer 2
-		\draw[fill=layer2, draw=black, line width=2pt] (3.2, 3.4) -- (6.8, 3.4) -- (6.8, 4.2) -- (3.2, 4.2) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 3.8) {2. User Centric};
-		
-		% Layer 1 - Orchestration (narrowest, top)
-		\draw[fill=layer1, draw=black, line width=2pt] (4, 4.2) -- (6, 4.2) -- (6, 5.2) -- (4, 5.2) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center] at (5, 4.7) {1. Orchestration};
-		
-		% ===== VERTICAL SPANS (Semi-transparent overlays) =====
-		% Vertical 1 - Network
-		\draw[fill=vert1, draw=black, line width=1.5pt, opacity=0.35] (10.5, 0) -- (11.4, 0) -- (11.4, 5.2) -- (10.5, 5.2) -- cycle;
-		\node[text=black, font=\tiny\bfseries, anchor=center, rotate=90] at (10.95, 2.6) {Network};
-		
-		% Vertical 2
-		\draw[fill=vert2, draw=black, line width=1.5pt, opacity=0.35] (11.4, 0) -- (12.3, 0) -- (12.3, 5.2) -- (11.4, 5.2) -- cycle;
-		\node[text=black, font=\tiny\bfseries, anchor=center, rotate=90] at (11.85, 2.6) {Automation \& AI};
-		
-		% Vertical 3
-		\draw[fill=vert3, draw=black, line width=1.5pt, opacity=0.35] (12.3, 0) -- (13.2, 0) -- (13.2, 5.2) -- (12.3, 5.2) -- cycle;
-		\node[text=black, font=\tiny\bfseries, anchor=center, rotate=90] at (12.75, 2.6) {Risk Management};
-		
-		% Vertical 4
-		\draw[fill=vert4, draw=black, line width=1.5pt, opacity=0.35] (13.2, 0) -- (14.1, 0) -- (14.1, 5.2) -- (13.2, 5.2) -- cycle;
-		\node[text=black, font=\tiny\bfseries, anchor=center, rotate=90] at (13.65, 2.6) {Interoperable};
-		
-		% Vertical 5
-		\draw[fill=vert5, draw=black, line width=1.5pt, opacity=0.35] (14.1, 0) -- (15, 0) -- (15, 5.2) -- (14.1, 5.2) -- cycle;
-		\node[text=black, font=\tiny\bfseries, anchor=center, rotate=90] at (14.55, 2.6) {Governance};
-		
-		% Title
-		\node[font=\Large\bfseries, anchor=center] at (7.5, 6.0) {Security Framework: Layered Pyramid with Vertical Domains};
-		
-	\end{tikzpicture}%
-	}
-	\caption{Security Layers as Pyramid Stack with Vertical Security Domains Spanning All Layers}
-	\label{fig:pyramid_with_verticals}
+% Layers L6 down to L1 (presented top-down, so L6 first below header)
+\node[layer] (l6) at (4.125,-1.2) {L6 \;\textemdash\; Network \& Perimeter \quad (5G/6G core, O-RAN, NTN, IT/OT gateways)};
+\node[layer] (l5) at (4.125,-2.05){L5 \;\textemdash\; Data-Centric \quad (PQC, TEE/CC, QKD, SMPC/HE, signalling)};
+\node[layer] (l4) at (4.125,-2.9) {L4 \;\textemdash\; User \& Orchestration \quad (Zero Trust PEP/PDP, IAM/SSI, PAM)};
+\node[layer] (l3) at (4.125,-3.75){L3 \;\textemdash\; Application \quad (workload security, in-band telemetry, API gateway)};
+\node[layer] (l2) at (4.125,-4.6) {L2 \;\textemdash\; Software \quad (OS/middleware hardening, secure OTA)};
+\node[layer] (l1) at (4.125,-5.45){L1 \;\textemdash\; Hardware \quad (Roots of Trust, physical-layer detection, RFF)};
+
+% Vertical stack braces
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, thick, darkgrey]
+   ($(l6.north east)+(0.3,0)$) -- ($(l1.south east)+(0.3,0)$)
+   node[midway, right=4mm, font=\sffamily\bfseries\footnotesize, darkgrey,align=center]
+   {Vertical\\Stack\\(L1--L6)};
+
+% Cross-layers (transversal)
+\node[cross] (cl1) at (4.125,-6.55){\textbf{CL1} \;\textemdash\; Cyber-Resilient SW/AI Lifecycle \quad (DevSecOps, model integrity, runtime SBOM, adversarial testing)};
+\node[cross] (cl2) at (4.125,-7.4) {\textbf{CL2} \;\textemdash\; Dynamic Risk \& SecOps \quad (federated SOC, telemetry, NWDAF/LLMSecOps, deception)};
+\node[cross] (cl3) at (4.125,-8.25){\textbf{CL3} \;\textemdash\; Interoperability \quad (Simpl, CAMARA, NaaS, MIMs, cyber-range federation)};
+\node[cross] (cl4) at (4.125,-9.1) {\textbf{CL4} \;\textemdash\; Compliance-by-Design \& Assurance \quad (EUCC/EUCS, OSCAL, KMaaS, AI accountability)};
+
+% Transversal brace
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, thick, accent]
+   ($(cl1.north east)+(0.3,0)$) -- ($(cl4.south east)+(0.3,0)$)
+   node[midway, right=4mm, font=\sffamily\bfseries\footnotesize, accent, align=center]
+   {Transversal\\Cross-Layers\\(CL1--CL4)};
+
+% Connecting separator between exec environments and the stack
+\draw[darkgrey, thick] (-1.4,-0.55) -- (9.65,-0.55);
+
+\end{tikzpicture}
+\caption{Security framework. Four execution environments (HPC, Cloud, Edge, Devices) host workloads governed by six Security Layers (L1--L6, vertical stack, lowest trust anchor at the bottom) and four Transversal Cross-Layers (CL1--CL4) acting as horizontal enablers spanning all environments and layers.}
+\label{fig:framework}
 \end{figure}
 
-\subsection{Integrated Layers and Verticals Overview}
+% =====================================================================
+% FIGURE 3 (NEW) — Capability-to-Cluster aggregation map
+% =====================================================================
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  capnode/.style={rectangle, draw=darkgrey, fill=white,
+                  minimum width=10mm, minimum height=4.2mm,
+                  font=\sffamily\bfseries\scriptsize, inner sep=1.5pt},
+  groupL/.style={rectangle, draw=darkgrey!50, fill=layerbg,
+                 minimum height=4.2mm, font=\sffamily\bfseries\scriptsize, inner sep=2pt},
+  groupC/.style={rectangle, draw=accent!50, fill=crossbg,
+                 minimum height=4.2mm, font=\sffamily\bfseries\scriptsize, inner sep=2pt},
+  cluster/.style={rectangle, rounded corners=3pt, thick,
+                  minimum width=42mm, minimum height=15mm,
+                  align=center, font=\sffamily\bfseries\footnotesize, drop shadow={opacity=0.15}},
+  link/.style={thick, opacity=0.55, line cap=round},
+  shared/.style={thick, opacity=0.85, dashed, accent},
+  hdr/.style={font=\sffamily\bfseries\footnotesize, darkgrey}
+]
 
-\begin{figure}[h!]
-	\centering
-	\resizebox{\textwidth}{!}{%
-	\begin{tikzpicture}[every node/.style={font=\small}]
-		% Define colors
-		\definecolor{layer1}{RGB}{2, 119, 189}
-		\definecolor{layer2}{RGB}{1, 87, 155}
-		\definecolor{layer3}{RGB}{0, 77, 122}
-		\definecolor{layer4}{RGB}{0, 61, 92}
-		\definecolor{layer5}{RGB}{0, 41, 64}
-		\definecolor{layer6}{RGB}{0, 26, 26}
-		\definecolor{vert1}{RGB}{245, 124, 0}
-		\definecolor{vert2}{RGB}{230, 81, 0}
-		\definecolor{vert3}{RGB}{191, 54, 12}
-		\definecolor{vert4}{RGB}{255, 111, 0}
-		\definecolor{vert5}{RGB}{255, 143, 0}
-		
-		% LEFT SIDE: VERTICALS (Colored Bars)
-		% Vertical 1 - Network & Security
-		\draw[fill=vert1, draw=black, line width=1pt] (0, 0) -- (1.2, 0) -- (1.2, 6.5) -- (0, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center, rotate=90] at (0.6, 3.25) {Network \& Security};
-		
-		% Vertical 2 - Automation & AI
-		\draw[fill=vert2, draw=black, line width=1pt] (1.2, 0) -- (2.4, 0) -- (2.4, 6.5) -- (1.2, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center, rotate=90] at (1.8, 3.25) {Automation \& AI};
-		
-		% Vertical 3 - Dynamic Risk Management
-		\draw[fill=vert3, draw=black, line width=1pt] (2.4, 0) -- (3.6, 0) -- (3.6, 6.5) -- (2.4, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center, rotate=90] at (3.0, 3.25) {Dynamic Risk Management};
-		
-		% Vertical 4 - Interoperable
-		\draw[fill=vert4, draw=black, line width=1pt] (3.6, 0) -- (4.8, 0) -- (4.8, 6.5) -- (3.6, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center, rotate=90] at (4.2, 3.25) {Interoperable Mechanisms};
-		
-		% Vertical 5 - Governance
-		\draw[fill=vert5, draw=black, line width=1pt] (4.8, 0) -- (6.0, 0) -- (6.0, 6.5) -- (4.8, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=center, rotate=90] at (5.4, 3.25) {Agile Governance \& Compliance};
-		
-		% RIGHT SIDE: LAYERS (Horizontal Bars)
-		% Gap between left and right
-		\def\rightstart{7.0}
-		\def\barwidth{10}
-		
-		% Layer 1 - Orchestration
-		\draw[fill=layer1, draw=black, line width=1pt] (\rightstart, 5.7) -- (\rightstart+\barwidth, 5.7) -- (\rightstart+\barwidth, 6.5) -- (\rightstart, 6.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 6.1) {1. Orchestration};
-		
-		% Layer 2 - User
-		\draw[fill=layer2, draw=black, line width=1pt] (\rightstart, 4.9) -- (\rightstart+\barwidth, 4.9) -- (\rightstart+\barwidth, 5.7) -- (\rightstart, 5.7) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 5.3) {2. User};
-		
-		% Layer 3 - Application/Service
-		\draw[fill=layer3, draw=black, line width=1pt] (\rightstart, 4.1) -- (\rightstart+\barwidth, 4.1) -- (\rightstart+\barwidth, 4.9) -- (\rightstart, 4.9) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 4.5) {3. Application/Service Centric};
-		
-		% Layer 4 - Data Centric
-		\draw[fill=layer4, draw=black, line width=1pt] (\rightstart, 3.3) -- (\rightstart+\barwidth, 3.3) -- (\rightstart+\barwidth, 4.1) -- (\rightstart, 4.1) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 3.7) {4. Data Centric Security};
-		
-		% Layer 5 - Software/Middleware/OS
-		\draw[fill=layer5, draw=black, line width=1pt] (\rightstart, 2.5) -- (\rightstart+\barwidth, 2.5) -- (\rightstart+\barwidth, 3.3) -- (\rightstart, 3.3) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 2.9) {5. Software/Middleware/OS Centric};
-		
-		% Layer 6 - Device/Hardware
-		\draw[fill=layer6, draw=black, line width=1pt] (\rightstart, 1.7) -- (\rightstart+\barwidth, 1.7) -- (\rightstart+\barwidth, 2.5) -- (\rightstart, 2.5) -- cycle;
-		\node[text=white, font=\small\bfseries, anchor=west] at (\rightstart+0.15, 2.1) {6. Device/Hardware Centric};
-		
-	\end{tikzpicture}
-	}
-	\caption{NexusForum Security Framework: Layers and Verticals Integration}
-	\label{fig:layers_verticals_overview}
+% Headers
+\node[hdr] at (-3.5, 0.5) {Layer capabilities (L1--L6)};
+\node[hdr] at (-3.5,-7.5) {Cross-layer capabilities (CL1--CL4)};
+\node[hdr] at (5.5, 0.5) {Priority Clusters};
+
+% --- LEFT COLUMN: Layer capabilities (compact codes) ---
+% L1
+\node[groupL] (L1grp) at (-5.7,-0.2)  {L1};
+\node[capnode] (l11) at (-4.5,-0.05) {L1.1 RoT};
+\node[capnode] (l12) at (-4.5,-0.8)  {L1.2 PHY};
+% L2
+\node[groupL] (L2grp) at (-5.7,-1.55) {L2};
+\node[capnode] (l21) at (-4.5,-1.4)  {L2.1 OS};
+\node[capnode] (l22) at (-4.5,-2.15) {L2.2 OTA};
+% L3
+\node[groupL] (L3grp) at (-5.7,-3.25) {L3};
+\node[capnode] (l31) at (-4.5,-2.85) {L3.1 WL};
+\node[capnode] (l32) at (-4.5,-3.55) {L3.2 TEL};
+\node[capnode] (l33) at (-4.5,-4.25) {L3.3 API};
+% L4
+\node[groupL] (L4grp) at (-5.7,-5.0)  {L4};
+\node[capnode] (l41) at (-4.5,-4.95) {L4.1 ZT};
+\node[capnode] (l42) at (-4.5,-5.65) {L4.2 IAM};
+\node[capnode] (l43) at (-4.5,-6.35) {L4.3 PAM};
+% L5
+\node[groupL] (L5grp) at (-1.7, 0.35) {L5};
+\node[capnode] (l51) at (-0.55,-0.05){L5.1 TEE};
+\node[capnode] (l52) at (-0.55,-0.8) {L5.2 PQC};
+\node[capnode] (l53) at (-0.55,-1.55){L5.3 SIG};
+\node[capnode] (l54) at (-0.55,-2.3) {L5.4 DLT};
+\node[capnode] (l55) at (-0.55,-3.05){L5.5 QKD};
+\node[capnode] (l56) at (-0.55,-3.8) {L5.6 SMPC};
+% L6
+\node[groupL] (L6grp) at (-1.7,-4.35) {L6};
+\node[capnode] (l61) at (-0.55,-4.75){L6.1 RAN};
+\node[capnode] (l62) at (-0.55,-5.5) {L6.2 OT};
+\node[capnode] (l63) at (-0.55,-6.25){L6.3 GRD};
+\node[capnode] (l64) at (-0.55,-7.0) {L6.4 NTN};
+
+% --- LEFT COLUMN BOTTOM: Cross-layer capabilities ---
+\node[groupC] (CL1grp) at (-5.7,-8.45){CL1};
+\node[capnode] (cl11) at (-4.5,-8.0) {CL1.1 DSO};
+\node[capnode] (cl12) at (-4.5,-8.7) {CL1.2 MOD};
+\node[capnode] (cl13) at (-4.5,-9.4) {CL1.3 SBOM};
+\node[capnode] (cl14) at (-4.5,-10.1){CL1.4 ADV};
+
+\node[groupC] (CL2grp) at (-1.7,-9.4) {CL2};
+\node[capnode] (cl21) at (-0.55,-8.0){CL2.1 SOC};
+\node[capnode] (cl22) at (-0.55,-8.7){CL2.2 TLM};
+\node[capnode] (cl23) at (-0.55,-9.4){CL2.3 IoB};
+\node[capnode] (cl24) at (-0.55,-10.1){CL2.4 NWDAF};
+\node[capnode] (cl25) at (-0.55,-10.8){CL2.5 CTI};
+\node[capnode] (cl26) at (-0.55,-11.5){CL2.6 DEC};
+
+\node[groupC] (CL3grp) at (3.4,-9.4) {CL3};
+\node[capnode] (cl31) at (4.55,-8.0){CL3.1 SMPL};
+\node[capnode] (cl32) at (4.55,-8.7){CL3.2 NEU};
+\node[capnode] (cl33) at (4.55,-9.4){CL3.3 NAAS};
+\node[capnode] (cl34) at (4.55,-10.1){CL3.4 SEM};
+\node[capnode] (cl35) at (4.55,-10.8){CL3.5 RNG};
+
+\node[groupC] (CL4grp) at (8.5,-9.4) {CL4};
+\node[capnode] (cl41) at (9.65,-8.0){CL4.1 PQC-ZT};
+\node[capnode] (cl42) at (9.65,-8.7){CL4.2 CERT};
+\node[capnode] (cl43) at (9.65,-9.4){CL4.3 KMaaS};
+\node[capnode] (cl44) at (9.65,-10.1){CL4.4 GOV};
+\node[capnode] (cl46) at (9.65,-10.8){CL4.6 RISK};
+\node[capnode] (cl47) at (9.65,-11.5){CL4.7 AIA};
+
+% --- RIGHT COLUMN: Three Clusters ---
+\node[cluster, draw=c1col, fill=c1bg] (C1) at (7.0,-1.3) {\textcolor{c1col}{\textbf{Cluster 1}}\\Sovereign Trusted\\Infrastructure};
+\node[cluster, draw=c2col, fill=c2bg] (C2) at (7.0,-3.8) {\textcolor{c2col}{\textbf{Cluster 2}}\\Cognitive Security \&\\Autonomous Cyber Defence};
+\node[cluster, draw=c3col, fill=c3bg] (C3) at (7.0,-6.3) {\textcolor{c3col}{\textbf{Cluster 3}}\\Federated Operational\\Sovereignty};
+
+% --- LINKS to Cluster 1 (sovereign trusted infrastructure) ---
+% L1.1, L1.2, L2.1, L2.2, L5.1, L5.2, L5.3, L5.5, L5.6, L6.1, L6.2, L6.3, L6.4
+\foreach \src in {l11,l12,l21,l22,l51,l52,l53,l55,l56,l61,l62,l63,l64}
+  \draw[link, c1col] (\src.east) -- (C1.west);
+
+% --- LINKS to Cluster 2 (cognitive defence) ---
+% L4.1, L6.1, CL1.2, CL1.3, CL1.4, CL2.1-CL2.6, CL4.7
+\foreach \src in {l41,cl12,cl14,cl21,cl22,cl23,cl24,cl25,cl26,cl47}
+  \draw[link, c2col] (\src.east) -- (C2.west);
+% L6.1 shared (already linked to C1) — draw separate line
+\draw[link, c2col] (l61.east) to[bend right=5] (C2.west);
+% CL1.3 shared (will go to C3 too)
+\draw[link, c2col, dashed] (cl13.east) to[bend right=8] (C2.west);
+
+% --- LINKS to Cluster 3 (federated operational sovereignty) ---
+% L4.1 (shared with C2), CL1.3 (shared with C1 conceptually, primarily C3), CL3.1-CL3.5, CL4.2, CL4.4, L6.1 (shared)
+\foreach \src in {cl31,cl32,cl33,cl34,cl35,cl42,cl44}
+  \draw[link, c3col] (\src.east) -- (C3.west);
+\draw[link, c3col, dashed] (cl13.east) to[bend right=15] (C3.west);
+\draw[link, c3col, dashed] (l41.east) to[bend right=10] (C3.west);
+
+% Legend
+\node[anchor=west, font=\sffamily\scriptsize] at (-6.2,-12.5)
+  {\textbf{Legend.} Solid line: capability primarily aggregated into a single cluster. \;
+   Dashed line: shared capability spanning two clusters (e.g., CL1.3 Runtime SBOM bridges Clusters~1 and~3; L4.1 Zero-Trust spans Clusters~2 and~3).};
+
+\end{tikzpicture}
+\caption{Stage~1 $\rightarrow$ Stage~2 capability aggregation. The 40 capabilities identified in Section~\ref{sec:stage1} (left: 20 layer capabilities L1.1--L6.4; bottom: 20 cross-layer capabilities CL1.1--CL4.7) aggregate into the three priority clusters of Section~\ref{sec:clusters}. Three capabilities (L4.1 Zero-Trust orchestration, L6.1 Telco-cloud security, CL1.3 Runtime SBOM verification) are shared dependencies and act as bridges between clusters; Section~\ref{sec:phases} treats these shared capabilities as cross-cluster gate conditions.}
+\label{fig:cap-cluster}
+\end{figure}
+
+% =====================================================================
+% FIGURE 4 (NEW) — Phase Roadmap Timeline
+% =====================================================================
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  yearlabel/.style={font=\sffamily\bfseries\footnotesize, darkgrey},
+  phaselabel/.style={font=\sffamily\bfseries\scriptsize, darkgrey, align=center},
+  swimlabel/.style={font=\sffamily\bfseries\footnotesize, align=right, anchor=east},
+  ce/.style={diamond, draw=accent, fill=accent, minimum size=4mm, inner sep=0pt},
+  state/.style={rectangle, draw=darkgrey!60, fill=white,
+                minimum height=14mm, align=center,
+                font=\sffamily\scriptsize, inner sep=2.5pt},
+  c1state/.style={state, fill=c1bg, draw=c1col!70},
+  c2state/.style={state, fill=c2bg, draw=c2col!70},
+  c3state/.style={state, fill=c3bg, draw=c3col!70}
+]
+
+% --- Time axis parameters (hard-coded to avoid digit-in-macro issues) ---
+% Phase 1 ends at x=7, Phase 2 ends at x=14, Phase 3 ends at x=21
+
+% Phase background bands
+\fill[phase1, opacity=0.55] (0,-7.0) rectangle (7,0.7);
+\fill[phase2, opacity=0.55] (7,-7.0) rectangle (14,0.7);
+\fill[phase3, opacity=0.55] (14,-7.0) rectangle (21,0.7);
+
+% Phase labels at top
+\node[phaselabel] at (3.5,0.4)   {\textbf{Phase 1} \;\textbar\; Near-Term Implementation\\\scriptsize 2026--2030};
+\node[phaselabel] at (10.5,0.4)  {\textbf{Phase 2} \;\textbar\; Mid-Term Scale-Up \& Standardisation\\\scriptsize 2030--2035};
+\node[phaselabel] at (17.5,0.4)  {\textbf{Phase 3} \;\textbar\; Long-Term Strategic Autonomy \& Leadership\\\scriptsize 2035--2040};
+
+% Year ticks
+\foreach \x/\y in {0/2026, 7/2030, 14/2035, 21/2040}{
+  \draw[darkgrey, thick] (\x,-6.8) -- (\x,-7.0);
+  \node[yearlabel, below=0.5mm] at (\x,-7.0) {\y};
+}
+\draw[darkgrey, thick, dashed] (7,-6.8) -- (7,0.7);
+\draw[darkgrey, thick, dashed] (14,-6.8) -- (14,0.7);
+\draw[darkgrey] (0,-6.8) -- (21,-6.8);
+
+% --- SWIMLANE: Cluster 1 ---
+\node[swimlabel, c1col] at (-0.3,-1.5)
+  {\textcolor{c1col}{\textbf{Cluster 1}}\\Sovereign Trusted\\Infrastructure};
+\node[c1state, minimum width=63mm] at (3.5,-1.5)
+  {\textbf{ODP:} Applied R\&D $\rightarrow$ Frag.~Piloting\\\textbf{SSL:} High Foreign Dependency\\\scriptsize EUCC ``High'' for proprietary EU SE (2025);\\\scriptsize no EU RISC-V CC; foundry dependency persists};
+\node[c1state, minimum width=63mm] at (10.5,-1.5)
+  {\textbf{ODP:} Standardised Integration\\\textbf{SSL:} Emerging EU Ecosystem\\\scriptsize EU RISC-V SE in production from Chips~JU;\\\scriptsize hybrid PQC = procurement default};
+\node[c1state, minimum width=63mm] at (17.5,-1.5)
+  {\textbf{ODP:} Ubiquitous Operation\\\textbf{SSL:} Full Sovereign Autonomy\\\scriptsize EU RISC-V SE = hardware default;\\\scriptsize PQC-native silicon; ISO/IEC adoption};
+
+% --- SWIMLANE: Cluster 2 ---
+\node[swimlabel, c2col] at (-0.3,-3.4)
+  {\textcolor{c2col}{\textbf{Cluster 2}}\\Cognitive Security \&\\Autonomous Defence};
+\node[c2state, minimum width=63mm] at (3.5,-3.4)
+  {\textbf{ODP:} Applied R\&D $\rightarrow$ Frag.~Piloting\\\textbf{SSL:} High Foreign Dependency\\\scriptsize US-platform LLMs as analyst copilots;\\\scriptsize first EU sovereign security SLM in training};
+\node[c2state, minimum width=63mm] at (10.5,-3.4)
+  {\textbf{ODP:} Standardised Integration\\\textbf{SSL:} Emerging EU Ecosystem\\\scriptsize Edge SLMs in regulated SOCs; bounded\\\scriptsize autonomy under ZSM~009; AI~Act conformity};
+\node[c2state, minimum width=63mm] at (17.5,-3.4)
+  {\textbf{ODP:} Ubiquitous Operation\\\textbf{SSL:} Full Sovereign Autonomy\\\scriptsize Swarm agentic AI; Moving Target Defence;\\\scriptsize full conformity certification baseline};
+
+% --- SWIMLANE: Cluster 3 ---
+\node[swimlabel, c3col] at (-0.3,-5.3)
+  {\textcolor{c3col}{\textbf{Cluster 3}}\\Federated Operational\\Sovereignty};
+\node[c3state, minimum width=63mm] at (3.5,-5.3)
+  {\textbf{ODP:} Applied R\&D $\rightarrow$ Frag.~Piloting\\\textbf{SSL:} High Foreign Dep.\;\textit{(heterogeneous)}\\\scriptsize Simpl PoCs; static SBOM under CRA;\\\scriptsize CAMARA in bilateral 5G corridors};
+\node[c3state, minimum width=63mm] at (10.5,-5.3)
+  {\textbf{ODP:} Standardised Integration\\\textbf{SSL:} Emerging EU Ecosystem\\\scriptsize MIMs ratified \& Cloud Rulebook reference;\\\scriptsize Runtime SBOM in CI; first hyperscaler decline};
+\node[c3state, minimum width=63mm] at (17.5,-5.3)
+  {\textbf{ODP:} Ubiquitous Operation\\\textbf{SSL:} Full Sovereign Autonomy\\\scriptsize ``Schengen for Cloud'' enacted;\\\scriptsize ZKP attestation at transaction scale};
+
+% --- CRITICAL ENABLER GATES (diamonds at phase boundaries) ---
+\node[ce] (g1c1) at (7,-1.5) {};
+\node[ce] (g1c2) at (7,-3.4) {};
+\node[ce] (g1c3) at (7,-5.3) {};
+\node[ce] (g2c1) at (14,-1.5) {};
+\node[ce] (g2c2) at (14,-3.4) {};
+\node[ce] (g2c3) at (14,-5.3) {};
+
+% --- Critical Enabler annotation strip BELOW the time axis ---
+\node[font=\sffamily\bfseries\scriptsize, accent, anchor=east, align=right] at (-0.3,-8.1)
+  {Critical $\blacklozenge$\\Enablers};
+\node[font=\sffamily\scriptsize, align=center, text width=63mm] at (7,-8.4)
+  {\textbf{Phase 1$\rightarrow$2 gates}\\
+   {\color{c1col}\textbf{C1:}} EUCC ``High'' for EU-origin RISC-V SE \;{\color{atrisk}\textbf{[at risk]}}\\
+   {\color{c2col}\textbf{C2:}} CEN/ETSI adv.-robustness suite \;{\color{atrisk}\textbf{[at risk]}}\\
+   {\color{c3col}\textbf{C3:}} Simpl-Open MVP + MIM6 \;{\color{ontrack}\textbf{[on track]}}};
+\node[font=\sffamily\scriptsize, align=center, text width=63mm] at (14,-8.4)
+  {\textbf{Phase 2$\rightarrow$3 gates}\\
+   {\color{c1col}\textbf{C1:}} EU RISC-V SE production + 2nd source\\
+   {\color{c2col}\textbf{C2:}} Operational AI~Act conformity infra\\
+   {\color{c3col}\textbf{C3:}} MIM ratification + Runtime SBOM in CI\\
+   \textit{(forward-looking; not assessed at 2026)}};
+
+% Status legend (placed below the gate annotation strips)
+\node[anchor=west, font=\sffamily\scriptsize, align=left] at (-0.3,-9.6)
+  {\textbf{Gate status:}\;\;
+   {\color{ontrack}$\blacksquare$} on track \quad
+   {\color{atrisk}$\blacksquare$} at risk \quad
+   {\color{blocked}$\blacksquare$} blocked
+   \quad\textit{(assessment basis: 2025--2026 evidence)}};
+
+\end{tikzpicture}
+\caption{2026--2040 phase roadmap. Each cluster (C1, C2, C3) is shown as a swim-lane with three phase columns; each cell records ODP and SSL bands plus a compressed Operational State. Diamond markers ($\blacklozenge$) at phase boundaries denote the cluster-specific Critical Enabler. Phase~1$\rightarrow$Phase~2 readiness, assessed against 2025--2026 evidence (Sections~\ref{sec:phasegate} and~\ref{sec:concl}), is on track for Cluster~3 and at risk for Clusters~1 and~2.}
+\label{fig:phase-roadmap}
+\end{figure}
+
+% =====================================================================
+% FIGURE 5 (NEW) — Recommendations × Clusters × Gates dependency map
+% =====================================================================
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  font=\sffamily\scriptsize,
+  recnode/.style={rectangle, rounded corners=2pt, draw=darkgrey, thick,
+                  minimum width=46mm, minimum height=11mm, align=left,
+                  font=\sffamily\scriptsize, inner sep=3pt, fill=white},
+  recnodecc/.style={rectangle, rounded corners=2pt, draw=accent, thick, dashed,
+                  minimum width=46mm, minimum height=11mm, align=left,
+                  font=\sffamily\scriptsize, inner sep=3pt, fill=accent!8},
+  cluster/.style={rectangle, rounded corners=3pt, thick,
+                  minimum width=36mm, minimum height=14mm,
+                  align=center, font=\sffamily\bfseries\footnotesize, drop shadow={opacity=0.15}},
+  primary/.style={-{Latex[length=2mm]}, thick, opacity=0.9},
+  cross/.style={-{Latex[length=2mm]}, thick, opacity=0.6, dashed},
+  hdr/.style={font=\sffamily\bfseries\footnotesize, darkgrey, anchor=south}
+]
+
+% --- Header row ---
+\node[hdr] at (-3.5,2.7) {Cluster-aligned recommendations};
+\node[hdr] at (3.0, 2.7) {Priority Clusters};
+\node[hdr] at (9.5, 2.7) {Cross-cutting recommendations};
+
+% --- Cluster column (centre) ---
+\node[cluster, draw=c1col, fill=c1bg] (C1) at (3.0, 1.4) {\textcolor{c1col}{\textbf{Cluster 1}}\\Sovereign Trusted\\Infrastructure};
+\node[cluster, draw=c2col, fill=c2bg] (C2) at (3.0,-1.0) {\textcolor{c2col}{\textbf{Cluster 2}}\\Cognitive Security \&\\Autonomous Defence};
+\node[cluster, draw=c3col, fill=c3bg] (C3) at (3.0,-3.4) {\textcolor{c3col}{\textbf{Cluster 3}}\\Federated Operational\\Sovereignty};
+
+% --- LEFT: Cluster-aligned R1, R2, R3 ---
+\node[recnode, draw=c1col] (R1) at (-3.5, 1.4)
+  {\textbf{R1 \textemdash{} Sovereign Secure Silicon}\\
+   \scriptsize \& Crypto-Agile Infrastructure\\
+   \scriptsize \textit{conditions C1 P1$\rightarrow$P2 gate}};
+\node[recnode, draw=c2col] (R2) at (-3.5,-1.0)
+  {\textbf{R2 \textemdash{} Sovereign Cognitive Defence}\\
+   \scriptsize Bounded Autonomy under AI Act\\
+   \scriptsize \textit{conditions C2 P1$\rightarrow$P2 gate}};
+\node[recnode, draw=c3col] (R3) at (-3.5,-3.4)
+  {\textbf{R3 \textemdash{} Procurement-Enforceable Federation}\\
+   \scriptsize Simpl + Runtime SBOM + Cont.~Cert\\
+   \scriptsize \textit{conditions C3 P1$\rightarrow$P2 gate}};
+
+% --- RIGHT: Cross-cutting R4-R7 ---
+\node[recnodecc] (R4) at (9.5, 2.0)
+  {\textbf{R4 \textemdash{} Chips Act Sovereign Fabrication}\\
+   \scriptsize Pilot line for security-critical SE,\\
+   \scriptsize 2nd-source EU foundry agreements};
+\node[recnodecc] (R5) at (9.5, 0.3)
+  {\textbf{R5 \textemdash{} AI Act Conformity Infrastructure}\\
+   \scriptsize CEN/ETSI adv.~robustness suite,\\
+   \scriptsize notified bodies + sandbox provisions};
+\node[recnodecc] (R6) at (9.5,-1.4)
+  {\textbf{R6 \textemdash{} Runtime SBOM Attestation}\\
+   \scriptsize Beyond CRA static disclosure;\\
+   \scriptsize ZKP batch verification by P3};
+\node[recnodecc] (R7) at (9.5,-3.1)
+  {\textbf{R7 \textemdash{} SME Inclusion}\\
+   \scriptsize Tiered cert., shared cyber-ranges,\\
+   \scriptsize OSCAL tooling, DEP co-funding};
+
+% --- Cluster-aligned arrows (left side, primary) ---
+\draw[primary, c1col] (R1.east) -- (C1.west);
+\draw[primary, c2col] (R2.east) -- (C2.west);
+\draw[primary, c3col] (R3.east) -- (C3.west);
+
+% --- Cross-cutting arrows (right side, secondary) ---
+% R4: conditions C1 (and supports C3 via R6 chain)
+\draw[primary, accent] (R4.west) -- (C1.east);
+\draw[cross,   accent] (R4.west) to[bend right=12] (C3.east);
+% R5: conditions C2
+\draw[primary, accent] (R5.west) -- (C2.east);
+% R6: bridges C1 and C3 (Phase 2->3 condition for both)
+\draw[primary, accent] (R6.west) -- (C1.east);
+\draw[primary, accent] (R6.west) -- (C3.east);
+% R7: conditions all three
+\draw[cross, accent] (R7.west) to[bend left=8]  (C1.east);
+\draw[cross, accent] (R7.west) -- (C2.east);
+\draw[cross, accent] (R7.west) to[bend right=8] (C3.east);
+
+% --- Legend ---
+\node[anchor=west, font=\sffamily\scriptsize, align=left] at (-5.5,-5.0)
+  {\textbf{Legend.}\;
+   \tikz[baseline]{\draw[primary, c1col] (0,0.2ex) -- (0.7,0.2ex);} primary cluster anchoring \quad
+   \tikz[baseline]{\draw[primary, accent] (0,0.2ex) -- (0.7,0.2ex);} primary cross-cluster condition \quad
+   \tikz[baseline]{\draw[cross, accent] (0,0.2ex) -- (0.7,0.2ex);} ecosystem-uptake or chained dependency.\\
+   R4 conditions the Phase~1$\rightarrow$2 gate of R1 and the hardware-attestation path of R6. \;
+   R6 is a shared Phase~2$\rightarrow$3 transition condition for R1 and R3. \;
+   R7 conditions the ecosystem-uptake dimension of all three cluster trajectories.};
+
+\end{tikzpicture}
+\caption{Recommendations $\times$ Clusters $\times$ Gates dependency map. Recommendations R1--R3 (left, solid borders) are cluster-aligned and condition the Phase~1$\rightarrow$Phase~2 gate of their respective cluster. Recommendations R4--R7 (right, dashed borders) are cross-cutting: R4 conditions C1 and chains into C3 through R6; R5 conditions C2; R6 bridges C1 hardware attestation to C3 federation as a shared Phase~2$\rightarrow$Phase~3 condition; R7 conditions the ecosystem-uptake dimension of all three clusters.}
+\label{fig:rec-map}
 \end{figure}
 
 \end{document}
