@@ -1,49 +1,127 @@
 \documentclass[tikz,border=3pt]{standalone}
 \usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{booktabs}
 \begin{document}
-% \begin{tikzpicture}[x=1cm,y=1cm]
-% % Execution environments (top row)
-% \draw[fill=blue!10] (0.1,5.25) rectangle (1.8,5.65) node[pos=.5]{\scriptsize HPC};
-% \draw[fill=blue!10] (1.8,5.25) rectangle (3.6,5.65) node[pos=.5]{\scriptsize Cloud};
-% \draw[fill=blue!10] (3.6,5.25) rectangle (5.4,5.65) node[pos=.5]{\scriptsize Edge};
-% \draw[fill=blue!10] (5.4,5.25) rectangle (7.1,5.65) node[pos=.5]{\scriptsize Devices};
-% \node[font=\scriptsize\itshape] at (3.6,5.9) {Execution environments};
+\begin{tikzpicture}[x=1cm,y=1cm]
+% Execution environments (top row)
+\draw[fill=blue!10] (0.1,5.25) rectangle (1.8,5.65) node[pos=.5]{\scriptsize HPC};
+\draw[fill=blue!10] (1.8,5.25) rectangle (3.6,5.65) node[pos=.5]{\scriptsize Cloud};
+\draw[fill=blue!10] (3.6,5.25) rectangle (5.4,5.65) node[pos=.5]{\scriptsize Edge};
+\draw[fill=blue!10] (5.4,5.25) rectangle (7.1,5.65) node[pos=.5]{\scriptsize Devices};
+\node[font=\scriptsize\itshape] at (3.6,5.9) {Execution environments};
 
-% % L1-L6 as 6 vertical columns (boxes and text rotated 90°)
-% % Column width = 7.0cm / 6 = 1.1667cm each; height = 2.30 to 4.95
-% \draw[fill=gray!10] (0.10,2.30) rectangle (1.27,4.95);
-% \node[rotate=90, font=\scriptsize] at (0.683,3.625)
-%   {\shortstack{\textbf{L1}\\[2pt]Hardware\\(RoT, PhySec)}};
+% L1-L6 as 6 vertical columns (boxes and text rotated 90°)
+% Column width = 7.0cm / 6 = 1.1667cm each; height = 2.30 to 4.95
+\draw[fill=gray!10] (0.10,2.30) rectangle (1.27,4.95);
+\node[rotate=90, font=\scriptsize] at (0.683,3.625)
+  {\shortstack{\textbf{L1}\\[2pt]Hardware\\(RoT, PhySec)}};
 
-% \draw[fill=gray!10] (1.27,2.30) rectangle (2.43,4.95);
-% \node[rotate=90, font=\scriptsize] at (1.850,3.625)
-%   {\shortstack{\textbf{L2}\\[2pt]Software\\(OS, MW, OTA)}};
+\draw[fill=gray!10] (1.27,2.30) rectangle (2.43,4.95);
+\node[rotate=90, font=\scriptsize] at (1.850,3.625)
+  {\shortstack{\textbf{L2}\\[2pt]Software\\(OS, MW, OTA)}};
 
-% \draw[fill=gray!10] (2.43,2.30) rectangle (3.60,4.95);
-% \node[rotate=90, font=\scriptsize] at (3.017,3.625)
-%   {\shortstack{\textbf{L3}\\[2pt]Application\\(Workloads, APIs)}};
+\draw[fill=gray!10] (2.43,2.30) rectangle (3.60,4.95);
+\node[rotate=90, font=\scriptsize] at (3.017,3.625)
+  {\shortstack{\textbf{L3}\\[2pt]Application\\(Workloads, APIs)}};
 
-% \draw[fill=gray!10] (3.60,2.30) rectangle (4.77,4.95);
-% \node[rotate=90, font=\scriptsize] at (4.183,3.625)
-%   {\shortstack{\textbf{L4}\\[2pt]User \& Orch.\\(ZT, IAM, PAM)}};
+\draw[fill=gray!10] (3.60,2.30) rectangle (4.77,4.95);
+\node[rotate=90, font=\scriptsize] at (4.183,3.625)
+  {\shortstack{\textbf{L4}\\[2pt]User \& Orch.\\(ZT, IAM, PAM)}};
 
-% \draw[fill=gray!10] (4.77,2.30) rectangle (5.93,4.95);
-% \node[rotate=90, font=\scriptsize] at (5.350,3.625)
-%   {\shortstack{\textbf{L5}\\[2pt]Data-Centric\\(PQC, TEE, QKD, SMPC)}};
+\draw[fill=gray!10] (4.77,2.30) rectangle (5.93,4.95);
+\node[rotate=90, font=\scriptsize] at (5.350,3.625)
+  {\shortstack{\textbf{L5}\\[2pt]Data-Centric\\(PQC, TEE, QKD, SMPC)}};
 
-% \draw[fill=gray!10] (5.93,2.30) rectangle (7.10,4.95);
-% \node[rotate=90, font=\scriptsize] at (6.517,3.625)
-%   {\shortstack{\textbf{L6}\\[2pt]Network \&\\Perimeter}};
+\draw[fill=gray!10] (5.93,2.30) rectangle (7.10,4.95);
+\node[rotate=90, font=\scriptsize] at (6.517,3.625)
+  {\shortstack{\textbf{L6}\\[2pt]Network \&\\Perimeter}};
 
-% % Cross-layers
-% \draw[fill=orange!15,dashed] (0.1,1.75) rectangle (7.1,2.10) node[pos=.5]{\scriptsize CL1: Cyber-Resilient SW/AI Lifecycle};
-% \draw[fill=orange!15,dashed] (0.1,1.35) rectangle (7.1,1.70) node[pos=.5]{\scriptsize CL2: Dynamic Risk and SecOps};
-% \draw[fill=orange!15,dashed] (0.1,0.95) rectangle (7.1,1.30) node[pos=.5]{\scriptsize CL3: Interoperability (Simpl, CAMARA, MIMs)};
-% \draw[fill=orange!15,dashed] (0.1,0.55) rectangle (7.1,0.90) node[pos=.5]{\scriptsize CL4: Compliance-by-Design and Assurance};
-% % Figure label
-% \node[font=\small\itshape, anchor=north] at (3.6,0.3)
-%   {Fig.~1: Layered security model for the Cloud--Edge--IoT continuum.};
-% \end{tikzpicture}
+% Cross-layers
+\draw[fill=orange!15,dashed] (0.1,1.75) rectangle (7.1,2.10) node[pos=.5]{\scriptsize CL1: Cyber-Resilient SW/AI Lifecycle};
+\draw[fill=orange!15,dashed] (0.1,1.35) rectangle (7.1,1.70) node[pos=.5]{\scriptsize CL2: Dynamic Risk and SecOps};
+\draw[fill=orange!15,dashed] (0.1,0.95) rectangle (7.1,1.30) node[pos=.5]{\scriptsize CL3: Interoperability (Simpl, CAMARA, MIMs)};
+\draw[fill=orange!15,dashed] (0.1,0.55) rectangle (7.1,0.90) node[pos=.5]{\scriptsize CL4: Compliance-by-Design and Assurance};
+% Figure label
+\node[font=\small\itshape, anchor=north] at (3.6,0.3)
+  {Fig.~1: Layered security model for the Cloud--Edge--IoT continuum.};
+\end{tikzpicture}
+
+% ===== Figure: Security Framework with separated security verticals =====
+\begin{tikzpicture}[x=1cm,y=1cm]
+  \colorlet{layercol}{blue!55}
+  \colorlet{crosscol}{orange!75}
+  \colorlet{hdrcol}{gray!55}
+  \colorlet{envcol}{gray!25}
+
+  % x break-points: 0 | 1.2 | 3.5 | 5.7 | 7.9 | 9.9
+  % y break-points: 0 (CL4-bot) | 0.5 | 1.0 | 1.5 | 2.0 (main-bot)
+  %                 | 4.5 (L5-bot) | 5.0 (L6-bot) | 5.5 (hdr-bot) | 6.0 (top)
+
+  % Header row
+  \draw[fill=hdrcol] (1.2,5.5) rectangle (3.5,6.0)
+    node[midway,font=\scriptsize\bfseries,text=white]{Infrastructure};
+  \draw[fill=hdrcol] (3.5,5.5) rectangle (9.9,6.0)
+    node[midway,font=\scriptsize\bfseries,text=white]{Operation Domains};
+
+  % Execution environments (left column, 4 equal rows within y=2.0..5.5)
+  \draw[fill=envcol] (0,4.625) rectangle (1.2,5.5)
+    node[midway,font=\scriptsize]{HPC};
+  \draw[fill=envcol] (0,3.75) rectangle (1.2,4.625)
+    node[midway,font=\scriptsize]{Cloud};
+  \draw[fill=envcol] (0,2.875) rectangle (1.2,3.75)
+    node[midway,font=\scriptsize]{Edge};
+  \draw[fill=envcol] (0,2.0) rectangle (1.2,2.875)
+    node[midway,font=\scriptsize]{Devices};
+
+  % Layer 1 — Infrastructure column, full main height
+  \draw[fill=layercol] (1.2,2.0) rectangle (3.5,5.5)
+    node[midway,align=center,font=\scriptsize,text=white]
+    {Layer 1:\\Hardware\\Centric Security\\(Device/Edge/\\Cloud/HPC)};
+
+  % Layer 6 — top spanning bar across operation domains
+  \draw[fill=layercol] (3.5,5.0) rectangle (9.9,5.5)
+    node[midway,font=\scriptsize,text=white]
+    {Layer 6: Network infrastructure and perimeter security};
+
+  % Layer 5
+  \draw[fill=layercol] (3.5,4.5) rectangle (9.9,5.0)
+    node[midway,font=\scriptsize,text=white]
+    {Layer 5: Data Centric Security};
+
+  % Layer 2
+  \draw[fill=layercol] (3.5,2.0) rectangle (5.7,4.5)
+    node[midway,align=center,font=\scriptsize,text=white]
+    {Layer 2:\\Software\\Centric Security\\(Middleware/OS)};
+
+  % Layer 3
+  \draw[fill=layercol] (5.7,2.0) rectangle (7.9,4.5)
+    node[midway,align=center,font=\scriptsize,text=white]
+    {Layer 3:\\Application\\Centric Security\\(Apps/Services)};
+
+  % Layer 4
+  \draw[fill=layercol] (7.9,2.0) rectangle (9.9,4.5)
+    node[midway,align=center,font=\scriptsize,text=white]
+    {Layer 4:\\User Centric\\Security\\(Authentication\\/ Access/Identity\\/ Orchestration)};
+
+  % Cross-layers — full width
+  \draw[fill=crosscol] (0,1.5) rectangle (9.9,2.0)
+    node[midway,font=\scriptsize,text=white]
+    {Cross Layer 1: Automated security processes and Cyber-Resilient AI Lifecycle};
+  \draw[fill=crosscol] (0,1.0) rectangle (9.9,1.5)
+    node[midway,font=\scriptsize,text=white]
+    {Cross Layer 2: Dynamic Risk Management \& Operational Cyber Resilience};
+  \draw[fill=crosscol] (0,0.5) rectangle (9.9,1.0)
+    node[midway,font=\scriptsize,text=white]
+    {Cross Layer 3: Interoperable Security Mechanisms};
+  \draw[fill=crosscol] (0,0.0) rectangle (9.9,0.5)
+    node[midway,font=\scriptsize,text=white]
+    {Cross Layer 4: Agile Governance, Compliance-by-Design \& Automated Assurance};
+
+  % Caption
+  \node[font=\small\itshape,anchor=north] at (4.95,-0.2)
+    {Fig.~1: Security Framework with separated security verticals in dedicated boxes.};
+\end{tikzpicture}
 
 \begin{tikzpicture}[every node/.style={font=\small}]
 
@@ -93,4 +171,101 @@
       {Fig.~2: Security framework with L1--L6 security layers and four cross-cutting capability domains.};
 
 \end{tikzpicture}
+
+\begin{tikzpicture}[
+  node distance=6mm,
+  stage/.style={draw, rounded corners=2pt, minimum width=0.62\columnwidth,
+                minimum height=10mm, align=center, font=\footnotesize},
+  io/.style={draw, dashed, rounded corners=2pt, minimum width=0.62\columnwidth,
+             minimum height=8mm, align=center, font=\footnotesize\itshape},
+  lens/.style={draw, fill=black!5, minimum width=6mm, minimum height=58mm,
+               align=center, font=\scriptsize},
+  >=latex
+]
+\node[io] (in) {Inputs and evidence base};
+\node[stage, below=of in] (s1) {\textbf{Stage 1} — architectural decomposition\\
+   \scriptsize 6 Security Layers + 4 Cross-Layers + capabilities};
+\node[stage, below=of s1] (s2) {\textbf{Stage 2} — priority clustering\\
+   \scriptsize three clusters; D1--D7 synthesis};
+\node[stage, below=of s2] (s3) {\textbf{Stage 3} — transition matrices\\
+   \scriptsize ODS, SovL, perspectives, Critical Enablers};
+\node[io, below=of s3] (out)
+   {Recommendations, gate conditions, shared dependencies};
+\draw[->] (in) -- (s1);
+\draw[->] (s1) -- (s2);
+\draw[->] (s2) -- (s3);
+\draw[->] (s3) -- (out);
+\node[lens] at ([xshift=-44mm]s2.west)
+   {\rotatebox{90}{Sovereignty Level — interpretive lens}};
+\end{tikzpicture}
+
+\footnotesize
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{@{}lcccl@{}}
+\toprule
+\textbf{Capability} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{Role} \\
+\midrule
+L1.1 Hardware RoT          & $\bullet$ &           & $\circ$   & C1 primary; attestation anchor for C3 \\
+L1.2 PHY threat detection  & $\bullet$ &           &           & C1 only \\
+L2.1 OS/middleware         & $\bullet$ &           &           & C1 only \\
+L2.2 Secure OTA            & $\bullet$ &           &           & C1 only \\
+L4.1 Zero Trust orch.      &           & $\bullet$ & $\bullet$ & C2/C3 shared enforcement \\
+L4.2 Federated IAM/SSI     &           &           & $\bullet$ & C3 only (identity primitive) \\
+L5.1--L5.6 Data-centric    & $\bullet$ &           &           & C1 only \\
+L6.1 Telco-cloud/O-RAN     & $\bullet$ & $\circ$   & $\circ$   & C1 primary; telemetry for C2; NaaS for C3 \\
+L6.2--L6.4 Network resil.  & $\bullet$ &           &           & C1 only \\
+CL1.2--CL1.4 AI lifecycle  &           & $\bullet$ &           & C2 only \\
+CL1.3 Runtime SBOMs        & $\circ$   &           & $\bullet$ & C1/C3 supply-chain bridge \\
+CL2.1--CL2.6 SecOps/CTI    &           & $\bullet$ &           & C2 only \\
+CL3.1--CL3.5 Interop/fed.  &           &           & $\bullet$ & C3 only \\
+CL4.2 Continuous cert.     &           &           & $\bullet$ & C3 only \\
+CL4.4 Federated AI gov.    &           &           & $\bullet$ & C3 only \\
+CL4.7 AI accountability    &           & $\bullet$ &           & C2 only \\
+\bottomrule
+\multicolumn{5}{@{}l@{}}{\scriptsize $\bullet$ primary cluster; $\circ$ shared/bridge capability.}
+\end{tabular}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  lane/.style={draw, minimum width=42mm, minimum height=12mm, align=center},
+  band1/.style={fill=black!10}, band2/.style={fill=black!25},
+  band3/.style={fill=black!45, text=white}, band4/.style={fill=black!65, text=white},
+  enabler/.style={draw, circle, minimum size=4mm, fill=white,
+                  inner sep=0pt, font=\scriptsize\bfseries},
+]
+% column headers
+\node at (0,1.3)  {\textbf{Phase 1 (2026--2030)}};
+\node at (5,1.3)  {\textbf{Phase 2 (2030--2035)}};
+\node at (10,1.3) {\textbf{Phase 3 (2035--2040)}};
+% Cluster 1 lane — ODS row, SovL row
+\node[lane, band1] at (0,0)  {Applied R\&D $\to$ Frag.\ Pilot};
+\node[lane, band3] at (5,0)  {Standardised Integration};
+\node[lane, band4] at (10,0) {Ubiquitous Operation};
+\node[lane, band1] at (0,-1.3)  {High Foreign Dep.};
+\node[lane, band2] at (5,-1.3)  {Emerging EU Ecosystem};
+\node[lane, band4] at (10,-1.3) {Full Sovereign Autonomy};
+% gate markers between phase columns
+\node[enabler] at (2.5,-0.65) {1};
+\node[enabler] at (7.5,-0.65) {2};
+% repeat lanes for C2 and C3 with appropriate band styles
+% lane labels
+\node[anchor=east] at (-2.4, 0)    {\textbf{C1 ODS}};
+\node[anchor=east] at (-2.4,-1.3)  {\textbf{C1 SovL}};
+% legend
+\node[align=left, anchor=north west] at (-2.4,-7)
+  {\scriptsize \textbf{Critical Enablers:} 1 = EUCC ``High'' for EU-origin RISC-V SE;
+  2 = production EU-manufactured EUCC ``High'' SE; \dots};
+\end{tikzpicture}
+\caption{Cluster trajectories across the 2026--2040 roadmap horizon.
+Each cluster occupies a two-row lane: ODS (deployment maturity) above,
+SovL (sovereignty position) below. Numbered markers at phase boundaries
+identify the Critical Enabler that gates progression.}
+\label{fig:roadmap-overview}
+\end{figure*}
+
+
+
+
 \end{document}

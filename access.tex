@@ -267,14 +267,14 @@ Capabilities}
 \label{fig:framework}
 \end{figure}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\fbox{\parbox{0.97\textwidth}{\centering
+\fbox{\parbox{\columnwidth}{\centering
 \scriptsize
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
 \textbf{Security Framework with Separated Security Verticals}\\[4pt]
-\begin{tabular}{|>{\centering\arraybackslash}p{1.6cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}p{2.5cm}|}
+\begin{tabular}{|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|}
 \hline
 \textit{Exec.\ envs.} &
   \cellcolor{layerbg}\textbf{L1:} Hardware (RoT, PhySec) &
@@ -310,137 +310,46 @@ Capabilities}
 \hline
 \end{tabular}
 }}
-\caption{Security framework with L1--L6 security layers and four cross-cutting capability domains (CL1--CL4).}
+\caption{Layered security framework. Four execution environments (HPC, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
 \label{fig:framework_ext}
-\end{figure*}
+\end{figure}
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
-\fbox{%
-\parbox{0.95\textwidth}{%
-\centering
-\scriptsize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{0.93\textwidth}{@{}>{\centering\arraybackslash}p{0.19\textwidth}>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X@{}}
-\textbf{Evidence base} & \textbf{Stage~1} & \textbf{Stage~2} & \textbf{Stage~3} \\
-\midrule
-Literature, regulation, standards, certification schemes, market dependencies, and stakeholder review
-& Architectural decomposition into six Security Layers and four Transversal Security Cross-Layers, populated with constituent capabilities
-& Capability-anchored consolidation into three priority clusters and seven-dimension synthesis
-& Three-phase transition matrices for 2026--2040, with \gls{ods}, \gls{sovl}, assessment perspectives, and Critical Enablers \\
-\end{tabularx}
-\vspace{4pt}
-\hrule
-\vspace{4pt}
-\textit{Roadmap outputs: transition conditions, Critical Enablers, shared dependencies, and implementation recommendations. Sovereignty Level is used throughout as an interpretive lens, not as a quantitative score.}
-}%
-}
-\caption{Three-stage methodology for constructing the cybersecurity and cyber-resilience roadmap. The figure separates the evidence base, the three analytical stages, and the resulting roadmap outputs. Stage~1 defines the architectural and capability vocabulary; Stage~2 consolidates capabilities into priority clusters and applies the seven-dimension synthesis; Stage~3 projects the clusters across the 2026--2040 transition horizon.}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}c@{\hspace{4pt}}c@{}}
+\parbox[c][76mm][c]{5mm}{\centering\rotatebox{90}{\scriptsize\itshape Sovereignty Level --- interpretive lens}} &
+\begin{minipage}[c]{0.88\columnwidth}
+\centering\scriptsize
+\fbox{\parbox{\linewidth}{\centering\itshape Inputs and evidence base\\[1pt]
+  \textnormal{literature, regulation, standards, market dependencies, stakeholder review}}}\\[3pt]
+$\downarrow$\\[3pt]
+\fbox{\parbox{\linewidth}{\centering
+  \textbf{Stage~1} --- architectural decomposition\\[1pt]
+  6 Security Layers + 4 Cross-Layers + capabilities}}\\[3pt]
+$\downarrow$\\[3pt]
+\fbox{\parbox{\linewidth}{\centering
+  \textbf{Stage~2} --- priority clustering\\[1pt]
+  three clusters; D1--D7 synthesis}}\\[3pt]
+$\downarrow$\\[3pt]
+\fbox{\parbox{\linewidth}{\centering
+  \textbf{Stage~3} --- transition matrices\\[1pt]
+  \gls{ods}, \gls{sovl}, assessment perspectives, Critical Enablers}}\\[3pt]
+$\downarrow$\\[3pt]
+\fbox{\parbox{\linewidth}{\centering\itshape
+  Recommendations, gate conditions, shared dependencies}}
+\end{minipage}
+\end{tabular}
+\caption{Three-stage methodology. Stage 1 decomposes the continuum into Security Layers and Transversal Security Cross-Layers, populated with constituent capabilities. Stage 2 consolidates capabilities into three priority clusters analysed through the seven-dimension template. Stage 3 projects clusters onto the 2026–2040 transition matrices with ODS, SovL, four assessment perspectives, and Critical Enablers per phase. Sovereignty Level operates as a cross-cutting interpretive lens across all stages.}
 \label{fig:methodology}
-\end{figure*}
+\end{figure}
+
 
 The continuum is modelled as a layered reference architecture spanning four execution environments (HPC, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Figure~\ref{fig:framework}. HPC refers to infrastructure for large-scale scientific and AI training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and IoT endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for Zero Trust~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for IoT~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
 
 The layers are analytically distinct but operationally interdependent: gaps at one layer can propagate to adjacent layers, as documented in the edge-computing security literature~\cite{alwarafy2021,ranaweera2021,roman2018}. The model provides the shared vocabulary used throughout the paper and exposes cross-layer dependencies, allowing the priority clusters in Section~\ref{sec:stage2-clusters} and the transition matrices in Section~\ref{sec:stage3-phases} to be analysed as an interconnected portfolio rather than as isolated priorities. The EU cybersecurity certification framework~\cite{eucsa} and its EUCC operationalisation~\cite{commreg2024eucc} provide the regulatory anchoring for several of the capabilities defined below.
 
-The remainder of this section introduces each layer and cross-layer by describing its purpose within the security framework and listing its constituent capabilities. Table~\ref{tab:capabilities} consolidates the capabilities, their layer or cross-layer codes, and their principal references. Each capability is treated as an atomic analytical unit; the three priority clusters analysed in Section~\ref{sec:stage2-clusters} are obtained by aggregating and translating these capabilities into actionable strategic needs.
-
-\begin{table*}[t]
-\caption{Layer and cross-layer capabilities with their principal references.}
-\label{tab:capabilities}
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}lXl@{}}
-\toprule
-\textbf{Code} & \textbf{Capability} & \textbf{Primary references} \\
-\midrule
-L1.1 & Hardware Roots of Trust; EU open-hardware (RISC-V) to EUCC ``High''
-  &~\cite{tpm2spec,sailer2004,opentitan2024,keystone2020,eurohpcdare2025} \\
-L1.2 & Physical-layer threat detection and RF fingerprinting
-  &~\cite{alwarafy2021,ranaweera2021,harizaj2026dual} \\
-L2.1 & OS and middleware hardening; sovereign edge Linux
-  &~\cite{chandramouli2022devsecops,rose2020zta} \\
-L2.2 & Secure OTA patch and update management
-  &~\cite{ietfrfc9019,uptanestd} \\
-L3.1 & Workload security (service mesh, mTLS, sidecar)
-  &~\cite{chandramouli2019,chandramouli2020} \\
-L3.2 & In-band network telemetry and deep observability
-  &~\cite{chandramouli2019,chandramouli2020} \\
-L3.3 & API security gateway and policy enforcement
-  &~\cite{owaspapi,chandramouli2022devsecops} \\
-L4.1 & Zero Trust orchestration (PEP/PDP)
-  &~\cite{rose2020zta,chandramouli2023zta} \\
-L4.2 & Federated IAM and SSI; eIDAS~2 and EUDI Wallet
-  &~\cite{w3cvc2025,eueidas2,eudiwallet2024,eudiwallet2026} \\
-L4.3 & Privileged Access Management and JIT
-  &~\cite{rose2020zta,chandramouli2023zta} \\
-L5.1 & Confidential computing and TEEs
-  &~\cite{ccc2022,keystone2020} \\
-L5.2 & Post-Quantum Cryptography for edge/IoT
-  &~\cite{nistfips203,nistfips204,nistfips205,etsiqshybrid,niscg2025pqc} \\
-L5.3 & Signalling/data-plane cryptographic authentication
-  &~\cite{tgpp33501,oran2024,oranzt2024,snsju2023} \\
-L5.4 & Distributed reputation and trust networking (DLT)
-  &~\cite{ecsimpl,oascmim5,etsingsild,eucsa} \\
-L5.5 & QKD for critical links
-  &~\cite{etsiqkd014,etsiqkd004} \\
-L5.6 & Privacy-preserving computation: SMPC and homomorphic encryption
-  &~\cite{nistir8214,iso180336,he_standard2018,eugdpr,euaiact} \\
-L6.1 & Telco-cloud and O-RAN security
-  &~\cite{tgpp33501,oran2024,oranzt2024,snsju2023} \\
-L6.2 & Physical resilience and IT/OT safety
-  &~\cite{tgpp33501,snsju2023,alwarafy2021,ranaweera2021} \\
-L6.3 & Edge-native autonomous guardians
-  &~\cite{oran2024,oranzt2024,snsju2023} \\
-L6.4 & Non-terrestrial network and satellite security
-  &~\cite{tgppntn,tgpp33836} \\
-\midrule
-CL1.1 & Continuous DevSecOps
-  &~\cite{chandramouli2022devsecops} \\
-CL1.2 & Model integrity and DataBOMs
-  &~\cite{nistairmf,nistaigenai,owaspllm} \\
-CL1.3 & Dynamic supply-chain verification; Runtime SBOMs
-  &~\cite{slsa2023} \\
-CL1.4 & Automated adversarial testing and purple teaming
-  &~\cite{madry2018,owaspllm,owaspapi} \\
-CL2.1 & Automated~\gls{SOC} and collaborative~\gls{CTI}
-  &~\cite{concordia2022} \\
-CL2.2 & High-precision telemetry and security signalling
-  &~\cite{tgpp23288,enisaetl2025} \\
-CL2.3 & Internet of Behaviour and evidence sharing
-  &~\cite{mitre2020,stix21,taxii21,enisaetl2025} \\
-CL2.4 & AI-native analytics (NWDAF,~\gls{LLM}SecOps)
-  &~\cite{tgpp23288,nistairmf,nistaigenai,owaspllm} \\
-CL2.5 &~\gls{CTI} lifecycle management
-  &~\cite{mitre2020,stix21,taxii21,enisaetl2025} \\
-CL2.6 & Deception technology and active defence
-  &~\cite{mitre2020,enisaetl2025} \\
-CL3.1 & Simpl integration and heterogeneous interoperability
-  &~\cite{ecsimpl,oascmim5,etsingsild} \\
-CL3.2 & Neutral host and multi-tenant isolation
-  &~\cite{rose2020zta,chandramouli2023zta} \\
-CL3.3 & Pan-European NaaS federation
-  &~\cite{camara2025,eudna2026} \\
-CL3.4 & Semantic security interoperability
-  &~\cite{oascmim5,etsingsild} \\
-CL3.5 & Cyber range and digital twin federation
-  &~\cite{eucsa,concordia2022,ecroadmap2024} \\
-CL4.1 & PQC readiness and Zero Trust architectures
-  &~\cite{rose2020zta,chandramouli2023zta,nistfips203,nistfips204,nistfips205} \\
-CL4.2 & Continuous automated certification (EUCC; EUCS)
-  &~\cite{commreg2024eucc,eucsa,oscal2024,iorga2024oscal} \\
-CL4.3 & Multicloud Key Management as a Service
-  &~\cite{rose2020zta,chandramouli2023zta,nistfips203,nistfips204,nistfips205} \\
-CL4.4 & Cross-Jurisdictional Federated AI Governance
-  &~\cite{eugdpr,ccc2022,eudataact} \\
-CL4.6 & Cyber risk quantification and board-level reporting
-  &~\cite{eunis2,eudora,nistcsf2} \\
-CL4.7 & AI trustworthiness and algorithmic accountability
-  &~\cite{euaiact,nistairmf,nistaigenai} \\
-\bottomrule
-\end{tabularx}
-\end{table*}
+The remainder of this section introduces each layer and cross-layer and summarises its constituent capabilities. The full capability catalogue, including layer or cross-layer codes and principal references, is provided in Appendix~\ref{app:capabilities} as Table~\ref{tab:capabilities}. These capabilities are treated as atomic analytical units that are aggregated into the three priority clusters analysed in Section~\ref{sec:stage2-clusters}.
 
 \subsection{Security Layers (vertical stack)}
 
@@ -582,8 +491,43 @@ Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerat
 
 \textbf{Capability CL4.7, AI Trustworthiness and Algorithmic Accountability.} Assurance that AI systems making or supporting autonomous security decisions remain robust, accountable, and auditable, in compliance with AI Act Article~9~\cite{euaiact} and aligned with the NIST AI RMF and Generative AI Profile~\cite{nistairmf,nistaigenai}.
 
-\section{Stage~2 Output: Priorit and Seven-Dimension Synthesis}
+\section{Stage~2 Output: Priority Clustering and Seven-Dimension Synthesis}
 \label{sec:stage2-clusters}
+
+\begin{figure}[t]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1}
+\begin{tabularx}{\columnwidth}{@{}lcccX@{}}
+\toprule
+\textbf{Capability} & \textbf{C1} & \textbf{C2} & \textbf{C3} & \textbf{Role} \\
+\midrule
+L1.1 Hardware RoT          & $\bullet$ &           & $\circ$   & C1 primary; attestation anchor for C3 \\
+L1.2 PHY threat detection  & $\bullet$ &           &           & C1 only \\
+L2.1 OS/middleware         & $\bullet$ &           &           & C1 only \\
+L2.2 Secure OTA            & $\bullet$ &           &           & C1 only \\
+L4.1 Zero Trust orch.      &           & $\bullet$ & $\bullet$ & C2/C3 shared enforcement \\
+L4.2 Federated IAM/SSI     &           &           & $\bullet$ & C3 only (identity primitive) \\
+L5.1--L5.6 Data-centric    & $\bullet$ &           &           & C1 only \\
+L6.1 Telco-cloud/O-RAN     & $\bullet$ & $\circ$   & $\circ$   & C1 primary; telemetry for C2; NaaS for C3 \\
+L6.2--L6.4 Network resil.  & $\bullet$ &           &           & C1 only \\
+CL1.2--CL1.4 AI lifecycle  &           & $\bullet$ &           & C2 only \\
+CL1.3 Runtime SBOMs        & $\circ$   &           & $\bullet$ & C1/C3 supply-chain bridge \\
+CL2.1--CL2.6 SecOps/CTI    &           & $\bullet$ &           & C2 only \\
+CL3.1--CL3.5 Interop/fed.  &           &           & $\bullet$ & C3 only \\
+CL4.2 Continuous cert.     &           &           & $\bullet$ & C3 only \\
+CL4.4 Federated AI gov.    &           &           & $\bullet$ & C3 only \\
+CL4.7 AI accountability    &           & $\bullet$ &           & C2 only \\
+\bottomrule
+\multicolumn{5}{@{}l@{}}{\scriptsize $\bullet$ primary cluster; $\circ$ shared/bridge capability.}
+\end{tabularx}
+\caption{Capability-to-cluster mapping. Filled discs mark each capability's
+primary cluster; open discs mark shared bridges (L4.1 between C2/C3; L6.1
+across all three; CL1.3 between C1/C3). C1 = Sovereign Trusted Infrastructure;
+C2 = Cognitive Security and Autonomous Cyber Defence; C3 = Federated
+Operational Sovereignty.}
+\label{fig:cap-cluster}
+\end{figure}
 
 Stage~2 consolidates the layer and cross-layer capabilities identified in Section~\ref{sec:stage1-layers} into three priority clusters and analyses each through the seven-dimension template defined in Section~\ref{sec:method}. The synthesis here is \emph{capability-anchored and time-invariant}: it establishes why the priorities cohere, which capabilities they aggregate, which dependencies they share, and which strategic outcomes they target. Progression of these clusters is addressed separately in Section~\ref{sec:stage3-phases}, while the corresponding implementation recommendations are presented in Section~\ref{sec:recs}. Where relevant, the analysis below refers to the underlying layer or cross-layer capabilities from which each cluster is derived.
 
@@ -899,8 +843,114 @@ Future work should extend this analysis in three directions. First, the architec
 
 The Cloud--Edge--IoT continuum requires Europe to move beyond reactive and fragmented cybersecurity models towards autonomous, federated, and certified Security-by-Design. The three-stage methodology presented here decomposes the continuum into Security Layers and Transversal Security Cross-Layers, consolidates the resulting capabilities into three priority clusters, and projects each cluster onto a 2026--2040 transition matrix in which a single Critical Enabler per phase functions as the gate condition for progression. The seven recommendations translate the ambition--implementation gap into actionable priorities across trusted infrastructure, cognitive cyber defence, and federated operational sovereignty. The principal transition risks differ across clusters: Cluster~1 depends on secure-element fabrication capacity, Cluster~2 on adversarial-robustness standardisation and conformity-assessment infrastructure for security AI, and Cluster~3 on moving federation mechanisms from voluntary specification to procurement-enforceable reference. Addressing these bottlenecks is essential for European cybersecurity policy, industrial capability, and digital sovereignty objectives to converge into deployable and resilient cloud-edge infrastructure.
 
+% \section*{Use of AI Assistance}
+% The authors used generative AI tools for language editing and formatting assistance. The core analysis, clustering, roadmap development, and recommendations were developed independently by the authors without AI assistance.
+
+\section*{Acknowledgements}
+This sections is left intentionally blank to preserve the integrity of the blind review process.
+
 \bibliographystyle{IEEEtran}
 \bibliography{references}
+
+\appendix
+\section{Capability Catalogue and References}
+\label{app:capabilities}
+
+\begin{table*}[t]
+\caption{Layer and cross-layer capabilities with their principal references.}
+\label{tab:capabilities}
+\centering
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}lXl@{}}
+\toprule
+\textbf{Code} & \textbf{Capability} & \textbf{Primary references} \\
+\midrule
+L1.1 & Hardware Roots of Trust; EU open-hardware (RISC-V) to EUCC ``High''
+  &~\cite{tpm2spec,sailer2004,opentitan2024,keystone2020,eurohpcdare2025} \\
+L1.2 & Physical-layer threat detection and RF fingerprinting
+  &~\cite{alwarafy2021,ranaweera2021,harizaj2026dual} \\
+L2.1 & OS and middleware hardening; sovereign edge Linux
+  &~\cite{chandramouli2022devsecops,rose2020zta} \\
+L2.2 & Secure OTA patch and update management
+  &~\cite{ietfrfc9019,uptanestd} \\
+L3.1 & Workload security (service mesh, mTLS, sidecar)
+  &~\cite{chandramouli2019,chandramouli2020} \\
+L3.2 & In-band network telemetry and deep observability
+  &~\cite{chandramouli2019,chandramouli2020} \\
+L3.3 & API security gateway and policy enforcement
+  &~\cite{owaspapi,chandramouli2022devsecops} \\
+L4.1 & Zero Trust orchestration (PEP/PDP)
+  &~\cite{rose2020zta,chandramouli2023zta} \\
+L4.2 & Federated IAM and SSI; eIDAS~2 and EUDI Wallet
+  &~\cite{w3cvc2025,eueidas2,eudiwallet2024,eudiwallet2026} \\
+L4.3 & Privileged Access Management and JIT
+  &~\cite{rose2020zta,chandramouli2023zta} \\
+L5.1 & Confidential computing and TEEs
+  &~\cite{ccc2022,keystone2020} \\
+L5.2 & Post-Quantum Cryptography for edge/IoT
+  &~\cite{nistfips203,nistfips204,nistfips205,etsiqshybrid,niscg2025pqc} \\
+L5.3 & Signalling/data-plane cryptographic authentication
+  &~\cite{tgpp33501,oran2024,oranzt2024,snsju2023} \\
+L5.4 & Distributed reputation and trust networking (DLT)
+  &~\cite{ecsimpl,oascmim5,etsingsild,eucsa} \\
+L5.5 & QKD for critical links
+  &~\cite{etsiqkd014,etsiqkd004} \\
+L5.6 & Privacy-preserving computation: SMPC and homomorphic encryption
+  &~\cite{nistir8214,iso180336,he_standard2018,eugdpr,euaiact} \\
+L6.1 & Telco-cloud and O-RAN security
+  &~\cite{tgpp33501,oran2024,oranzt2024,snsju2023} \\
+L6.2 & Physical resilience and IT/OT safety
+  &~\cite{tgpp33501,snsju2023,alwarafy2021,ranaweera2021} \\
+L6.3 & Edge-native autonomous guardians
+  &~\cite{oran2024,oranzt2024,snsju2023} \\
+L6.4 & Non-terrestrial network and satellite security
+  &~\cite{tgppntn,tgpp33836} \\
+\midrule
+CL1.1 & Continuous DevSecOps
+  &~\cite{chandramouli2022devsecops} \\
+CL1.2 & Model integrity and DataBOMs
+  &~\cite{nistairmf,nistaigenai,owaspllm} \\
+CL1.3 & Dynamic supply-chain verification; Runtime SBOMs
+  &~\cite{slsa2023} \\
+CL1.4 & Automated adversarial testing and purple teaming
+  &~\cite{madry2018,owaspllm,owaspapi} \\
+CL2.1 & Automated~\gls{SOC} and collaborative~\gls{CTI}
+  &~\cite{concordia2022} \\
+CL2.2 & High-precision telemetry and security signalling
+  &~\cite{tgpp23288,enisaetl2025} \\
+CL2.3 & Internet of Behaviour and evidence sharing
+  &~\cite{mitre2020,stix21,taxii21,enisaetl2025} \\
+CL2.4 & AI-native analytics (NWDAF,~\gls{LLM}SecOps)
+  &~\cite{tgpp23288,nistairmf,nistaigenai,owaspllm} \\
+CL2.5 &~\gls{CTI} lifecycle management
+  &~\cite{mitre2020,stix21,taxii21,enisaetl2025} \\
+CL2.6 & Deception technology and active defence
+  &~\cite{mitre2020,enisaetl2025} \\
+CL3.1 & Simpl integration and heterogeneous interoperability
+  &~\cite{ecsimpl,oascmim5,etsingsild} \\
+CL3.2 & Neutral host and multi-tenant isolation
+  &~\cite{rose2020zta,chandramouli2023zta} \\
+CL3.3 & Pan-European NaaS federation
+  &~\cite{camara2025,eudna2026} \\
+CL3.4 & Semantic security interoperability
+  &~\cite{oascmim5,etsingsild} \\
+CL3.5 & Cyber range and digital twin federation
+  &~\cite{eucsa,concordia2022,ecroadmap2024} \\
+CL4.1 & PQC readiness and Zero Trust architectures
+  &~\cite{rose2020zta,chandramouli2023zta,nistfips203,nistfips204,nistfips205} \\
+CL4.2 & Continuous automated certification (EUCC; EUCS)
+  &~\cite{commreg2024eucc,eucsa,oscal2024,iorga2024oscal} \\
+CL4.3 & Multicloud Key Management as a Service
+  &~\cite{rose2020zta,chandramouli2023zta,nistfips203,nistfips204,nistfips205} \\
+CL4.4 & Cross-Jurisdictional Federated AI Governance
+  &~\cite{eugdpr,ccc2022,eudataact} \\
+CL4.6 & Cyber risk quantification and board-level reporting
+  &~\cite{eunis2,eudora,nistcsf2} \\
+CL4.7 & AI trustworthiness and algorithmic accountability
+  &~\cite{euaiact,nistairmf,nistaigenai} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
 
 \EOD
 \end{document}
