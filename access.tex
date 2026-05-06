@@ -277,50 +277,50 @@ Capabilities}
 \hline
 \end{tabular}
 }}
-\caption{Security framework: four execution environments, six Security Layers (vertical stack, L1--L6), and four Transversal Security Cross-Layers (CL1--CL4).}
+\caption{Layered security framework. Four execution environments (\gls{hpc}, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
 \label{fig:framework}
 \end{figure}
 
-\begin{figure}[t]
-\centering
-\scriptsize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.15}
-\textbf{Security Framework with Separated Security Verticals}\\[4pt]
-\begin{tabular}{|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|}
-\hline
-\textit{Exec.\ envs.} &
-  & & & & & \\
-\hline
-\cellcolor{execbg}HPC &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L1:} Hardware (RoT, PhySec)} &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L2:} Software (OS, MW, OTA)} &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L3:} Application (Workloads,~\glspl{api})} &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L4:} User \& Orch.\ (ZT, IAM, PAM)} &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L5:} Data-Centric (PQC, TEE, QKD,~\acrshort{smpc})} &
-  \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L6:} Network \& Perimeter} \\
-\cline{1-1}
-\cellcolor{execbg}Cloud &
-  & & & & & \\
-\cline{1-1}
-\cellcolor{execbg}Edge &
-  & & & & & \\
-\cline{1-1}
-\cellcolor{execbg}IoT Devices &
-  & & & & & \\
-\hline
-\multicolumn{7}{|c|}{\cellcolor{crossbg}CL1: Cyber-Resilient SW/AI Lifecycle} \\
-\hline
-\multicolumn{7}{|c|}{\cellcolor{crossbg}CL2: Dynamic Risk and SecOps} \\
-\hline
-\multicolumn{7}{|c|}{\cellcolor{crossbg}CL3: Interoperability (Simpl, CAMARA, MIMs)} \\
-\hline
-\multicolumn{7}{|c|}{\cellcolor{crossbg}CL4: Compliance-by-Design and Assurance} \\
-\hline
-\end{tabular}
-\caption{Layered security framework. Four execution environments (gls{hpc}, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
-\label{fig:framework_ext}
-\end{figure}
+% \begin{figure}[t]
+% \centering
+% \scriptsize
+% \setlength{\tabcolsep}{3pt}
+% \renewcommand{\arraystretch}{1.15}
+% \textbf{Security Framework with Separated Security Verticals}\\[4pt]
+% \begin{tabular}{|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|>{\centering\arraybackslash}p{0.1\columnwidth}|}
+% \hline
+% \textit{Exec.\ envs.} &
+%   & & & & & \\
+% \hline
+% \cellcolor{execbg}HPC &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L1:} Hardware (RoT, PhySec)} &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L2:} Software (OS, MW, OTA)} &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L3:} Application (Workloads,~\glspl{api})} &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L4:} User \& Orch.\ (ZT, IAM, PAM)} &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L5:} Data-Centric (PQC, TEE, QKD,~\acrshort{smpc})} &
+%   \multirow{4}{0.1\columnwidth}{\cellcolor{layerbg}\centering\textbf{L6:} Network \& Perimeter} \\
+% \cline{1-1}
+% \cellcolor{execbg}Cloud &
+%   & & & & & \\
+% \cline{1-1}
+% \cellcolor{execbg}Edge &
+%   & & & & & \\
+% \cline{1-1}
+% \cellcolor{execbg}IoT Devices &
+%   & & & & & \\
+% \hline
+% \multicolumn{7}{|c|}{\cellcolor{crossbg}CL1: Cyber-Resilient SW/AI Lifecycle} \\
+% \hline
+% \multicolumn{7}{|c|}{\cellcolor{crossbg}CL2: Dynamic Risk and SecOps} \\
+% \hline
+% \multicolumn{7}{|c|}{\cellcolor{crossbg}CL3: Interoperability (Simpl, CAMARA, MIMs)} \\
+% \hline
+% \multicolumn{7}{|c|}{\cellcolor{crossbg}CL4: Compliance-by-Design and Assurance} \\
+% \hline
+% \end{tabular}
+% \caption{Layered security framework. Four execution environments (\gls{hpc}, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
+% \label{fig:framework_ext}
+% \end{figure}
 
 
 \begin{figure}[t]
@@ -349,12 +349,12 @@ $\downarrow$\\[3pt]
   Recommendations, gate conditions, shared dependencies}}
 \end{minipage}
 \end{tabular}
-\caption{Three-stage methodology. Stage 1 decomposes the continuum into Security Layers and Transversal Security Cross-Layers, populated with constituent capabilities. Stage 2 consolidates capabilities into three priority clusters analysed through the seven-dimension template. Stage 3 projects clusters onto the 2026–2040 transition matrices with~\ acrfull{ods},~\acrfull{sovl}, four assessment perspectives, and Critical Enablers per phase. Sovereignty Level operates as a cross-cutting interpretive lens across all stages.}
+\caption{Three-stage methodology. Stage 1 decomposes the continuum into Security Layers and Transversal Security Cross-Layers, populated with constituent capabilities. Stage 2 consolidates capabilities into three priority clusters analysed through the seven-dimension template. Stage 3 projects clusters onto the 2026–2040 transition matrices with~\acrfull{ods},~\acrfull{sovl}, four assessment perspectives, and Critical Enablers per phase. Sovereignty Level operates as a cross-cutting interpretive lens across all stages.}
 \label{fig:methodology}
 \end{figure}
 
 
-The continuum is modelled as a layered reference architecture spanning four execution environments (gls{hpc}, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Figure~\ref{fig:framework}.~\gls{hpc} refers to infrastructure for large-scale scientific and~\gls{ai} training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and~\gls{iot} endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for~\gls{zt}~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for~\gls{iot}~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
+The continuum is modelled as a layered reference architecture spanning four execution environments (\gls{hpc}, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Figure~\ref{fig:framework}.~\gls{hpc} refers to infrastructure for large-scale scientific and~\gls{ai} training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and~\gls{iot} endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for~\gls{zt}~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for~\gls{iot}~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
 
 The layers are analytically distinct but operationally interdependent: gaps at one layer can propagate to adjacent layers, as documented in the edge-computing security literature~\cite{alwarafy2021,ranaweera2021,roman2018}. The model provides the shared vocabulary used throughout the paper and exposes cross-layer dependencies, allowing the priority clusters in Section~\ref{sec:stage2-clusters} and the transition matrices in Section~\ref{sec:stage3-phases} to be analysed as an interconnected portfolio rather than as isolated priorities. The EU cybersecurity certification framework~\cite{eucsa} and its~\gls{eucc} operationalisation~\cite{commreg2024eucc} provide the regulatory anchoring for several of the capabilities defined below.
 
@@ -402,7 +402,7 @@ Layer~4 governs identity, access, and policy enforcement across the multi-provid
 
 \textbf{Capability L4.2, Federated Identity and Access Management.} Federated and self-sovereign identity mechanisms enabling cryptographically verifiable, decentralised authentication of machines, users, and automated workloads across heterogeneous cloud-edge domains, based on the W3C Verifiable Credentials Data Model~\cite{w3cvc2025} and, in Europe, the~\gls{eidas2} framework~\cite{eueidas2} and the~\gls{eudi} Wallet under successive implementing acts~\cite{eudiwallet2024,eudiwallet2026}. The~\gls{eidas2} framework and the~\gls{eudi} Wallet provide a legal and technical basis for natural- and legal-person identity at European scale; their use as a federation primitive for machine identity, workload identity, and cross-provider~\gls{sso} in cloud-edge~\gls{iam} requires integration with hardware attestation (Capability~L1.1),~\gls{zt} orchestration (Capability~L4.1), and policy enforcement (Capability~CL3.1).
 
-\textbf{Capability L4.3,~\ acrfull{pam} and Just-In-Time Access.} Reduction of over-provisioned standing privileges, a recurring enabler of advanced persistent threat campaigns, by replacing permanent access with time-bounded, contextually justified, and auditable grants, consistent with~\gls{zt} authorisation principles~\cite{rose2020zta,chandramouli2023zta}.
+\textbf{Capability L4.3,~\acrfull{pam} and Just-In-Time Access.} Reduction of over-provisioned standing privileges, a recurring enabler of advanced persistent threat campaigns, by replacing permanent access with time-bounded, contextually justified, and auditable grants, consistent with~\gls{zt} authorisation principles~\cite{rose2020zta,chandramouli2023zta}.
 
 \subsubsection{Layer 5: Data-Centric Security}
 \label{sec:L5}
@@ -411,13 +411,13 @@ Layer~5 protects data across the continuum lifecycle: at rest, in transit, and i
 
 \textbf{Capability L5.1, Hardware-Isolated Confidential Computing.} Protection of data \emph{in use} through Trusted Execution Environments (TEEs) spanning the cloud-to-IoT data path, including Intel TDX, AMD SEV-SNP, ARM CCA, and the open RISC-V Keystone framework~\cite{keystone2020}, as scoped by the Confidential Computing Consortium~\cite{ccc2022}. TEEs deliver near-native performance under a hardware-rooted trust assumption, anchored in Capability~L1.1 (Hardware Roots of Trust) for remote attestation and providing the execution substrate for privacy-preserving computation (Capability~L5.6) when cryptographic-only approaches are infeasible on resource-constrained edge nodes.
 
-\textbf{Capability L5.2, ~\ acrfull{pqc}.} Migration to quantum-resistant algorithms, namely~\gls{ml-kem}~\cite{nistfips203}, ~\gls{ml-dsa}~\cite{nistfips204}, and~\gls{slh-dsa}~\cite{nistfips205}, including adaptations for resource-constrained devices exposed to long-term ``Harvest~Now, Decrypt~Later'' threats. This capability is complemented by ETSI TS~103~744 hybrid key-exchange profiles~\cite{etsiqshybrid} and aligned with the NIS~CG~\gls{pqc} roadmap~\cite{niscg2025pqc}.
+\textbf{Capability L5.2, ~\acrfull{pqc}.} Migration to quantum-resistant algorithms, namely~\gls{ml-kem}~\cite{nistfips203}, ~\gls{ml-dsa}~\cite{nistfips204}, and~\gls{slh-dsa}~\cite{nistfips205}, including adaptations for resource-constrained devices exposed to long-term ``Harvest~Now, Decrypt~Later'' threats. This capability is complemented by ETSI TS~103~744 hybrid key-exchange profiles~\cite{etsiqshybrid} and aligned with the NIS~CG~\gls{pqc} roadmap~\cite{niscg2025pqc}.
 
 \textbf{Capability L5.3, Signalling and Data-Plane Security.} Embedding cryptographic authentication and integrity protection into signalling, control-plane, and data-plane interactions, beyond best-effort packet forwarding, in alignment with 3GPP TS~33.501~\cite{tgpp33501},~\gls{o-ran} security specifications~\cite{oran2024,oranzt2024}, and the SNS~JU SRIA~\cite{snsju2023}.
 
 \textbf{Capability L5.4, Distributed Reputation and Trust Networking.} Distributed reputation and trust mechanisms, potentially supported by Distributed Ledger Technology and smart contracts, enabling decentralised trust evaluation across heterogeneous providers without reliance on a single governance point, and aligned with Simpl federation interfaces~\cite{ecsimpl,oascmim5,etsingsild,eucsa}.
 
-\textbf{Capability L5.5,~\ acrfull{qkd} for Critical Links.} Information-theoretically secure key exchange over optical fibre for selected point-to-point high-value links, such as government communications and critical infrastructure backbones, complementing algorithmic~\gls{pqc} for link-layer protection and governed by ETSI GS~\gls{qkd}~004~\cite{etsiqkd004} and GS~\gls{qkd}~014~\cite{etsiqkd014}.~\gls{qkd} is treated here as a complement to algorithmic~\gls{pqc}, not a substitute for it.
+\textbf{Capability L5.5,~\acrfull{qkd} for Critical Links.} Information-theoretically secure key exchange over optical fibre for selected point-to-point high-value links, such as government communications and critical infrastructure backbones, complementing algorithmic~\gls{pqc} for link-layer protection and governed by ETSI GS~\gls{qkd}~004~\cite{etsiqkd004} and GS~\gls{qkd}~014~\cite{etsiqkd014}.~\gls{qkd} is treated here as a complement to algorithmic~\gls{pqc}, not a substitute for it.
 
 \textbf{Capability L5.6, Privacy-Preserving Computation.} Cryptographic mechanisms enabling computation over confidential data without disclosing inputs to computing parties, comprising (i)~\gls{smpc}, allowing mutually distrusting parties to jointly evaluate functions over combined private inputs, with foundations in the threshold-cryptography lineage formalised by NIST~\cite{nistir8214}, and (ii)~\gls{he}, permitting computation directly on ciphertexts under schemes including BFV, BGV, and CKKS, standardised under ISO/IEC~18033-6~\cite{iso180336} and the HomomorphicEncryption.org community specification~\cite{he_standard2018}. The two mechanisms are complementary:~\gls{smpc} offers cryptographic guarantees for collaborative computation at the cost of interactive protocols and communication overhead, while~\gls{he} enables computation directly on encrypted data with computational overhead that depends on the circuit depth, scheme parameters, and implementation choices. Together they extend confidential computing (Capability~L5.1) beyond single-party workloads to federated analytics across European providers and jurisdictions, satisfying~\gls{gdpr} Articles~25 and~32 on data-protection-by-design and security of processing~\cite{eugdpr} and~\gls{ai} Act Article~10(5) on appropriate safeguards for processing special-category data in bias monitoring~\cite{euaiact}.
 
@@ -486,11 +486,11 @@ Cross-Layer~3 enables secure interoperation across heterogeneous providers, infr
 \subsubsection{Cross-Layer 4: Compliance-by-Design, Agile Governance and Automated Assurance}
 \label{sec:CL4}
 
-Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerations into technical architecture. It operationalises continuous assurance for cloud services (~\gls{eccc} for Cloud Services, when adopted) and edge products (gls{eucc})~\cite{commreg2024eucc,eucsa} through machine-readable control catalogues and assessment results based on NIST OSCAL~\cite{oscal2024,iorga2024oscal}; cryptographic key management across multi-provider operations; privacy-preserving federated computation satisfying~\gls{gdpr} Article~25~\cite{eugdpr}; cyber risk quantification that translates technical posture into financial and operational risk language under~\gls{nis2}~\cite{eunis2},~\gls{dora}~\cite{eudora}, and NIST CSF~2.0~\cite{nistcsf2}; and~\gls{ai} trustworthiness and algorithmic accountability for autonomous security decisions under~\gls{ai} Act Article~9~\cite{euaiact}, aligned with the NIST~\gls{ai} RMF~\cite{nistairmf}. Its objective is to shift assurance from point-in-time audit towards continuous, evidence-based, and telemetry-supported verification.
+Cross-Layer~4 embeds regulatory compliance, governance, and assurance considerations into technical architecture. It operationalises continuous assurance for cloud services (~\gls{eccc} for Cloud Services, when adopted) and edge products (\gls{eucc})~\cite{commreg2024eucc,eucsa} through machine-readable control catalogues and assessment results based on NIST OSCAL~\cite{oscal2024,iorga2024oscal}; cryptographic key management across multi-provider operations; privacy-preserving federated computation satisfying~\gls{gdpr} Article~25~\cite{eugdpr}; cyber risk quantification that translates technical posture into financial and operational risk language under~\gls{nis2}~\cite{eunis2},~\gls{dora}~\cite{eudora}, and NIST CSF~2.0~\cite{nistcsf2}; and~\gls{ai} trustworthiness and algorithmic accountability for autonomous security decisions under~\gls{ai} Act Article~9~\cite{euaiact}, aligned with the NIST~\gls{ai} RMF~\cite{nistairmf}. Its objective is to shift assurance from point-in-time audit towards continuous, evidence-based, and telemetry-supported verification.
 
 \textbf{Capability CL4.1, Post-Quantum Readiness and~\gls{zt} Architectures.} Continuous~\gls{zt} verification and post-quantum readiness embedded into cloud-edge infrastructure, aligned with NIST SP~800-207~\cite{rose2020zta} and SP~800-207A~\cite{chandramouli2023zta} and with FIPS~203/204/205 algorithm selection~\cite{nistfips203,nistfips204,nistfips205}.
 
-\textbf{Capability CL4.2, Continuous Automated Certification.} Lifecycle certification tracking for cloud services (~\gls{eccc} for Cloud Services, when adopted) and edge products (gls{eucc})~\cite{commreg2024eucc,eucsa}, operationalised through machine-readable control catalogues, assessment artefacts, and evidence exchange using NIST OSCAL~\cite{oscal2024,iorga2024oscal}.
+\textbf{Capability CL4.2, Continuous Automated Certification.} Lifecycle certification tracking for cloud services (~\gls{eccc} for Cloud Services, when adopted) and edge products (\gls{eucc})~\cite{commreg2024eucc,eucsa}, operationalised through machine-readable control catalogues, assessment artefacts, and evidence exchange using NIST OSCAL~\cite{oscal2024,iorga2024oscal}.
 
 \textbf{Capability CL4.3, Multicloud Key Management as a Service.} Cryptographic key, policy, and lifecycle management across dynamic multi-provider computing-continuum operations, integrating~\gls{zt} authorisation~\cite{rose2020zta,chandramouli2023zta} with~\gls{pqc} algorithm selection~\cite{nistfips203,nistfips204,nistfips205}.
 
@@ -661,7 +661,7 @@ Privacy-preserving computation operates end-to-end from~\gls{iot} sensor to~\gls
 Policy, Regulation, and Standards &
 NIS2 Art~21(2)(e),~\gls{cra} Arts~10--11,~\gls{ai}~Act Arts~9 and~15, and NIS~CG~\gls{pqc} migration milestones apply concurrently;~\gls{eucc}~``High'' framework operational. &
 Hybrid~\gls{pqc} under ETSI~TS~103~744 becomes procurement default for new Industrial~\gls{iot} and~\gls{dora}-scoped financial-sector deployments, consistent with the NIS~CG~\gls{pqc} milestone for high-risk critical infrastructure; autonomous Island~Mode certified under 3GPP/ETSI fallback profiles in cross-border 5G corridors. &
-gls{eucc}~``High'' is targeted to become mandatory for new security-critical EU ICT products;~\gls{pqc}-native silicon is targeted as the EU procurement default; continuous automated~\gls{eucc} lifecycle maintenance is expected to progressively supplement point-in-time audit. \\
+\gls{eucc}~``High'' is targeted to become mandatory for new security-critical EU ICT products;~\gls{pqc}-native silicon is targeted as the EU procurement default; continuous automated~\gls{eucc} lifecycle maintenance is expected to progressively supplement point-in-time audit. \\
 \addlinespace[2pt]
 % \midrule
 Operational Deployment and Adoption &
@@ -676,7 +676,7 @@ EU-designed secure elements transition from absent to credible alternative in re
 Strategic posture transitions from defensive sovereignty, defined by reducing dependency, toward a norm-setting position, with adoption of at least one EU hardware-security standard within ISO/IEC or ITU-T as the evidence test for that transition. \\
 \midrule
 \textbf{Critical Enabler} &
-gls{eucc}~``High'' pre-evaluation path for an EU-origin, auditable RISC-V secure element, coupled with Chips~JU pilot-line access and~\gls{tee} abstraction layers to mitigate continued lock-in. &
+\gls{eucc}~``High'' pre-evaluation path for an EU-origin, auditable RISC-V secure element, coupled with Chips~JU pilot-line access and~\gls{tee} abstraction layers to mitigate continued lock-in. &
 Production availability of EU-manufactured,~\gls{eucc}~``High'' RISC-V secure elements with second-source fabrication resilience and cross-vendor attestation interoperability. &
 Mandatory lifecycle assurance for~\gls{eucc}~``High'' hardware,~\gls{pqc}-native procurement, and international adoption of at least one EU-origin hardware-security standard. \\
 \bottomrule
@@ -892,17 +892,17 @@ L4.1 & Zero Trust orchestration (PEP/PDP)
   &~\cite{rose2020zta,chandramouli2023zta} \\
 L4.2 & Federated IAM and SSI;~\gls{eidas2} and~\gls{eudi} Wallet
   &~\cite{w3cvc2025,eueidas2,eudiwallet2024,eudiwallet2026} \\
-L4.3 & ~\ acrfull{pam} and JIT
+L4.3 & ~\acrfull{pam} and JIT
   &~\cite{rose2020zta,chandramouli2023zta} \\
 L5.1 & Confidential computing and TEEs
   &~\cite{ccc2022,keystone2020} \\
-L5.2 & ~\ acrfull{pqc} for edge/IoT
+L5.2 & ~\acrfull{pqc} for edge/IoT
   &~\cite{nistfips203,nistfips204,nistfips205,etsiqshybrid,niscg2025pqc} \\
 L5.3 & Signalling/data-plane cryptographic authentication
   &~\cite{tgpp33501,oran2024,oranzt2024,snsju2023} \\
 L5.4 & Distributed reputation and trust networking (DLT)
   &~\cite{ecsimpl,oascmim5,etsingsild,eucsa} \\
-L5.5 & \ acrfull{qkd} for critical links
+L5.5 & \acrfull{qkd} for critical links
   &~\cite{etsiqkd014,etsiqkd004} \\
 L5.6 & Privacy-preserving computation:~\acrshort{smpc} and homomorphic encryption
   &~\cite{nistir8214,iso180336,he_standard2018,eugdpr,euaiact} \\
@@ -945,7 +945,7 @@ CL3.4 & Semantic security interoperability
   &~\cite{oascmim5,etsingsild} \\
 CL3.5 & Cyber range and digital twin federation
   &~\cite{eucsa,concordia2022,ecroadmap2024} \\
-CL4.1 &~\ acrfull{pqc} readiness and Zero Trust architectures
+CL4.1 &~\acrfull{pqc} readiness and Zero Trust architectures
   &~\cite{rose2020zta,chandramouli2023zta,nistfips203,nistfips204,nistfips205} \\
 CL4.2 & Continuous automated certification (EUCC; EUCS)
   &~\cite{commreg2024eucc,eucsa,oscal2024,iorga2024oscal} \\
