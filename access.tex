@@ -150,38 +150,47 @@ Strategic roadmapping for digital infrastructure is now an established instrumen
 \section{Methodology}
 \label{sec:method}
 
-% \begin{figure*}[t]
-% \centering
-% \fbox{%
-% \parbox{0.95\textwidth}{%
-% \centering
-% \textbf{Inputs and Evidence Base}\\
-% \footnotesize literature, regulation, standards, ecosystem dependencies, stakeholder review\\[5pt]
-% \normalsize
-% \textbf{Stage~1} Architectural Decomposition\\
-% \footnotesize 6 Security Layers + 4 Transversal Security Cross-Layers; layer and cross-layer capabilities\\[5pt]
-% \normalsize
-% \textbf{Stage~2} Priority Clustering and Seven-Dimension Analysis\\
-% \footnotesize three executive clusters; D1--D7 template applied to each cluster\\[5pt]
-% \normalsize
-% \textbf{Stage~3} Phases and Transition Matrices\\
-% \footnotesize 2026--2030; 2030--2035; 2035--2040; Critical Enablers per phase boundary\\[5pt]
-% \normalsize
-% \textbf{Roadmap Outputs}\\
-% \footnotesize transition conditions, Critical Enablers, shared dependencies, recommendations\\[6pt]
-% \normalsize
-% \textit{Sovereignty Level as interpretive lens: assesses whether critical capabilities and dependencies can be shaped, governed, assured, and operated under European influence or control}
-% }%
-% }
-% \caption{Three-stage methodology for constructing the cybersecurity and cyber-resilience roadmap. Stage~1 decomposes the Cloud--Edge--IoT continuum into Security Layers, Transversal Security Cross-Layers, and constituent capabilities. Stage~2 consolidates these capabilities into priority clusters and analyses each through a seven-dimension template. Stage~3 projects the clusters onto three-phase transition matrices in which two qualitative positioning rows (\gls{ods} and~\gls{sovl}) summarise cluster status per phase, four assessment perspective rows characterise R\&I, regulatory, deployment, and ecosystem conditions, and a Critical Enabler row identifies the gate condition for phase progression. Sovereignty Level is used as an interpretive lens across capability, dependency, cluster, and phase assessment.}
-% \label{fig:methodology}
-% \end{figure*}
+\begin{figure*}[!t]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\setlength{\tabcolsep}{4pt}
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}l *{4}{>{\raggedright\arraybackslash}X}@{}}
+\toprule
+\multicolumn{5}{c}{\cellcolor{layerbg}\parbox{0.96\textwidth}{\centering\textbf{Methodological Flow: Stage~1 Architectural Decomposition $\rightarrow$ Stage~2 Priority Clustering and Seven-Dimension Synthesis $\rightarrow$ Stage~3 Phase Logic and Transition Matrices}}} \\
+\midrule
+\textbf{Plane} &
+\cellcolor{execbg}\textbf{(A) Architecture} &
+\cellcolor{crossbg}\textbf{(B) Synthesis} &
+\cellcolor{layerbg}\textbf{(C) Profiling Lens} &
+\cellcolor{crossbg}\textbf{(D) Roadmap Projection} \\
+\midrule
+\textbf{Role} &
+\cellcolor{execbg}Static model of what is secured across the continuum &
+\cellcolor{crossbg}Strategic grouping of capabilities into a small number of decision-relevant Priority Clusters &
+\cellcolor{layerbg}Uniform analytical template applied per Cluster &
+\cellcolor{crossbg}Temporal trajectory of each Cluster over 2026--2040 \\
+\midrule
+\textbf{Units} &
+\cellcolor{execbg}6 \textbf{Layers} (vertical stack) and 4 \textbf{Cross-Layers} (transversal enablers), each decomposed into \textbf{Capabilities} (e.g., L1.1 Hardware Roots of Trust; L5.2~\gls{pqc}), spanning four execution environments (\gls{hpc}, Cloud, Edge, Devices) &
+\cellcolor{crossbg}3 \textbf{Priority Clusters}: Cluster~1 Sovereign Trusted Infrastructure; Cluster~2 Cognitive Security and Autonomous Cyber Defence; Cluster~3 Federated Operational Sovereignty &
+\cellcolor{layerbg}\textbf{Seven-Dimensional Template}: D1~Baseline; D2~High-Impact Activities and Target Outcomes; D3~Primary Drivers; D4~Catalysts and Enablers; D5~Disruptors and Systemic Risks; D6~Failsafe Mechanisms; D7~Transversal Meta-Layer &
+\cellcolor{crossbg}3 \textbf{Phases} (2026--2030; 2030--2035; 2035--2040) projected through 4 \textbf{Perspectives} (R\&I Maturity; Policy, Regulation, and Standards; Operational Deployment and Adoption; Ecosystem Uptake and Strategic Impact). Each matrix also carries an \textbf{ODS} row, a \textbf{SovL} row, and a \textbf{Critical Enabler} row \\
+\midrule
+\textbf{Traceability} &
+\cellcolor{execbg}Each Capability maps to one or more Priority Clusters &
+\cellcolor{crossbg}Each Priority Cluster aggregates capabilities drawn from several Layers and Cross-Layers &
+\cellcolor{layerbg}Each Priority Cluster is profiled once using the same seven dimensions &
+\cellcolor{crossbg}Each Priority Cluster is projected once as a Transition Matrix; the Critical Enabler row chains Phase~1 $\rightarrow$ Phase~2 $\rightarrow$ Phase~3 \\
+\bottomrule
+\end{tabularx}
+\caption{Conceptual orientation map of the roadmap. The horizontal axis traces the three-stage methodological flow from architectural decomposition through priority clustering and seven-dimension synthesis to phase logic and transition matrices. \textbf{Layers} and \textbf{Cross-Layers} constitute the architectural model and are decomposed into traceable \textbf{Capabilities}; \textbf{Priority Clusters} carry the strategic synthesis; the \textbf{seven-dimensional template} profiles each Cluster along a uniform analytical schema; and the Transition Matrix projects each Cluster across three temporal \textbf{Phases} and four longitudinal \textbf{Perspectives}, with ODS, SovL, and the \textbf{Critical Enabler} as dedicated rows of the matrix.}
+\label{fig:orientation}
+\end{figure*}
 
-The methodology examines the heterogeneous landscape of the Cloud--Edge--IoT ecosystem and translates it into a structured roadmap for research, innovation, policy, deployment, and ecosystem development. It proceeds in three stages and is intended to support iterative refinement as the evidence base evolves. Stage~1 (Section~\ref{sec:stage1-layers}) decomposes the continuum into architectural layers and cross-layers and identifies the specific capabilities required within each. Stage~2 (Section~\ref{sec:stage2-clusters}) consolidates those capabilities into priority clusters and analyses each cluster through a seven-dimension template. Stage~3 (Section~\ref{sec:stage3-phases}) projects the priority clusters onto three-phase transition matrices covering the 2026--2040 horizon, identifying the Critical Enabler associated with each phase boundary.
+The roadmap combines an architectural model, a strategic synthesis, an analytical template, and a temporal projection within a single three-stage research process, and the relationship between these elements is summarised in Fig.~\ref{fig:orientation}. The architectural plane defines what is secured: four execution environments, six vertical Security Layers, and four transversal Security Cross-Layers, each populated with capabilities that serve as the smallest traceable units of analysis. The synthesis plane consolidates these capabilities into three Priority Clusters that reflect coherent policy and engineering ambitions rather than independent verticals. The profiling plane applies a single seven-dimension template to each cluster, ensuring that baseline conditions, target outcomes, drivers, activities, enablers, disruptors, failsafes, and transversal objectives are reported on a comparable basis. The temporal plane projects each cluster through three roadmap phases, evaluated along four assessment perspectives, where each matrix additionally carries an~\gls{ods} positioning row, an~\gls{sovl} positioning row, and a Critical Enabler row whose Phase~1 and Phase~2 cells name the gate condition for progression to the next phase.
 
-This separation is deliberate. Stage~1 is a \emph{decompositional} operation: it establishes the analytical vocabulary, exposes cross-layer dependencies, and prevents priorities from being selected as isolated technologies detached from their architectural context. Stage~2 is a \emph{synthetic} operation: it aggregates capabilities that share dependencies or strategic outcomes into coherent investment and coordination domains and characterises each through a static seven-dimension profile. Stage~3 is a \emph{projective} operation: it embeds those static profiles in time, exposing the sequencing of research, regulation, deployment, and market uptake required to move each cluster from its 2026 baseline to its 2040 target. Critical Enablers, phase-gate conditions, and shared bottlenecks are products of Stage~3 rather than of Stage~2, because they only become visible once the cluster is examined as a temporal trajectory.
-
-Rather than predicting when each technology or policy milestone will occur, the methodology organises the capabilities, dependencies, and transition conditions that make progress plausible. This distinction is important because the Cloud--Edge--IoT ecosystem evolves through the interaction of technical maturity, regulatory obligations, deployment readiness, market adoption, and industrial capacity. The methodology also links technical cybersecurity capabilities to broader European strategic objectives: resilience, interoperability, trust, and sovereignty.
+The three stages therefore have distinct analytical functions. Stage~1 (Section~\ref{sec:stage1-layers}) is a decompositional operation: it establishes the architectural vocabulary, exposes layer and cross-layer dependencies, and identifies the capabilities required within each part of the continuum. Stage~2 (Section~\ref{sec:stage2-clusters}) is a synthetic operation: it aggregates capabilities that share dependencies or strategic outcomes into three coordination domains and analyses each through the seven-dimension template. Stage~3 (Section~\ref{sec:stage3-phases}) is a projective operation: it embeds the cluster profiles in time through 2026--2040 transition matrices, exposing the sequencing of research, regulation, deployment, market uptake, Critical Enablers, phase-gate conditions, and shared bottlenecks. Rather than predicting when each milestone will occur, the methodology organises the capabilities, dependencies, and transition conditions that make progress plausible.
 
 In this paper, \emph{Sovereignty Level} denotes the extent to which critical capabilities and dependencies can be shaped, governed, assured, and operated under European influence or control. It is assessed at the capability and dependency level in Stage~1, used to interpret the strategic significance of priority clusters in Stage~2, and projected as a per-phase qualitative band in Stage~3 (the~\gls{sovl} row of each transition matrix). It is used as an interpretive strategic lens rather than as a rigid quantitative score.
 
@@ -358,39 +367,7 @@ Capabilities}
 % \label{fig:framework_ext}
 % \end{figure}
 
-
-\begin{figure}[t]
-\centering
-\setlength{\tabcolsep}{2pt}
-\begin{tabular}{@{}c@{\hspace{4pt}}c@{}}
-\parbox[c][76mm][c]{5mm}{\centering\rotatebox{90}{\scriptsize\itshape Sovereignty Level --- interpretive lens}} &
-\begin{minipage}[c]{0.88\columnwidth}
-\centering\scriptsize
-\fbox{\parbox{\linewidth}{\centering\itshape Inputs and evidence base\\[1pt]
-  \textnormal{literature, regulation, standards, market dependencies, stakeholder review}}}\\[3pt]
-$\downarrow$\\[3pt]
-\fbox{\parbox{\linewidth}{\centering
-  \textbf{Stage~1} --- architectural decomposition\\[1pt]
-  6 Security Layers + 4 Cross-Layers + capabilities}}\\[3pt]
-$\downarrow$\\[3pt]
-\fbox{\parbox{\linewidth}{\centering
-  \textbf{Stage~2} --- priority clustering\\[1pt]
-  three clusters; D1--D7 synthesis}}\\[3pt]
-$\downarrow$\\[3pt]
-\fbox{\parbox{\linewidth}{\centering
-  \textbf{Stage~3} --- transition matrices\\[1pt]
-  ~\gls{ods},~\gls{sovl}, assessment perspectives, Critical Enablers}}\\[3pt]
-$\downarrow$\\[3pt]
-\fbox{\parbox{\linewidth}{\centering\itshape
-  Recommendations, gate conditions, shared dependencies}}
-\end{minipage}
-\end{tabular}
-\caption{Three-stage methodology. Stage 1 decomposes the continuum into Security Layers and Transversal Security Cross-Layers, populated with constituent capabilities. Stage 2 consolidates capabilities into three priority clusters analysed through the seven-dimension template. Stage 3 projects clusters onto the 2026–2040 transition matrices with~\acrfull{ods},~\acrfull{sovl}, four assessment perspectives, and Critical Enablers per phase. Sovereignty Level operates as a cross-cutting interpretive lens across all stages.}
-\label{fig:methodology}
-\end{figure}
-
-
-The continuum is modelled as a layered reference architecture spanning four execution environments (\gls{hpc}, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Figure~\ref{fig:framework}.~\gls{hpc} refers to infrastructure for large-scale scientific and~\gls{ai} training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and~\gls{iot} endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for~\gls{zt}~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for~\gls{iot}~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
+Building on the methodological separation introduced in Section~\ref{sec:method}, Stage~1 defines the architectural plane of the roadmap. The continuum is modelled as a layered reference architecture spanning four execution environments (\gls{hpc}, Cloud, Edge, Devices) and organised into six \textit{Security Layers} forming the vertical stack and four \textit{Transversal Security Cross-Layers} acting as horizontal enablers, as shown in Fig.~\ref{fig:framework}.~\gls{hpc} refers to infrastructure for large-scale scientific and~\gls{ai} training capacity; Cloud offers elastic service hosting and orchestration; Edge brings computation closer to users, industrial sites, telecom infrastructure, and data sources; and Devices include resource-constrained sensors, actuators, embedded systems, and~\gls{iot} endpoints operating closest to the physical world. The decomposition aligns with established reference architectures, including ETSI MEC GS~003~\cite{etsimec003}, NIST SP~800-207 and SP~800-207A for~\gls{zt}~\cite{rose2020zta,chandramouli2023zta}, NIST CSF~2.0~\cite{nistcsf2}, ISO/IEC~27400~\cite{iso27400}, and the ENISA baseline for~\gls{iot}~\cite{enisa2017iot}, and is consistent with the distributed computing-continuum framing in recent literature~\cite{dustdar2023,bittencourt2018} and in the European industrial technology roadmap for the next-generation cloud-edge~\cite{ecroadmap2024}.
 
 The layers are analytically distinct but operationally interdependent: gaps at one layer can propagate to adjacent layers, as documented in the edge-computing security literature~\cite{alwarafy2021,ranaweera2021,roman2018}. The model provides the shared vocabulary used throughout the paper and exposes cross-layer dependencies, allowing the priority clusters in Section~\ref{sec:stage2-clusters} and the transition matrices in Section~\ref{sec:stage3-phases} to be analysed as an interconnected portfolio rather than as isolated priorities. The EU cybersecurity certification framework~\cite{eucsa} and its~\gls{eucc} operationalisation~\cite{commreg2024eucc} provide the regulatory anchoring for several of the capabilities defined below.
 
