@@ -15,11 +15,6 @@
 \definecolor{execbg}{rgb}{0.90,0.95,1.00}
 \definecolor{layerbg}{rgb}{0.94,0.94,0.94}
 \definecolor{crossbg}{rgb}{1.00,0.93,0.86}
-\definecolor{plArch}{RGB}{232,240,247}
-\definecolor{plSyn}{RGB}{233,243,234}
-\definecolor{plLens}{RGB}{248,240,228}
-\definecolor{plProj}{RGB}{243,232,243}
-\definecolor{plBanner}{RGB}{222,222,222}
 
 % \setlength{\emergencystretch}{2em}
 % \hbadness=10000
@@ -155,50 +150,6 @@ Strategic roadmapping for digital infrastructure is now an established instrumen
 \section{Methodology}
 \label{sec:method}
 
-The roadmap combines an architectural model, a strategic synthesis, an analytical template, and a temporal projection within a single three-stage research process, and the relationship between these elements is summarised in Fig.~\ref{fig:orientation}. The architectural plane defines what is secured: six vertical Layers and four transversal Cross-Layers, each decomposed into Capabilities that serve as the smallest traceable units of analysis. The synthesis plane organises ten Executive Priorities into three Clusters that reflect coherent policy and engineering ambitions rather than independent verticals. The profiling plane applies a single seven-dimensional template to every priority, ensuring that baseline conditions, drivers, activities, enablers, disruptors, failsafes, and transversal goals are reported on a comparable basis. The temporal plane projects each priority through three Phases, evaluated along four longitudinal Perspectives, with each cell carrying an~\gls{ods} value, a~\gls{sovl} value, and one named Critical Enabler that gates progression to the next Phase. Stage~1, Stage~2, and Stage~3 of the methodology correspond, respectively, to the population of the architectural plane, the application of the profiling template, and the construction of the Cluster-level synthesis and Progression Matrices.
-
-\begin{figure*}[!t]
-\centering
-\renewcommand{\arraystretch}{1.25}
-\setlength{\tabcolsep}{4pt}
-\footnotesize
-\begin{tabularx}{\textwidth}{@{}l *{4}{>{\raggedright\arraybackslash}X}@{}}
-\toprule
-\multicolumn{5}{c}{\cellcolor{plBanner}\textbf{Methodological Flow:
-Stage~1 Architectural Decomposition $\rightarrow$
-Stage~2 Capability Profiling $\rightarrow$
-Stage~3 Strategic Synthesis and Roadmap Projection}} \\
-\midrule
-\textbf{Plane} &
-\cellcolor{plArch}\textbf{(A) Architecture} &
-\cellcolor{plSyn}\textbf{(B) Synthesis} &
-\cellcolor{plLens}\textbf{(C) Profiling Lens} &
-\cellcolor{plProj}\textbf{(D) Roadmap Projection} \\
-\midrule
-\textbf{Role} &
-\cellcolor{plArch}Static model of what is secured across the continuum &
-\cellcolor{plSyn}Strategic grouping of priorities for narrative coherence &
-\cellcolor{plLens}Uniform analytical template applied per priority &
-\cellcolor{plProj}Temporal trajectory of each priority over 2026--2040 \\
-\midrule
-\textbf{Units} &
-\cellcolor{plArch}6 \textbf{Layers} (vertical stack) and 4 \textbf{Cross-Layers} (transversal enablers), each decomposed into \textbf{Capabilities} (e.g., 1.1 Hardware Roots of Trust; 5.2 PQC) &
-\cellcolor{plSyn}3 \textbf{Clusters} (Sovereign Trusted Infrastructure; Cognitive Security and Autonomous Cyber Defence; Federated Operational Sovereignty) grouping 10 \textbf{Executive Priorities} P1--P10 &
-\cellcolor{plLens}\textbf{Seven-Dimensional Template}: Baseline and Target; Drivers; High-Impact Activities; Catalysts and Enablers; Disruptors and Risks; Failsafe Mechanisms; Transversal Meta-Layer &
-\cellcolor{plProj}3 \textbf{Phases} (2026--2030, 2030--2035, 2035--2040) projected through 4 \textbf{Perspectives} (R\&I Maturity; Policy/Regulatory/Standards; Operational Deployment; Market Uptake). Each cell carries an \textbf{ODS} value, a \textbf{SovL} value, and one named \textbf{Critical Enabler} \\
-\midrule
-\textbf{Traceability} &
-\cellcolor{plArch}Each Capability maps to one or more Priorities &
-\cellcolor{plSyn}Each Priority belongs to exactly one Cluster and inherits the Capabilities it instantiates &
-\cellcolor{plLens}Each Priority is profiled once using the same seven dimensions &
-\cellcolor{plProj}Each Priority is projected once as a Progression Matrix; gate conditions chain Phase~1 $\rightarrow$ Phase~2 $\rightarrow$ Phase~3 \\
-\bottomrule
-\end{tabularx}
-\caption{Conceptual orientation map of the roadmap. The horizontal axis traces the three-stage methodological flow from architectural decomposition through capability profiling to strategic synthesis and roadmap projection. \textbf{Layers} and \textbf{Cross-Layers} constitute the architectural model; \textbf{Capabilities} are the traceable analytical units; \textbf{Clusters} and \textbf{Executive Priorities} carry the strategic synthesis; the \textbf{seven-dimensional template} profiles each priority along a uniform analytical schema; and the Progression Matrix projects each priority across three temporal \textbf{Phases} and four longitudinal \textbf{Perspectives}, with \textbf{ODS} (Operational Deployment State), \textbf{SovL} (Sovereignty Level), and named \textbf{Critical Enablers} as the cell-level outcomes.}
-\label{fig:orientation}
-\end{figure*}
-
-
 % \begin{figure*}[t]
 % \centering
 % \fbox{%
@@ -328,6 +279,43 @@ Capabilities}
 \caption{Layered security framework. Four execution environments (\gls{hpc}, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
 \label{fig:framework}
 \end{figure}
+
+% \begin{figure}[t]
+% \centering
+% \fbox{\parbox{0.97\columnwidth}{\centering
+% \scriptsize
+% \setlength{\tabcolsep}{1pt}
+% \renewcommand{\arraystretch}{1.3}
+% \textit{Layered security framework}\\[2pt]
+% \begin{tabular}{|>{\centering\arraybackslash}p{0.085\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|>{\centering\arraybackslash}p{0.138\columnwidth}|}
+% \hline
+% Execution Environment &
+%   \multicolumn{2}{c|}{} &
+%   \multicolumn{2}{c|}{} &
+%   \multicolumn{2}{c|}{} \\ \hline
+% \cellcolor{execbg}HPC &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 1: Hardware Centric Security (Device/Edge/Cloud/HPC)} &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 2: Software Centric Security (Middleware/OS)} &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 6: Network infrastructure and perimeter security} &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 5: Data Centric Security} &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 3: Application Centric Security (Apps/Services)} &
+%   \multirow{4}{=}{\cellcolor{layerbg}Layer 4: User Centric Security (Authentication/Access/Identity/Orchestration)} \\ \cline{1-1}
+% \cellcolor{execbg}Cloud & & & & & & \\ \cline{1-1}
+% \cellcolor{execbg}Edge  & & & & & & \\ \cline{1-1}
+% \cellcolor{execbg}IoT   & & & & & & \\ \hline
+% \multirow{4}{*}{} &
+%   \multicolumn{6}{p{0.828\columnwidth}|}{\cellcolor{crossbg}Cross Layer 1: Automated security processes and Cyber-Resilient AI Lifecycle} \\ \cline{2-7}
+%  &
+%   \multicolumn{6}{p{0.828\columnwidth}|}{\cellcolor{crossbg}Cross Layer 2: Dynamic Risk Management \& Operational Cyber Resilience} \\ \cline{2-7}
+%  &
+%   \multicolumn{6}{p{0.828\columnwidth}|}{\cellcolor{crossbg}Cross Layer 3: Interoperable Security Mechanisms} \\ \cline{2-7}
+%  &
+%   \multicolumn{6}{p{0.828\columnwidth}|}{\cellcolor{crossbg}Cross Layer 4: Agile Governance, Compliance-by-Design \& Automated Assurance} \\ \cline{2-7}
+% \end{tabular}
+% }}
+% \caption{Layered security framework. Four execution environments (\gls{hpc}, Cloud, Edge, Devices) span six vertical Security Layers (L1–L6) and four horizontal Transversal Security Cross-Layers (CL1–CL4). The vertical stack is presented from the lowest trust anchor upwards.}
+% \label{fig:framework}
+% \end{figure}
 
 % \begin{figure}[t]
 % \centering
